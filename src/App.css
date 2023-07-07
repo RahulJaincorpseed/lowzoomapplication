@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: 'Roboto'; */
+  font-family: "roboto", sans-serif !important;
+  font-style: normal;
+}
+
+/* import font family  */
+
+/* +++++++++++++++++ css Variables +++++++++++++++++ */
+
+:root {
+  /* colors  */
+  --black: #000;
+  --white: #fff;
+  --blue-color: #2b62f9;
+  --first-gray: #333333;
+  --second-gray: #263238;
+  --third-gray: #a4a0a0;
+  --forth-gray: #979baa;
+  --fifth-gray: #4d4e51;
+  --red-first: #f32929;
+  --light-blue: #1a73e8;
+
+  /* fonts  */
+  --font-first: 14px;
+  --font-second: 15px;
+  --font-third: 18px;
+  --font-forth: 24px;
+
+  /* line height */
+  --line-first: 25px;
+  --line-second: 23px;
+  --line-third: 25px;
+  --line-forth: 27px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* common classes */
+
+.fw-700 {
+  font-weight: 700 !important;
+}
+
+ul {
+  list-style-type: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.w-215 {
+  width: 215px;
+}
+.table td,
+.table th {
+  border-top: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* common classes */
+
+/* //// +++++++++++++++++ css Variables +++++++++++++++++ */
+
+/*++++++++++++++++++ common headings +++++++++++++++++++*/
+
+.all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.only-center {
+  display: flex;
+  align-items: center;
+}
+
+.all-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label-heading {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 23px;
+  text-transform: capitalize;
+  color: #333333;
+}
+
+.sub-heading {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.title-heading {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  text-transform: uppercase;
+  color: #4d4e51;
+}
+
+.info-heading {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #333333;
+}
+
+.checkCircle {
+  color: #2b62f9;
+}
+
+.input-focus {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.input-focus:focus {
+  box-shadow: 0 0 0 0.2rem rgba(43, 98, 249, 0.2);
+  border-color: #2b62f9;
+}
+
+.first-button {
+  padding: 8px 40px;
+  background: #1a73e8;
+  border: 1px solid #1a73e8;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: center;
+  letter-spacing: 0.84px;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+.first-button:hover {
+  background: transparent;
+  color: black;
+  border: 1px solid #2b62f9;
+}
+
+.first-button:focus {
+  outline: none;
+}
+
+/* options */
+
+.first-option option{
+  padding: 20px 0px !important;
+  color: #000;
+  margin: 20px !important;
+}
+
+
+.info-text {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.heading-primary {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  color: #000000;
+  margin: 15px 0px;
+}
+
+.active-link {
+  color: #2b62f9;
+  background: #dde3e8;
+}
+
+.search-icon-btn {
+  position: absolute;
+  right: 25px;
+  font-size: 18px;
+  top: 10px;
+}
+
+.pr-ten {
+  padding-right: 10px;
+}
+
+.pl-ten {
+  padding-left: 10px;
+}
+
+.team-heading {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 27px;
+  color: #a9a4a4;
+  margin: 40px 0px;
+  text-align: center;
+}
+
+.linkactive {
+  background-color: red;
+  color: white;
+}
+
+.item-heading {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  color: #333333;
+}
+
+.heading-info {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+  color: #979baa;
+}
+
+.item-heading-new {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  color: #333333;
+  margin-left: 3px;
+}
+
+.state-heading {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #2b62f9;
+  margin-left: 3px;
+}
+
+
+
+/* rect css code */
+.react-datepicker-wrapper{
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  display: block !important;
+}
+
+
+
+
+/* react css code */
+
+@media only screen and (max-width: 768px) {
+  .pr-ten {
+    padding-right: 0px;
+  }
+
+  .pl-ten {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .first-button {
+    padding: 8px 30px;
+    font-size: 22px;
+    line-height: 28px;
+  }
+}

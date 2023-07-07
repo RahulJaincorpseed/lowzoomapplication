@@ -1,0 +1,47 @@
+.personal-info {
+  padding-top: 50px;
+  padding-bottom: 35px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.progressbar {
+  padding: 20px;
+  text-align: "center";
+  .progress-outer {
+    background-color: #dde3e8;
+  }
+}
+
+.btns-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.text-area-box {
+  display: flex;
+  flex-direction: column;
+  .text-a-size {
+    min-height: 125px;
+    resize: none;
+    padding: 10px;
+    outline: none;
+    &:focus-visible {
+      box-shadow: 0 0 0 0.2rem rgba(43, 98, 249, 0.2);
+      border-color: #2b62f9;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .personal-info {
+    padding: 20px 10px;
+    .info-text {
+      font-size: 18px;
+    }
+  }
+  .text-area-box {
+    margin-top: 15px;
+  }
+}

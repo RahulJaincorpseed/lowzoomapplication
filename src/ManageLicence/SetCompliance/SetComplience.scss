@@ -1,0 +1,40 @@
+.set-compliance{
+    .all-task{
+        display: flex;
+        border-radius: 4px;
+        border: 1px solid #EAEAEA;
+        background: #EAEAEA;
+        padding: 6px 12px;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        .check-text{
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 19px;
+            color: #000000;
+        }
+    }  
+    .add-new-complience{
+    .add-new-company {
+        border-bottom: 1px solid #c4c4c4;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        .add-button {
+          background-color: #fff;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 22px;
+          color: #323232fc;
+          i {
+            color: #2b62f9;
+            margin-right: 10px;
+          }
+        }
+      } 
+    }
+}
+
+
+
+

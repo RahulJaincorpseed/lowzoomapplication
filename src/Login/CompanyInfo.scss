@@ -1,0 +1,64 @@
+.company-all {
+  padding: 30px 0px;
+  border: 1px solid #dde3e8;
+  margin-bottom: 20px;
+  .company-info {
+    padding: 20px;
+    .info-all {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .info-text {
+        margin-bottom: 0px;
+        display: flex;
+        gap: 10px;
+        i {
+          color: #1a73e8;
+        }
+        h4 {
+          font-size: 23px;
+          font-weight: 400;
+          line-height: 25px;
+        }
+      }
+      .info-edit {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 34px;
+        color: #1a73e8;
+        span {
+          margin-left: 5px;
+        }
+      }
+    }
+    .all-details {
+      margin-top: 20px;
+      .brand-name {
+        font-size: 23px;
+        font-weight: 400;
+        line-height: 25px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.display-team {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .team-type {
+    h4 {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 27px;
+      color: #4e4d4d;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .company-all {
+    padding: 15px 0px;
+  }
+}

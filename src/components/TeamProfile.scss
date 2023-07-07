@@ -1,0 +1,54 @@
+.team-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  .image-pro {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .team-text {
+    h3 {
+      color: #4e4d4d;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 27px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 27px;
+      color: #2b62f9;
+      span {
+        color: #4e4d4d;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .team-profile {
+    .team-text {
+      h3 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .team-profile {
+    min-width: 220px;
+  }
+}

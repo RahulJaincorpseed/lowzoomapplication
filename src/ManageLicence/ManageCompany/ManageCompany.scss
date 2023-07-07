@@ -1,0 +1,68 @@
+.manage-compnies {
+  // .add-new-company {
+  //   border-bottom: 1px solid #c4c4c4;
+  //   padding-top: 20px;
+  //   padding-bottom: 10px;
+  //   .add-button {
+  //     background-color: #fff;
+  //     font-size: 18px;
+  //     font-weight: 400;
+  //     line-height: 22px;
+  //     color: #323232fc;
+  //     i {
+  //       color: #2b62f9;
+  //       margin-right: 10px;
+  //     }
+  //   }
+  // }
+  .second-new {
+    border: 1px solid #c4c4c4;
+    padding: 15px;
+    margin: 10px 0px;
+    .add-button {
+      color: #898888;
+    }
+  }
+  .company-details {
+    margin: 30px 0px;
+    border: 1px solid #c4c4c4;
+    padding: 15px 30px;
+    .details-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 25px;
+      }
+      .edit-del-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .edit {
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 34px;
+          color: #2b62f9;
+          background-color: #fff;
+        }
+        .delete {
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 34px;
+          color: #d9534f;
+        }
+      }
+    }
+    .details-body {
+      padding: 20px 0px;
+      .company-data {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}

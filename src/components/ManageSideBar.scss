@@ -1,0 +1,42 @@
+.manageside-bar {
+  width: 300px;
+  border-right: 6px solid #c4c4c4;
+  height: 100vh;
+  padding: 40px 20px;
+  .manage-logo {
+    width: 170px;
+    height: 69px;
+  }
+  .side-nav-items {
+    padding: 60px 0px;
+    .list-unorder {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      .linkw-icon {
+        margin-bottom: 10px;
+        .main-link {
+          padding: 12px 24px;
+          border-radius: 30px;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 19px;
+          color: #000000;
+          font-weight: 500;
+          &:hover {
+            text-decoration: none;
+          }
+          i {
+            margin-right: 10px;
+          }
+        }
+        .main-link.active {
+          background: rgba(221, 227, 232, 0.52);
+          font-weight: 700;
+          color: #2b62f9;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+// header scss
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  .zoom-header {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .zoom-logo {
+      width: 170px;
+      height: 69px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .log-out-btn {
+      .logout-link {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 23px;
+        color: #868a96;
+      }
+    }
+  }
+}
+
+.contact-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px;
+  .help-text,
+  .mob-contact {
+    margin: 0;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.84px;
+    color: #000000;
+  }
+  .mob-contact {
+    font-weight: 600;
+    span {
+      color: #2b62f9;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    .zoom-header {
+      .zoom-logo {
+        width: 100px;
+        height: 40px;
+      }
+      .log-out-btn {
+        .logout-link {
+          font-size: 16px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+  .contact-footer {
+    .help-text,
+    .mob-contact {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+}
