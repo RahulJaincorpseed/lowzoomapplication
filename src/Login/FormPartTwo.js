@@ -40,7 +40,7 @@ const FormPartTwo = () => {
               City*
             </label>
             <select className="form-control input-focus" id="sel2">
-            {cityData.map((city, index) => (
+              {cityData.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
                 </option>
@@ -54,7 +54,7 @@ const FormPartTwo = () => {
               State*
             </label>
             <select className="form-control input-focus" id="sel3">
-            {cityData.map((city, index) => (
+              {cityData.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
                 </option>

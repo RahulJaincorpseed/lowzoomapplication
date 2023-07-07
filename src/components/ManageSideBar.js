@@ -1,10 +1,9 @@
 import React from "react"
 import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
-import {  NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 const ManageSideBar = () => {
-
   return (
     <div className="manageside-bar">
       <div className="manage-logo">

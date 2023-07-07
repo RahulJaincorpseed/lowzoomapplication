@@ -4,7 +4,6 @@ import "react-datepicker/dist/react-datepicker.css"
 import "./Model.css"
 import { GstData, cityData, companyData } from "../../TestData.js/CityData"
 
-
 const EditGstDetailsModel = () => {
   const [startDate, setStartDate] = useState(new Date())
 
@@ -37,9 +36,7 @@ const EditGstDetailsModel = () => {
               <div className="add-team-body">
                 {/* START */}
                 <div className="personal-info container">
-                  <h4 className="info-text model-heading">
-                    Edit GST Details
-                  </h4>
+                  <h4 className="info-text model-heading">Edit GST Details</h4>
                   <div className="cross-icon">
                     <i
                       data-dismiss="modal"
@@ -49,17 +46,15 @@ const EditGstDetailsModel = () => {
                   <div className="first-form form-row">
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
-                          GSTIN/IN:
-                        </label>
+                        <label className="label-heading mb-0">GSTIN/IN:</label>
                         <select
                           className="form-control input-focus"
                           id="editEntity"
                         >
                           {GstData.map((gst, index) => (
-                            <option key={index} value={gst}>{gst}</option>
+                            <option key={index} value={gst}>
+                              {gst}
+                            </option>
                           ))}
                         </select>
                       </div>
@@ -82,9 +77,7 @@ const EditGstDetailsModel = () => {
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
+                        <label className="label-heading mb-0">
                           State Jurisdiction:
                         </label>
                         <select
@@ -92,18 +85,16 @@ const EditGstDetailsModel = () => {
                           id="EditRegistrationId"
                         >
                           {cityData.map((city, index) => (
-                            <option key={index} value={city}>{city}</option>
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
                           ))}
                         </select>
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
-                          Date:
-                        </label>
+                        <label className="label-heading mb-0">Date:</label>
                         <div>
                           <DatePicker
                             className="form-control input-focus w-100"
@@ -126,7 +117,9 @@ const EditGstDetailsModel = () => {
                           id="EditRegistrationId"
                         >
                           {companyData.map((company, index) => (
-                            <option key={index} value={company}>{company}</option>
+                            <option key={index} value={company}>
+                              {company}
+                            </option>
                           ))}
                         </select>
                       </div>

@@ -14,7 +14,6 @@ const AddPeople = () => {
               <h4>Team</h4>
             </div>
             <AddTeamModel />
-            
           </div>
           <div>
             <AddTeam />

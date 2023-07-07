@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 const BreadCrum = () => {
   const breadcrumbs = useBreadcrumbs()
 
-  const url = breadcrumbs.map(({match, breadcrumb}) => match.pathname);
+  const url = breadcrumbs.map(({ match, breadcrumb }) => match.pathname)
   console.log("url is ", url)
 
   return (

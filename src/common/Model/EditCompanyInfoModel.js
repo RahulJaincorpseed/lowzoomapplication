@@ -48,9 +48,7 @@ const EditCompanyInfoModel = () => {
                   <div className="first-form form-row">
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
+                        <label className="label-heading mb-0">
                           Entity Type:
                         </label>
                         <select
@@ -58,16 +56,16 @@ const EditCompanyInfoModel = () => {
                           id="editEntity"
                         >
                           {companyData.map((company, index) => (
-                            <option key={index} value={company}>{company}</option>
+                            <option key={index} value={company}>
+                              {company}
+                            </option>
                           ))}
                         </select>
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
+                        <label className="label-heading mb-0">
                           Formation State:
                         </label>
                         <select
@@ -75,16 +73,16 @@ const EditCompanyInfoModel = () => {
                           id="EditFormationState"
                         >
                           {cityData.map((city, index) => (
-                            <option key={index} value={city}>{city}</option>
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
                           ))}
                         </select>
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
+                        <label className="label-heading mb-0">
                           Registration ID (CIN):
                         </label>
                         <select
@@ -92,18 +90,16 @@ const EditCompanyInfoModel = () => {
                           id="EditRegistrationId"
                         >
                           {GstData.map((gst, index) => (
-                            <option key={index} value={gst}>{gst}</option>
+                            <option key={index} value={gst}>
+                              {gst}
+                            </option>
                           ))}
                         </select>
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
-                          Date:
-                        </label>
+                        <label className="label-heading mb-0">Date:</label>
                         <div>
                           <DatePicker
                             className="form-control input-focus w-100"

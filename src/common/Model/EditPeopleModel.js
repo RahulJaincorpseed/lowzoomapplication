@@ -89,7 +89,7 @@ const EditPeopleModel = () => {
                           className="label-heading mb-0"
                           htmlFor="mobileNumber"
                         >
-                          Mobile Number*  
+                          Mobile Number*
                         </label>
                         <input
                           type="text"

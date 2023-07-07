@@ -2,9 +2,7 @@ import React from "react"
 import "./Model.css"
 import { GstData, cityData } from "../../TestData.js/CityData"
 
-
 const EditBusinessUnitModel = () => {
-  
   return (
     <>
       <div className="team-model">
@@ -46,43 +44,39 @@ const EditBusinessUnitModel = () => {
                   <div className="first-form form-row">
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
-                          GST number: 
+                        <label className="label-heading mb-0">
+                          GST number:
                         </label>
                         <select
                           className="form-control input-focus"
                           id="editEntity"
                         >
                           {GstData.map((gst, index) => (
-                            <option key={index} value={gst}>{gst}</option>
+                            <option key={index} value={gst}>
+                              {gst}
+                            </option>
                           ))}
                         </select>
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
-                          City:
-                        </label>
+                        <label className="label-heading mb-0">City:</label>
                         <select
                           className="form-control input-focus"
                           id="EditFormationState"
                         >
                           {cityData.map((city, index) => (
-                            <option key={index} value={city}>{city}</option>
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
                           ))}
                         </select>
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
+                        <label className="label-heading mb-0">
                           Permanent employees:
                         </label>
                         <input
@@ -95,9 +89,7 @@ const EditBusinessUnitModel = () => {
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label
-                          className="label-heading mb-0"
-                        >
+                        <label className="label-heading mb-0">
                           business activity:
                         </label>
                         <input
@@ -137,10 +129,11 @@ const EditBusinessUnitModel = () => {
                           id="EditFormationState"
                         >
                           {cityData.map((city, index) => (
-                            <option key={index} value={city}>{city}</option>
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
                           ))}
                         </select>
-
                       </div>
                     </div>
                     <div className="form-group col-md-6">

@@ -11,7 +11,7 @@ const AddPeopleModel = () => {
           data-toggle="modal"
           data-target="#AddPeopleModel"
         >
-           <i className="fa-solid fa-circle-plus mr-1"></i>
+          <i className="fa-solid fa-circle-plus mr-1"></i>
           Add People
         </button>
         {/* MODAL */}
@@ -90,7 +90,7 @@ const AddPeopleModel = () => {
                           className="label-heading mb-0"
                           htmlFor="mobileNumber"
                         >
-                          Mobile Number*  
+                          Mobile Number*
                         </label>
                         <input
                           type="text"
@@ -153,7 +153,5 @@ const AddPeopleModel = () => {
     </>
   )
 }
-  
-
 
 export default AddPeopleModel

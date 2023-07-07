@@ -10,56 +10,6 @@ const ManageCompany = () => {
       <div className="manage-compnies">
         <h2 className="heading-primary">Manage Companies</h2>
 
-        {/* <div className="add-new-company">
-          <button
-            type="button"
-            className="add-button"
-            data-toggle="modal"
-            data-target="#manageAddNewCompany"
-          >
-            <i className="fa-solid fa-plus"></i> Add New Company
-          </button>
-
-          <div
-            className="modal fade"
-            id="manageAddNewCompany"
-            tabIndex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLongTitle">
-                    Add company first model
-                  </h5>
-                  <button
-                    type="button"
-                    className="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">...</div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" className="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <AddNewCompanyModel />
 
         {/* search company btn */}
