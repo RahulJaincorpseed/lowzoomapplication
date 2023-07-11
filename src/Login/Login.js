@@ -41,7 +41,7 @@ const Login = () => {
             id="password"
             name="password"
             placeholder="Min. 8 Charecter"
-            autocomplete="off"
+            autoComplete="off"
             required
           />
         </div>
