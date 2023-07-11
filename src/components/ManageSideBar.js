@@ -1,7 +1,7 @@
 import React from "react"
 import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 const ManageSideBar = () => {
   return (
@@ -39,9 +39,69 @@ const ManageSideBar = () => {
               to={"/managecompliance"}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
+              data-toggle="collapse"
+              data-target="#collapseExample"
             >
               <i className="fa-solid fa-gear"></i>Manage Compliance
+              <i class="fa-solid fa-chevron-right ml-1"></i>
             </NavLink>
+            {/* collapse  */}
+            <div class="collapse" id="collapseExample">
+              <div>
+                <ul className="toggle-under-list">
+                  <li>
+                    <NavLink
+                      className={"toggle-list-item"}
+                      to={"/managecompliance"}
+                    >
+                      <i class="fa-solid fa-chevron-right mr-1"></i> Task
+                      Management
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={"toggle-list-item"}
+                      to={"/managecompliance"}
+                    >
+                      <i class="fa-solid fa-chevron-right mr-1"></i> In Progress
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={"toggle-list-item"}
+                      to={"/managecompliance"}
+                    >
+                      <i class="fa-solid fa-chevron-right mr-1"></i>Over Due
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={"toggle-list-item"}
+                      to={"/managecompliance"}
+                    >
+                      <i class="fa-solid fa-chevron-right mr-1"></i> Not Started
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={"toggle-list-item"}
+                      to={"/managecompliance"}
+                    >
+                      <i class="fa-solid fa-chevron-right mr-1"></i> Critical
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={"toggle-list-item"}
+                      to={"/managecompliance"}
+                    >
+                      <i class="fa-solid fa-chevron-right mr-1"></i> Completed
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {/* collapse */}
           </li>
           <li className="linkw-icon">
             <NavLink

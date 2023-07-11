@@ -15,6 +15,25 @@
       gap: 30px;
       .linkw-icon {
         margin-bottom: 10px;
+        .toggle-under-list {
+          padding-top: 20px;
+          padding-left: 35px;
+          font-size: 16px;
+          .toggle-list-item{
+            color: #000;
+            font-size: 16px;
+            padding: 15px 0px;
+            line-height: 35px;
+            font-family: Inter;
+            font-weight: 700;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        .complience-body {
+          padding: 10px;
+        }
         .main-link {
           padding: 12px 24px;
           border-radius: 30px;
