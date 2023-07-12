@@ -3,6 +3,9 @@ import "./login.scss"
 import Glogo from "..//images/google-logo.png"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
 
 const SignUp = () => {
   const [checkCircle, setCheckCircle] = useState(false);
@@ -64,6 +67,8 @@ const SignUp = () => {
       const userData =  await axios.post("http://localhost:8080/api/auth/signup", value)
       if(userData.data.statusCode === 200){
         console.log("i am user data", userData);
+        toast("User Added successfully")
+        navigate('/login')
       }
       else{
         console.log("user already", userData)
