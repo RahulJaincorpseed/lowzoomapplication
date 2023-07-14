@@ -43,10 +43,10 @@ const ManageSideBar = () => {
               data-target="#collapseExample"
             >
               <i className="fa-solid fa-gear"></i>Manage Compliance
-              <i class="fa-solid fa-chevron-right ml-1"></i>
+              <i className="fa-solid fa-chevron-right ml-1"></i>
             </NavLink>
             {/* collapse  */}
-            <div class="collapse" id="collapseExample">
+            <div className="collapse" id="collapseExample">
               <div>
                 <ul className="toggle-under-list">
                   <li>
@@ -54,7 +54,7 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i class="fa-solid fa-chevron-right mr-1"></i> Task
+                      <i className="fa-solid fa-chevron-right mr-1"></i> Task
                       Management
                     </NavLink>
                   </li>
@@ -63,7 +63,7 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i class="fa-solid fa-chevron-right mr-1"></i> In Progress
+                      <i className="fa-solid fa-chevron-right mr-1"></i> In Progress
                     </NavLink>
                   </li>
                   <li>
@@ -71,7 +71,7 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i class="fa-solid fa-chevron-right mr-1"></i>Over Due
+                      <i className="fa-solid fa-chevron-right mr-1"></i>Over Due
                     </NavLink>
                   </li>
                   <li>
@@ -79,7 +79,7 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i class="fa-solid fa-chevron-right mr-1"></i> Not Started
+                      <i className="fa-solid fa-chevron-right mr-1"></i> Not Started
                     </NavLink>
                   </li>
                   <li>
@@ -87,7 +87,7 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i class="fa-solid fa-chevron-right mr-1"></i> Critical
+                      <i className="fa-solid fa-chevron-right mr-1"></i> Critical
                     </NavLink>
                   </li>
                   <li>
@@ -95,7 +95,7 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i class="fa-solid fa-chevron-right mr-1"></i> Completed
+                      <i className="fa-solid fa-chevron-right mr-1"></i> Completed
                     </NavLink>
                   </li>
                 </ul>

@@ -7,8 +7,7 @@ const BreadCrum = () => {
   const breadcrumbs = useBreadcrumbs()
 
   const url = breadcrumbs.map(({ match, breadcrumb }) => match.pathname)
-  console.log("url is ", url)
-
+ 
   return (
     <div>
       <nav className="breadcrum">
