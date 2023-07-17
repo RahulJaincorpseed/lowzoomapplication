@@ -106,7 +106,7 @@ const SignUp = () => {
           <span className="label-heading fw-700">Sign Up with Google</span>
         </Link>
         <p className="signin-text">Or Sign In With Email</p>
-        <div className="pb-1">
+        <div className="pb-2">
           <label className="label-heading" htmlFor="phone">
             Mobile Number*
           </label>
@@ -121,12 +121,12 @@ const SignUp = () => {
           {error ? <span className="error-text">Mobile Number can not be blank</span>: ""}
            <button
               onClick={getOtp}
-              className="btn btn-outline-primary sign-button w-100 my-3"
+              className="btn btn-outline-primary sign-button w-100 my-2"
             >
               GET OTP
             </button>
         </div>
-        <div>
+        <div className="pb-2">
           <label className="label-heading" htmlFor="otp">
             OTP *
           </label>
@@ -139,7 +139,7 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
+        <div className="pb-2">
           <label className="label-heading password-input" htmlFor="password">
             Set Password
           </label>
