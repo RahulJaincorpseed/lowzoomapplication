@@ -51,8 +51,8 @@ const Login = () => {
           <img src={Glogo} alt="logo192" />{" "}
           <span className="label-heading fw-700">Sign In with Google</span>
         </Link>
-        <p className="signin-text">Or Login With Email</p>
-        <div>
+        <p className="signin-text">Or Login With Mobile</p>
+        <div className="pb-2">
           <label className="label-heading" htmlFor="phone">
             User ID *
           </label>
@@ -65,7 +65,7 @@ const Login = () => {
             required
           />
         </div>
-        <div>
+        <div className="pb-2">
           <label className="label-heading password-input" htmlFor="password">
             Set Password
           </label>

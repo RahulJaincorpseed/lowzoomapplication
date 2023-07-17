@@ -6,93 +6,101 @@ import { baseUrl } from "../Api/baseUrl"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Spinner from "../common/Toaster/Spinner"
 toast.configure()
 
 const SignUp = () => {
-  const [checkCircle, setCheckCircle] = useState(false);
-  const [error, setError] = useState(false);
-  const [onetp, setOnetp] = useState(""); 
-  const navigate = useNavigate();
-  
+  const [checkCircle, setCheckCircle] = useState(false)
+  const [error, setError] = useState(false)
+  const [onetp, setOnetp] = useState("")
+  const navigate = useNavigate()
+  const [OtpLoading, setOtpLoading] = useState(false)
+  const [otpError, setOtpError] = useState(false);
 
-  const mobileNumber = useRef();
-  const OTP = useRef();
-  const passowrd = useRef();
+  const mobileNumber = useRef()
+  const OTP = useRef()
+  const passowrd = useRef()
 
-  const getOtp = () =>{
-    console.log(mobileNumber.current.value);
-    if(mobileNumber.current.value === ""){
-      mobileNumber.current.style.border = "1px solid red";
-      setError(true);
+  const getOtp = () => {
+    if (
+      mobileNumber.current.value === "" ||
+      mobileNumber.current.value.length <= 9 ||
+      mobileNumber.current.value.length > 16
+    ) {
+      mobileNumber.current.style.border = "1px solid red"
+      setError(true)
       return
-    }
-    else{
-    let value = {"mobile": mobileNumber.current.value}
-    const getOtpApi = async () =>{
-      try{
-      const data = await axios.post(`${baseUrl}/api/auth/otp`, value);
-      console.log(data.data);
-      setOnetp(data.data)
+    } else {
+      let value = { mobile: mobileNumber.current.value }
+      setOtpLoading(true)
+      const getOtpApi = async () => {
+        try {
+          const data = await axios.post(`${baseUrl}/api/auth/otp`, value)
+          setError(false)
+          console.log(data.data)
+          setOnetp(data.data)
+          toast.success('OTP has been Send Succesfully')
+          setOtpLoading(false)
+        } catch (err) {
+          if (err.response.status === 500) {
+            console.log("i am error", err, err.message)
+            setOtpLoading(false)
+          }
+        }
       }
-      catch(err){
-        // setError(err.message)
-        console.log("otp error",err.message)
-      }
+      getOtpApi()
     }
-    getOtpApi();
-  }
-  }
-
-  console.log("i am state", onetp, onetp.mobile, onetp.otp);
-
-
-  const userSignUp = (e) =>{
-    if(mobileNumber.current.value === ""){
-      mobileNumber.current.style.border = "1px solid red";
-      setError(true);
-      return
-    }
-    else if(OTP.current.value === ""){
-      OTP.current.style.border = "1px solid red";
-      setError(true);
-      return
-    }
-    else if(OTP.current.value !== onetp.otp){
-      OTP.current.style.border = "1px solid red";
-      setError(true);
-      return
-    }
-    else if(passowrd.current.value === ""){
-      passowrd.current.style.border = "1px solid red";
-      setError(true);
-      return
-    }
-    else{
-      e.preventDefault();
-    const signUpByuser = async () =>{
-      try{
-      let value = {"mobile": onetp.mobile, "otp": onetp.otp, password: passowrd.current.value};
-      const userData =  await axios.post(`${baseUrl}/api/auth/signup`, value)
-      if(userData.data.statusCode === 200){
-        console.log("i am user data", userData);
-        toast(userData.data.body.message)
-        navigate('/login')
-      }
-      else{
-        console.log("user already", userData.data.message)
-      }
-      }
-      catch(err){
-        console.log("i am error", err);
-      }
-    }
-    signUpByuser()
   }
 
+  console.log("i am state", onetp, onetp.mobile, onetp.otp)
+
+
+  const userSignUp = (e) => {
+    if (
+      mobileNumber.current.value === "" ||
+      mobileNumber.current.value.length <= 9 ||
+      mobileNumber.current.value.length > 16
+    ) {
+      mobileNumber.current.style.border = "1px solid red"
+      setError(true)
+      return
+    } else if (OTP.current.value === "") {
+      OTP.current.style.border = "1px solid red"
+      setOtpError(true)
+      return
+    } else if (OTP.current.value !== onetp.otp) {
+      OTP.current.style.border = "1px solid red"
+      setOtpError(true)
+      return
+    } else if (passowrd.current.value === "") {
+      passowrd.current.style.border = "1px solid red"
+      setError(true)
+      return
+    } else {
+      e.preventDefault()
+      const signUpByuser = async () => {
+        try {
+          let value = {
+            mobile: onetp.mobile,
+            otp: OTP.current.value,
+            password: passowrd.current.value,
+          }
+          const userData = await axios.post(`${baseUrl}/api/auth/signup`, value)
+          if (userData.data.statusCode === 200) {
+            console.log("i am user data", userData)
+            toast.success(userData.data.body.message)
+            navigate("/login")
+          } else {
+            console.log("user already", userData.data.message)
+          }
+        } catch (err) {
+          console.log("i am error", err)
+          toast.error("Something Went Wrong")
+        }
+      }
+      signUpByuser()
+    }
   }
-
-
-
 
   return (
     <div className="sign-up container">
@@ -118,13 +126,23 @@ const SignUp = () => {
             placeholder="+91 9999008078"
             required
           />
-          {error ? <span className="error-text">Mobile Number can not be blank</span>: ""}
-           <button
-              onClick={getOtp}
-              className="btn btn-outline-primary sign-button w-100 my-2"
-            >
-              GET OTP
-            </button>
+          {error ? (
+            <span className="error-text">
+              please Enter a Valid Mobile Number
+            </span>
+          ) : (
+            ""
+          )}
+          <button
+            onClick={getOtp}
+            className="btn btn-outline-primary sign-button w-100 my-2"
+          >
+            {OtpLoading ? (
+              <Spinner height={"25px"} width={"25px"} />
+            ) : (
+              "GET OTP"
+            )}
+          </button>
         </div>
         <div className="pb-2">
           <label className="label-heading" htmlFor="otp">
@@ -138,6 +156,13 @@ const SignUp = () => {
             placeholder="Enter your OTP"
             required
           />
+          {otpError ? (
+            <span className="error-text">
+              please Enter a Valid OTP
+            </span>
+          ) : (
+            ""
+          )}
         </div>
         <div className="pb-2">
           <label className="label-heading password-input" htmlFor="password">
