@@ -14,34 +14,38 @@ const SignUp = () => {
   const [error, setError] = useState(false)
   const [onetp, setOnetp] = useState("")
   const navigate = useNavigate()
-  const [OtpLoading, setOtpLoading] = useState(false);
-  const [MobileMessage, setMobileMesssage]  = useState("");
+  const [OtpLoading, setOtpLoading] = useState(false)
+  const [otpError, setOtpError] = useState(false);
 
   const mobileNumber = useRef()
   const OTP = useRef()
   const passowrd = useRef()
 
   const getOtp = () => {
-    if (mobileNumber.current.value === "" || mobileNumber.current.value.length < 9 ||  mobileNumber.current.value.length > 16 ) {
+    if (
+      mobileNumber.current.value === "" ||
+      mobileNumber.current.value.length <= 9 ||
+      mobileNumber.current.value.length > 16
+    ) {
       mobileNumber.current.style.border = "1px solid red"
       setError(true)
       return
     } else {
       let value = { mobile: mobileNumber.current.value }
-      setOtpLoading(true);
+      setOtpLoading(true)
       const getOtpApi = async () => {
         try {
           const data = await axios.post(`${baseUrl}/api/auth/otp`, value)
           setError(false)
           console.log(data.data)
           setOnetp(data.data)
-          setOtpLoading(false);  
+          toast.success('OTP has been Send Succesfully')
+          setOtpLoading(false)
         } catch (err) {
-          if(err.response.status === 500){
-            console.log("i am error", err, err.message);
-            setOtpLoading(false);
+          if (err.response.status === 500) {
+            console.log("i am error", err, err.message)
+            setOtpLoading(false)
           }
-        
         }
       }
       getOtpApi()
@@ -50,18 +54,23 @@ const SignUp = () => {
 
   console.log("i am state", onetp, onetp.mobile, onetp.otp)
 
+
   const userSignUp = (e) => {
-    if (mobileNumber.current.value === ""  || mobileNumber.current.value.length < 9) {
+    if (
+      mobileNumber.current.value === "" ||
+      mobileNumber.current.value.length <= 9 ||
+      mobileNumber.current.value.length > 16
+    ) {
       mobileNumber.current.style.border = "1px solid red"
       setError(true)
       return
     } else if (OTP.current.value === "") {
       OTP.current.style.border = "1px solid red"
-      setError(true)
+      setOtpError(true)
       return
     } else if (OTP.current.value !== onetp.otp) {
       OTP.current.style.border = "1px solid red"
-      setError(true)
+      setOtpError(true)
       return
     } else if (passowrd.current.value === "") {
       passowrd.current.style.border = "1px solid red"
@@ -73,19 +82,20 @@ const SignUp = () => {
         try {
           let value = {
             mobile: onetp.mobile,
-            otp: onetp.otp,
+            otp: OTP.current.value,
             password: passowrd.current.value,
           }
           const userData = await axios.post(`${baseUrl}/api/auth/signup`, value)
           if (userData.data.statusCode === 200) {
             console.log("i am user data", userData)
-            toast(userData.data.body.message)
+            toast.success(userData.data.body.message)
             navigate("/login")
           } else {
             console.log("user already", userData.data.message)
           }
         } catch (err) {
           console.log("i am error", err)
+          toast.error("Something Went Wrong")
         }
       }
       signUpByuser()
@@ -117,7 +127,9 @@ const SignUp = () => {
             required
           />
           {error ? (
-            <span className="error-text">please Enter a Valid Mobile Number</span>
+            <span className="error-text">
+              please Enter a Valid Mobile Number
+            </span>
           ) : (
             ""
           )}
@@ -125,7 +137,11 @@ const SignUp = () => {
             onClick={getOtp}
             className="btn btn-outline-primary sign-button w-100 my-2"
           >
-          { OtpLoading ?  <Spinner height={"25px"} width={"25px"} /> : "GET OTP" }
+            {OtpLoading ? (
+              <Spinner height={"25px"} width={"25px"} />
+            ) : (
+              "GET OTP"
+            )}
           </button>
         </div>
         <div className="pb-2">
@@ -140,6 +156,13 @@ const SignUp = () => {
             placeholder="Enter your OTP"
             required
           />
+          {otpError ? (
+            <span className="error-text">
+              please Enter a Valid OTP
+            </span>
+          ) : (
+            ""
+          )}
         </div>
         <div className="pb-2">
           <label className="label-heading password-input" htmlFor="password">
