@@ -52,7 +52,7 @@ const Login = () => {
           <span className="label-heading fw-700">Sign In with Google</span>
         </Link>
         <p className="signin-text">Or Login With Email</p>
-        <div>
+        <div className="pb-2">
           <label className="label-heading" htmlFor="phone">
             User ID *
           </label>
@@ -65,7 +65,7 @@ const Login = () => {
             required
           />
         </div>
-        <div>
+        <div className="pb-2">
           <label className="label-heading password-input" htmlFor="password">
             Set Password
           </label>
