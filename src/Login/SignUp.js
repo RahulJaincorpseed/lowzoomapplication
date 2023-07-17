@@ -57,6 +57,11 @@ const SignUp = () => {
       setError(true);
       return
     }
+    else if(OTP.current.value !== onetp.otp){
+      OTP.current.style.border = "1px solid red";
+      setError(true);
+      return
+    }
     else if(passowrd.current.value === ""){
       passowrd.current.style.border = "1px solid red";
       setError(true);
@@ -67,7 +72,7 @@ const SignUp = () => {
     const signUpByuser = async () =>{
       try{
       let value = {"mobile": onetp.mobile, "otp": onetp.otp, password: passowrd.current.value};
-      const userData =  await axios.post("http://localhost:8080/api/auth/signup", value)
+      const userData =  await axios.post(`${baseUrl}/api/auth/signup`, value)
       if(userData.data.statusCode === 200){
         console.log("i am user data", userData);
         toast(userData.data.body.message)
@@ -101,7 +106,7 @@ const SignUp = () => {
           <span className="label-heading fw-700">Sign Up with Google</span>
         </Link>
         <p className="signin-text">Or Sign In With Email</p>
-        <div>
+        <div className="pb-1">
           <label className="label-heading" htmlFor="phone">
             Mobile Number*
           </label>
@@ -113,7 +118,7 @@ const SignUp = () => {
             placeholder="+91 9999008078"
             required
           />
-          {error ? <span>Mobile Number can not be blank</span>: ""}
+          {error ? <span className="error-text">Mobile Number can not be blank</span>: ""}
            <button
               onClick={getOtp}
               className="btn btn-outline-primary sign-button w-100 my-3"

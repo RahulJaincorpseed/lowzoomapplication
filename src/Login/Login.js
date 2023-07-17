@@ -39,11 +39,6 @@ const Login = () => {
       userDetails();
 }
 
-
-
-
-
-
   console.log(checkCircle)
   return (
     <div className="sign-up container">
