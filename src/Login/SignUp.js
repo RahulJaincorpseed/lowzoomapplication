@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import "./login.scss"
 import Glogo from "..//images/google-logo.png"
 import { Link, useNavigate } from "react-router-dom"
+import { baseUrl } from "../Api/baseUrl"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -29,7 +30,7 @@ const SignUp = () => {
     let value = {"mobile": mobileNumber.current.value}
     const getOtpApi = async () =>{
       try{
-      const data = await axios.post("http://localhost:8080/api/auth/otp", value);
+      const data = await axios.post(`{baseUrl}/api/auth/otp`, value);
       console.log(data.data);
       setOnetp(data.data)
       }

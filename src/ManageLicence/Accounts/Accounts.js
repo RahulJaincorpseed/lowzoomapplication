@@ -9,6 +9,7 @@ const Accounts = () => {
       <div>
         <h2 className="heading-primary">Accounts</h2>
       </div>
+      
     </div>
   )
 }

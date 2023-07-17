@@ -1,11 +1,49 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import "./login.scss"
 import Glogo from "..//images/google-logo.png"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Loading from "../common/Loading/Loading"
+import { baseUrl } from "../Api/baseUrl"
+import axios from "axios"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
+
 
 const Login = () => {
   const [checkCircle, setCheckCircle] = useState(false)
+  const navigate = useNavigate();
+  const userRef = useRef();
+  const passRef =  useRef();
+
+
+  const LoginUser = (e) =>{ 
+    e.preventDefault();
+    const userDetails = async  () => {
+      try{
+       const token = await axios.post(`${baseUrl}/api/auth/token`,{
+          password: passRef.current.value,
+          username: userRef.current.value
+        });
+        if(token.data.statusCode === 200){
+        console.log(token.data.body.accessToken, "i am",token);
+        localStorage.setItem("access Token", token.data.body.accessToken)
+        navigate('/')
+        }
+        // userDetails();
+        }
+        catch(err){
+        console.log("i am err", err);
+        }
+      }
+      userDetails();
+}
+
+
+
+
+
+
   console.log(checkCircle)
   return (
     <div className="sign-up container">
@@ -26,6 +64,7 @@ const Login = () => {
           <input
             type="tel"
             id="phone"
+            ref={userRef}
             name="phone"
             placeholder="+91 9999008078"
             required
@@ -38,6 +77,7 @@ const Login = () => {
           <input
             className="password-input"
             type="password"
+            ref={passRef}
             id="password"
             name="password"
             placeholder="Min. 8 Charecter"
@@ -56,12 +96,11 @@ const Login = () => {
             <p className="label-heading">Remember me</p>
           </div>
           <div>
-            <Link
-              to={`/userinfo`}
-              className="btn btn-outline-primary sign-button"
+            <button
+              className="btn btn-outline-primary sign-button" onClick={(e) => LoginUser(e)}
             >
               Sign In
-            </Link>
+            </button>
           </div>
         </div>
       </div>
