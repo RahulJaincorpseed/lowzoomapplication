@@ -30,7 +30,7 @@ const SignUp = () => {
     let value = {"mobile": mobileNumber.current.value}
     const getOtpApi = async () =>{
       try{
-      const data = await axios.post(`{baseUrl}/api/auth/otp`, value);
+      const data = await axios.post(`${baseUrl}/api/auth/otp`, value);
       console.log(data.data);
       setOnetp(data.data)
       }
