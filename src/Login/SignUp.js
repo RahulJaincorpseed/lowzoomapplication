@@ -34,7 +34,8 @@ const SignUp = () => {
       setOnetp(data.data)
       }
       catch(err){
-        setError(err.message)
+        // setError(err.message)
+        console.log("otp error",err.message)
       }
     }
     getOtpApi();
@@ -44,7 +45,7 @@ const SignUp = () => {
   console.log("i am state", onetp, onetp.mobile, onetp.otp);
 
 
-  const userSignUp = () =>{
+  const userSignUp = (e) =>{
     if(mobileNumber.current.value === ""){
       mobileNumber.current.style.border = "1px solid red";
       setError(true);
@@ -61,21 +62,22 @@ const SignUp = () => {
       return
     }
     else{
+      e.preventDefault();
     const signUpByuser = async () =>{
       try{
       let value = {"mobile": onetp.mobile, "otp": onetp.otp, password: passowrd.current.value};
       const userData =  await axios.post("http://localhost:8080/api/auth/signup", value)
       if(userData.data.statusCode === 200){
         console.log("i am user data", userData);
-        toast("User Added successfully")
+        toast(userData.data.body.message)
         navigate('/login')
       }
       else{
-        console.log("user already", userData)
+        console.log("user already", userData.data.message)
       }
       }
       catch(err){
-        console.log(err);
+        console.log("i am error", err);
       }
     }
     signUpByuser()
@@ -159,7 +161,7 @@ const SignUp = () => {
           <div>
             <button
               to={`/userinfo`}
-              onClick={userSignUp}
+              onClick={(e) => userSignUp(e)}
               className="btn btn-outline-primary sign-button"
             >
               Sign Up
