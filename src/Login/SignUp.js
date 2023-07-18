@@ -113,6 +113,7 @@ const SignUp = () => {
           <span className="label-heading fw-700">Sign Up with Google</span>
         </Link>
         <p className="signin-text">Or Sign In With Email</p>
+        <form>
         <div className="pb-2">
           <label className="label-heading" htmlFor="phone">
             Mobile Number*
@@ -196,6 +197,7 @@ const SignUp = () => {
             </button>
           </div>
         </div>
+        </form>
       </div>
     </div>
   )
