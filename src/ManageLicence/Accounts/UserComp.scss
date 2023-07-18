@@ -1,0 +1,46 @@
+.user-profile{
+    padding: 40px 20px;
+        display: flex;
+        justify-content: left;
+        gap: 80px;
+        align-items: center;
+        .profile-picture{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        span{
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 26px;
+            text-transform: uppercase;
+        }
+        .user-logo{
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            border: 1px solid #2b62f9;
+            overflow: hidden;
+            margin-bottom: 5px;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+        .account-heading{
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            color: rgba(151, 155, 170, 1);
+
+        }
+        .account-data{
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            color: rgba(102, 102, 102, 1);
+            margin-top: 0px;
+        }
+}

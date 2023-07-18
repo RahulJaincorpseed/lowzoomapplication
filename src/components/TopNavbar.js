@@ -3,26 +3,26 @@ import "./TopNavbar.scss"
 import { NavLink } from "react-router-dom";
 import RightSideIcons from "../common/RightSideIcons";
 
-const TopNavbar = () => {
+const TopNavbar = ({item1, item2, link1, link2}) => {
   return (
     <div className="top-navbar">
         <div className="left-side-tab">
             <li>
             <NavLink
-              to={"/accounts/setting"}
+              to={link1}
               className={`tab-link  ${({ isActive }) =>
                 isActive ? "active" : ""}`}
             >
-            Setting
+            {item1}
             </NavLink>
             </li>
             <li>
             <NavLink
-              to={"/accounts"}
+              to={link2}
               className={`tab-link  ${({ isActive }) =>
                 isActive ? "active" : ""}`}
             >
-              My Profile
+              {item2}
             </NavLink>
             </li>
         </div>
