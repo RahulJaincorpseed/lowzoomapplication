@@ -15,7 +15,7 @@ const SignUp = () => {
   const [onetp, setOnetp] = useState("")
   const navigate = useNavigate()
   const [OtpLoading, setOtpLoading] = useState(false)
-  const [otpError, setOtpError] = useState(false);
+  const [otpError, setOtpError] = useState(false)
 
   const mobileNumber = useRef()
   const OTP = useRef()
@@ -39,7 +39,7 @@ const SignUp = () => {
           setError(false)
           console.log(data.data)
           setOnetp(data.data)
-          toast.success('OTP has been Send Succesfully')
+          toast.success("OTP has been Send Succesfully")
           setOtpLoading(false)
         } catch (err) {
           if (err.response.status === 500) {
@@ -53,7 +53,6 @@ const SignUp = () => {
   }
 
   console.log("i am state", onetp, onetp.mobile, onetp.otp)
-
 
   const userSignUp = (e) => {
     if (
@@ -157,9 +156,7 @@ const SignUp = () => {
             required
           />
           {otpError ? (
-            <span className="error-text">
-              please Enter a Valid OTP
-            </span>
+            <span className="error-text">please Enter a Valid OTP</span>
           ) : (
             ""
           )}

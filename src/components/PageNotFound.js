@@ -9,8 +9,12 @@ const PageNotFound = () => {
       <div className="page-data">
         <h2 className="four">404</h2>
         <p>Page Not Found</p>
-        <Link to="/login"  className="first-button mt-2 d-flex justify-content-center">Home</Link>  
-
+        <Link
+          to="/login"
+          className="first-button mt-2 d-flex justify-content-center"
+        >
+          Home
+        </Link>
       </div>
     </div>
   )

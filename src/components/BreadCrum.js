@@ -7,7 +7,7 @@ const BreadCrum = () => {
   const breadcrumbs = useBreadcrumbs()
 
   const url = breadcrumbs.map(({ match, breadcrumb }) => match.pathname)
- 
+
   return (
     <div>
       <nav className="breadcrum">

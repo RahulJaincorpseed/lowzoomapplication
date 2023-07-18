@@ -9,35 +9,32 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 toast.configure()
 
-
 const Login = () => {
   const [checkCircle, setCheckCircle] = useState(false)
-  const navigate = useNavigate();
-  const userRef = useRef();
-  const passRef =  useRef();
+  const navigate = useNavigate()
+  const userRef = useRef()
+  const passRef = useRef()
 
-
-  const LoginUser = (e) =>{ 
-    e.preventDefault();
-    const userDetails = async  () => {
-      try{
-       const token = await axios.post(`${baseUrl}/api/auth/token`,{
+  const LoginUser = (e) => {
+    e.preventDefault()
+    const userDetails = async () => {
+      try {
+        const token = await axios.post(`${baseUrl}/api/auth/token`, {
           password: passRef.current.value,
-          username: userRef.current.value
-        });
-        if(token.data.statusCode === 200){
-        console.log(token.data.body.accessToken, "i am",token);
-        localStorage.setItem("access Token", token.data.body.accessToken)
-        navigate('/')
+          username: userRef.current.value,
+        })
+        if (token.data.statusCode === 200) {
+          console.log(token.data.body.accessToken, "i am", token)
+          localStorage.setItem("access Token", token.data.body.accessToken)
+          navigate("/")
         }
         // userDetails();
-        }
-        catch(err){
-        console.log("i am err", err);
-        }
+      } catch (err) {
+        console.log("i am err", err)
       }
-      userDetails();
-}
+    }
+    userDetails()
+  }
 
   console.log(checkCircle)
   return (
@@ -92,7 +89,8 @@ const Login = () => {
           </div>
           <div>
             <button
-              className="btn btn-outline-primary sign-button" onClick={(e) => LoginUser(e)}
+              className="btn btn-outline-primary sign-button"
+              onClick={(e) => LoginUser(e)}
             >
               Sign In
             </button>

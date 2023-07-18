@@ -1,7 +1,7 @@
 import React from "react"
-import './Spinner.scss'
+import "./Spinner.scss"
 
-const Spinner = ({height, width}) => {
+const Spinner = ({ height, width }) => {
   return (
     <div>
       <svg

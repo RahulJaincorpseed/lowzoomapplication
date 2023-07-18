@@ -33,13 +33,13 @@ function App() {
           <Route path="/managecompany" element={<ManageCompany />} />
           <Route path="/setcompliance" element={<SetCompliance />} />
           <Route path="/managecompliance" element={<ManageCompliance />} />
-          <Route path="/vendor" element={<VendorTask />} >
-            <Route path="/vendor"  element={<Order />}/>
-            <Route path="/vendor/orderhistory"  element={<OrderHistory />}/>
+          <Route path="/vendor" element={<VendorTask />}>
+            <Route path="/vendor" element={<Order />} />
+            <Route path="/vendor/orderhistory" element={<OrderHistory />} />
           </Route>
-          <Route path="/accounts" element={<Accounts />} >
-            <Route path="/accounts/setting"  element={<AccountSetting />}/>
-            <Route path="/accounts"  element={<AccountProfile />}/>
+          <Route path="/accounts" element={<Accounts />}>
+            <Route path="/accounts/setting" element={<AccountSetting />} />
+            <Route path="/accounts" element={<AccountProfile />} />
           </Route>
         </Route>
         <Route path="/edit" element={<EditModel />} />

@@ -13,28 +13,28 @@ const RightSideIcons = () => {
       </div>
       <div>
         <Link className="side-link">
-        <i className="fa-solid fa-eye"></i>
-        <span className="ml-1">1</span>
+          <i className="fa-solid fa-eye"></i>
+          <span className="ml-1">1</span>
         </Link>
       </div>
       <div>
         <Link className="side-link">
-        <i className="fa-solid fa-thumbs-up"></i>
+          <i className="fa-solid fa-thumbs-up"></i>
         </Link>
       </div>
       <div>
         <Link className="side-link">
-        <i className="fa-solid fa-share-nodes"></i>
+          <i className="fa-solid fa-share-nodes"></i>
         </Link>
       </div>
       <div>
         <Link className="side-link">
-        <i className="fa-solid fa-ellipsis"></i>
+          <i className="fa-solid fa-ellipsis"></i>
         </Link>
       </div>
       <div>
         <Link className="side-link">
-        <i className="fa-solid fa-xmark"></i>
+          <i className="fa-solid fa-xmark"></i>
         </Link>
       </div>
     </div>

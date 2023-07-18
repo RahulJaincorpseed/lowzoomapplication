@@ -4,115 +4,114 @@ import "./OrderHistory.scss"
 const OrderHistory = () => {
   const companyData = [
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
     },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
     },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
     },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },    
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
     {
-        companyName: "GPAY Private limited",
-        orderNo: "221092870658",
-        orderService: "pRIVATE COMPANY rEGISTRATION",
-        ammount: "45000 inr",
-        receipt: "recipt",
-        orderDate: "Sep. 28, 2021",
-        status: "COMPLETED" 
-    },  
-
-]
+      companyName: "GPAY Private limited",
+      orderNo: "221092870658",
+      orderService: "pRIVATE COMPANY rEGISTRATION",
+      ammount: "45000 inr",
+      receipt: "recipt",
+      orderDate: "Sep. 28, 2021",
+      status: "COMPLETED",
+    },
+  ]
 
   return (
     <div className="order-history-table">
@@ -130,8 +129,8 @@ const OrderHistory = () => {
             </tr>
           </thead>
           <tbody className="recipt-table-body">
-            {companyData.map((data, index) =>(
-                <tr key={index}>
+            {companyData.map((data, index) => (
+              <tr key={index}>
                 <td>{data?.companyName}</td>
                 <td>{data?.orderNo}</td>
                 <td className="w-160">{data?.orderService}</td>
