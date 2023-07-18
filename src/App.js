@@ -34,7 +34,7 @@ function App() {
           <Route path="/vendor" element={<VendorTask />} />
           <Route path="/accounts" element={<Accounts />} >
             <Route path="/accounts/setting"  element={<AccountSetting />}/>
-            <Route path="/accounts/profile"  element={<AccountProfile />}/>
+            <Route path="/accounts"  element={<AccountProfile />}/>
         
           </Route>
         </Route>

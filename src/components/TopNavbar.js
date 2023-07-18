@@ -18,7 +18,7 @@ const TopNavbar = () => {
             </li>
             <li>
             <NavLink
-              to={"/accounts/profile"}
+              to={"/accounts"}
               className={`tab-link  ${({ isActive }) =>
                 isActive ? "active" : ""}`}
             >
