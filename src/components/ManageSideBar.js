@@ -63,7 +63,8 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i className="fa-solid fa-chevron-right mr-1"></i> In Progress
+                      <i className="fa-solid fa-chevron-right mr-1"></i> In
+                      Progress
                     </NavLink>
                   </li>
                   <li>
@@ -79,7 +80,8 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i className="fa-solid fa-chevron-right mr-1"></i> Not Started
+                      <i className="fa-solid fa-chevron-right mr-1"></i> Not
+                      Started
                     </NavLink>
                   </li>
                   <li>
@@ -87,7 +89,8 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i className="fa-solid fa-chevron-right mr-1"></i> Critical
+                      <i className="fa-solid fa-chevron-right mr-1"></i>{" "}
+                      Critical
                     </NavLink>
                   </li>
                   <li>
@@ -95,7 +98,8 @@ const ManageSideBar = () => {
                       className={"toggle-list-item"}
                       to={"/managecompliance"}
                     >
-                      <i className="fa-solid fa-chevron-right mr-1"></i> Completed
+                      <i className="fa-solid fa-chevron-right mr-1"></i>{" "}
+                      Completed
                     </NavLink>
                   </li>
                 </ul>
