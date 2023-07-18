@@ -7,7 +7,17 @@ import { Outlet } from "react-router-dom"
 const VendorTask = () => {
   return (
     <div>
-      <h1>Vendor Task</h1>
+      <div>
+        <TopNavbar
+          item1={"Your orders"}
+          item2={"Order History Receipts"}
+          link1={"/vendor"}
+          link2={"/vendor/orderhistory"}
+        />
+      </div>
+      <div>
+        <Outlet />
+      </div>
     </div>
   )
 }

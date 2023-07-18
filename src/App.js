@@ -16,6 +16,8 @@ import Login from "./Login/Login"
 import Counter from "./test/Counter"
 import AccountSetting from "./ManageLicence/Accounts/AccountSetting"
 import AccountProfile from "./ManageLicence/Accounts/AccountProfile"
+import Order from "./ManageLicence/VendorTask/Order/Order"
+import OrderHistory from "./ManageLicence/VendorTask/OrderHistory"
 
 function App() {
   return (
@@ -31,11 +33,13 @@ function App() {
           <Route path="/managecompany" element={<ManageCompany />} />
           <Route path="/setcompliance" element={<SetCompliance />} />
           <Route path="/managecompliance" element={<ManageCompliance />} />
-          <Route path="/vendor" element={<VendorTask />} />
+          <Route path="/vendor" element={<VendorTask />} >
+            <Route path="/vendor"  element={<Order />}/>
+            <Route path="/vendor/orderhistory"  element={<OrderHistory />}/>
+          </Route>
           <Route path="/accounts" element={<Accounts />} >
             <Route path="/accounts/setting"  element={<AccountSetting />}/>
             <Route path="/accounts"  element={<AccountProfile />}/>
-        
           </Route>
         </Route>
         <Route path="/edit" element={<EditModel />} />
