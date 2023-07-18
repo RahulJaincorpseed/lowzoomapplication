@@ -1,0 +1,11 @@
+.right-side-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    font-size: 16px;
+    .side-link{
+        color: rgba(0,0,0,.54);
+        text-decoration: none;
+    } 
+}

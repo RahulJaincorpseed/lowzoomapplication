@@ -1,6 +1,7 @@
 import React from "react";
 import "./TopNavbar.scss"
 import { NavLink } from "react-router-dom";
+import RightSideIcons from "../common/RightSideIcons";
 
 const TopNavbar = () => {
   return (
@@ -24,10 +25,9 @@ const TopNavbar = () => {
               My Profile
             </NavLink>
             </li>
- 
         </div>
         <div>
-            <h3>i am data</h3>
+            <RightSideIcons />
         </div>
     </div>
   )
