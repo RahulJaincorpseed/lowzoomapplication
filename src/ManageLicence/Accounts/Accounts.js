@@ -7,7 +7,7 @@ const Accounts = () => {
   return (
     <div>
       <div>
-      <TopNavbar />
+      <TopNavbar item1={"Settings"} item2= {"My Profile"} link1={"/accounts/setting"} link2={"/accounts"}/>
       </div>
       <div>
         <Outlet />
