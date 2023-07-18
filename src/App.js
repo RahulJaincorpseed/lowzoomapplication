@@ -30,7 +30,11 @@ function App() {
           <Route path="/setcompliance" element={<SetCompliance />} />
           <Route path="/managecompliance" element={<ManageCompliance />} />
           <Route path="/vendor" element={<VendorTask />} />
-          <Route path="/accounts" element={<Accounts />} />
+          <Route path="/accounts" element={<Accounts />} >
+            <Route path="/accounts/setting"  element={<div>setting</div>}/>
+            <Route path="/accounts/profile"  element={<div>My Profile</div>}/>
+        
+          </Route>
         </Route>
         <Route path="/edit" element={<EditModel />} />
         <Route path="*" element={<PageNotFound />} />

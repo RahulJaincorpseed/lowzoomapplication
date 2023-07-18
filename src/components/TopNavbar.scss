@@ -1,0 +1,27 @@
+.top-navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    .left-side-tab{
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        li{
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 21px;
+            .tab-link{
+                color: rgba(50, 50, 50, 0.45);   
+                text-decoration: none;  
+                padding: 10px 10px;
+            }
+            .tab-link.active{
+                color: #2B62F9;
+                border-bottom: 3px solid  #2B62F9;
+            }
+        }
+    }
+}

@@ -1,15 +1,17 @@
 import React from "react"
 import "./Accounts.scss"
-import BreadCrum from "../../components/BreadCrum"
+import TopNavbar from "../../components/TopNavbar"
+import { Outlet } from "react-router-dom"
 
 const Accounts = () => {
   return (
     <div>
-      <BreadCrum />
       <div>
-        <h2 className="heading-primary">Accounts</h2>
+      <TopNavbar />
       </div>
-      
+      <div>
+        <Outlet />
+      </div>
     </div>
   )
 }
