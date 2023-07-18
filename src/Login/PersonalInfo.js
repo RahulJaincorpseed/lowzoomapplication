@@ -16,6 +16,7 @@ const PersonalInfo = () => {
               className="form-control input-focus"
               id="firstName"
               placeholder="First Name"
+              required
             />
           </div>
         </div>
@@ -29,6 +30,7 @@ const PersonalInfo = () => {
               className="form-control input-focus"
               id="lastName"
               placeholder="last Name"
+              required
             />
           </div>
         </div>
@@ -42,6 +44,7 @@ const PersonalInfo = () => {
               className="form-control input-focus"
               id="designation"
               placeholder="Designation"
+              required
             />
           </div>
         </div>
@@ -55,6 +58,7 @@ const PersonalInfo = () => {
               className="form-control input-focus"
               id="bemail"
               placeholder="Business Email"
+              required
             />
           </div>
         </div>

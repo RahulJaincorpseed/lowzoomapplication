@@ -31,6 +31,7 @@ const FormPartTwo = () => {
               className="form-control input-focus"
               id="companyName"
               placeholder="Company Name"
+              required
             />
           </div>
         </div>
@@ -98,6 +99,7 @@ const FormPartTwo = () => {
               className="form-control input-focus"
               id="searchBusiness"
               placeholder="Search"
+              required
             />
           </div>
         </div>
@@ -111,6 +113,7 @@ const FormPartTwo = () => {
               className="form-control input-focus"
               id="pemp"
               placeholder="Permanent Employee"
+              required
             />
           </div>
         </div>
@@ -125,6 +128,7 @@ const FormPartTwo = () => {
                 className="form-control input-focus"
                 id="contractemp"
                 placeholder="Contract Employee"
+                required
               />
             </div>
           </div>
@@ -138,6 +142,7 @@ const FormPartTwo = () => {
                 className="form-control input-focus"
                 id="gstnumber"
                 placeholder="GST Number"
+                required
               />
             </div>
           </div>
@@ -154,6 +159,7 @@ const FormPartTwo = () => {
               rows="4"
               cols="50"
               placeholder="Enter here..."
+              required
             ></textarea>
           </div>
         </div>
