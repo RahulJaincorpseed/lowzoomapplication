@@ -14,6 +14,8 @@ import ManageCompany from "./ManageLicence/ManageCompany/ManageCompany"
 import PageNotFound from "./components/PageNotFound"
 import Login from "./Login/Login"
 import Counter from "./test/Counter"
+import AccountSetting from "./ManageLicence/Accounts/AccountSetting"
+import AccountProfile from "./ManageLicence/Accounts/AccountProfile"
 
 function App() {
   return (
@@ -30,7 +32,11 @@ function App() {
           <Route path="/setcompliance" element={<SetCompliance />} />
           <Route path="/managecompliance" element={<ManageCompliance />} />
           <Route path="/vendor" element={<VendorTask />} />
-          <Route path="/accounts" element={<Accounts />} />
+          <Route path="/accounts" element={<Accounts />} >
+            <Route path="/accounts/setting"  element={<AccountSetting />}/>
+            <Route path="/accounts/profile"  element={<AccountProfile />}/>
+        
+          </Route>
         </Route>
         <Route path="/edit" element={<EditModel />} />
         <Route path="*" element={<PageNotFound />} />
