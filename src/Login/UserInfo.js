@@ -9,9 +9,18 @@ import FormPartTwo from "./FormPartTwo"
 import AddPeople from "./AddPeople"
 import CompanyInfo from "./CompanyInfo"
 import { Link } from "react-router-dom"
+import { companyData } from "../TestData.js/CityData"
 
 const UserInfo = () => {
   const [step, setStep] = useState(1)
+  const [companyFormData, setCompanyFormData] = useState({
+    firstName : "",
+    lastName : "",
+    designation : "",
+    businessEmail: "",
+  }) 
+
+console.log(companyFormData);
 
   // progress bar
 
@@ -39,7 +48,7 @@ const UserInfo = () => {
   function renderSwitch(step) {
     switch (step) {
       case 1:
-        return <PersonalInfo />
+        return <PersonalInfo  setCompanyFormData={setCompanyFormData} companyFormData={companyFormData}/>
       case 2:
         return <FormPartTwo />
       case 3:

@@ -1,7 +1,14 @@
 import React from "react"
 import "./userInfo.scss"
 
-const PersonalInfo = () => {
+const PersonalInfo = ({setCompanyFormData, companyFormData}) => {
+
+    const FirstPart = (e) =>{
+        setCompanyFormData((state)=>(
+            {...state, [e.target.name] : e.target.value}
+        ))
+    }
+
   return (
     <div className="personal-info container">
       <h4 className="info-text">Ok give us your information</h4>
@@ -17,6 +24,8 @@ const PersonalInfo = () => {
               id="firstName"
               placeholder="First Name"
               required
+              name="firstName"
+              onChange={(e)=> FirstPart(e)}
             />
           </div>
         </div>
@@ -31,6 +40,8 @@ const PersonalInfo = () => {
               id="lastName"
               placeholder="last Name"
               required
+              name="lastName"
+              onChange={(e)=> FirstPart(e)}
             />
           </div>
         </div>
@@ -45,6 +56,8 @@ const PersonalInfo = () => {
               id="designation"
               placeholder="Designation"
               required
+              name="designation"
+              onChange={(e)=> FirstPart(e)}
             />
           </div>
         </div>
@@ -59,6 +72,8 @@ const PersonalInfo = () => {
               id="bemail"
               placeholder="Business Email"
               required
+              name="businessEmail"
+              onChange={(e)=> FirstPart(e)}
             />
           </div>
         </div>
