@@ -54,7 +54,7 @@ const ManageSideBar = () => {
                     <i className="fa-solid fa-chevron-right mr-1"></i>{" "}
                     <button
                       type="button"
-                      class="toggle-list-item p-0 bg-white"
+                      className="toggle-list-item p-0 bg-white"
                       data-toggle="modal"
                       data-target="#TaskManagementModel"
                     >
