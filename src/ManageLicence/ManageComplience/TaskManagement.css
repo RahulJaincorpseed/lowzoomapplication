@@ -1,0 +1,9 @@
+.task-model-box .body-task{
+    height: calc(100vh - 60px);
+    width: 95vw;
+}
+
+.task-model-box .overflow-task{
+    overflow: visible;
+    border-radius: 0;
+}
