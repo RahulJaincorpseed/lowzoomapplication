@@ -2,6 +2,7 @@ import React from "react"
 import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
 import { Link, NavLink } from "react-router-dom"
+import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
 
 const ManageSideBar = () => {
   return (
@@ -50,13 +51,16 @@ const ManageSideBar = () => {
               <div>
                 <ul className="toggle-under-list">
                   <li>
-                    <NavLink
-                      className={"toggle-list-item"}
-                      to={"/managecompliance"}
+                    <i className="fa-solid fa-chevron-right mr-1"></i>{" "}
+                    <button
+                      type="button"
+                      class="toggle-list-item p-0 bg-white"
+                      data-toggle="modal"
+                      data-target="#TaskManagementModel"
                     >
-                      <i className="fa-solid fa-chevron-right mr-1"></i> Task
-                      Management
-                    </NavLink>
+                      Task Management
+                    </button>
+                    <TaskManagement />
                   </li>
                   <li>
                     <NavLink
