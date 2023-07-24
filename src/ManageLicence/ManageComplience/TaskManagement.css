@@ -1,10 +1,17 @@
-.task-model-box .body-task{
-    height: calc(100vh - 60px);
-    width: 95vw;
-    overflow: auto;
+.task-model-box .body-task {
+  height: calc(100vh - 60px);
+  width: 95vw;
+  overflow: auto;
 }
 
-.task-model-box .overflow-task{
-    overflow: visible;
-    border-radius: 0;
+.task-model-box .overflow-task {
+  overflow: visible;
+  border-radius: 0;
+}
+
+.sidebar-tab {
+  border-bottom: 1px solid rgb(196, 196, 196);
+  padding: 16px 20px 9px;
+  display: flex;
+  justify-content: flex-end;
 }

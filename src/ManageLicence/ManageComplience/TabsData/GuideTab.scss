@@ -18,37 +18,37 @@
     .table-fix-height {
       height: 300px;
       overflow: auto;
-      thead{
-        border-bottom: 1px solid #C4C4C4;
-        border-top: 1px solid #C4C4C4;
+      thead {
+        border-bottom: 1px solid #c4c4c4;
+        border-top: 1px solid #c4c4c4;
       }
-      tbody{
-        tr{
-            td{
-             border-bottom: 1px solid #C4C4C4;
-            }
+      tbody {
+        tr {
+          td {
+            border-bottom: 1px solid #c4c4c4;
+          }
         }
       }
     }
-    .user-circle{
-        height: 25px;
-        width: 25px;
-        background-color: #2b62f9;
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .user-circle {
+      height: 25px;
+      width: 25px;
+      background-color: #2b62f9;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .pen-cl{
-        &:hover{
-            color: #2b62f9;
-        }
+    .pen-cl {
+      &:hover {
+        color: #2b62f9;
+      }
     }
-    .bin-cl{
-        &:hover{
-            color: red;
-        }
+    .bin-cl {
+      &:hover {
+        color: red;
+      }
     }
     .step-search {
       border: 1px solid #c4c4c4;

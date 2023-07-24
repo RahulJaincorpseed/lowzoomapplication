@@ -59,7 +59,7 @@ const GuideTab = () => {
     },
   ]
 
-  const LoadData = () =>{
+  const LoadData = () => {
     setLoadMore((prev) => prev + 5)
   }
 
@@ -98,14 +98,21 @@ const GuideTab = () => {
                   <td>{data.Milestone}</td>
                   <td>{data.Juridiction}</td>
                   <td>{data["Created date"]}</td>
-                  <td><div className="user-circle">AK</div></td>
-                  <td><i class="fa-solid pen-cl fa-pen"></i><i class="fa-solid bin-cl ml-2 fa-trash"></i></td>
+                  <td>
+                    <div className="user-circle">AK</div>
+                  </td>
+                  <td>
+                    <i class="fa-solid pen-cl fa-pen"></i>
+                    <i class="fa-solid bin-cl ml-2 fa-trash"></i>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <button onClick={LoadData} className="load-more-txt">Load More</button>
+        <button onClick={LoadData} className="load-more-txt">
+          Load More
+        </button>
       </div>
     </div>
   )

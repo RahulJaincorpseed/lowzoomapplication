@@ -1,6 +1,8 @@
 import React from "react"
 import "./TaskManagement.css"
 import TaskTabs from "./TabsData/TaskTabs"
+import SideBarTab from "./SideBarTab"
+import RightSideIcons from "../../common/RightSideIcons"
 
 const TaskManagement = () => {
   return (
@@ -21,13 +23,14 @@ const TaskManagement = () => {
             <div className="add-team-body body-task">
               {/* START */}
               <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-7 pr-0">
                   <TaskTabs />
                 </div>
-                <div className="col-md-4">
-                  <div>
-                    <h1>Task Management</h1>
+                <div className="col-md-5 pl-0">
+                  <div className="sidebar-tab">
+                    <RightSideIcons />
                   </div>
+                  <SideBarTab />
                 </div>
               </div>
             </div>
