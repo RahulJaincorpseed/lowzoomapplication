@@ -3,6 +3,14 @@
   border-right: 6px solid #c4c4c4;
   height: 100vh;
   padding: 40px 20px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  .bars-d {
+    // display: none;
+    font-size: 25px;
+    position: absolute;
+    display: none;
+  }
   .manage-logo {
     width: 170px;
     height: 69px;
@@ -56,6 +64,22 @@
           text-decoration: none;
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .manageside-bar {
+    position: absolute;
+    width: auto;
+    background-color: white;
+    border-right: 1px solid black;
+    left: -230px;
+    z-index: 999;
+    border-right: none;
+    .bars-d {
+      right: 10px;
+      display: block;
     }
   }
 }
