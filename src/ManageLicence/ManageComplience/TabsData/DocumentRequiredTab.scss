@@ -1,0 +1,32 @@
+.doc-tab{
+    padding: 30px 15px;
+    .inhouse-team{
+        padding: 20px 0px;
+        .document-head{
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 22px;
+            color: #323232;
+        }
+        .document-para{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 27px;
+            color: #000000;
+            margin: 22px 0px;
+        }
+        .add-document{
+            border: 1px solid red;
+            .upload-file{
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 21px;
+                color: #2B62F9;
+                border: none;
+                background-color: transparent;
+
+            }
+        }
+    }
+
+}
