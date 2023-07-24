@@ -6,13 +6,10 @@ import GuideTab from "./GuideTab"
 import "./TaskTabs.scss"
 
 const TaskTabs = () => {
-  
-  
-
   return (
     <section className="container py-2 multiple-task-tab">
       <div className="row">
-        <div className="col-md-12">
+        <div className="col-md-12 pr-0">
           <ul id="tabs" className="nav nav-tabs tab-change-link">
             <li className="nav-item">
               <a

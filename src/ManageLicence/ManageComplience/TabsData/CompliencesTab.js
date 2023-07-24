@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 const CompliencesTab = () => {
-  return <div>CompliencesTab</div>;
-};
+  return <div>CompliencesTab</div>
+}
 
-export default CompliencesTab;
+export default CompliencesTab
