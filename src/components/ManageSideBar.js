@@ -1,12 +1,30 @@
-import React from "react"
+import React, { useRef, useState } from "react"
 import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
 import { Link, NavLink } from "react-router-dom"
 import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
 
 const ManageSideBar = () => {
+  const [toggleState, setToggleState] = useState(true)
+  const sideRef = useRef()
+
+  const sideHandler = () => {
+    if (toggleState === true) {
+      sideRef.current.style.left = "0"
+      setToggleState((prev) => !prev)
+    } else {
+      sideRef.current.style.left = "-230px"
+      setToggleState((prev) => !prev)
+    }
+  }
+
   return (
-    <div className="manageside-bar">
+    <div ref={sideRef} className="manageside-bar">
+      <button onClick={sideHandler}>
+        <div className="bars-d">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </button>
       <div className="manage-logo">
         <img src={Logo} alt="Logo" />
       </div>
