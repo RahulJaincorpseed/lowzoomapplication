@@ -5,15 +5,40 @@ import { Link, useNavigate } from "react-router-dom"
 import Loading from "../common/Loading/Loading"
 import { baseUrl } from "../Api/baseUrl"
 import axios from "axios"
+import authService from "../Hooks/AuthService.js"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 toast.configure()
 
 const Login = () => {
   const [checkCircle, setCheckCircle] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
+
+  let user = userRef?.current?.value
+  let pass = passRef?.current?.value
+
+  let data =  {
+    password: pass,
+    username: user
+  };
+
+  const handleValidSubmit = async (data) => {
+    setIsSubmitted(true)
+    try {
+      const result = await authService.login(data);
+      if (result.data) {
+        navigate('/profile');
+      }
+    } catch (error) {
+      toast.error(error.data.message);
+    }
+    setIsSubmitted(false)
+  }
+
+
 
   const LoginUser = (e) => {
     e.preventDefault()
@@ -90,7 +115,7 @@ const Login = () => {
           <div>
             <button
               className="btn btn-outline-primary sign-button"
-              onClick={(e) => LoginUser(e)}
+              onClick={handleValidSubmit}
             >
               Sign In
             </button>
