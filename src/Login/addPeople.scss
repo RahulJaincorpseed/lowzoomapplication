@@ -1,62 +1,55 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 .add-people-box {
   padding: 20px 0px;
   .add-team {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #cccccc;
+    @include all-between;
+    border-bottom: 1px solid $grayOne;
     padding-bottom: 10px;
     .team-text {
       h4 {
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 20px;
+        @include font-three;
         text-align: center;
         letter-spacing: 0.84px;
-        color: #010101;
+        color: $lightBlack;
       }
     }
     .team-model {
       .add-team-modal {
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 34px;
+        @include font-two;
         text-align: center;
         letter-spacing: 0.84px;
-        color: #2b62f9;
-        background-color: #ffffff;
+        color: $blue;
+        background-color: $white;
         padding: 8px 16px;
         border-radius: 10px;
-        border: 1px solid #ffffff;
+        border: 1px solid $white;
         &:hover {
           outline: none;
-          border: 1px solid #1a73e8;
+          border: 1px solid $lightBlue;
         }
       }
     }
     .add-team-body {
       padding: 0px 50px;
-      background: #ffffff;
+      background: $white;
       border-radius: 40px;
       width: 70vw;
     }
     .all-between-items {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include all-between;
       width: 100%;
       margin-top: 20px;
       h2 {
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 34px;
+        @include font-two;
         text-align: center;
         letter-spacing: 0.84px;
-        color: #333333;
+        color: $lightBlack;
         margin-left: 10px;
       }
       .fa-gear {
-        color: #2b62f9;
+        color: $blue;
       }
     }
   }

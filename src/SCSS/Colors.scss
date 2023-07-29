@@ -2,14 +2,14 @@ $red : #ff00ff;
 
 $white: #ffffff;
 $black: #000000;
+$lightBlack: #333333;
+$lightBlack: #010101;
 $lightGray: #a4a0a0;
 $lightBlue: #1a73e8;
+$blue: #2b62f9;
 $grayFour: #c4c4c4;
 $grayFive: #a5a6a8;
 $grayTwo: #b2b9c2;
+$grayOne : #cccccc;
+$graySix: #4e4d4d;
 
-@mixin all-between{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}

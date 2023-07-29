@@ -21,3 +21,15 @@
     font-size: 24px;
     line-height: 34px;
 }
+
+@mixin font-three{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+@mixin font-four{
+    font-size: 20px;
+      font-weight: 400;
+      line-height: 34px;
+}
