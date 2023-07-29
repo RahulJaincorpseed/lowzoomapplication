@@ -1,9 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 import ManageSideBar from "../components/ManageSideBar"
 import "./MainCompany.scss"
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 
 const MainCompany = () => {
+  const navigate = useNavigate();
+
+    useEffect(()=>{
+      const token = localStorage.getItem("access Token");
+      console.log(token);
+      if(!token){
+        navigate('/login')
+      }
+    })
+
   return (
     <>
       <div className="manage-license">
