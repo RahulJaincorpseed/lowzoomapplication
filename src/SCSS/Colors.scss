@@ -1,0 +1,15 @@
+$red : #ff00ff;
+
+$white: #ffffff;
+$black: #000000;
+$lightGray: #a4a0a0;
+$lightBlue: #1a73e8;
+$grayFour: #c4c4c4;
+$grayFive: #a5a6a8;
+$grayTwo: #b2b9c2;
+
+@mixin all-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

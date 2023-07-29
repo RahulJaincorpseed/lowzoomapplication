@@ -1,16 +1,9 @@
-$white: #ffffff;
-$black: #000000;
-$lightGray: #a4a0a0;
-$lightBlue: #1a73e8;
-$fontPoppins: "Poppins", sans-serif;
-$grayFour: #c4c4c4;
-$grayFive: #a5a6a8;
-$grayTwo: #b2b9c2;
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 
 .sign-up {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include all-center;
   min-height: 90vh;
   background-color: $white;
   padding-top: 20px;
@@ -39,9 +32,7 @@ $grayTwo: #b2b9c2;
       display: block;
       text-align: center;
       text-decoration: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include all-center;
       gap: 15px;
       padding: 10px;
     }
@@ -89,9 +80,7 @@ $grayTwo: #b2b9c2;
       }
       &::placeholder {
         opacity: 1;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 27px;
+        @include font-one;
         color: $lightBlue;
       }
     }
@@ -102,13 +91,9 @@ $grayTwo: #b2b9c2;
       }
     }
     .sign-btn {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include all-between;
       .remember-text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include all-center;
         gap: 10px;
         p {
           margin: 0;
@@ -120,9 +105,7 @@ $grayTwo: #b2b9c2;
         background: $white;
         border: 2px solid $lightBlue;
         border-radius: 10px;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 34px;
+        @include font-two;
         text-align: center;
         letter-spacing: 0.84px;
         color: $lightBlue;
