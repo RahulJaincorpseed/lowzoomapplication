@@ -1,3 +1,6 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 .personal-info {
   padding-top: 50px;
   padding-bottom: 35px;
@@ -9,7 +12,7 @@
   padding: 20px;
   text-align: "center";
   .progress-outer {
-    background-color: #dde3e8;
+    background-color: $whiteTwo;
   }
 }
 
@@ -29,7 +32,7 @@
     outline: none;
     &:focus-visible {
       box-shadow: 0 0 0 0.2rem rgba(43, 98, 249, 0.2);
-      border-color: #2b62f9;
+      border-color: $blue;
     }
   }
 }

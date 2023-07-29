@@ -30,6 +30,13 @@
 
 @mixin font-four{
     font-size: 20px;
-      font-weight: 400;
-      line-height: 34px;
+    font-weight: 400;
+    line-height: 34px;
 }
+
+@mixin image-circle{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
