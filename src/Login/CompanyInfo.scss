@@ -1,19 +1,21 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
+
 .company-all {
   padding: 30px 0px;
-  border: 1px solid #dde3e8;
+  border: 1px solid $whiteTwo;
   margin-bottom: 20px;
   .company-info {
     padding: 20px;
     .info-all {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include all-between;
       .info-text {
         margin-bottom: 0px;
         display: flex;
         gap: 10px;
         i {
-          color: #1a73e8;
+          color: $lightBlue;
         }
         h4 {
           font-size: 23px;
@@ -25,7 +27,7 @@
         font-size: 20px;
         font-weight: 600;
         line-height: 34px;
-        color: #1a73e8;
+        color: $lightBlue;
         span {
           margin-left: 5px;
         }
@@ -44,15 +46,13 @@
 }
 
 .display-team {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include all-between;
   .team-type {
     h4 {
       font-size: 20px;
       font-weight: 400;
       line-height: 27px;
-      color: #4e4d4d;
+      color: $graySix;
     }
   }
 }

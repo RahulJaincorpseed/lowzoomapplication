@@ -1,32 +1,25 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 .add-teams {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #cccccc;
+  @include all-between;
+  border-bottom: 1px solid $grayOne;
   .team-type {
     h3 {
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 27px;
-      color: #4e4d4d;
+      @include font-one;
+      color: $graySix;
     }
   }
   .team-edit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   @include all-center;
     gap: 40px;
     .add,
     .edit {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include all-center;
       gap: 10px;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 34px;
+     @include font-four;
       i {
-        color: #1a73e8;
+        color: $lightBlue;
       }
     }
   }
