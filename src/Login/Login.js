@@ -13,10 +13,10 @@ toast.configure()
 
 const Login = () => {
   const [checkCircle, setCheckCircle] = useState(false)
+  const [error, setError] = useState(false);
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
-
   const authSelector = useSelector((state) => state.authReducer)
   const dispatch = useDispatch();
   
@@ -25,6 +25,15 @@ const Login = () => {
 
   const LoginUser = (e) => {
     e.preventDefault()
+    if(userRef.current.value === ""){
+      setError(true)
+    }
+    if(passRef.current.value === ""){
+      setError(true)
+    }
+
+
+
     const userDetails = async () => {
       try {
         const token = await axios.post(`${baseUrl}/api/auth/token`, {
@@ -42,7 +51,7 @@ const Login = () => {
         }
         // userDetails();
       } catch (err) {
-        console.log("i am err", err)
+        setError(err?.data?.message);
       }
     }
     userDetails()
@@ -89,6 +98,8 @@ const Login = () => {
             required
           />
         </div>
+        {error ? <p className="mb-2 text-danger">Username or password dfled can't blank</p>: ""}
+           
         <div className="sign-btn">
           <div className="remember-text">
             <i
