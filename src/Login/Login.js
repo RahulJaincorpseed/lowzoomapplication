@@ -7,6 +7,8 @@ import { baseUrl } from "../Api/baseUrl"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { useDispatch, useSelector } from "react-redux"
+import { userRoles, userToken } from "../Redux/Actions/AuthAction"
 toast.configure()
 
 const Login = () => {
@@ -14,6 +16,12 @@ const Login = () => {
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
+
+  const authSelector = useSelector((state) => state.authReducer)
+  const dispatch = useDispatch();
+  
+  console.log("i am auth", 
+  authSelector);
 
   const LoginUser = (e) => {
     e.preventDefault()
@@ -24,7 +32,11 @@ const Login = () => {
           username: userRef.current.value,
         })
         if (token.data.statusCode === 200) {
-          console.log(token.data.body.accessToken, "i am", token)
+          console.log("i ma data", token.data.body.username)
+          console.log("i ma data", token.data.body.accessToken)
+          console.log("i ma data", token.data.body.roles)
+          dispatch(userToken(token.data.body.accessToken))
+          dispatch(userRoles(token.data.body.roles))
           localStorage.setItem("access Token", token.data.body.accessToken)
           navigate("/")
         }
