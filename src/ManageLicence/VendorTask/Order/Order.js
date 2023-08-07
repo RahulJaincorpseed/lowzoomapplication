@@ -14,12 +14,12 @@ const Order = () => {
   return (
     <div className="your-order-list">
       <h2 className="vendor-heading">
-        <i class="fa-solid mr-2 fa-circle-exclamation"></i> Vendor Outsourced
+        <i className="fa-solid mr-2 fa-circle-exclamation"></i> Vendor Outsourced
         Task
       </h2>
 
       <div className="vender-order-table table-responsive">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">SERVICE NAME</th>

@@ -82,7 +82,7 @@ const GuideTab = () => {
 
         {/*guide table  */}
         <div className="table-responsive table-fix-height scrollbar-sider">
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">Milestone</th>
@@ -102,8 +102,8 @@ const GuideTab = () => {
                     <div className="user-circle">AK</div>
                   </td>
                   <td>
-                    <i class="fa-solid pen-cl fa-pen"></i>
-                    <i class="fa-solid bin-cl ml-2 fa-trash"></i>
+                    <i className="fa-solid pen-cl fa-pen"></i>
+                    <i className="fa-solid bin-cl ml-2 fa-trash"></i>
                   </td>
                 </tr>
               ))}

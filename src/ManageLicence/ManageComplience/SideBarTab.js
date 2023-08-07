@@ -34,7 +34,7 @@ const SideBarTab = () => {
            
           </div>
           <div className="col-md-12 mt-2 d-flex">
-            <label className="input-heading" for="zone">Applicable zone</label>
+            <label className="input-heading" htmlFor="zone">Applicable zone</label>
             <select className="search-input" name="zone" id="zone">
               <option value="volvo">Volvo</option>
               <option value="saab">Saab</option>
