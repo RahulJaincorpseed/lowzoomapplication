@@ -9,9 +9,16 @@ import FormPartTwo from "./FormPartTwo"
 import AddPeople from "./AddPeople"
 import CompanyInfo from "./CompanyInfo"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+
 
 const UserInfo = () => {
   const [step, setStep] = useState(1)
+
+  const currentUserToken = useSelector((state) => state)
+
+  console.log("i am current user info token " , currentUserToken);
+
 
   // progress bar
 
