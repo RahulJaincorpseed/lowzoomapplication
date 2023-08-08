@@ -14,7 +14,7 @@ const ManageSideBar = () => {
         <ul className="list-unorder">
           <li className="linkw-icon">
             <NavLink to={"/"} className={`main-link`}>
-              <i className="fa-solid fa-gear"></i>DashBoard
+              <i className="fa-solid fa-gear"></i><span>DashBoard</span>
             </NavLink>
           </li>
           <li className="linkw-icon">
@@ -23,7 +23,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i className="fa-solid fa-gear"></i>Manage Companies
+              <i className="fa-solid fa-gear"></i><span>Manage Companies</span>
             </NavLink>
           </li>
           <li className="linkw-icon">
@@ -32,7 +32,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i className="fa-solid fa-gear"></i>Set Compliance Map
+              <i className="fa-solid fa-gear"></i><span>Set Compliance Map</span>
             </NavLink>
           </li>
           <li className="linkw-icon">
@@ -43,7 +43,7 @@ const ManageSideBar = () => {
               data-toggle="collapse"
               data-target="#collapseExample"
             >
-              <i className="fa-solid fa-gear"></i>Manage Compliance
+              <i className="fa-solid fa-gear"></i><span>Manage Compliance</span>
               <i className="fa-solid fa-chevron-right ml-1"></i>
             </NavLink>
             {/* collapse  */}
@@ -117,7 +117,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i className="fa-solid fa-user"></i>Vendor Task
+              <i className="fa-solid fa-user"></i><span>Vendor Task</span>
             </NavLink>
           </li>
           <li className="linkw-icon">
@@ -126,7 +126,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i className="fa-solid fa-gear"></i>Accounts
+              <i className="fa-solid fa-gear"></i><span>Accounts</span>
             </NavLink>
           </li>
         </ul>

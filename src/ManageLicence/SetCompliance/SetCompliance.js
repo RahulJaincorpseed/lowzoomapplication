@@ -10,7 +10,7 @@ const SetCompliance = () => {
         <h2 className="heading-primary">Approve Applicable Compliances</h2>
         <div className="mt-5">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-lg-4">
               <div>
                 <select className="form-control input-focus" id="sel7">
                   <option>Choose company</option>
@@ -20,7 +20,7 @@ const SetCompliance = () => {
                 </select>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-lg-4">
               <div>
                 <select className="form-control input-focus" id="sel6">
                   <option>Choose by State</option>
@@ -30,7 +30,7 @@ const SetCompliance = () => {
                 </select>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-lg-4">
               <div>
                 <select className="form-control input-focus" id="sel5">
                   <option>Choose by operational unit</option>
@@ -42,7 +42,7 @@ const SetCompliance = () => {
             </div>
 
             {/* second line  */}
-            <div className="col-md-5 mt-4">
+            <div className="col-lg-5 mt-4">
               <div className="p-relative">
                 <input
                   className="form-control input-focus"
@@ -52,7 +52,7 @@ const SetCompliance = () => {
                 <i className="fa-solid fa-magnifying-glass search-icon-btn"></i>
               </div>
             </div>
-            <div className="col-md-5 mt-4">
+            <div className="col-lg-5 mt-4">
               <div className="p-relative">
                 <input
                   className="form-control input-focus"
@@ -62,7 +62,7 @@ const SetCompliance = () => {
                 <i className="fa-solid fa-magnifying-glass search-icon-btn"></i>
               </div>
             </div>
-            <div className="col-md-2 mt-4">
+            <div className="col-lg-2 mt-4">
               <div className="all-task">
                 <div className="form-check mr-1">
                   <input
@@ -81,7 +81,7 @@ const SetCompliance = () => {
               </div>
             </div>
 
-            <div className="add-new-complience col-md-12 mt-4">
+            <div className="add-new-complience col-lg-12 mt-4">
               <div className="add-new-company">
                 <button
                   type="button"
