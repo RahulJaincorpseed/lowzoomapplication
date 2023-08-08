@@ -58,6 +58,15 @@ const UserInfo = () => {
     }
   }
 
+
+  const SubmitAllData = (e) =>{
+    e.preventDefault();
+
+
+  }
+
+
+
   return (
     <div>
       <LoginHeader />
@@ -93,7 +102,7 @@ const UserInfo = () => {
           )}
           {step === 4 ? (
             <Link to="/">
-              <button className="form-next-btn first-button">Approved</button>
+              <button className="form-next-btn first-button" onClick={(e) => SubmitAllData(e)}>Submit</button>
             </Link>
           ) : (
             <button

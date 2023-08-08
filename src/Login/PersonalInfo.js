@@ -1,7 +1,21 @@
-import React from "react"
+import React, { useRef, useState } from "react"
 import "./userInfo.scss"
 
 const PersonalInfo = () => {
+  const [firstErr, setFirstErr] = useState(false);
+  const firstNameRef = useRef();
+
+  
+  const inputHandler = () =>{
+    if(firstNameRef?.current?.value?.length < 3){
+      setFirstErr(true);
+    }
+    if(firstNameRef?.current?.value?.length > 2){
+      setFirstErr(false);
+    } 
+   }
+ 
+
   return (
     <div className="personal-info container">
       <h4 className="info-text">Ok give us your information</h4>
@@ -13,11 +27,14 @@ const PersonalInfo = () => {
             </label>
             <input
               type="text"
+              ref={firstNameRef}
               className="form-control input-focus"
               id="firstName"
               placeholder="First Name"
               required
+              onChange={inputHandler}
             />
+            {firstErr ? <span className="text-danger">Name should be more than 2 digit</span>: ""}
           </div>
         </div>
         <div className="form-group col-md-6">
