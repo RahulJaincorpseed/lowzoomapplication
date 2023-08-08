@@ -1,20 +1,59 @@
 import React, { useRef, useState } from "react"
 import "./userInfo.scss"
 
-const PersonalInfo = () => {
-  const [firstErr, setFirstErr] = useState(false);
-  const firstNameRef = useRef();
+const PersonalInfo = ({companyData, setCompanyData}) => {
+  // const [firstErr, setFirstErr] = useState(false);
+  // const [lastErr, setLastErr] = useState(false);
+  // const [designationErr, setDesignationErr] = useState(false);
+  // const [businessEmailErr, setBusinessEmailErr] = useState(false);
 
-  
-  const inputHandler = () =>{
-    if(firstNameRef?.current?.value?.length < 3){
-      setFirstErr(true);
-    }
-    if(firstNameRef?.current?.value?.length > 2){
-      setFirstErr(false);
-    } 
-   }
+
+  // const firstNameRef = useRef();
+  // const lastNameRef = useRef();
+  // const DesignationRef = useRef();
+  // const businessEmailRef = useRef();
+
+  console.log("i am company data", companyData);
+
+  // const firstNameFun = () =>{
+  //   if(firstNameRef?.current?.value?.length < 3){
+  //     setFirstErr(true);
+  //   }
+  //   if(firstNameRef?.current?.value?.length > 2){
+  //     setFirstErr(false);
+   
+  //   } 
+  //  }
  
+  //  const lastNameFun = () =>{
+  //   if(lastNameRef?.current?.value?.length < 3){
+  //     setLastErr(true);
+  //   }
+  //   if(lastNameRef?.current?.value?.length > 2){
+  //     setLastErr(false);
+  //   } 
+  //  }
+
+  //  const designationFun = () =>{
+  //   console.log("value is ", DesignationRef?.current?.value);
+  //   if(DesignationRef?.current?.value?.length === 0){
+  //     setDesignationErr(true);
+  //   }
+  //   if(DesignationRef?.current?.value?.length > 0){
+  //     setDesignationErr(false);
+  //   } 
+  //  }
+
+  //  const BusinessEmailFun = () =>{
+  //    if(businessEmailRef?.current?.value?.length === 0){
+  //     setBusinessEmailErr(true);
+  //   }
+  //   if(businessEmailRef?.current?.value?.length > 0){
+  //     setBusinessEmailErr(false);
+  //   } 
+  //  }
+
+
 
   return (
     <div className="personal-info container">
@@ -31,10 +70,11 @@ const PersonalInfo = () => {
               className="form-control input-focus"
               id="firstName"
               placeholder="First Name"
+              value={companyData.firstName}
+              onChange={(e)=> setCompanyData({...companyData, firstName: e.target.value})}
               required
-              onChange={inputHandler}
             />
-            {firstErr ? <span className="text-danger">Name should be more than 2 digit</span>: ""}
+            {/* {firstErr ? <p className="error-change">Name should be more than 2 digit</p>: ""} */}
           </div>
         </div>
         <div className="form-group col-md-6">
@@ -44,11 +84,15 @@ const PersonalInfo = () => {
             </label>
             <input
               type="text"
+              // ref={lastNameRef}
               className="form-control input-focus"
               id="lastName"
               placeholder="last Name"
+              // onChange={lastNameFun}
               required
             />
+            {/* {lastErr ? <p className="error-change">Last name should be more than 2 digit</p>: ""} */}
+        
           </div>
         </div>
         <div className="form-group col-md-6">
@@ -58,11 +102,15 @@ const PersonalInfo = () => {
             </label>
             <input
               type="text"
+              // ref={DesignationRef}
               className="form-control input-focus"
               id="designation"
               placeholder="Designation"
+              // onChange={designationFun}
               required
             />
+              {/* {designationErr ? <p className="error-change">Can't be blank</p>: ""} */}
+        
           </div>
         </div>
         <div className="form-group col-md-6">
@@ -72,11 +120,15 @@ const PersonalInfo = () => {
             </label>
             <input
               type="email"
+              // ref={businessEmailRef}
               className="form-control input-focus"
               id="bemail"
               placeholder="Business Email"
+              // onChange={BusinessEmailFun}
               required
             />
+          {/* {businessEmailErr ? <p className="error-change">Can't be blank</p>: ""} */}
+        
           </div>
         </div>
       </div>
