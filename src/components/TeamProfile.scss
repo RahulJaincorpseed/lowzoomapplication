@@ -1,7 +1,9 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
+
 .team-profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include all-center;
   gap: 10px;
   .image-pro {
     height: 45px;
@@ -9,14 +11,12 @@
     border-radius: 50%;
     border: 1px solid gray;
     img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+      @include image-circle;
     }
   }
   .team-text {
     h3 {
-      color: #4e4d4d;
+      color: $graySix;
       font-size: 24px;
       font-weight: 600;
       line-height: 27px;
@@ -25,9 +25,9 @@
       font-size: 20px;
       font-weight: 400;
       line-height: 27px;
-      color: #2b62f9;
+      color: $blue;
       span {
-        color: #4e4d4d;
+        color: $graySix;
       }
     }
   }

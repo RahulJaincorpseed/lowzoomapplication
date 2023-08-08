@@ -1,9 +1,12 @@
+@import "../SCSS/Colors.scss";
+
+
 // header scss
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #ffffff;
+  background: $white;
   .zoom-header {
     padding: 10px 20px;
     display: flex;
@@ -24,7 +27,7 @@
         font-weight: 400;
         font-size: 24px;
         line-height: 23px;
-        color: #868a96;
+        color: $grayEight;
       }
     }
   }
@@ -45,12 +48,12 @@
     line-height: 26px;
     text-align: center;
     letter-spacing: 0.84px;
-    color: #000000;
+    color: $black;
   }
   .mob-contact {
     font-weight: 600;
     span {
-      color: #2b62f9;
+      color: $blue;
     }
   }
 }
