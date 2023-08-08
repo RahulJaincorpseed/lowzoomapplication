@@ -66,7 +66,7 @@ const PersonalInfo = ({companyData, setCompanyData}) => {
             </label>
             <input
               type="text"
-              ref={firstNameRef}
+              // ref={firstNameRef}
               className="form-control input-focus"
               id="firstName"
               placeholder="First Name"
