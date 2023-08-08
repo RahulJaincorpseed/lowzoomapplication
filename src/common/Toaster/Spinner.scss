@@ -1,3 +1,6 @@
+@import "../../SCSS/Colors.scss";
+
+
 $offset: 187;
 $duration: 1.4s;
 
@@ -24,19 +27,19 @@ $duration: 1.4s;
 
 @keyframes colors {
   0% {
-    stroke: #ffffff;
+    stroke: $white;
   }
   25% {
-    stroke: #ffffff;
+    stroke: $white;
   }
   50% {
-    stroke: #ffffff;
+    stroke: $white;
   }
   75% {
-    stroke: #ffffff;
+    stroke: $white;
   }
   100% {
-    stroke: #ffffff;
+    stroke: $white;
   }
 }
 

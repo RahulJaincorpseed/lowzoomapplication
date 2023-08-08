@@ -1,16 +1,23 @@
+:root{
+
+  --whiteColor: #ffffff;
+  --blueColor: #2b62f9;
+}
+
+
 .team-model .add-team-modal {
   font-weight: 500;
   font-size: 22px;
   line-height: 34px;
   text-align: center;
   letter-spacing: 0.84px;
-  color: #2b62f9;
-  background-color: #ffffff;
+  color: var(--blueColor);
+  background-color: var(--whiteColor);
   padding: 8px 16px;
   border-radius: 10px;
-  border: 1px solid #ffffff;
-  background: #fff;
-  border: 1px solid #fff;
+  border: 1px solid var(--whiteColor);
+  background: var(--whiteColor);
+  border: 1px solid var(--whiteColor);
 }
 /* model buttons  */
 .team-model .add-team-modal.edit-people {
@@ -26,7 +33,7 @@
 }
 
 .add-new-company .add-button {
-  background-color: #fff;
+  background-color: var(--whiteColor);
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -34,7 +41,7 @@
 }
 
 .add-new-company .add-button i {
-  color: #2b62f9;
+  color: var(--blueColor);
   margin-right: 10px;
 }
 
@@ -55,7 +62,7 @@
 
 .add-team-body {
   padding: 30px;
-  background: #ffffff;
+  background: var(--whiteColor);
   position: relative;
 }
 
@@ -86,7 +93,7 @@
 }
 
 .all-between-items .fa-gear {
-  color: #2b62f9;
+  color: var(--blueColor);
 }
 
 .model-heading {
@@ -109,7 +116,7 @@
   font-size: 18px;
   font-weight: 200;
   line-height: 22px;
-  color: #2B62F9;
+  color: var(--blueColor);
 }
 
 

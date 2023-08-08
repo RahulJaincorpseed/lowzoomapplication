@@ -3,7 +3,6 @@ import Details from "./Login/Details"
 import SignUp from "./Login/SignUp"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import UserInfo from "./Login/UserInfo"
-import EditModel from "./components/EditModel"
 import DashBoard from "./ManageLicence/DashBoard/DashBoard"
 import SetCompliance from "./ManageLicence/SetCompliance/SetCompliance"
 import VendorTask from "./ManageLicence/VendorTask/VendorTask"
@@ -42,7 +41,6 @@ function App() {
             <Route path="/accounts" element={<AccountProfile />} />
           </Route>
         </Route>
-        <Route path="/edit" element={<EditModel />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

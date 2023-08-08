@@ -1,6 +1,8 @@
+@import "../SCSS/Colors.scss";
+
 .manageside-bar {
   width: 300px;
-  border-right: 6px solid #c4c4c4;
+  border-right: 6px solid $grayFour;
   height: 100vh;
   padding: 40px 20px;
   .manage-logo {
@@ -20,7 +22,7 @@
           padding-left: 35px;
           font-size: 16px;
           .toggle-list-item {
-            color: #000;
+            color: $black;
             font-size: 16px;
             padding: 15px 0px;
             line-height: 35px;
@@ -40,7 +42,7 @@
           font-size: 16px;
           font-weight: 700;
           line-height: 19px;
-          color: #000000;
+          color: $black;
           font-weight: 500;
           &:hover {
             text-decoration: none;
@@ -52,7 +54,7 @@
         .main-link.active {
           background: rgba(221, 227, 232, 0.52);
           font-weight: 700;
-          color: #2b62f9;
+          color: $blue;
           text-decoration: none;
         }
       }
@@ -90,7 +92,7 @@
             padding-left: 35px;
             font-size: 16px;
             .toggle-list-item {
-              color: #000;
+              color: $black;
               font-size: 16px;
               padding: 15px 0px;
               line-height: 35px;
@@ -110,7 +112,7 @@
             font-size: 16px;
             font-weight: 700;
             line-height: 19px;
-            color: #000000;
+            color: $black;
             font-weight: 500;
             &:hover {
               text-decoration: none;
@@ -122,7 +124,7 @@
           .main-link.active {
             background: rgba(221, 227, 232, 0.52);
             font-weight: 700;
-            color: #2b62f9;
+            color: $blue;
             text-decoration: none;
           }
         }
