@@ -2,58 +2,26 @@ import React, { useRef, useState } from "react"
 import "./userInfo.scss"
 
 const PersonalInfo = ({companyData, setCompanyData}) => {
-  // const [firstErr, setFirstErr] = useState(false);
-  // const [lastErr, setLastErr] = useState(false);
-  // const [designationErr, setDesignationErr] = useState(false);
-  // const [businessEmailErr, setBusinessEmailErr] = useState(false);
-
-
-  // const firstNameRef = useRef();
-  // const lastNameRef = useRef();
-  // const DesignationRef = useRef();
-  // const businessEmailRef = useRef();
-
+  const [err, setErr] = useState(false); 
+  const firstNameRef = useRef();
+  
   console.log("i am company data", companyData);
 
-  // const firstNameFun = () =>{
-  //   if(firstNameRef?.current?.value?.length < 3){
-  //     setFirstErr(true);
-  //   }
-  //   if(firstNameRef?.current?.value?.length > 2){
-  //     setFirstErr(false);
-   
-  //   } 
-  //  }
+  const firstNameFun = () =>{
+    console.log("i am calling", firstNameRef.current.value.length );
+    if(firstNameRef.current.value.length < 2){
+      setErr(true);
+    }
+    if(firstNameRef.current.value.length > 2){
+      setErr(false);
+    }
+  }
+
+  // if(companyData.firstName.length < 2){
+  //   setFirstNameErr(true)
+  // }
+
  
-  //  const lastNameFun = () =>{
-  //   if(lastNameRef?.current?.value?.length < 3){
-  //     setLastErr(true);
-  //   }
-  //   if(lastNameRef?.current?.value?.length > 2){
-  //     setLastErr(false);
-  //   } 
-  //  }
-
-  //  const designationFun = () =>{
-  //   console.log("value is ", DesignationRef?.current?.value);
-  //   if(DesignationRef?.current?.value?.length === 0){
-  //     setDesignationErr(true);
-  //   }
-  //   if(DesignationRef?.current?.value?.length > 0){
-  //     setDesignationErr(false);
-  //   } 
-  //  }
-
-  //  const BusinessEmailFun = () =>{
-  //    if(businessEmailRef?.current?.value?.length === 0){
-  //     setBusinessEmailErr(true);
-  //   }
-  //   if(businessEmailRef?.current?.value?.length > 0){
-  //     setBusinessEmailErr(false);
-  //   } 
-  //  }
-
-
 
   return (
     <div className="personal-info container">
@@ -66,15 +34,16 @@ const PersonalInfo = ({companyData, setCompanyData}) => {
             </label>
             <input
               type="text"
-              // ref={firstNameRef}
+              ref={firstNameRef}
               className="form-control input-focus"
               id="firstName"
               placeholder="First Name"
               value={companyData.firstName}
               onChange={(e)=> setCompanyData({...companyData, firstName: e.target.value})}
+              onKeyUp={firstNameFun}
               required
             />
-            {/* {firstErr ? <p className="error-change">Name should be more than 2 digit</p>: ""} */}
+            {err ? <p className="error-change">Name should be more than 2 digit</p>: ""}
           </div>
         </div>
         <div className="form-group col-md-6">
@@ -88,6 +57,8 @@ const PersonalInfo = ({companyData, setCompanyData}) => {
               className="form-control input-focus"
               id="lastName"
               placeholder="last Name"
+              value={companyData.lastName}
+              onChange={(e)=> setCompanyData({...companyData, lastName: e.target.value})}
               // onChange={lastNameFun}
               required
             />
