@@ -14,6 +14,10 @@ import { useSelector } from "react-redux"
 
 const UserInfo = () => {
   const [step, setStep] = useState(1)
+  const [companyData, setCompanyData]  = useState({
+    firstName : "",
+    lastName: "",
+  });
 
   const currentUserToken = useSelector((state) => state)
 
@@ -46,7 +50,7 @@ const UserInfo = () => {
   function renderSwitch(step) {
     switch (step) {
       case 1:
-        return <PersonalInfo />
+        return <PersonalInfo companyData={companyData} setCompanyData={setCompanyData} />
       case 2:
         return <FormPartTwo />
       case 3:

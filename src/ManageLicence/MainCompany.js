@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import ManageSideBar from "../components/ManageSideBar"
 import "./MainCompany.scss"
 import { Link, Outlet, useNavigate } from "react-router-dom"
