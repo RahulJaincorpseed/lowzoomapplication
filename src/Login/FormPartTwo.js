@@ -3,6 +3,22 @@ import "./userInfo.scss"
 import { cityData, companyData } from "../TestData.js/CityData"
 
 const FormPartTwo = () => {
+  const [companyNameErr, setCompanyNameErr] = useState(false); 
+ 
+
+  const companyNameRef = useRef();
+
+  const companyNameFun = () =>{
+    if(companyNameRef.current.value.length === 0){
+      setTimeout(()=>{
+        setCompanyNameErr(true);
+      },1000)
+    }
+    if(businessEmailRef.current.value.length >= 1){
+      setCompanyNameErr(false);
+    }
+  }
+ 
   return (
     <div className="personal-info container">
       <h4 className="info-text">Ok, tell us Your business Activity</h4>
@@ -28,11 +44,15 @@ const FormPartTwo = () => {
             </label>
             <input
               type="text"
+              ref={businessEmailRef}
+              onKeyUp={businessEmailFun}
               className="form-control input-focus"
               id="companyName"
               placeholder="Company Name"
               required
             />
+                   {companyNameErr ? <p className="error-change">Email can't be Blank</p>: ""}
+     
           </div>
         </div>
         <div className="form-group col-md-6">
