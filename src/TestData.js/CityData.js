@@ -25,6 +25,24 @@ export const cityData = [
   "Assam",
 ]
 
+export const companyData2 = [
+  "Private Company",
+  "Public Company",
+  "One Person Companies",
+  "Charitable Company",
+  "Foreign Companies",
+  "Government Company",
+  "International Financial Services",
+  "Nidhi Companies",
+  "Producer Company",
+  "Limited Liability Partnership",
+  "Foreign Limited Liability Partnership",
+  "Multi-State Coorperative Society",
+  "Branch Office/Project Office/Liaison Office",
+  "Consumer Cooperative",
+  "Others",
+]
+
 export const companyData = [
   "Private Company",
   "Public Company",

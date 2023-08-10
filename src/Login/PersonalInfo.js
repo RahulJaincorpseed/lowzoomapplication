@@ -1,59 +1,63 @@
 import React, { useRef, useState } from "react"
 import "./userInfo.scss"
 
-const PersonalInfo = ({companyData, setCompanyData}) => {
-  // const [firstErr, setFirstErr] = useState(false);
-  // const [lastErr, setLastErr] = useState(false);
-  // const [designationErr, setDesignationErr] = useState(false);
-  // const [businessEmailErr, setBusinessEmailErr] = useState(false);
+const PersonalInfo = ({ companyData, setCompanyData }) => {
+  const [firstNameErr, setFirstNameErr] = useState(false)
+  const [lastNameErr, setLastNameErr] = useState(false)
+  const [designationErr, setdesignationErr] = useState(false)
+  const [businessEmailErr, setBusinessEmailErr] = useState(false)
 
+  const firstNameRef = useRef()
+  const lastNameRef = useRef()
+  const designationRef = useRef()
+  const businessEmailRef = useRef()
 
-  // const firstNameRef = useRef();
-  // const lastNameRef = useRef();
-  // const DesignationRef = useRef();
-  // const businessEmailRef = useRef();
+  console.log("i am company data", companyData)
 
-  console.log("i am company data", companyData);
+  console.log("name", firstNameRef?.current?.value?.length)
+  const firstNameFun = () => {
+    if (firstNameRef.current.value.length === 0) {
+      setTimeout(() => {
+        setFirstNameErr(true)
+      }, 1000)
+    }
+    if (firstNameRef.current.value.length >= 1) {
+      setFirstNameErr(false)
+    }
+  }
 
-  // const firstNameFun = () =>{
-  //   if(firstNameRef?.current?.value?.length < 3){
-  //     setFirstErr(true);
-  //   }
-  //   if(firstNameRef?.current?.value?.length > 2){
-  //     setFirstErr(false);
-   
-  //   } 
-  //  }
- 
-  //  const lastNameFun = () =>{
-  //   if(lastNameRef?.current?.value?.length < 3){
-  //     setLastErr(true);
-  //   }
-  //   if(lastNameRef?.current?.value?.length > 2){
-  //     setLastErr(false);
-  //   } 
-  //  }
+  const lastNameFun = () => {
+    if (lastNameRef.current.value.length === 0) {
+      setTimeout(() => {
+        setLastNameErr(true)
+      }, 1000)
+    }
+    if (lastNameRef.current.value.length >= 1) {
+      setLastNameErr(false)
+    }
+  }
 
-  //  const designationFun = () =>{
-  //   console.log("value is ", DesignationRef?.current?.value);
-  //   if(DesignationRef?.current?.value?.length === 0){
-  //     setDesignationErr(true);
-  //   }
-  //   if(DesignationRef?.current?.value?.length > 0){
-  //     setDesignationErr(false);
-  //   } 
-  //  }
+  const designationFun = () => {
+    if (designationRef.current.value.length === 0) {
+      setTimeout(() => {
+        setdesignationErr(true)
+      }, 1000)
+    }
+    if (designationRef.current.value.length >= 1) {
+      setdesignationErr(false)
+    }
+  }
 
-  //  const BusinessEmailFun = () =>{
-  //    if(businessEmailRef?.current?.value?.length === 0){
-  //     setBusinessEmailErr(true);
-  //   }
-  //   if(businessEmailRef?.current?.value?.length > 0){
-  //     setBusinessEmailErr(false);
-  //   } 
-  //  }
-
-
+  const businessEmailFun = () => {
+    if (businessEmailRef.current.value.length === 0) {
+      setTimeout(() => {
+        setBusinessEmailErr(true)
+      }, 1000)
+    }
+    if (businessEmailRef.current.value.length >= 1) {
+      setBusinessEmailErr(false)
+    }
+  }
 
   return (
     <div className="personal-info container">
@@ -66,15 +70,22 @@ const PersonalInfo = ({companyData, setCompanyData}) => {
             </label>
             <input
               type="text"
-              // ref={firstNameRef}
+              ref={firstNameRef}
               className="form-control input-focus"
               id="firstName"
               placeholder="First Name"
               value={companyData.firstName}
-              onChange={(e)=> setCompanyData({...companyData, firstName: e.target.value})}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, firstName: e.target.value })
+              }
+              onKeyUp={firstNameFun}
               required
             />
-            {/* {firstErr ? <p className="error-change">Name should be more than 2 digit</p>: ""} */}
+            {firstNameErr ? (
+              <p className="error-change">First Name can 't be Blank</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="form-group col-md-6">
@@ -84,15 +95,22 @@ const PersonalInfo = ({companyData, setCompanyData}) => {
             </label>
             <input
               type="text"
-              // ref={lastNameRef}
+              ref={lastNameRef}
               className="form-control input-focus"
               id="lastName"
               placeholder="last Name"
-              // onChange={lastNameFun}
+              value={companyData.lastName}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, lastName: e.target.value })
+              }
+              onKeyUp={lastNameFun}
               required
             />
-            {/* {lastErr ? <p className="error-change">Last name should be more than 2 digit</p>: ""} */}
-        
+            {lastNameErr ? (
+              <p className="error-change">Last Name can't be Blank</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="form-group col-md-6">
@@ -102,15 +120,22 @@ const PersonalInfo = ({companyData, setCompanyData}) => {
             </label>
             <input
               type="text"
-              // ref={DesignationRef}
+              ref={designationRef}
+              onKeyUp={designationFun}
               className="form-control input-focus"
               id="designation"
               placeholder="Designation"
-              // onChange={designationFun}
+              value={companyData.designation}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, designation: e.target.value })
+              }
               required
             />
-              {/* {designationErr ? <p className="error-change">Can't be blank</p>: ""} */}
-        
+            {designationErr ? (
+              <p className="error-change">Designation can't be Blank</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="form-group col-md-6">
@@ -120,15 +145,22 @@ const PersonalInfo = ({companyData, setCompanyData}) => {
             </label>
             <input
               type="email"
-              // ref={businessEmailRef}
+              ref={businessEmailRef}
+              onKeyUp={businessEmailFun}
               className="form-control input-focus"
               id="bemail"
               placeholder="Business Email"
-              // onChange={BusinessEmailFun}
+              value={companyData.businessActivityEmail}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, businessActivityEmail: e.target.value })
+              }
               required
             />
-          {/* {businessEmailErr ? <p className="error-change">Can't be blank</p>: ""} */}
-        
+            {businessEmailErr ? (
+              <p className="error-change">Email can't be Blank</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
