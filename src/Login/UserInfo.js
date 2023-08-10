@@ -19,6 +19,17 @@ const UserInfo = () => {
     lastName: "",
     designation: "",
     businessActivityEmail: "",
+    companyType: "",
+    companyName: "",
+    companyCity:"",
+    companyState:"",
+    companyTurnover:"",
+    locatedAt: "",
+    businessActivity: "",
+    permanentEmployee: "",
+    contractEmployee: "",
+    gstNumber:"",
+    operationUnitAddress:"",
   });
 
   const currentUserToken = useSelector((state) => state)
@@ -54,7 +65,7 @@ const UserInfo = () => {
       case 1:
         return <PersonalInfo companyData={companyData} setCompanyData={setCompanyData} />
       case 2:
-        return <FormPartTwo />
+        return <FormPartTwo companyData={companyData} setCompanyData={setCompanyData} />
       case 3:
         return <AddPeople />
       case 4:

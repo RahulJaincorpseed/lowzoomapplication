@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react"
 import "./userInfo.scss"
-import { cityData, companyData } from "../TestData.js/CityData"
+import { cityData, companyData2 } from "../TestData.js/CityData"
 
-const FormPartTwo = () => {
+const FormPartTwo = ({ companyData, setCompanyData }) => {
   const [companyNameErr, setCompanyNameErr] = useState(false)
   const [turnOverErr, setTurnOverErr] = useState(false)
   const [businessActivityErr, setBusinessActivityErr] = useState(false)
@@ -100,6 +100,8 @@ const FormPartTwo = () => {
     }
   }
 
+  console.log("company data part 2", companyData);
+
 
 
   return (
@@ -111,8 +113,11 @@ const FormPartTwo = () => {
             <label className="label-heading" htmlFor="sel1">
               Select Type of company*
             </label>
-            <select className="form-control input-focus" id="sel1">
-              {companyData.map((company, index) => (
+            <select value={companyData.companyType}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, companyType: e.target.value })
+              } className="form-control input-focus" id="sel1">
+              {companyData2.map((company, index) => (
                 <option key={index} value={company}>
                   {company}
                 </option>
@@ -132,6 +137,10 @@ const FormPartTwo = () => {
               className="form-control input-focus"
               id="companyName"
               placeholder="Company Name"
+              value={companyData.companyName}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, companyName: e.target.value })
+              }
               required
             />
             {companyNameErr ? (
@@ -146,7 +155,9 @@ const FormPartTwo = () => {
             <label className="label-heading" htmlFor="sel2">
               City*
             </label>
-            <select className="form-control input-focus" id="sel2">
+            <select  value={companyData.companyCity} onChange={(e) =>
+                setCompanyData({ ...companyData, companyCity: e.target.value })
+              } className="form-control input-focus" id="sel2">
               {cityData.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
@@ -160,7 +171,9 @@ const FormPartTwo = () => {
             <label className="label-heading" htmlFor="sel3">
               State*
             </label>
-            <select className="form-control input-focus" id="sel3">
+            <select value={companyData.companyState} onChange={(e) =>
+                setCompanyData({ ...companyData, companyState: e.target.value })
+              } className="form-control input-focus" id="sel3">
               {cityData.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
@@ -180,6 +193,10 @@ const FormPartTwo = () => {
               onKeyUp={turnOverFun}
               className="form-control input-focus"
               id="turnOver"
+              value={companyData.companyTurnover} 
+              onChange={(e) =>
+                setCompanyData({ ...companyData, companyTurnover: e.target.value })
+              }
               placeholder="Company Turnover"
             />
             {turnOverErr ? (
@@ -194,7 +211,10 @@ const FormPartTwo = () => {
             <label className="label-heading" htmlFor="sel4">
               Located At*
             </label>
-            <select className="form-control input-focus" id="sel4">
+            <select  value={companyData.locatedAt} 
+              onChange={(e) =>
+                setCompanyData({ ...companyData, locatedAt: e.target.value })
+              } className="form-control input-focus" id="sel4">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -214,6 +234,10 @@ const FormPartTwo = () => {
               className="form-control input-focus"
               id="searchBusiness"
               placeholder="Search"
+              value={companyData.businessActivity} 
+              onChange={(e) =>
+                setCompanyData({ ...companyData, businessActivity: e.target.value })
+              }
               required
             />
             {businessActivityErr ? (
@@ -235,6 +259,11 @@ const FormPartTwo = () => {
               className="form-control input-focus"
               id="pemp"
               placeholder="Permanent Employee"
+              value={companyData.permanentEmployee} 
+              onChange={(e) =>
+                setCompanyData({ ...companyData, permanentEmployee: e.target.value })
+              }
+            
               required
             />
             {permanentEmployeesErr ? (
@@ -258,6 +287,10 @@ const FormPartTwo = () => {
                 className="form-control input-focus"
                 id="contractemp"
                 placeholder="Contract Employee"
+                value={companyData.contractEmployee} 
+              onChange={(e) =>
+                setCompanyData({ ...companyData, contractEmployee: e.target.value })
+              }
                 required
               />
                     {contactEmployeesErr ? (
@@ -277,7 +310,10 @@ const FormPartTwo = () => {
                 type="text"
                 ref={gstNumberRef}
                 onKeyUp={gstNumberFun}
-             
+                value={companyData.gstNumber} 
+                onChange={(e) =>
+                  setCompanyData({ ...companyData, gstNumber: e.target.value })
+                }
                 className="form-control input-focus"
                 id="gstnumber"
                 placeholder="GST Number"
@@ -306,6 +342,10 @@ const FormPartTwo = () => {
               rows="4"
               cols="50"
               placeholder="Enter here..."
+              value={companyData.operationUnitAddress} 
+              onChange={(e) =>
+                setCompanyData({ ...companyData, operationUnitAddress: e.target.value })
+              }
               required
             ></textarea>
                           {operatingUnitErr ? (
