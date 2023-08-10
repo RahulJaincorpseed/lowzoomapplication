@@ -125,6 +125,10 @@ const PersonalInfo = ({ companyData, setCompanyData }) => {
               className="form-control input-focus"
               id="designation"
               placeholder="Designation"
+              value={companyData.designation}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, designation: e.target.value })
+              }
               required
             />
             {designationErr ? (
@@ -146,6 +150,10 @@ const PersonalInfo = ({ companyData, setCompanyData }) => {
               className="form-control input-focus"
               id="bemail"
               placeholder="Business Email"
+              value={companyData.businessActivityEmail}
+              onChange={(e) =>
+                setCompanyData({ ...companyData, businessActivityEmail: e.target.value })
+              }
               required
             />
             {businessEmailErr ? (

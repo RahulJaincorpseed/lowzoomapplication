@@ -17,6 +17,8 @@ const UserInfo = () => {
   const [companyData, setCompanyData]  = useState({
     firstName : "",
     lastName: "",
+    designation: "",
+    businessActivityEmail: "",
   });
 
   const currentUserToken = useSelector((state) => state)
