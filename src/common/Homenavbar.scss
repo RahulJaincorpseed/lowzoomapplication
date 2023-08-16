@@ -1,0 +1,38 @@
+.home-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    .main-logo{
+        width: 170px;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    .home-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        .link-box{
+            .link-itemsss{
+                font-size: 21px;
+                font-weight: 500;
+                line-height: 26px;
+                color: #093252;
+            }
+            .link-itemsss.fw-600{
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+
+

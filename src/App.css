@@ -283,6 +283,53 @@ button:focus {
 
 
 
+/* nav links  */
+
+.link-box{
+  /* position: relative; */
+  transition: all 1s ease-in-out;
+}
+
+.link-box:hover .link-item{
+  display: initial;
+}
+
+.link-box .link-itemsss:hover{
+  text-decoration: none;
+}
+
+
+.link-box:hover .link-itemsss{
+  border-bottom: 4px solid  #006FFD;
+}
+
+.link-box:hover .link-itemsss .fa-chevron-down{
+  rotate: 180deg;
+  color: #006FFD;
+}
+
+
+
+
+
+
+.link-box .link-item{
+    display: none;
+    position: absolute;
+    width: 100%;
+    width: 86vw;
+    border: 1px solid red;
+    left: 0px;
+    top: 80px;
+    background-color: #fff;
+}
+
+
+
+/* end nav links */
+
+
+
 
 /* react css code */
 
