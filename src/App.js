@@ -17,11 +17,18 @@ import AccountSetting from "./ManageLicence/Accounts/AccountSetting"
 import AccountProfile from "./ManageLicence/Accounts/AccountProfile"
 import Order from "./ManageLicence/VendorTask/Order/Order"
 import OrderHistory from "./ManageLicence/VendorTask/OrderHistory"
+import HomePage from "./Home/HomePage"
+import FrontPage from "./Home/FrontPage"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path="/home" element={<HomePage />} >
+        <Route path="/home" element={<FrontPage />} />
+        
+      </Route>
+        
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />
