@@ -125,6 +125,25 @@ const FrontPage = () => {
       </div>
       </div>
       </section>
+
+      {/* about page */}
+         {/* financed section */}
+    <section  className="container">
+      <div className="about-section home-section-padding">
+        <div>
+          <h2 className="abt-head">About LowZoom</h2>
+          <p className="abt-desc">
+          Tradbee® is a fintech platform specialized in Collateral-Free Trade Financing solutions. Through our network of lending partners worldwide, we offer exclusive financial services to importers, exporters and domestic trade. Our primary focus is to assist businesses in meeting their working capital requirements whilst waiting for payment from their buyers. With our innovative financing solutions, business can effectively manage their cash flow needs and ensure smooth business operations.
+<br /><br />
+At Tradbee®, we are committed to offer affordable and convenient trade finance solutions.
+          </p>
+      
+        </div>
+        <div>
+        <LoginForm />
+        </div>
+      </div>
+      </section>
   </>
   )
 };
