@@ -121,6 +121,32 @@
 }
 
 
+// about section
+
+.about-section{
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 20px;
+    .abt-head{
+        font-size: 55px;
+        line-height: 75px;
+        color: #093252;
+
+    }
+    .abt-desc{
+        margin-top: 40px;
+        font-size: 18px;
+        line-height: 32px;
+        color: #093252;
+    }
+    .abt-form{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+}
+
+
 
 // media query
 
