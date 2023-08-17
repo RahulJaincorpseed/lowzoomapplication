@@ -58,6 +58,42 @@ const FrontPage = () => {
           </div>
         </div>
       </section>
+
+      {/* get in touch */}
+       {/* key offer */}
+    <section className="bg-theme">
+    <div className="container">
+      <div className="key-offer home-section-padding">
+        <h1 className="hmain-heading text-w">Get in Touch The <br /> Way You Like</h1>
+        <div className="offering-main-box my-5">
+           <button className="white-home-btn">Schedule a Callback</button>
+           <button className="white-home-btn">Enquire Now</button>
+           <button className="white-home-btn">Chat</button>
+        
+        </div>
+      </div>
+      </div>
+      </section>
+
+      {/* application section */}
+      <section className="container ">
+        <div className="seamless-box home-section-padding">
+          <div className="seamless-left">
+          <h1 className="hmain-heading">Application Process</h1>
+            <p className="hmain-desc my-4">Apply now to avail  finance by Simple 4-step customer on boarding process</p>
+            <button className="home-submit-btn">Apply for Invoice Factoring</button>        
+          </div>
+          <div className="seamless-right">
+            <SideSectionItem icon ={<i class="fa-solid fa-martini-glass-empty"></i>} heading="Apply Online" para="To apply for our services, simply go to our website and fill out some basic information about your business through our online form."/>
+            
+            <SideSectionItem icon ={<i class="fa-solid fa-venus-mars"></i>} heading="Credit assessment" para="Following a credit assessment, upon completion of credit checks, receive an offer."/>
+            
+            <SideSectionItem icon ={<i class="fa-solid fa-inbox"></i>} heading="Complete the KYC and Submit Invoice" para="Our dashboard allows you to easily upload your invoice and track the status of your payment. Once your invoice is uploaded, our team will promptly process your payment, ensuring that you receive your funds as quickly as possible."/>
+            
+            <SideSectionItem icon ={<i class="fa-solid fa-shop"></i>} heading="72 Hour Disbursements" para="Our fast and convenient service allows you to receive payments directly to your account, without any hassle or delay. Sign up today and start enjoying the benefits of 72 Hour Disbursements!"/>
+          </div>
+        </div>
+      </section>
   </>
   )
 };
