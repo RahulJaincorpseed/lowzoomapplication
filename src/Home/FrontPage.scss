@@ -51,6 +51,12 @@
     display: grid;
     grid-template-columns: 5fr 7fr;
     gap: 20px;
+    .seamless-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
     .seamless-right{
         padding: 0px 20px;
         display: flex;
