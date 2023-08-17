@@ -1,0 +1,44 @@
+.home-footer {
+    display: grid;
+    grid-template-columns: 4fr 3fr 3fr 3fr;
+    gap: 20px;
+    .product-part{
+        .footer-heading{
+            font-size: 30px;
+            line-height: 30px;
+            color: #093252;   
+            margin-bottom: 35px; 
+        }
+    }
+  .footer-links-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 0px;
+   
+    .footer-links {
+      font-size: 18px;
+      line-height: 30px;
+      color: #093252;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footer-links-flex-two {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px 0px;
+   
+    .footer-links {
+      font-size: 18px;
+      line-height: 30px;
+      color: #093252;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+}

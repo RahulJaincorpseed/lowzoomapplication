@@ -139,7 +139,7 @@ At Tradbee®, we are committed to offer affordable and convenient trade finance 
           </p>
       
         </div>
-        <div>
+        <div className="abt-form">
         <LoginForm />
         </div>
       </div>
