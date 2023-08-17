@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 10px 0px;
     position: sticky;
     top: 0;
@@ -19,6 +20,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 25px;
         .link-box{
             .link-itemsss{

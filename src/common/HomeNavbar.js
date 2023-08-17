@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const HomeNavbar = () => {
   return (
+    <div className="container">
     <div className="home-nav">
         <div className="main-logo">
             <img src={logoImage} />
@@ -39,6 +40,7 @@ const HomeNavbar = () => {
             
             </div>
         </div>
+    </div>
     </div>
   )
 };
