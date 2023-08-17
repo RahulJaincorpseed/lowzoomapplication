@@ -328,6 +328,91 @@ button:focus {
 
 /* end nav links */
 
+/* +++++++++++++++++++++++++++++++++++++++++++ */
+/*+++++++++++ home page common classes +++++++++++*/
+/* +++++++++++++++++++++++++++++++++++++++++++ */
+
+.bg-theme{
+  background-color: #093252;
+}
+
+.home-padding{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.home-section-padding{
+  padding-top: 70px;
+  padding-bottom: 70px;
+  
+}
+
+
+.hmain-heading{
+  font-size: 75px;
+  line-height: 80px;
+  letter-spacing: 0px;
+  color: #093252;
+}
+
+.text-w{
+  color: #fff;
+  text-align: center;
+}
+
+.hmain-desc{
+  font-size: 18px;
+  line-height: 32px;
+  color: #093252;
+}
+
+.head-two{
+  font-size: 14px;
+  line-height: 24px;
+  color: #093252;
+}
+
+.fw-700{
+  font-weight: 700;
+}
+
+.home-submit-btn{
+  background-color: #093252;
+  color: #fff;
+  padding: 10px 0px;
+  text-align: center;
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
+
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++ */
+/*+++++++++++ / home page common classes +++++++++++*/
+/* +++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
+
+
+
+@media only screen and (max-width: 1200px){
+  .hmain-heading{
+    font-size: 60px;
+  }
+  
+}
+
+@media only screen and (max-width: 992px){
+  .hmain-heading{
+    line-height: 80px;
+  }
+}
+
+
 
 
 
@@ -341,6 +426,9 @@ button:focus {
   .pl-ten {
     padding-left: 0px;
   }
+  .hmain-heading{
+    line-height: 70px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -348,5 +436,9 @@ button:focus {
     padding: 8px 30px;
     font-size: 22px;
     line-height: 28px;
+  }
+   .hmain-heading{
+    font-size: 50px;
+    line-height: 60px;
   }
 }

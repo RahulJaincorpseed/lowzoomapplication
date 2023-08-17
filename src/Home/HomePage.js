@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div className="container">
+    <div>
         <HomeNavbar />
         <Outlet />
         <HomeFooter />
