@@ -66,6 +66,61 @@
 }
 
 
+.finance-steps{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 50px 30px;
+    justify-content: center;
+    color: #fff;
+    .steps-count{
+        padding: 10px;
+        text-align: center;
+       
+    .counting{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        .count{
+            height: 60px;
+            width: 60px;
+            border: 1px solid #fff;
+            font-size: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            &::after{
+                content:"";
+                height: 2px;
+                width: 190%;
+                display: block;
+                color: #fff;
+                position: absolute;
+                background-color: #fff;
+                left: 175%;
+            }
+        }
+        .count.last-count{
+            &::after{
+                height: 0px;
+            }
+        }
+        
+    }
+}
+    .finance-heading{
+        font-size: 22px;
+        line-height: 40px;
+
+    }
+    .finance-desc{
+        font-size: 16px;
+        line-height: 25px;
+    }
+}
+
+
 
 // media query
 

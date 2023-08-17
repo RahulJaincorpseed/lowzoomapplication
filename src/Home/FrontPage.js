@@ -94,6 +94,37 @@ const FrontPage = () => {
           </div>
         </div>
       </section>
+      {/* financed section */}
+      <section className="bg-theme">
+    <div className="container">
+      <div className="key-offer home-section-padding">
+        <h1 className="hmain-heading text-w">How Do I Get <br />Financed?</h1>
+        <div className="finance-steps">
+          <div className="steps-count">
+            <div className="counting"><div className="count">1</div></div>
+            <h3 className="finance-heading">Uploads Invoice</h3>
+            <p className="finance-desc">Upon raising an invoice to your client within the credit limit offered, uploads the invoice onto Tradbee® system.</p>
+          </div>
+          <div className="steps-count">
+            <div className="counting"><div className="count">2</div></div>
+            <h3 className="finance-heading">Sign Agreement</h3>
+            <p className="finance-desc">Sign the Debt Purchase Agreement digitally on our Tradbee System </p>
+          </div>
+          <div className="steps-count">
+            <div className="counting"><div className="count">3</div></div>
+            <h3 className="finance-heading">Quick Disbursements</h3>
+            <p className="finance-desc">Upon Acceptance from the buyer, our lending partner pays 80-90% immediately</p>
+          </div>
+          <div className="steps-count">
+            <div className="counting"><div className="count last-count">4</div></div>
+            <h3 className="finance-heading">Remaining Amount </h3>
+            <p className="finance-desc">Payments are collected on due date and Balance amount is paid to you</p>
+          </div>
+        
+        </div>
+      </div>
+      </div>
+      </section>
   </>
   )
 };

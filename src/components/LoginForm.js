@@ -1,5 +1,6 @@
 import React from "react";
 import "./LoginForm.scss"
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   return (
@@ -20,6 +21,7 @@ const LoginForm = () => {
             <button className="home-submit-btn">Submit</button>
             <div className="register">
                 <p className="register-text">By registering you have read and agree to the</p>
+                <p className="register-text m-0"><Link className="color-dblue mr-1">Terms of Use</Link>&<Link className="color-dblue ml-1">Privacy Policy</Link></p>
             </div>
         </form>
     </div>
