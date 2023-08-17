@@ -1,19 +1,18 @@
-.section-item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    i{
-        font-size: 40px;
-        color: #093252;
-
-    }
-    .section-head{
-        color: #093252;
-        font-size: 24px;
-    }
-    .section-para{
-        color: #093252;
-        font-size: 18px;
-    }
+.section-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  i {
+    font-size: 40px;
+    color: #093252;
+  }
+  .section-head {
+    color: #093252;
+    font-size: 24px;
+  }
+  .section-para {
+    color: #093252;
+    font-size: 18px;
+  }
 }

@@ -42,3 +42,25 @@
     }
   }
 }
+
+.below-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px 0px;
+    .below-text{
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 26px;
+        color: #093252;   
+    }
+    .right-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+}
+
