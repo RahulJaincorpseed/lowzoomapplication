@@ -35,7 +35,7 @@ const FrontPage = () => {
       <section className="bg-theme">
         <div className="container">
           <div className="key-offer home-section-padding">
-            <h1 className="hmain-heading text-w">Key Offerings</h1>
+            <h1 className="hmain-heading text-w">Key <br  className="how-get"/> Offerings</h1>
             <div className="offering-main-box">
               <OfferingBox
                 icon={<i class="fa-solid fa-earth-americas"></i>}
@@ -105,9 +105,9 @@ const FrontPage = () => {
               Get in Touch The <br /> Way You Like
             </h1>
             <div className="offering-main-box my-5">
-              <button className="white-home-btn">Schedule a Callback</button>
-              <button className="white-home-btn">Enquire Now</button>
-              <button className="white-home-btn">Chat</button>
+              <button className="white-home-btn w-300">Schedule a Callback</button>
+              <button className="white-home-btn w-300">Enquire Now</button>
+              <button className="white-home-btn w-300">Chat</button>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ const FrontPage = () => {
         <div className="container">
           <div className="key-offer home-section-padding">
             <h1 className="hmain-heading text-w">
-              How Do I Get <br />
+              How Do <br  className="how-get"/> I Get <br />
               Financed?
             </h1>
             <div className="finance-steps">

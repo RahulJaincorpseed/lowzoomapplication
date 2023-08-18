@@ -16,3 +16,17 @@
     font-size: 18px;
   }
 }
+
+
+
+@media only screen and (max-width: 576px){
+
+  .section-item{
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 0px;
+  }
+
+}
+
+

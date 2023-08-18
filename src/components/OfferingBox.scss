@@ -17,6 +17,12 @@
   .offre-more {
     font-size: 18px;
     line-height: 44px;
-    color: #093252;
+    color: #093252; 
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .offer-box{
+    width: 100%;
   }
 }
