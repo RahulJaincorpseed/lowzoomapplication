@@ -392,11 +392,15 @@ button:focus {
   background-color: #fff;
   border: 1px solid #fff;
   padding: 10px 40px;
-  min-width: 300px;
+  width: 100%;
   border-radius: 5px;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
+}
+
+.w-300{
+  width: 300px;
 }
 
 .color-dblue{
@@ -420,6 +424,7 @@ button:focus {
   .hmain-heading{
     font-size: 60px;
   }
+  
   
 }
 
@@ -446,6 +451,10 @@ button:focus {
   .hmain-heading{
     line-height: 70px;
   }
+  .hmain-heading.text-w{
+    font-size: 60px;
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -458,4 +467,10 @@ button:focus {
     font-size: 50px;
     line-height: 60px;
   }
+  .home-section-padding{
+    padding-left: 10px;
+    padding-right: 10px;
+    
+  }
+  
 }
