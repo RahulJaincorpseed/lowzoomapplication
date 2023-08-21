@@ -38,15 +38,15 @@ const FrontPage = () => {
             <h1 className="hmain-heading text-w">Key <br  className="how-get"/> Offerings</h1>
             <div className="offering-main-box">
               <OfferingBox
-                icon={<i class="fa-solid fa-earth-americas"></i>}
+                icon={<i className="fa-solid fa-earth-americas"></i>}
                 heading={`Import Financing`}
               />
               <OfferingBox
-                icon={<i class="fa-solid fa-plane"></i>}
+                icon={<i className="fa-solid fa-plane"></i>}
                 heading="Export Financing"
               />
               <OfferingBox
-                icon={<i class="fa-solid fa-globe"></i>}
+                icon={<i className="fa-solid fa-globe"></i>}
                 heading="Domestic Trade Financing"
               />
             </div>
@@ -70,25 +70,25 @@ const FrontPage = () => {
           </div>
           <div className="seamless-right">
             <SideSectionItem
-              icon={<i class="fa-solid fa-martini-glass-empty"></i>}
+              icon={<i className="fa-solid fa-martini-glass-empty"></i>}
               heading="Collateral free finance"
               para="Our quick access to funds enables businesses to manage their cash flow and meet their working capital needs on a need basis"
             />
 
             <SideSectionItem
-              icon={<i class="fa-solid fa-venus-mars"></i>}
+              icon={<i className="fa-solid fa-venus-mars"></i>}
               heading="Quick Funds Access"
               para="This enables your businesses to manage cash flow and continue operations without the need for additional security"
             />
 
             <SideSectionItem
-              icon={<i class="fa-solid fa-inbox"></i>}
+              icon={<i className="fa-solid fa-inbox"></i>}
               heading="Minimal paperwork"
               para="Our quick access to funds enables businesses to manage their cash flow and meet their working capital needs on a need basis"
             />
 
             <SideSectionItem
-              icon={<i class="fa-solid fa-shop"></i>}
+              icon={<i className="fa-solid fa-shop"></i>}
               heading="A Groundbreaking Win-Win Strategy"
               para="Our unique approach to dynamic discounting and supplier finance keeps cash flowing for suppliers and improves key financial metrics for buyers with more flexibility and speed"
             />
@@ -128,25 +128,25 @@ const FrontPage = () => {
           </div>
           <div className="seamless-right">
             <SideSectionItem
-              icon={<i class="fa-solid fa-martini-glass-empty"></i>}
+              icon={<i className="fa-solid fa-martini-glass-empty"></i>}
               heading="Apply Online"
               para="To apply for our services, simply go to our website and fill out some basic information about your business through our online form."
             />
 
             <SideSectionItem
-              icon={<i class="fa-solid fa-venus-mars"></i>}
+              icon={<i className="fa-solid fa-venus-mars"></i>}
               heading="Credit assessment"
               para="Following a credit assessment, upon completion of credit checks, receive an offer."
             />
 
             <SideSectionItem
-              icon={<i class="fa-solid fa-inbox"></i>}
+              icon={<i className="fa-solid fa-inbox"></i>}
               heading="Complete the KYC and Submit Invoice"
               para="Our dashboard allows you to easily upload your invoice and track the status of your payment. Once your invoice is uploaded, our team will promptly process your payment, ensuring that you receive your funds as quickly as possible."
             />
 
             <SideSectionItem
-              icon={<i class="fa-solid fa-shop"></i>}
+              icon={<i className="fa-solid fa-shop"></i>}
               heading="72 Hour Disbursements"
               para="Our fast and convenient service allows you to receive payments directly to your account, without any hassle or delay. Sign up today and start enjoying the benefits of 72 Hour Disbursements!"
             />
@@ -239,7 +239,7 @@ const FrontPage = () => {
           <div className="user-guide home-section-padding">
             <div className="user-guidenes">
               <h1 className="hmain-heading text-w">Download User Guide</h1>
-              <i class="fa-solid user-icon fa-file-pdf"></i>
+              <i className="fa-solid user-icon fa-file-pdf"></i>
             </div>
             <div className="user-guidenes">
               <h1 className="hmain-heading text-w">Become Partner</h1>

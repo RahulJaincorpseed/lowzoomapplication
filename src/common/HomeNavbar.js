@@ -12,7 +12,7 @@ const HomeNavbar = () => {
         </div>
         <div className="home-links">
             <div className="link-box">
-            <Link to="/services" className="link-itemsss">Services<i class="fa-solid ml-1 fa-chevron-down"></i></Link>
+            <Link to="/services" className="link-itemsss">Services<i className="fa-solid ml-1 fa-chevron-down"></i></Link>
             <div className="link-item">
                 <h1>item 1</h1>
                 <p>lorem2kns sdklfmsd lksdcns 
@@ -20,7 +20,7 @@ const HomeNavbar = () => {
             </div>
             </div>
             <div className="link-box">
-            <Link to="/services" className="link-itemsss">Partner<i class="fa-solid ml-1 fa-chevron-down"></i></Link>
+            <Link to="/services" className="link-itemsss">Partner<i className="fa-solid ml-1 fa-chevron-down"></i></Link>
             <div className="link-item">
                 <h1>item 2</h1>
                 <p>lorem2kns sdklfmsd lksdcns 
@@ -28,7 +28,7 @@ const HomeNavbar = () => {
             </div>
             </div>
             <div className="link-box">
-            <Link to="/services" className="link-itemsss">Company<i class="fa-solid ml-1 fa-chevron-down"></i></Link>
+            <Link to="/services" className="link-itemsss">Company<i className="fa-solid ml-1 fa-chevron-down"></i></Link>
             <div className="link-item">
                 <h1>item 3</h1>
                 <p>lorem2kns sdklfmsd lksdcns 
