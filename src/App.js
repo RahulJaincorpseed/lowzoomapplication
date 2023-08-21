@@ -24,11 +24,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/home" element={<HomePage />} >
-        <Route path="/home" element={<FrontPage />} />
-        
-      </Route>
-        
+        <Route path="/home" element={<HomePage />}>
+          <Route path="/home" element={<FrontPage />} />
+        </Route>
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />

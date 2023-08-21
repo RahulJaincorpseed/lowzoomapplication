@@ -114,89 +114,89 @@ const SignUp = () => {
         </Link>
         <p className="signin-text">Or Sign In With Email</p>
         <form>
-        <div className="pb-2">
-          <label className="label-heading" htmlFor="phone">
-            Mobile Number*
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            ref={mobileNumber}
-            name="phone"
-            placeholder="+91 9999008078"
-            required
-          />
-          {error ? (
-            <span className="error-text">
-              please Enter a Valid Mobile Number
-            </span>
-          ) : (
-            ""
-          )}
-          <button
-            onClick={getOtp}
-            className="btn btn-outline-primary sign-button w-100 my-2"
-          >
-            {OtpLoading ? (
-              <Spinner height={"25px"} width={"25px"} />
+          <div className="pb-2">
+            <label className="label-heading" htmlFor="phone">
+              Mobile Number*
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              ref={mobileNumber}
+              name="phone"
+              placeholder="+91 9999008078"
+              required
+            />
+            {error ? (
+              <span className="error-text">
+                please Enter a Valid Mobile Number
+              </span>
             ) : (
-              "GET OTP"
+              ""
             )}
-          </button>
-        </div>
-        <div className="pb-2">
-          <label className="label-heading" htmlFor="otp">
-            OTP *
-          </label>
-          <input
-            type="text"
-            ref={OTP}
-            id="otp"
-            name="otp"
-            placeholder="Enter your OTP"
-            required
-          />
-          {otpError ? (
-            <span className="error-text">please Enter a Valid OTP</span>
-          ) : (
-            ""
-          )}
-        </div>
-        <div className="pb-2">
-          <label className="label-heading password-input" htmlFor="password">
-            Set Password
-          </label>
-          <input
-            className="password-input"
-            ref={passowrd}
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Min. 8 Charecter"
-            autoComplete="off"
-            required
-          />
-        </div>
-        <div className="sign-btn">
-          <div className="remember-text">
-            <i
-              onClick={() => setCheckCircle((prev) => !prev)}
-              className={`fa-regular fa-circle-check ${
-                checkCircle ? "checkCircle" : ""
-              }`}
-            ></i>
-            <p className="label-heading">Remember me</p>
-          </div>
-          <div>
             <button
-              to={`/userinfo`}
-              onClick={(e) => userSignUp(e)}
-              className="btn btn-outline-primary sign-button"
+              onClick={getOtp}
+              className="btn btn-outline-primary sign-button w-100 my-2"
             >
-              Sign Up
+              {OtpLoading ? (
+                <Spinner height={"25px"} width={"25px"} />
+              ) : (
+                "GET OTP"
+              )}
             </button>
           </div>
-        </div>
+          <div className="pb-2">
+            <label className="label-heading" htmlFor="otp">
+              OTP *
+            </label>
+            <input
+              type="text"
+              ref={OTP}
+              id="otp"
+              name="otp"
+              placeholder="Enter your OTP"
+              required
+            />
+            {otpError ? (
+              <span className="error-text">please Enter a Valid OTP</span>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="pb-2">
+            <label className="label-heading password-input" htmlFor="password">
+              Set Password
+            </label>
+            <input
+              className="password-input"
+              ref={passowrd}
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Min. 8 Charecter"
+              autoComplete="off"
+              required
+            />
+          </div>
+          <div className="sign-btn">
+            <div className="remember-text">
+              <i
+                onClick={() => setCheckCircle((prev) => !prev)}
+                className={`fa-regular fa-circle-check ${
+                  checkCircle ? "checkCircle" : ""
+                }`}
+              ></i>
+              <p className="label-heading">Remember me</p>
+            </div>
+            <div>
+              <button
+                to={`/userinfo`}
+                onClick={(e) => userSignUp(e)}
+                className="btn btn-outline-primary sign-button"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>

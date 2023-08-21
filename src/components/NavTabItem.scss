@@ -1,20 +1,20 @@
-.tab-item{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    i{
-        font-size: 25px;
-    }
-    .tab-heading{
-        font-size: 30px;
-        line-height: 24px;
-        color: #093252;
-        font-weight: 600;
-    }
-    .tab-para{
-        font-size: 18px;
-        line-height: 24px;
-        color: #093252;
-        margin-top: 20px;
-    }
+.tab-item {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  i {
+    font-size: 25px;
+  }
+  .tab-heading {
+    font-size: 30px;
+    line-height: 24px;
+    color: #093252;
+    font-weight: 600;
+  }
+  .tab-para {
+    font-size: 18px;
+    line-height: 24px;
+    color: #093252;
+    margin-top: 20px;
+  }
 }

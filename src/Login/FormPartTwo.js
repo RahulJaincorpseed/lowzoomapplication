@@ -11,7 +11,6 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
   const [gstNumberErr, setGstNumberErr] = useState(false)
   const [operatingUnitErr, setOperatingUnitErr] = useState(false)
 
-
   const companyNameRef = useRef()
   const turnOverRef = useRef()
   const businessActivityRef = useRef()
@@ -19,7 +18,6 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
   const contactEmployeesRef = useRef()
   const gstNumberRef = useRef()
   const operatingUnitRef = useRef()
-
 
   const companyNameFun = () => {
     if (companyNameRef.current.value.length === 0) {
@@ -76,7 +74,6 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
     }
   }
 
-  
   const gstNumberFun = () => {
     if (gstNumberRef.current.value.length === 0) {
       setTimeout(() => {
@@ -88,7 +85,6 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
     }
   }
 
-  
   const operatingUnitFun = () => {
     if (operatingUnitRef.current.value.length === 0) {
       setTimeout(() => {
@@ -100,9 +96,7 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
     }
   }
 
-  console.log("company data part 2", companyData);
-
-
+  console.log("company data part 2", companyData)
 
   return (
     <div className="personal-info container">
@@ -113,10 +107,14 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
             <label className="label-heading" htmlFor="sel1">
               Select Type of company*
             </label>
-            <select value={companyData.companyType}
+            <select
+              value={companyData.companyType}
               onChange={(e) =>
                 setCompanyData({ ...companyData, companyType: e.target.value })
-              } className="form-control input-focus" id="sel1">
+              }
+              className="form-control input-focus"
+              id="sel1"
+            >
               {companyData2.map((company, index) => (
                 <option key={index} value={company}>
                   {company}
@@ -155,9 +153,14 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
             <label className="label-heading" htmlFor="sel2">
               City*
             </label>
-            <select  value={companyData.companyCity} onChange={(e) =>
+            <select
+              value={companyData.companyCity}
+              onChange={(e) =>
                 setCompanyData({ ...companyData, companyCity: e.target.value })
-              } className="form-control input-focus" id="sel2">
+              }
+              className="form-control input-focus"
+              id="sel2"
+            >
               {cityData.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
@@ -171,9 +174,14 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
             <label className="label-heading" htmlFor="sel3">
               State*
             </label>
-            <select value={companyData.companyState} onChange={(e) =>
+            <select
+              value={companyData.companyState}
+              onChange={(e) =>
                 setCompanyData({ ...companyData, companyState: e.target.value })
-              } className="form-control input-focus" id="sel3">
+              }
+              className="form-control input-focus"
+              id="sel3"
+            >
               {cityData.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
@@ -193,9 +201,12 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
               onKeyUp={turnOverFun}
               className="form-control input-focus"
               id="turnOver"
-              value={companyData.companyTurnover} 
+              value={companyData.companyTurnover}
               onChange={(e) =>
-                setCompanyData({ ...companyData, companyTurnover: e.target.value })
+                setCompanyData({
+                  ...companyData,
+                  companyTurnover: e.target.value,
+                })
               }
               placeholder="Company Turnover"
             />
@@ -211,10 +222,14 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
             <label className="label-heading" htmlFor="sel4">
               Located At*
             </label>
-            <select  value={companyData.locatedAt} 
+            <select
+              value={companyData.locatedAt}
               onChange={(e) =>
                 setCompanyData({ ...companyData, locatedAt: e.target.value })
-              } className="form-control input-focus" id="sel4">
+              }
+              className="form-control input-focus"
+              id="sel4"
+            >
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -234,9 +249,12 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
               className="form-control input-focus"
               id="searchBusiness"
               placeholder="Search"
-              value={companyData.businessActivity} 
+              value={companyData.businessActivity}
               onChange={(e) =>
-                setCompanyData({ ...companyData, businessActivity: e.target.value })
+                setCompanyData({
+                  ...companyData,
+                  businessActivity: e.target.value,
+                })
               }
               required
             />
@@ -259,11 +277,13 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
               className="form-control input-focus"
               id="pemp"
               placeholder="Permanent Employee"
-              value={companyData.permanentEmployee} 
+              value={companyData.permanentEmployee}
               onChange={(e) =>
-                setCompanyData({ ...companyData, permanentEmployee: e.target.value })
+                setCompanyData({
+                  ...companyData,
+                  permanentEmployee: e.target.value,
+                })
               }
-            
               required
             />
             {permanentEmployeesErr ? (
@@ -283,22 +303,25 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
                 type="text"
                 ref={contactEmployeesRef}
                 onKeyUp={contactEmployeesFun}
-             
                 className="form-control input-focus"
                 id="contractemp"
                 placeholder="Contract Employee"
-                value={companyData.contractEmployee} 
-              onChange={(e) =>
-                setCompanyData({ ...companyData, contractEmployee: e.target.value })
-              }
+                value={companyData.contractEmployee}
+                onChange={(e) =>
+                  setCompanyData({
+                    ...companyData,
+                    contractEmployee: e.target.value,
+                  })
+                }
                 required
               />
-                    {contactEmployeesErr ? (
-              <p className="error-change">Contract employees can't be Blank</p>
-            ) : (
-              ""
-            )}
-      
+              {contactEmployeesErr ? (
+                <p className="error-change">
+                  Contract employees can't be Blank
+                </p>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className="form-group col-md-12 m-0 p-0">
@@ -310,7 +333,7 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
                 type="text"
                 ref={gstNumberRef}
                 onKeyUp={gstNumberFun}
-                value={companyData.gstNumber} 
+                value={companyData.gstNumber}
                 onChange={(e) =>
                   setCompanyData({ ...companyData, gstNumber: e.target.value })
                 }
@@ -319,12 +342,11 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
                 placeholder="GST Number"
                 required
               />
-                        {gstNumberErr ? (
-              <p className="error-change">GST Number can't be Blank</p>
-            ) : (
-              ""
-            )}
-      
+              {gstNumberErr ? (
+                <p className="error-change">GST Number can't be Blank</p>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
@@ -342,14 +364,20 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
               rows="4"
               cols="50"
               placeholder="Enter here..."
-              value={companyData.operationUnitAddress} 
+              value={companyData.operationUnitAddress}
               onChange={(e) =>
-                setCompanyData({ ...companyData, operationUnitAddress: e.target.value })
+                setCompanyData({
+                  ...companyData,
+                  operationUnitAddress: e.target.value,
+                })
               }
               required
             ></textarea>
-                          {operatingUnitErr ? (
-              <p className="error-change"> Operating Unit address can't be Blank</p>
+            {operatingUnitErr ? (
+              <p className="error-change">
+                {" "}
+                Operating Unit address can't be Blank
+              </p>
             ) : (
               ""
             )}

@@ -1,9 +1,7 @@
-:root{
-
+:root {
   --whiteColor: #ffffff;
   --blueColor: #2b62f9;
 }
-
 
 .team-model .add-team-modal {
   font-weight: 500;
@@ -112,14 +110,12 @@
   margin: auto !important;
 }
 
-.guide-btn{
+.guide-btn {
   font-size: 18px;
   font-weight: 200;
   line-height: 22px;
   color: var(--blueColor);
 }
-
-
 
 @media only screen and (max-width: 768px) {
   .model-heading {

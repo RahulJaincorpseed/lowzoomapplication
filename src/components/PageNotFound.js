@@ -1,6 +1,5 @@
 import React from "react"
 import "./PageNotFound.scss"
-import ZoomLogo from "../images/lowZoom.png"
 import { Link } from "react-router-dom"
 
 const PageNotFound = () => {

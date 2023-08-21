@@ -152,7 +152,10 @@ const PersonalInfo = ({ companyData, setCompanyData }) => {
               placeholder="Business Email"
               value={companyData.businessActivityEmail}
               onChange={(e) =>
-                setCompanyData({ ...companyData, businessActivityEmail: e.target.value })
+                setCompanyData({
+                  ...companyData,
+                  businessActivityEmail: e.target.value,
+                })
               }
               required
             />
