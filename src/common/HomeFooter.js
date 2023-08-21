@@ -29,17 +29,17 @@ const HomeFooter = () => {
           </div>
         </div>
         <div className="product-part">
-        <h2 className="footer-heading">Explore</h2>
+          <h2 className="footer-heading">Explore</h2>
           <div className="footer-links-flex-two">
             <Link className="footer-links">Exporters</Link>
             <Link className="footer-links"> Importer</Link>
             <Link className="footer-links"> Domestic</Link>
             <Link className="footer-links">Investors</Link>
-            <Link className="footer-links">  Partner with us</Link>
+            <Link className="footer-links"> Partner with us</Link>
           </div>
         </div>
         <div className="product-part">
-        <h2 className="footer-heading">Company</h2>
+          <h2 className="footer-heading">Company</h2>
           <div className="footer-links-flex-two">
             <Link className="footer-links">About us</Link>
             <Link className="footer-links">Contact</Link>
@@ -49,14 +49,17 @@ const HomeFooter = () => {
         </div>
       </div>
 
-    <div className="below-footer">
-      <h3 className="below-text"><span className="mr-2">©</span><span className="mr-2">2023</span>Finleit Financial Advisors Private Limited</h3>
-      <div className="right-links">
-      <Link className="below-text">Privacy</Link>
-      <Link className="below-text">Terms</Link>
-
+      <div className="below-footer">
+        <h3 className="below-text">
+          <span className="mr-2">©</span>
+          <span className="mr-2">2023</span>Finleit Financial Advisors Private
+          Limited
+        </h3>
+        <div className="right-links">
+          <Link className="below-text">Privacy</Link>
+          <Link className="below-text">Terms</Link>
+        </div>
       </div>
-    </div>
     </footer>
   )
 }

@@ -8,13 +8,10 @@
   }
 }
 
-
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
   .manage-license {
     .right-sidebar {
       width: calc(100vw - 75px);
-      
     }
   }
-  
 }

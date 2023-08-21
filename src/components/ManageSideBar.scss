@@ -62,9 +62,7 @@
   }
 }
 
-
-@media only screen and (max-width: 768px){
-
+@media only screen and (max-width: 768px) {
   .manageside-bar {
     width: 75px;
     overflow: hidden;
@@ -75,14 +73,14 @@
       .list-unorder {
         .linkw-icon {
           margin-bottom: 10px;
-          .main-link{
+          .main-link {
             padding-left: 5px !important;
-            .fa-chevron-right{
+            .fa-chevron-right {
               position: relative;
               top: -20px;
               left: -15px;
             }
-            span{
+            span {
               display: none;
             }
           }
@@ -131,5 +129,4 @@
       }
     }
   }
-
 }

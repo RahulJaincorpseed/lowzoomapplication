@@ -11,31 +11,29 @@ import CompanyInfo from "./CompanyInfo"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 
-
 const UserInfo = () => {
   const [step, setStep] = useState(1)
-  const [companyData, setCompanyData]  = useState({
-    firstName : "",
+  const [companyData, setCompanyData] = useState({
+    firstName: "",
     lastName: "",
     designation: "",
     businessActivityEmail: "",
     companyType: "",
     companyName: "",
-    companyCity:"",
-    companyState:"",
-    companyTurnover:"",
+    companyCity: "",
+    companyState: "",
+    companyTurnover: "",
     locatedAt: "",
     businessActivity: "",
     permanentEmployee: "",
     contractEmployee: "",
-    gstNumber:"",
-    operationUnitAddress:"",
-  });
+    gstNumber: "",
+    operationUnitAddress: "",
+  })
 
   const currentUserToken = useSelector((state) => state)
 
-  console.log("i am current user info token " , currentUserToken);
-
+  console.log("i am current user info token ", currentUserToken)
 
   // progress bar
 
@@ -63,9 +61,19 @@ const UserInfo = () => {
   function renderSwitch(step) {
     switch (step) {
       case 1:
-        return <PersonalInfo companyData={companyData} setCompanyData={setCompanyData} />
+        return (
+          <PersonalInfo
+            companyData={companyData}
+            setCompanyData={setCompanyData}
+          />
+        )
       case 2:
-        return <FormPartTwo companyData={companyData} setCompanyData={setCompanyData} />
+        return (
+          <FormPartTwo
+            companyData={companyData}
+            setCompanyData={setCompanyData}
+          />
+        )
       case 3:
         return <AddPeople />
       case 4:
@@ -75,14 +83,9 @@ const UserInfo = () => {
     }
   }
 
-
-  const SubmitAllData = (e) =>{
-    e.preventDefault();
-
-
+  const SubmitAllData = (e) => {
+    e.preventDefault()
   }
-
-
 
   return (
     <div>
@@ -119,7 +122,12 @@ const UserInfo = () => {
           )}
           {step === 4 ? (
             <Link to="/">
-              <button className="form-next-btn first-button" onClick={(e) => SubmitAllData(e)}>Submit</button>
+              <button
+                className="form-next-btn first-button"
+                onClick={(e) => SubmitAllData(e)}
+              >
+                Submit
+              </button>
             </Link>
           ) : (
             <button

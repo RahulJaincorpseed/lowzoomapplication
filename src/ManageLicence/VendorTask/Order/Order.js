@@ -2,20 +2,62 @@ import React from "react"
 import "./Order.scss"
 
 const Order = () => {
-  const data =  [
-    {serviceName: "CONSENT TO ESTABLISHMENT", action:"DOCUMENTS", orderNo: "221028704798", email:"abc@bharatpe.com", status: "IN PROGRESS"},
-    {serviceName: "CONSENT TO ESTABLISHMENT", action:"DOCUMENTS", orderNo: "221028704798", email:"abc@bharatpe.com", status: "IN PROGRESS"},
-    {serviceName: "CONSENT TO ESTABLISHMENT", action:"DOCUMENTS", orderNo: "221028704798", email:"abc@bharatpe.com", status: "IN PROGRESS"},
-    {serviceName: "CONSENT TO ESTABLISHMENT", action:"DOCUMENTS", orderNo: "221028704798", email:"abc@bharatpe.com", status: "IN PROGRESS"},
-    {serviceName: "CONSENT TO ESTABLISHMENT", action:"DOCUMENTS", orderNo: "221028704798", email:"abc@bharatpe.com", status: "IN PROGRESS"},
-    {serviceName: "CONSENT TO ESTABLISHMENT", action:"DOCUMENTS", orderNo: "221028704798", email:"abc@bharatpe.com", status: "IN PROGRESS"},
-    {serviceName: "CONSENT TO ESTABLISHMENT", action:"DOCUMENTS", orderNo: "221028704798", email:"abc@bharatpe.com", status: "IN PROGRESS"},
+  const data = [
+    {
+      serviceName: "CONSENT TO ESTABLISHMENT",
+      action: "DOCUMENTS",
+      orderNo: "221028704798",
+      email: "abc@bharatpe.com",
+      status: "IN PROGRESS",
+    },
+    {
+      serviceName: "CONSENT TO ESTABLISHMENT",
+      action: "DOCUMENTS",
+      orderNo: "221028704798",
+      email: "abc@bharatpe.com",
+      status: "IN PROGRESS",
+    },
+    {
+      serviceName: "CONSENT TO ESTABLISHMENT",
+      action: "DOCUMENTS",
+      orderNo: "221028704798",
+      email: "abc@bharatpe.com",
+      status: "IN PROGRESS",
+    },
+    {
+      serviceName: "CONSENT TO ESTABLISHMENT",
+      action: "DOCUMENTS",
+      orderNo: "221028704798",
+      email: "abc@bharatpe.com",
+      status: "IN PROGRESS",
+    },
+    {
+      serviceName: "CONSENT TO ESTABLISHMENT",
+      action: "DOCUMENTS",
+      orderNo: "221028704798",
+      email: "abc@bharatpe.com",
+      status: "IN PROGRESS",
+    },
+    {
+      serviceName: "CONSENT TO ESTABLISHMENT",
+      action: "DOCUMENTS",
+      orderNo: "221028704798",
+      email: "abc@bharatpe.com",
+      status: "IN PROGRESS",
+    },
+    {
+      serviceName: "CONSENT TO ESTABLISHMENT",
+      action: "DOCUMENTS",
+      orderNo: "221028704798",
+      email: "abc@bharatpe.com",
+      status: "IN PROGRESS",
+    },
   ]
   return (
     <div className="your-order-list">
       <h2 className="vendor-heading">
-        <i className="fa-solid mr-2 fa-circle-exclamation"></i> Vendor Outsourced
-        Task
+        <i className="fa-solid mr-2 fa-circle-exclamation"></i> Vendor
+        Outsourced Task
       </h2>
 
       <div className="vender-order-table table-responsive">
@@ -30,19 +72,21 @@ const Order = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((d, index)=>(
+            {data.map((d, index) => (
               <tr key={index}>
-              <td>{d.serviceName}</td>
-              <td>{d.action}</td>
-              <td>{d.orderNo}</td>
-              <td>{d.email}</td>
-              <td>{d.status}</td>
-              <td><button className="vender-doc-btn">Documents</button></td>
-              <td><butoon className="vender-chat-btn">Chat</butoon></td>
-        
-            </tr>
+                <td>{d.serviceName}</td>
+                <td>{d.action}</td>
+                <td>{d.orderNo}</td>
+                <td>{d.email}</td>
+                <td>{d.status}</td>
+                <td>
+                  <button className="vender-doc-btn">Documents</button>
+                </td>
+                <td>
+                  <butoon className="vender-chat-btn">Chat</butoon>
+                </td>
+              </tr>
             ))}
-            
           </tbody>
         </table>
       </div>

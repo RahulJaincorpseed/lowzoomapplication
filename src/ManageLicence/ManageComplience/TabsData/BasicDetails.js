@@ -6,8 +6,8 @@ const BasicDetails = () => {
     <div className="basic-details-tab">
       <div>
         <h4 className="register-text">
-          <i className="fa-solid fa-list-check mr-2"></i>Register and other records
-          to be maintained by the contractor
+          <i className="fa-solid fa-list-check mr-2"></i>Register and other
+          records to be maintained by the contractor
         </h4>
       </div>
       <div className="detail-description">

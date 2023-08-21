@@ -11,13 +11,13 @@
     }
   }
   .team-edit {
-   @include all-center;
+    @include all-center;
     gap: 40px;
     .add,
     .edit {
       @include all-center;
       gap: 10px;
-     @include font-four;
+      @include font-four;
       i {
         color: $lightBlue;
       }
