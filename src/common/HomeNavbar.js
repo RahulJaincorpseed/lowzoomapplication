@@ -8,6 +8,9 @@ const HomeNavbar = () => {
   return (
     <div className="container">
       <div className="home-nav">
+        <div className="bar-icon">
+        <i class="fa-solid fa-bars"></i>
+        </div>
         <div className="main-logo">
           <img src={logoImage} />
         </div>
