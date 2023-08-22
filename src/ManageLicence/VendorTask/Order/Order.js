@@ -83,7 +83,7 @@ const Order = () => {
                   <button className="vender-doc-btn">Documents</button>
                 </td>
                 <td>
-                  <butoon className="vender-chat-btn">Chat</butoon>
+                  <button className="vender-chat-btn">Chat</button>
                 </td>
               </tr>
             ))}
