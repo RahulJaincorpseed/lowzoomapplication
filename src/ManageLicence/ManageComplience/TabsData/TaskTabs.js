@@ -4,6 +4,7 @@ import DocumentRequiredTab from "./DocumentRequiredTab"
 import CompliencesTab from "./CompliencesTab"
 import GuideTab from "./GuideTab"
 import "./TaskTabs.scss"
+import { Link } from "react-router-dom"
 
 const TaskTabs = () => {
   return (
@@ -12,44 +13,44 @@ const TaskTabs = () => {
         <div className="col-md-12 pr-0">
           <ul id="tabs" className="nav nav-tabs tab-change-link">
             <li className="nav-item">
-              <a
+              <Link
                 href=""
                 data-target="#basicDetails"
                 data-toggle="tab"
                 className="nav-link small text-uppercase"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 href=""
                 data-target="#documentRequired"
                 data-toggle="tab"
                 className="nav-link small text-uppercase active"
               >
                 Documnet Required
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 href=""
                 data-target="#compliencesTab"
                 data-toggle="tab"
                 className="nav-link small text-uppercase"
               >
                 Compliances
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 href=""
                 data-target="#GuideTab"
                 data-toggle="tab"
                 className="nav-link small text-uppercase"
               >
                 Guide
-              </a>
+              </Link>
             </li>
           </ul>
           <div id="tabsContent" className="tab-content">
