@@ -19,22 +19,22 @@ const HomeNavbar = () => {
             <div className="link-item">
               <div className="serviecs">
                 <NavTabItem
-                  icon={<i class="fa-solid fa-earth-americas"></i>}
+                  icon={<i className="fa-solid fa-earth-americas"></i>}
                   heading="Import Financing"
                   description="Engages in importing goods from international markets, we can extend credit limits without requiring collateral, allowing you up to 120 days of credit."
                 />
                 <NavTabItem
-                  icon={<i class="fa-solid fa-map-location"></i>}
+                  icon={<i className="fa-solid fa-map-location"></i>}
                   heading="Export Financing"
                   description="Export Financing For credit-based sales to buyers, we cover the credit period and safeguard you against any potential payment defaults by the buyer."
                 />
                 <NavTabItem
-                  icon={<i class="fa-solid fa-paperclip"></i>}
+                  icon={<i className="fa-solid fa-paperclip"></i>}
                   heading="Domestic Trade Financing"
                   description="Domestic Trade Financing Engaging in domestic credit-based sales? Our financing solutions ensure your credit period is covered, mitigating risks of buyer payment defaults "
                 />
                 <NavTabItem
-                  icon={<i class="fa-solid fa-hand-holding-dollar"></i>}
+                  icon={<i className="fa-solid fa-hand-holding-dollar"></i>}
                   heading="Working Capital Financing"
                   description="Working Capital Financing immediate funds to manage your inventory, cover payroll, make supplier payments, and handle other operational expenses. "
                 />
@@ -48,12 +48,12 @@ const HomeNavbar = () => {
             <div className="link-item">
               <div className="serviecs">
                 <NavTabItem
-                  icon={<i class="fa-solid fa-earth-americas"></i>}
+                  icon={<i className="fa-solid fa-earth-americas"></i>}
                   heading="Become Investor"
                   description="Broaden your investment portfolio with trade finance opportunities at an institutional level"
                 />
                 <NavTabItem
-                  icon={<i class="fa-solid fa-map-location"></i>}
+                  icon={<i className="fa-solid fa-map-location"></i>}
                   heading="Become Channel Partner"
                   description="Become Channel Partner Capitalize your connections with exporters by enrolling in our Channel Partnership Program "
                 />
@@ -67,22 +67,22 @@ const HomeNavbar = () => {
             <div className="link-item">
               <div className="serviecs">
                 <NavTabItem
-                  icon={<i class="fa-solid fa-earth-americas"></i>}
+                  icon={<i className="fa-solid fa-earth-americas"></i>}
                   heading="About Company"
                   description="At Tradbee®, we are committed to offer affordable and convenient trade finance solutions."
                 />
                 <NavTabItem
-                  icon={<i class="fa-solid fa-map-location"></i>}
+                  icon={<i className="fa-solid fa-map-location"></i>}
                   heading="Contact"
                   description="Still seeking clarity on our process? engage with our Export Finance Advisor "
                 />
                 <NavTabItem
-                  icon={<i class="fa-solid fa-paperclip"></i>}
+                  icon={<i className="fa-solid fa-paperclip"></i>}
                   heading="Careers"
                   description="Work with Tradbee, we invest in the power of people to move the world forward.1"
                 />
                 <NavTabItem
-                  icon={<i class="fa-solid fa-hand-holding-dollar"></i>}
+                  icon={<i className="fa-solid fa-hand-holding-dollar"></i>}
                   heading="Knowledge Center"
                   description="Elevate your product understanding with comprehensive feature overviews and insights."
                 />

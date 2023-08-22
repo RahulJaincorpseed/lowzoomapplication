@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./LoginForm.scss"
 import { Link } from "react-router-dom"
 
 const LoginForm = () => {
+
   return (
     <div className="home-page-form">
       <form>
