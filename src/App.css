@@ -18,6 +18,7 @@ body {
   /* colors  */
   --black: #000;
   --white: #fff;
+  --red: #ff0000;
   --blue-color: #2b62f9;
   --first-gray: #333333;
   --second-gray: #263238;
@@ -58,7 +59,7 @@ a:hover {
 }
 
 .error-text {
-  color: #ff0000;
+  color: var(--red);
 }
 
 .w-215 {
@@ -101,14 +102,14 @@ button:focus {
   font-size: 15px;
   line-height: 23px;
   text-transform: capitalize;
-  color: #333333;
+  color: var(--fifth-gray);
 }
 
 .sub-heading {
   font-weight: 400;
   font-size: 24px;
   line-height: 27px;
-  color: #000000;
+  color: var(--black);
 }
 
 .title-heading {
@@ -116,22 +117,22 @@ button:focus {
   font-size: 14px;
   line-height: 25px;
   text-transform: uppercase;
-  color: #4d4e51;
+  color: var(--fifth-gray);
 }
 
 .info-heading {
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
-  color: #333333;
+  color: var(--first-gray);
 }
 
 .checkCircle {
-  color: #2b62f9;
+  color: var(--blue-color);
 }
 
 .input-focus {
-  background: #ffffff;
+  background: var(--white);
   border: 1px solid #cccccc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075);
   border-radius: 4px;
@@ -140,28 +141,28 @@ button:focus {
 
 .input-focus:focus {
   box-shadow: 0 0 0 0.2rem rgba(43, 98, 249, 0.2);
-  border-color: #2b62f9;
+  border-color: var(--blue-color);
 }
 
 .first-button {
   padding: 8px 40px;
-  background: #1a73e8;
-  border: 1px solid #1a73e8;
+  background: var(--light-blue);
+  border: 1px solid var(--light-blue);
   border-radius: 10px;
   font-weight: 500;
   font-size: 24px;
   line-height: 34px;
   text-align: center;
   letter-spacing: 0.84px;
-  color: #ffffff;
+  color: var(--white);
   outline: none;
   cursor: pointer;
 }
 
 .first-button:hover {
   background: transparent;
-  color: black;
-  border: 1px solid #2b62f9;
+  color: var(--black);
+  border: 1px solid  var(--blue-color);;
   text-decoration: none;
 }
 
@@ -173,7 +174,7 @@ button:focus {
 
 .first-option option {
   padding: 20px 0px !important;
-  color: #000;
+  color: var(--black);
   margin: 20px !important;
 }
 
@@ -181,7 +182,7 @@ button:focus {
   font-weight: 400;
   font-size: 24px;
   line-height: 27px;
-  color: #000000;
+  color: var(--black);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -190,12 +191,12 @@ button:focus {
   font-size: 24px;
   font-weight: 500;
   line-height: 29px;
-  color: #000000;
+  color: var(--black);
   margin: 15px 0px;
 }
 
 .active-link {
-  color: #2b62f9;
+  color: var(--blue-color);
   background: #dde3e8;
 }
 
@@ -224,29 +225,29 @@ button:focus {
 }
 
 .linkactive {
-  background-color: red;
-  color: white;
+  background-color: var(--red);
+  color: var(--white);
 }
 
 .item-heading {
   font-size: 18px;
   font-weight: 400;
   line-height: 25px;
-  color: #333333;
+  color: var(--first-gray);
 }
 
 .heading-info {
   font-size: 14px;
   font-weight: 400;
   line-height: 25px;
-  color: #979baa;
+  color: var(--forth-gray);
 }
 
 .item-heading-new {
   font-size: 18px;
   font-weight: 400;
   line-height: 25px;
-  color: #333333;
+  color: var(--first-gray);
   margin-left: 3px;
 }
 
@@ -254,7 +255,9 @@ button:focus {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  color: #2b62f9;
+  
+  color: var(--red);
+  color: var(--blue-color);
   margin-left: 3px;
 }
 
@@ -271,7 +274,7 @@ button:focus {
   width: 5px;
   height: 60%;
   border-radius: 20px;
-  background-color: #2b62f9;
+  background-color: var(--blue-color);
 }
 
 
@@ -292,7 +295,7 @@ button:focus {
   width: 86vw;
   left: 0px;
   top: 80px;
-  background-color: #fff;
+  background-color: var(--white);
   box-shadow: 0px 10px 10px rgba(0,0,0,.2);
 }
 
@@ -315,12 +318,12 @@ button:focus {
 
 
 .link-box:hover .link-itemsss{
-  border-bottom: 4px solid  #006FFD;
+  border-bottom: 4px solid  var(--light-blue);
 }
 
 .link-box:hover .link-itemsss .fa-chevron-down{
   rotate: 180deg;
-  color: #006FFD;
+  color: var(--light-blue);
 }
 
 
