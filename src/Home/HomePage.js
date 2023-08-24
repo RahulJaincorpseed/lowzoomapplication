@@ -6,11 +6,11 @@ import { Outlet } from "react-router-dom"
 const HomePage = () => {
   return (
     <div>
-      {/* <HomeNavbar /> */}
+      <HomeNavbar />
       <Outlet />
       <HomeFooter />
     </div>
   )
-}
+ }
 
 export default HomePage

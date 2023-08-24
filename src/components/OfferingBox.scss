@@ -5,23 +5,23 @@
   padding: 16px 30px;
   width: 320px;
   border-radius: 5px;
-  background: #fff;
+  background: $white;
   text-align: center;
   i {
     font-size: 35px;
-    color: #093252;
+    color: $themeBlue;
   }
   .offer-heading {
     font-size: 33px;
     line-height: 44px;
-    color: #093252;
+    color: $themeBlue;
     margin: 20px 0px;
     font-family: $font-bold;
   }
   .offre-more {
     font-size: 18px;
     line-height: 44px;
-    color: #093252;
+    color: $themeBlue;
   }
 }
 
