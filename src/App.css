@@ -486,8 +486,11 @@ button:focus {
     line-height: 70px;
   }
   .hmain-heading.text-w{
-    font-size: 60px;
+    font-size: 50px;
     text-align: left;
+    line-height: unset;
+    text-align: center;
+
   }
 }
 

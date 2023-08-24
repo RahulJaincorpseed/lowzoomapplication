@@ -146,7 +146,7 @@
 .user-guide {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 200px;
+  gap: 160px;
   .user-guidenes {
     border: 1px solid white;
     display: flex;
@@ -187,14 +187,6 @@
         }
       }
     }
-    // .finance-heading {
-    //   font-size: 22px;
-    //   line-height: 40px;
-    // }
-    // .finance-desc {
-    //   font-size: 16px;
-    //   line-height: 25px;
-    // }
   }
 
   .seamless-box {
@@ -218,7 +210,7 @@
     gap: 100px;
     margin: auto;
     .user-guidenes {
-      width: 300px;
+      width: 350px;
       margin: auto;
       padding-left: 20px;
       padding-right: 20px;
@@ -248,4 +240,18 @@
       padding-right: 10px;
     }
   }
+}
+
+
+
+
+@media only screen and (max-width: 450px) {
+  .user-guide {
+    .user-guidenes {
+      width: 100%;
+     
+    }
+  }
+
+
 }
