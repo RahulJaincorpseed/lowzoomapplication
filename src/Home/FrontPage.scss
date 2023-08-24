@@ -111,10 +111,12 @@
   .finance-heading {
     font-size: 22px;
     line-height: 40px;
+    font-family: $font-bold;
   }
   .finance-desc {
     font-size: 16px;
     line-height: 25px;
+    font-family: $font-medium;
   }
 }
 
@@ -124,21 +126,33 @@
   display: grid;
   grid-template-columns: 7fr 5fr;
   gap: 20px;
+  .center-about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   .abt-head {
     font-size: 55px;
     line-height: 75px;
     color: #093252;
+    font-family: $font-heavy;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    font-weight: 800;
   }
   .abt-desc {
     margin-top: 40px;
     font-size: 18px;
     line-height: 32px;
     color: #093252;
+    font-family: $font-medium;
+    font-family: Gilroy-Medium;
+    
   }
   .abt-form {
     padding-left: 25px;
     padding-right: 25px;
   }
+}
 }
 
 // user guide scss

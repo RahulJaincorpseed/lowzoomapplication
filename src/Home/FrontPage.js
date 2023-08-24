@@ -215,7 +215,7 @@ const FrontPage = () => {
       {/* financed section */}
       <section className="container">
         <div className="about-section home-section-padding">
-          <div>
+          <div className="center-about">
             <h2 className="abt-head">About LowZoom</h2>
             <p className="abt-desc">
               Tradbee® is a fintech platform specialized in Collateral-Free
@@ -242,11 +242,11 @@ const FrontPage = () => {
         <div className="container">
           <div className="user-guide home-section-padding">
             <div className="user-guidenes">
-              <h1 className="hmain-heading text-w">Download User Guide</h1>
+              <h1 className="hmain-heading text-w text-center">Download User Guide</h1>
               <i className="fa-solid user-icon fa-file-pdf"></i>
             </div>
             <div className="user-guidenes">
-              <h1 className="hmain-heading text-w">Become Partner</h1>
+              <h1 className="hmain-heading text-w text-center">Become Partner</h1>
               <button className="white-home-btn">Invester</button>
               <button className="white-home-btn">Channnel Partner</button>
             </div>
