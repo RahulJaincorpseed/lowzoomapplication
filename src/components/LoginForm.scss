@@ -1,3 +1,6 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 .home-page-form {
   width: 100%;
   border: 1px solid fff;
@@ -17,6 +20,7 @@
       &::placeholder {
         color: #093252;
         font-size: 18px;
+        font-family: $font-medium;
         line-height: 24px;
         letter-spacing: 1px;
       }
@@ -29,6 +33,7 @@
       font-size: 12px;
       line-height: 20px;
       color: #5b5b5b;
+      font-family: $font-medium;
     }
   }
 }

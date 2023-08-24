@@ -17,6 +17,9 @@ const LoginForm = () => {
           <input className="input-field" type="text" placeholder="Phone" />
         </div>
         <div className="input-box">
+          <input className="input-field" type="password" placeholder="password" />
+        </div>
+        <div className="input-box">
           <input
             className="input-field"
             type="text"

@@ -1,3 +1,7 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
+
 .main-hero-section {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -39,6 +43,8 @@
     padding: 40px 0px;
   }
 }
+
+
 
 // seamless box
 
@@ -105,10 +111,12 @@
   .finance-heading {
     font-size: 22px;
     line-height: 40px;
+    font-family: $font-bold;
   }
   .finance-desc {
     font-size: 16px;
     line-height: 25px;
+    font-family: $font-medium;
   }
 }
 
@@ -118,21 +126,33 @@
   display: grid;
   grid-template-columns: 7fr 5fr;
   gap: 20px;
+  .center-about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   .abt-head {
     font-size: 55px;
     line-height: 75px;
     color: #093252;
+    font-family: $font-heavy;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    font-weight: 800;
   }
   .abt-desc {
     margin-top: 40px;
     font-size: 18px;
     line-height: 32px;
     color: #093252;
+    font-family: $font-medium;
+    font-family: Gilroy-Medium;
+    
   }
   .abt-form {
     padding-left: 25px;
     padding-right: 25px;
   }
+}
 }
 
 // user guide scss
@@ -140,7 +160,7 @@
 .user-guide {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 200px;
+  gap: 160px;
   .user-guidenes {
     border: 1px solid white;
     display: flex;
@@ -181,14 +201,6 @@
         }
       }
     }
-    // .finance-heading {
-    //   font-size: 22px;
-    //   line-height: 40px;
-    // }
-    // .finance-desc {
-    //   font-size: 16px;
-    //   line-height: 25px;
-    // }
   }
 
   .seamless-box {
@@ -212,7 +224,7 @@
     gap: 100px;
     margin: auto;
     .user-guidenes {
-      width: 300px;
+      width: 350px;
       margin: auto;
       padding-left: 20px;
       padding-right: 20px;
@@ -242,4 +254,18 @@
       padding-right: 10px;
     }
   }
+}
+
+
+
+
+@media only screen and (max-width: 450px) {
+  .user-guide {
+    .user-guidenes {
+      width: 100%;
+     
+    }
+  }
+
+
 }
