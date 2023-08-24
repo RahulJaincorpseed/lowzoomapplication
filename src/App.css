@@ -493,8 +493,12 @@ button:focus {
     font-size: 50px;
     text-align: left;
     line-height: unset;
-
   }
+  .hmain-heading.seamless{
+    font-size: 70px;
+    line-height: 80px;
+  }
+  
 }
 
 @media only screen and (max-width: 600px) {
@@ -513,5 +517,11 @@ button:focus {
     padding-top: 40px;
     padding-bottom: 40px;
   }
+  .hmain-heading.seamless{
+    font-size: 50px;
+    line-height: 60px;
+  }
+  
+ 
   
 }
