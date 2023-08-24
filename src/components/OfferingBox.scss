@@ -1,3 +1,6 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 .offer-box {
   padding: 16px 30px;
   width: 320px;
@@ -13,6 +16,7 @@
     line-height: 44px;
     color: #093252;
     margin: 20px 0px;
+    font-family: $font-bold;
   }
   .offre-more {
     font-size: 18px;

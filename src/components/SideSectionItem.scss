@@ -1,3 +1,6 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 .section-item {
   display: flex;
   justify-content: center;
@@ -10,10 +13,12 @@
   .section-head {
     color: #093252;
     font-size: 24px;
+    font-family: $font-bold;
   }
   .section-para {
     color: #093252;
     font-size: 18px;
+    font-family: $font-medium;
   }
 }
 
