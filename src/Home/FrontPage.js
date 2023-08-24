@@ -11,7 +11,7 @@ const FrontPage = () => {
         <div className="main-hero-section home-padding">
           <div className="left-home">
             <h1 className="hmain-heading">
-              Trade Finance & Working Capital Solutions{" "}
+              Trade Finance & <br /> Working Capital <br />Solutions{" "}
             </h1>
             <p className="hmain-desc">
               Empower trade and enhance working capital needs offering instant

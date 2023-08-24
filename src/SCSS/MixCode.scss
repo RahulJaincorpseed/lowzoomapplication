@@ -1,3 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+$font-bold: 'Gilroy-Bold', sans-serif;
+$font-heavy: 'Gilroy-Heavy', sans-serif;
+$font-light: 'Gilroy-Light', sans-serif;
+
 @mixin all-center{
     display: flex;
     justify-content: center;
