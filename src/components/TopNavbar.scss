@@ -1,3 +1,6 @@
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
 .top-navbar {
   display: flex;
   justify-content: space-between;
@@ -19,8 +22,8 @@
         padding: 10px 10px;
       }
       .tab-link.active {
-        color: #2b62f9;
-        border-bottom: 3px solid #2b62f9;
+        color: $blue;
+        border-bottom: 3px solid $blue;
       }
     }
   }
