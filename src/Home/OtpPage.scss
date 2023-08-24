@@ -1,61 +1,95 @@
-.otp-page{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    .otp-content{
-         padding: 20px;
-        .enter-code{
-            font-size: 40px;
-            line-height: 47px;
-            color: #1F2024;
-            text-align: center;
-        }
-        .code-send{
-            margin: 30px 0px;
-            font-size: 24px;
-            line-height: 49px;
-            text-align: center;
-            color: #71727A;
-            .resend{
-                cursor: pointer; 
-                color: #71727A;
-                text-decoration: none;    
-            }
-        }
-        .opt-button{
-            padding: 20px 60px;
-            background-color: #093252;
-            display: block;
-            margin: auto;
-            width: 320px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            line-height: 39px;
-            color: #fff;
-            text-decoration: none;
-        }
-        .otp-fields{
-            padding: 10px 0px;
-            display: flex;
-            justify-content: space-between;
-            input{
-                text-align: center;
-                width: 80px;
-                height: 70px;
-                padding: 15px;
-                border-radius: 15px;
-                border: 1px solid #093252;
-                color: #093252;
-                font-size: 22px;
-               
-                &::placeholder{
-                    color: #093252;
-                }
-            }
-        }
+@import "../SCSS/Colors.scss";
+@import "../SCSS/MixCode.scss";
+
+.otp-page {
+  @include all-center;
+  min-height: 80vh;
+  .otp-content {
+    padding: 20px;
+    .enter-code {
+      font-size: 40px;
+      line-height: 47px;
+      color: #1f2024;
+      text-align: center;
+      font-family: $font-medium;
     }
+    .code-send {
+      margin: 30px 0px;
+      font-size: 24px;
+      line-height: 49px;
+      text-align: center;
+      color: $grayNine;
+      font-family: $font-medium;
+      .resend {
+        cursor: pointer;
+        color: $grayNine;
+        text-decoration: none;
+      }
+    }
+    .opt-button {
+      padding: 20px 60px;
+      background-color: $themeBlue;
+      display: block;
+      margin: auto;
+      width: 320px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      line-height: 39px;
+      color: $white;
+      text-decoration: none;
+      font-family: $font-bold;
+    }
+    .otp-fields {
+      padding: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+      input {
+        text-align: center;
+        width: 80px;
+        height: 70px;
+        padding: 15px;
+        border-radius: 15px;
+        border: 1px solid $themeBlue;
+        color: $themeBlue;
+        font-size: 22px;
+
+        &::placeholder {
+          color: $themeBlue;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .otp-page {
+    .otp-content {
+      .enter-code {
+        font-size: 28px;
+        line-height: 32px;
+      }
+      .code-send {
+        margin: 20px 0px;
+        font-size: 20px;
+        line-height: 35px;
+      }
+      .opt-button {
+        padding: 12px 24px;
+        width: 100%;
+        font-size: 18px;
+      }
+      .otp-fields {
+        input {
+          width: 50px;
+          height: 40px;
+          padding: 15px;
+          border-radius: 10px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
 }

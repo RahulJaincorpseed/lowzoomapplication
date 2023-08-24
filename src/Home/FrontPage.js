@@ -7,7 +7,7 @@ import SideSectionItem from "../components/SideSectionItem"
 const FrontPage = () => {
   return (
     <>
-      <div className="container">
+      {/* <div className="container">
         <div className="main-hero-section home-padding">
           <div className="left-home">
             <h1 className="hmain-heading">
@@ -30,7 +30,7 @@ const FrontPage = () => {
             <LoginForm />
           </div>
         </div>
-      </div>
+      </div> */}
       {/* key offer */}
       <section className="bg-theme">
         <div className="container">
@@ -60,7 +60,7 @@ const FrontPage = () => {
       <section className="container ">
         <div className="seamless-box home-section-padding">
           <div>
-            <h1 className="hmain-heading">Seamless Access to Liquidity</h1>
+            <h1 className="hmain-heading seamless">Seamless Access to Liquidity</h1>
             <p className="hmain-desc my-4">
               Bringing Global Financial Expertise to Solve Trader’s Financing
               Challenges. Your Trusted Partner in Empowering Business Growth
@@ -121,7 +121,7 @@ const FrontPage = () => {
       <section className="container ">
         <div className="seamless-box home-section-padding">
           <div className="seamless-left">
-            <h1 className="hmain-heading">Application Process</h1>
+            <h1 className="hmain-heading seamless">Application Process</h1>
             <p className="hmain-desc my-4">
               Apply now to avail finance by Simple 4-step customer on boarding
               process
