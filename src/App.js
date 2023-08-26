@@ -35,10 +35,12 @@ function App() {
         <Route path="/counter" element={<Counter />} />
         <Route path="/details" element={<Details />} />
         <Route path="/userinfo" element={<UserInfo />} />
-        <Route path="/" element={<MainCompany />}>
-          <Route path="/" element={<DashBoard />} />
-          <Route path="/managecompany" element={<ManageCompany />} />
-          <Route path="/setcompliance" element={<SetCompliance />} />
+        <Route path="/company" element={<MainCompany />}>
+          <Route path="" element={<DashBoard />} />
+          <Route path="/company/managecompany" element={<ManageCompany />} />
+          <Route path="/company/setcompliance" element={<SetCompliance />} />
+          
+          {/*
           <Route path="/managecompliance" element={<ManageCompliance />} />
           <Route path="/vendor" element={<VendorTask />}>
             <Route path="/vendor" element={<Order />} />
@@ -47,7 +49,7 @@ function App() {
           <Route path="/accounts" element={<Accounts />}>
             <Route path="/accounts/setting" element={<AccountSetting />} />
             <Route path="/accounts" element={<AccountProfile />} />
-          </Route>
+          </Route> */}
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

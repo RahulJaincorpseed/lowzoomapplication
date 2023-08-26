@@ -13,14 +13,14 @@ const ManageSideBar = () => {
       <div className="side-nav-items">
         <ul className="list-unorder">
           <li className="linkw-icon">
-            <NavLink to={"/"} className={`main-link`}>
+            <NavLink to={"/company"} className={`main-link`}>
               <i className="fa-solid fa-gear"></i>
               <span>DashBoard</span>
             </NavLink>
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/managecompany"}
+              to={"/company/managecompany"}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -30,7 +30,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/setcompliance"}
+              to={"/company/setcompliance"}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
