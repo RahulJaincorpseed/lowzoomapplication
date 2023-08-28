@@ -10,8 +10,8 @@ const Accounts = () => {
         <TopNavbar
           item1={"Settings"}
           item2={"My Profile"}
-          link1={"/accounts/setting"}
-          link2={"/accounts"}
+          link1={"/company/accounts/setting"}
+          link2={"/company/accounts"}
         />
       </div>
       <div>

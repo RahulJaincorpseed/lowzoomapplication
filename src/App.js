@@ -25,9 +25,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<HomePage />}>
-          <Route path="/home" element={<FrontPage />} />
-          <Route path="/home/otp" element={<OtpPage   />} />
+        <Route path="/" element={<HomePage />}>
+          <Route path="/" element={<FrontPage />} />
+          <Route path="/otp" element={<OtpPage   />} />
         </Route>
 
         <Route path="/signup" element={<SignUp />} />
@@ -35,19 +35,26 @@ function App() {
         <Route path="/counter" element={<Counter />} />
         <Route path="/details" element={<Details />} />
         <Route path="/userinfo" element={<UserInfo />} />
-        <Route path="/" element={<MainCompany />}>
-          <Route path="/" element={<DashBoard />} />
-          <Route path="/managecompany" element={<ManageCompany />} />
-          <Route path="/setcompliance" element={<SetCompliance />} />
-          <Route path="/managecompliance" element={<ManageCompliance />} />
-          <Route path="/vendor" element={<VendorTask />}>
-            <Route path="/vendor" element={<Order />} />
-            <Route path="/vendor/orderhistory" element={<OrderHistory />} />
+        <Route path="/company" element={<MainCompany />}>
+          <Route path="" element={<DashBoard />} />
+          <Route path="managecompany" element={<ManageCompany />} />
+          <Route path="setcompliance" element={<SetCompliance />} />
+          <Route path="managecompliance" element={<ManageCompliance />} />
+          <Route path="vendor" element={<VendorTask />}>
+            <Route path="" element={<Order />} />
+            <Route path="orderhistory" element={<OrderHistory />} />
           </Route>
+          <Route path="accounts" element={<Accounts />}>
+            <Route path="setting" element={<AccountSetting />} />
+            <Route path="" element={<AccountProfile />} />
+          </Route> 
+          
+          {/*
+         
           <Route path="/accounts" element={<Accounts />}>
             <Route path="/accounts/setting" element={<AccountSetting />} />
             <Route path="/accounts" element={<AccountProfile />} />
-          </Route>
+          </Route> */}
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
