@@ -25,9 +25,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<HomePage />}>
-          <Route path="/home" element={<FrontPage />} />
-          <Route path="/home/otp" element={<OtpPage   />} />
+        <Route path="/" element={<HomePage />}>
+          <Route path="/" element={<FrontPage />} />
+          <Route path="/otp" element={<OtpPage   />} />
         </Route>
 
         <Route path="/signup" element={<SignUp />} />
