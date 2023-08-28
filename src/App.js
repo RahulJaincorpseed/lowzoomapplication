@@ -37,15 +37,20 @@ function App() {
         <Route path="/userinfo" element={<UserInfo />} />
         <Route path="/company" element={<MainCompany />}>
           <Route path="" element={<DashBoard />} />
-          <Route path="/company/managecompany" element={<ManageCompany />} />
-          <Route path="/company/setcompliance" element={<SetCompliance />} />
+          <Route path="managecompany" element={<ManageCompany />} />
+          <Route path="setcompliance" element={<SetCompliance />} />
+          <Route path="managecompliance" element={<ManageCompliance />} />
+          <Route path="vendor" element={<VendorTask />}>
+            <Route path="" element={<Order />} />
+            <Route path="orderhistory" element={<OrderHistory />} />
+          </Route>
+          <Route path="accounts" element={<Accounts />}>
+            <Route path="setting" element={<AccountSetting />} />
+            <Route path="" element={<AccountProfile />} />
+          </Route> 
           
           {/*
-          <Route path="/managecompliance" element={<ManageCompliance />} />
-          <Route path="/vendor" element={<VendorTask />}>
-            <Route path="/vendor" element={<Order />} />
-            <Route path="/vendor/orderhistory" element={<OrderHistory />} />
-          </Route>
+         
           <Route path="/accounts" element={<Accounts />}>
             <Route path="/accounts/setting" element={<AccountSetting />} />
             <Route path="/accounts" element={<AccountProfile />} />

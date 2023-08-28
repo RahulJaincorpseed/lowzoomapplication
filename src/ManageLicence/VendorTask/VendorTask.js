@@ -11,8 +11,8 @@ const VendorTask = () => {
         <TopNavbar
           item1={"Your orders"}
           item2={"Order History Receipts"}
-          link1={"/vendor"}
-          link2={"/vendor/orderhistory"}
+          link1={"/company/vendor"}
+          link2={"/company/vendor/orderhistory"}
         />
       </div>
       <div>

@@ -40,7 +40,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/managecompliance"}
+              to={"/company/managecompliance"}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
               data-toggle="collapse"
@@ -117,7 +117,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/vendor"}
+              to={"/company/vendor"}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -127,7 +127,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/accounts"}
+              to={"/company/accounts"}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
