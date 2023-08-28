@@ -130,7 +130,7 @@ const ManageSideBar = () => {
               to={"/company/accounts"}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
-            >
+            > 
               <i className="fa-solid fa-gear"></i>
               <span>Accounts</span>
             </NavLink>
