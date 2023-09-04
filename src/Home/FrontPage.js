@@ -7,7 +7,7 @@ import SideSectionItem from "../components/SideSectionItem"
 const FrontPage = () => {
   return (
     <>
-      {/* <div className="container">
+      <div className="container">
         <div className="main-hero-section home-padding">
           <div className="left-home">
             <h1 className="hmain-heading">
@@ -30,7 +30,7 @@ const FrontPage = () => {
             <LoginForm />
           </div>
         </div>
-      </div> */}
+      </div>
       {/* key offer */}
       <section className="bg-theme">
         <div className="container">
