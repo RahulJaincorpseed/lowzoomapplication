@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import "./LoginForm.scss"
 import { Link } from "react-router-dom"
 import axios from "axios";
@@ -11,6 +11,12 @@ const LoginForm = () => {
     companyName: "",
     designation: ""
   }); 
+  const [enqError, setEnqError] = useState(false);
+
+  const fullNameRef = useRef();
+  const designationRef = useRef();
+  const mobileRef = useRef();
+  const companyNameRef = useRef();
 
     const submitEnqData = (e) =>{
       setEnquiryData((prev)=> ({...prev, [e.target.name]: e.target.value}) )
@@ -24,13 +30,34 @@ const LoginForm = () => {
       console.log("data submit")
 
       const EnquiryDataFunction = async () => {
+        if(fullNameRef.current.value === "" || designationRef.current.value === "" || mobileRef.current.value === "" || companyNameRef.current.value === ""){
+          setEnqError(true)
+          return;
+        }
+        
+        if(fullNameRef.current.value === ""){
+          setEnqError(true)
+          return;
+        }
+        if(fullNameRef.current.value === ""){
+          setEnqError(true)
+          return;
+        }
+
+
         try{
-          const EnquiryApi  = await axios.post("http://localhost:8080/api/createEnquiry", {enquiryData,
+          const EnquiryApi  = await axios.post("/createEnquiry", {...enquiryData,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
            } 
           );
-          console.log("api data", EnquiryApi);
+          setEnqError(false)
+          console.log("api data", EnquiryApi.data);
         }
         catch(err){
+          setEnqError(false)
           console.log("Error in Enquiry Form ", err)
         }
       }
@@ -43,23 +70,25 @@ const LoginForm = () => {
     <div className="home-page-form">
       <form>
         <div className="input-box">
-          <input className="input-field" type="text" placeholder="Full Name" name="fullName" onChange={(e)=> submitEnqData(e)} />
+          <input className="input-field" ref={fullNameRef} type="text" placeholder="Full Name*" name="fullName" onChange={(e)=> submitEnqData(e)} />
         </div>
         <div className="input-box">
-          <input className="input-field" type="text" placeholder="Designation" name="designation" onChange={(e)=> submitEnqData(e)} />
+          <input className="input-field" ref={designationRef} type="text" placeholder="Designation*" name="designation" onChange={(e)=> submitEnqData(e)} />
         </div>
         <div className="input-box">
-          <input className="input-field" type="text" placeholder="Phone" name="mobile" onChange={(e)=> submitEnqData(e)} />
+          <input className="input-field" ref={mobileRef} type="text" placeholder="Phone*" name="mobile" onChange={(e)=> submitEnqData(e)} />
         </div>
         <div className="input-box">
           <input
             className="input-field"
             type="text"
-            placeholder="Company Name"
+            ref={companyNameRef}
+            placeholder="Company Name*"
             name="companyName"
             onChange={(e)=> submitEnqData(e)}
           />
         </div>
+        {enqError ? <p className="text-danger">Please Fill All Mandatory field</p> : ""}
         <button onClick={(e) => SubmitEnquiryData(e)} className="home-submit-btn">Submit</button>
         <div className="register">
           <p className="register-text">
