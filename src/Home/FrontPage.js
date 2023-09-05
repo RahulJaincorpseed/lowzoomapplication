@@ -8,7 +8,7 @@ const FrontPage = () => {
   return (
     <>
       <div className="container">
-        <div className="main-hero-section home-padding">
+        <div className="main-hero-section padding-fixed home-padding">
           <div className="left-home">
             <h1 className="hmain-heading">
               Trade Finance & <br /> Working Capital <br />Solutions{" "}

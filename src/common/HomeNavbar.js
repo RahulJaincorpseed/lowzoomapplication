@@ -1,21 +1,34 @@
-import React from "react"
+import React, { useState } from "react"
 import logoImage from "../images/lowZoom.png"
 import "./Homenavbar.scss"
 import { Link } from "react-router-dom"
 import NavTabItem from "../components/NavTabItem"
 
 const HomeNavbar = () => {
+  const [addCollpase, setAddCollapse] = useState(false);
+ 
+  const collpaseNavbar = () => {
+    console.log("navbar collapse")
+    setAddCollapse((prev) => !(prev))
+  }
+
+  console.log("state", addCollpase);
+
   return (
+    <div className="white-bg">
     <div className="container">
-      <div className="home-nav">
+      <div className={`home-nav ${addCollpase ? "height-collapse" :""} `}>
         <div className="main-logo">
           <img src={logoImage} />
         </div>
+        <div className="bars" onClick={collpaseNavbar}>
+        <i class="fa-solid fa-bars"></i>
+        </div>
         <div className="home-links">
           <div className="link-box">
-            <Link to="/services" className="link-itemsss">
+            <button className="link-itemsss">
               Services<i className="fa-solid ml-1 fa-chevron-down"></i>
-            </Link>
+            </button>
             <div className="link-item">
               <div className="serviecs">
                 <NavTabItem
@@ -42,9 +55,9 @@ const HomeNavbar = () => {
             </div>
           </div>
           <div className="link-box">
-            <Link to="/services" className="link-itemsss">
+            <button  className="link-itemsss">
               Partner<i className="fa-solid ml-1 fa-chevron-down"></i>
-            </Link>
+            </button>
             <div className="link-item">
               <div className="serviecs">
                 <NavTabItem
@@ -61,9 +74,9 @@ const HomeNavbar = () => {
             </div>
           </div>
           <div className="link-box">
-            <Link to="/services" className="link-itemsss">
+            <button className="link-itemsss" >
               Company<i className="fa-solid ml-1 fa-chevron-down"></i>
-            </Link>
+            </button>
             <div className="link-item">
               <div className="serviecs">
                 <NavTabItem
@@ -101,6 +114,7 @@ const HomeNavbar = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }
