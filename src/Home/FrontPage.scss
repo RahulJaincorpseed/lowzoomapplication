@@ -1,7 +1,6 @@
 @import "../SCSS/Colors.scss";
 @import "../SCSS/MixCode.scss";
 
-
 .main-hero-section {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -43,8 +42,6 @@
     padding: 40px 0px;
   }
 }
-
-
 
 // seamless box
 
@@ -126,33 +123,32 @@
   display: grid;
   grid-template-columns: 7fr 5fr;
   gap: 20px;
-  .center-about{
+  .center-about {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  .abt-head {
-    font-size: 55px;
-    line-height: 75px;
-    color: #093252;
-    font-family: $font-heavy;
-    font-weight: 700;
-    letter-spacing: 0.015em;
-    font-weight: 800;
+    .abt-head {
+      font-size: 55px;
+      line-height: 75px;
+      color: #093252;
+      font-family: $font-heavy;
+      font-weight: 700;
+      letter-spacing: 0.015em;
+      font-weight: 800;
+    }
+    .abt-desc {
+      margin-top: 40px;
+      font-size: 18px;
+      line-height: 32px;
+      color: #093252;
+      font-family: $font-medium;
+      font-family: Gilroy-Medium;
+    }
+    .abt-form {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
-  .abt-desc {
-    margin-top: 40px;
-    font-size: 18px;
-    line-height: 32px;
-    color: #093252;
-    font-family: $font-medium;
-    font-family: Gilroy-Medium;
-    
-  }
-  .abt-form {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
 }
 
 // user guide scss
@@ -220,14 +216,13 @@
 }
 
 @media only screen and (max-width: 768px) {
-
   .main-hero-section {
     gap: 30px;
     .left-home {
       .below-service {
-          gap: 15px;
+        gap: 15px;
       }
-    }  
+    }
   }
 
   .user-guide {
@@ -238,7 +233,7 @@
       margin: auto;
       padding-left: 20px;
       padding-right: 20px;
-      h1{
+      h1 {
         font-size: 40px;
       }
       .user-icon {
@@ -249,15 +244,15 @@
   }
 
   .about-section {
-    .center-about{
-    .abt-head {
-      font-size: 40px;
+    .center-about {
+      .abt-head {
+        font-size: 40px;
+      }
+      .abt-desc {
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
     }
-    .abt-desc {
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-  }
   }
   .how-get {
     display: block;
@@ -271,14 +266,10 @@
   }
 }
 
-
-
-
 @media only screen and (max-width: 450px) {
   .user-guide {
     .user-guidenes {
       width: 100%;
-     
     }
   }
 }
