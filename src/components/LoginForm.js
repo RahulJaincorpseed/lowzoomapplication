@@ -1,82 +1,104 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./LoginForm.scss"
 import { Link } from "react-router-dom"
-import axios from "axios";
+import axios from "axios"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
 
 const LoginForm = () => {
-
   const [enquiryData, setEnquiryData] = useState({
     fullName: "",
-    mobile:"",
+    mobile: "",
     companyName: "",
-    designation: ""
-  }); 
-  const [enqError, setEnqError] = useState(false);
+    designation: "",
+  })
+  const [enqError, setEnqError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  const fullNameRef = useRef();
-  const designationRef = useRef();
-  const mobileRef = useRef();
-  const companyNameRef = useRef();
+  const fullNameRef = useRef()
+  const designationRef = useRef()
+  const mobileRef = useRef()
+  const companyNameRef = useRef()
 
-    const submitEnqData = (e) =>{
-      setEnquiryData((prev)=> ({...prev, [e.target.name]: e.target.value}) )
-    }
+  const submitEnqData = (e) => {
+    setEnquiryData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
 
-    console.log("data", enquiryData)
-
-
-    const SubmitEnquiryData = (e) => {
-      e.preventDefault();
-      console.log("data submit")
-
-      const EnquiryDataFunction = async () => {
-        if(fullNameRef.current.value === "" || designationRef.current.value === "" || mobileRef.current.value === "" || companyNameRef.current.value === ""){
-          setEnqError(true)
-          return;
-        }
-        
-        if(fullNameRef.current.value === ""){
-          setEnqError(true)
-          return;
-        }
-        if(fullNameRef.current.value === ""){
-          setEnqError(true)
-          return;
-        }
-
-
-        try{
-          const EnquiryApi  = await axios.post("/createEnquiry", {...enquiryData,
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-          },
-           } 
-          );
-          setEnqError(false)
-          console.log("api data", EnquiryApi.data);
-        }
-        catch(err){
-          setEnqError(false)
-          console.log("Error in Enquiry Form ", err)
-        }
+  const SubmitEnquiryData = (e) => {
+    e.preventDefault()
+    const EnquiryDataFunction = async () => {
+      if (
+        fullNameRef.current.value === "" ||
+        designationRef.current.value === "" ||
+        mobileRef.current.value === "" ||
+        companyNameRef.current.value === ""
+      ) {
+        setEnqError(true)
+        return
       }
-      EnquiryDataFunction();
+      setLoading(true)
+
+      try {
+        const EnquiryApi = await axios.post("/creaeEnquiry", {
+          ...enquiryData,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        })
+        setEnqError(false)
+        console.log("api data", EnquiryApi.data)
+        setLoading(false)
+
+        toast.success("Data Submit Successfully")
+
+        fullNameRef.current.value = ""
+        designationRef.current.value = ""
+        mobileRef.current.value = ""
+        companyNameRef.current.value = ""
+      } catch (err) {
+        setEnqError(false)
+        console.log("Error in Enquiry Form ", err)
+        setLoading(false)
+        toast.error("Something Went Wrong")
+      }
     }
-
-
+    EnquiryDataFunction()
+  }
 
   return (
     <div className="home-page-form">
       <form>
         <div className="input-box">
-          <input className="input-field" ref={fullNameRef} type="text" placeholder="Full Name*" name="fullName" onChange={(e)=> submitEnqData(e)} />
+          <input
+            className="input-field"
+            ref={fullNameRef}
+            type="text"
+            placeholder="Full Name*"
+            name="fullName"
+            onChange={(e) => submitEnqData(e)}
+          />
         </div>
         <div className="input-box">
-          <input className="input-field" ref={designationRef} type="text" placeholder="Designation*" name="designation" onChange={(e)=> submitEnqData(e)} />
+          <input
+            className="input-field"
+            ref={designationRef}
+            type="text"
+            placeholder="Designation*"
+            name="designation"
+            onChange={(e) => submitEnqData(e)}
+          />
         </div>
         <div className="input-box">
-          <input className="input-field" ref={mobileRef} type="text" placeholder="Phone*" name="mobile" onChange={(e)=> submitEnqData(e)} />
+          <input
+            className="input-field"
+            ref={mobileRef}
+            type="text"
+            placeholder="Phone*"
+            name="mobile"
+            onChange={(e) => submitEnqData(e)}
+          />
         </div>
         <div className="input-box">
           <input
@@ -85,11 +107,20 @@ const LoginForm = () => {
             ref={companyNameRef}
             placeholder="Company Name*"
             name="companyName"
-            onChange={(e)=> submitEnqData(e)}
+            onChange={(e) => submitEnqData(e)}
           />
         </div>
-        {enqError ? <p className="text-danger">Please Fill All Mandatory field</p> : ""}
-        <button onClick={(e) => SubmitEnquiryData(e)} className="home-submit-btn">Submit</button>
+        {enqError ? (
+          <p className="text-danger">Please Fill All Mandatory field</p>
+        ) : (
+          ""
+        )}
+        <button
+          onClick={(e) => SubmitEnquiryData(e)}
+          className="home-submit-btn"
+        >
+          {loading ? "Loading" : "Submit"}
+        </button>
         <div className="register">
           <p className="register-text">
             By registering you have read and agree to the
