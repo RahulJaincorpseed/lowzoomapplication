@@ -1,6 +1,7 @@
 .home-nav {
   display: flex;
   justify-content: space-between;
+  position: relative;
   align-items: center;
   flex-wrap: wrap;
   padding: 10px 0px;
@@ -8,6 +9,15 @@
   top: 0;
   z-index: 999;
   background-color: #fff;
+  height: 90px;
+  transition: all 1s ease-in-out;
+  .bars{
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    top: 20px;
+    display: none;
+  }
   .main-logo {
     width: 170px;
     img {
@@ -46,10 +56,56 @@
         font-weight: 500;
         line-height: 26px;
         color: #093252;
+        background-color: #fff;
       }
       .link-itemsss.fw-600 {
         font-weight: 600;
       }
     }
   }
+}
+
+
+@media only screen and (max-width: 992px){
+
+  .home-nav {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+   
+    overflow: hidden;
+    .bars{
+      display: initial;
+    }
+    
+    .home-links {
+     flex-direction: column;
+     gap: 0px;
+      .link-box {
+        padding: 16px 8px;
+        .serviecs {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          .tab-item{
+            justify-content: flex-start;
+            
+            .tab-para{
+              display: none;
+            }
+            i{
+              display: none;
+            }
+            .tab-heading{
+              font-weight: 400;
+              font-size: 14px;
+
+            }
+          }
+         
+        }
+        
+      }
+    }
+  }
+
 }

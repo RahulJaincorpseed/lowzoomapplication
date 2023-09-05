@@ -309,6 +309,9 @@ button:focus {
 /* nav links  */
 
 
+
+
+
 .link-box .link-item{
   display: none;
   position: absolute;
@@ -348,7 +351,9 @@ button:focus {
 
 
 
-
+.height-collapse{
+  height: auto !important;
+}
 
 
 
@@ -373,6 +378,10 @@ button:focus {
   padding-top: 70px;
   padding-bottom: 70px;
   
+}
+
+.padding-fixed{
+  padding-top: 120px;
 }
 
 
@@ -443,6 +452,13 @@ button:focus {
 
 .color-dblue{
   color: #093252;
+}
+
+.white-bg{
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 
