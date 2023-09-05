@@ -11,95 +11,7 @@ toast.configure()
 
 const SignUp = () => {
   const [checkCircle, setCheckCircle] = useState(false)
-  const [error, setError] = useState(false)
-  const [onetp, setOnetp] = useState("")
-  const navigate = useNavigate()
-  const [OtpLoading, setOtpLoading] = useState(false)
-  const [otpError, setOtpError] = useState(false)
 
-  const mobileNumber = useRef()
-  const OTP = useRef()
-  const passowrd = useRef()
-
-  const getOtp = () => {
-    if (
-      mobileNumber.current.value === "" ||
-      mobileNumber.current.value.length <= 9 ||
-      mobileNumber.current.value.length > 16
-    ) {
-      mobileNumber.current.style.border = "1px solid red"
-      setError(true)
-      return
-    } else {
-      let value = { mobile: mobileNumber.current.value }
-      setOtpLoading(true)
-      const getOtpApi = async () => {
-        try {
-          const data = await axios.post(`${baseUrl}/api/auth/otp`, value)
-          setError(false)
-          console.log(data.data)
-          setOnetp(data.data)
-          toast.success("OTP has been Send Succesfully")
-          setOtpLoading(false)
-        } catch (err) {
-          if (err.response.status === 500) {
-            console.log("i am error", err, err.message)
-            setOtpLoading(false)
-          }
-        }
-      }
-      getOtpApi()
-    }
-  }
-
-  console.log("i am state", onetp, onetp.mobile, onetp.otp)
-
-  const userSignUp = (e) => {
-    if (
-      mobileNumber.current.value === "" ||
-      mobileNumber.current.value.length <= 9 ||
-      mobileNumber.current.value.length > 16
-    ) {
-      mobileNumber.current.style.border = "1px solid red"
-      setError(true)
-      return
-    } else if (OTP.current.value === "") {
-      OTP.current.style.border = "1px solid red"
-      setOtpError(true)
-      return
-    } else if (OTP.current.value !== onetp.otp) {
-      OTP.current.style.border = "1px solid red"
-      setOtpError(true)
-      return
-    } else if (passowrd.current.value === "") {
-      passowrd.current.style.border = "1px solid red"
-      setError(true)
-      return
-    } else {
-      e.preventDefault()
-      const signUpByuser = async () => {
-        try {
-          let value = {
-            mobile: onetp.mobile,
-            otp: OTP.current.value,
-            password: passowrd.current.value,
-          }
-          const userData = await axios.post(`${baseUrl}/api/auth/signup`, value)
-          if (userData.data.statusCode === 200) {
-            console.log("i am user data", userData)
-            toast.success(userData.data.body.message)
-            navigate("/login")
-          } else {
-            console.log("user already", userData.data.message)
-          }
-        } catch (err) {
-          console.log("i am error", err)
-          toast.error("Something Went Wrong")
-        }
-      }
-      signUpByuser()
-    }
-  }
 
   return (
     <div className="sign-up container">
@@ -115,60 +27,36 @@ const SignUp = () => {
         <p className="signin-text">Or Sign In With Email</p>
         <form>
           <div className="pb-2">
+            <label className="label-heading" htmlFor="name">
+              Name *
+            </label>
+            <input
+              type="text"
+              id="otp"
+              name="otp"
+              placeholder="Enter your Name"
+              required
+            />
+          </div>
+          <div className="pb-2">
             <label className="label-heading" htmlFor="phone">
               Mobile Number*
             </label>
             <input
               type="tel"
               id="phone"
-              ref={mobileNumber}
               name="phone"
               placeholder="+91 9999008078"
               required
             />
-            {error ? (
-              <span className="error-text">
-                please Enter a Valid Mobile Number
-              </span>
-            ) : (
-              ""
-            )}
-            <button
-              onClick={getOtp}
-              className="btn btn-outline-primary sign-button w-100 my-2"
-            >
-              {OtpLoading ? (
-                <Spinner height={"25px"} width={"25px"} />
-              ) : (
-                "GET OTP"
-              )}
-            </button>
           </div>
-          <div className="pb-2">
-            <label className="label-heading" htmlFor="otp">
-              OTP *
-            </label>
-            <input
-              type="text"
-              ref={OTP}
-              id="otp"
-              name="otp"
-              placeholder="Enter your OTP"
-              required
-            />
-            {otpError ? (
-              <span className="error-text">please Enter a Valid OTP</span>
-            ) : (
-              ""
-            )}
-          </div>
+
           <div className="pb-2">
             <label className="label-heading password-input" htmlFor="password">
               Set Password
             </label>
             <input
               className="password-input"
-              ref={passowrd}
               type="password"
               id="password"
               name="password"
@@ -190,7 +78,6 @@ const SignUp = () => {
             <div>
               <button
                 to={`/userinfo`}
-                onClick={(e) => userSignUp(e)}
                 className="btn btn-outline-primary sign-button"
               >
                 Sign Up

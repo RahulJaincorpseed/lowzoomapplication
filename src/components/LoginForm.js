@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { useDispatch, useSelector } from "react-redux"
+import { SubmitEnquiry } from "../Redux/Actions/SignUpAction"
 toast.configure()
 
 const LoginForm = () => {
@@ -15,6 +17,11 @@ const LoginForm = () => {
   })
   const [enqError, setEnqError] = useState(false)
   const [loading, setLoading] = useState(false)
+
+  const EnquiryData = useSelector((prev) => (prev.SignUpReducer)); 
+  const dispatch = useDispatch();
+
+  console.log("enq data", EnquiryData);
 
   const fullNameRef = useRef()
   const designationRef = useRef()
@@ -40,7 +47,7 @@ const LoginForm = () => {
       setLoading(true)
 
       try {
-        const EnquiryApi = await axios.post("/creaeEnquiry", {
+        const EnquiryApi = await axios.post("/createEnquiry", {
           ...enquiryData,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -50,6 +57,7 @@ const LoginForm = () => {
         setEnqError(false)
         console.log("api data", EnquiryApi.data)
         setLoading(false)
+        dispatch(SubmitEnquiry(EnquiryApi.data))
 
         toast.success("Data Submit Successfully")
 
