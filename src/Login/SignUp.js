@@ -10,7 +10,45 @@ import Spinner from "../common/Toaster/Spinner"
 toast.configure()
 
 const SignUp = () => {
-  const [checkCircle, setCheckCircle] = useState(false)
+  const [checkCircle, setCheckCircle] = useState(false);
+  const [userData, setUserData] = useState({
+    mobile: "",
+    name: "",
+    password: ""
+  });
+  const [formError, setFormError] = useState(false);
+
+  const nameRef = useRef();
+  const mobileRef = useRef();
+  const passwordRef = useRef();
+  
+
+
+  const dataForOtp = (e) => {
+    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  console.log("i am user Dtaa", userData);
+
+  const submitdataForOtp = (e) =>{
+    e.preventDefault();
+    if(nameRef.current.value === "" || mobileRef.current.value === "" || passwordRef.current.value === ""){
+      setFormError(true)
+      return;
+    }
+
+    const OtpDataResponse = async () => {
+      const OtpData = await axios.post(`/auth/otp`,{
+        ...userData,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("otp data", OtpData)
+    }
+    OtpDataResponse();
+  }
 
 
   return (
@@ -33,8 +71,10 @@ const SignUp = () => {
             <input
               type="text"
               id="otp"
-              name="otp"
               placeholder="Enter your Name"
+              name="name"
+              ref={nameRef}
+              onChange={(e)=> dataForOtp(e)}
               required
             />
           </div>
@@ -45,8 +85,10 @@ const SignUp = () => {
             <input
               type="tel"
               id="phone"
-              name="phone"
+              name="mobile"
+              ref={mobileRef}
               placeholder="+91 9999008078"
+              onChange={(e)=> dataForOtp(e)}
               required
             />
           </div>
@@ -60,11 +102,14 @@ const SignUp = () => {
               type="password"
               id="password"
               name="password"
+              ref={passwordRef}
               placeholder="Min. 8 Charecter"
+              onChange={(e)=> dataForOtp(e)}
               autoComplete="off"
               required
             />
           </div>
+          {formError ?  <p className="text-danger">Please Fill All Mandatory field</p>: ""}
           <div className="sign-btn">
             <div className="remember-text">
               <i
@@ -76,8 +121,10 @@ const SignUp = () => {
               <p className="label-heading">Remember me</p>
             </div>
             <div>
+           
               <button
-                to={`/userinfo`}
+               
+                onClick={(e)=> submitdataForOtp(e)}
                 className="btn btn-outline-primary sign-button"
               >
                 Sign Up
