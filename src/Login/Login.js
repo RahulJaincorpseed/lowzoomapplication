@@ -13,48 +13,52 @@ toast.configure()
 
 const Login = () => {
   const [checkCircle, setCheckCircle] = useState(false)
-  const [error, setError] = useState(false)
+  const [userInfo, setUserInfo] = useState({
+    username: "",
+    password: "",
+  })
+  const [inputError, setInputError] = useState(false)
+  const [apiError, setApiError] = useState("")
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
-  const authSelector = useSelector((state) => state.authReducer)
-  const dispatch = useDispatch()
 
-  console.log("i am auth", authSelector)
+  const LoginUserData = (e) => {
+    setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
 
-  const LoginUser = (e) => {
+  console.log("user information", userInfo)
+
+  const loginUser = (e) => {
     e.preventDefault()
-    if (userRef.current.value === "") {
-      setError(true)
-    }
-    if (passRef.current.value === "") {
-      setError(true)
+    if (userRef.current.value === "" || passRef.current.value === "") {
+      setInputError(true)
     }
 
     const userDetails = async () => {
+      console.log("i am info", userInfo)
       try {
-        const token = await axios.post(`${baseUrl}/api/auth/token`, {
-          password: passRef.current.value,
-          username: userRef.current.value,
+        const token = await axios.post(`/auth/token`, {
+          ...userInfo,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
         })
-        if (token.data.statusCode === 200) {
-          console.log("i ma data", token.data.body.username)
-          console.log("i ma data", token.data.body.accessToken)
-          console.log("i ma data", token.data.body.roles)
-          dispatch(userToken(token.data.body.accessToken))
-          dispatch(userRoles(token.data.body.roles))
-          localStorage.setItem("access Token", token.data.body.accessToken)
-          navigate("/")
-        }
-        // userDetails();
+        console.log("api data", token.data)
+        console.log("api data", token.data.body.accessToken)
+        localStorage.setItem("Access Token", token.data.body.accessToken)
+        navigate("/")
       } catch (err) {
-        setError(err?.data?.message)
+        console.log("Error", err)
+        if (err.response.status === 401) {
+          setApiError(err.response.statusText)
+        }
       }
     }
     userDetails()
   }
 
-  console.log(checkCircle)
   return (
     <div className="sign-up container">
       <div className="sign-box">
@@ -69,39 +73,42 @@ const Login = () => {
         <p className="signin-text">Or Login With Mobile</p>
         <div className="pb-2">
           <label className="label-heading" htmlFor="phone">
-            User ID *
+            Mobile Number*
           </label>
           <input
             type="tel"
             id="phone"
             ref={userRef}
-            name="phone"
+            name="username"
             placeholder="+91 9999008078"
             required
+            onChange={(e) => LoginUserData(e)}
           />
         </div>
         <div className="pb-2">
           <label className="label-heading password-input" htmlFor="password">
-            Set Password
+            Password*
           </label>
           <input
             className="password-input"
             type="password"
-            ref={passRef}
             id="password"
             name="password"
+            ref={passRef}
             placeholder="Min. 8 Charecter"
             autoComplete="off"
+            onChange={(e) => LoginUserData(e)}
             required
           />
         </div>
-        {error ? (
+        {inputError ? (
           <p className="mb-2 text-danger">
-            Username or password dfled can't blank
+            Username or password filed can't be blank
           </p>
         ) : (
           ""
         )}
+        {apiError ? <p className="mb-2 text-danger">{apiError}</p> : ""}
 
         <div className="sign-btn">
           <div className="remember-text">
@@ -116,7 +123,7 @@ const Login = () => {
           <div>
             <button
               className="btn btn-outline-primary sign-button"
-              onClick={(e) => LoginUser(e)}
+              onClick={(e) => loginUser(e)}
             >
               Sign In
             </button>
