@@ -20,6 +20,7 @@ import OrderHistory from "./ManageLicence/VendorTask/OrderHistory"
 import HomePage from "./Home/HomePage"
 import FrontPage from "./Home/FrontPage"
 import OtpPage from "./Home/OtpPage"
+import SignUpOtp from "./Login/SignUpOtp"
 
 function App() {
   return (
@@ -27,10 +28,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />}>
           <Route path="/" element={<FrontPage />} />
-          <Route path="/otp" element={<OtpPage   />} />
+          <Route path="/otp" element={<OtpPage />} />
         </Route>
 
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup/otp" element ={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/details" element={<Details />} />

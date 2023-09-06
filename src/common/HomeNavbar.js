@@ -22,7 +22,7 @@ const HomeNavbar = () => {
           <img src={logoImage} />
         </div>
         <div className="bars" onClick={collpaseNavbar}>
-        <i class="fa-solid fa-bars"></i>
+        <i className="fa-solid fa-bars"></i>
         </div>
         <div className="home-links">
           <div className="link-box">

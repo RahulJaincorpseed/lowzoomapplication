@@ -1,7 +1,14 @@
-import React from "react";
+import React from "react"
 
 const SignUpOtp = () => {
-  return <div>SignUpOtp</div>;
-};
+    
+  return (
+    <div className="">
+      <h2>Please Enter OTP</h2>
+      <input type="text" placeholder="OTP" />
+      <button>Submit OTP</button>
+    </div>
+  )
+}
 
-export default SignUpOtp;
+export default SignUpOtp

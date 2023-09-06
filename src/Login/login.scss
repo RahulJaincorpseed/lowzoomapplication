@@ -117,6 +117,15 @@
   }
 }
 
+
+.otp-form{
+  padding: 20px 0px;
+  .otp-input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .sign-up {
     .sign-box {
