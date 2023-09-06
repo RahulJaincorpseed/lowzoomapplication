@@ -22,8 +22,6 @@ const Login = () => {
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
-  // const authSelector = useSelector((state) => state.authReducer)
-  // const dispatch = useDispatch()
 
   const LoginUserData = (e) => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -48,6 +46,9 @@ const Login = () => {
           },
         })
         console.log("api data", token.data)
+        console.log("api data", token.data.body.accessToken)
+        localStorage.setItem("Access Token", token.data.body.accessToken)
+        navigate("/")
       } catch (err) {
         console.log("Error", err)
         if (err.response.status === 401) {
