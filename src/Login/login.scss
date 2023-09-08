@@ -77,9 +77,13 @@
       &:hover {
         border: 1px solid $lightBlue;
       }
+      &:focus-visible {
+        outline: none;
+        border: 1px solid $lightBlue;
+      }
       &::placeholder {
         opacity: 1;
-        @include font-one;
+        @include font-five;
         color: $lightBlue;
       }
     }
@@ -112,6 +116,13 @@
           color: $white;
           background-color: $lightBlue;
         }
+      }
+    }
+    .move-info{
+      text-align: center;
+      padding: 15px 0px;
+      .move-page{
+        margin-left: 4px;
       }
     }
   }

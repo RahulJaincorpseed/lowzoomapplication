@@ -121,7 +121,6 @@ button:focus {
   font-weight: 400;
   font-size: 15px;
   line-height: 23px;
-  text-transform: capitalize;
   color: var(--fifth-gray);
 }
 

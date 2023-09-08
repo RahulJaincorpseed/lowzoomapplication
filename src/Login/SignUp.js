@@ -23,6 +23,7 @@ const SignUp = () => {
   })
   const [formError, setFormError] = useState(false)
   const [otpPageError, setOtpPageError] = useState(false)
+  const [sameOtpError, setSameOtpError] = useState(false);
   const [validOtpError, setValidOtpError] = useState(false)
   const [responseOtpData, setResponseOtpData] = useState({})
   const navigate = useNavigate()
@@ -73,6 +74,10 @@ const SignUp = () => {
       setOtpPageError(true)
       return
     }
+    if(responseOtpData.otp !== signUpData.otp){
+      setSameOtpError(true)
+      return
+    }
 
     const UserSignUpResponse = async () => {
       try {
@@ -84,15 +89,20 @@ const SignUp = () => {
           },
         })
         console.log("sign up data", userSignupData?.data)
+        toast.success("Account Created Succesfully")
         navigate("/login")
       } catch (err) {
         console.log("err", err)
+        console.log("error")
       }
     }
     UserSignUpResponse()
   }
 
   console.log("i am status otp", otpPage)
+  // console.log("response", responseOtpData)
+  // console.log("sign up data",signUpData)
+  console.log(responseOtpData.otp === signUpData.otp)
 
   return (
     <div className="sign-up container">
@@ -101,11 +111,11 @@ const SignUp = () => {
         <p className="label-heading">
           We understand your privecy is important*
         </p>
-        <Link to={"#"} className="google-sign-btn">
+        {/* <Link to={"#"} className="google-sign-btn">
           <img src={Glogo} alt="logo192" />{" "}
           <span className="label-heading fw-700">Sign Up with Google</span>
         </Link>
-        <p className="signin-text">Or Sign In With Email</p>
+        <p className="signin-text">Or Sign In With Email</p> */}
         <form className={`${otpPage ? "d-none" : ""}`}>
           <div className="pb-2">
             <label className="label-heading" htmlFor="name">
@@ -194,7 +204,7 @@ const SignUp = () => {
             ) : (
               ""
             )}
-            {validOtpError ? (
+            {sameOtpError ? (
               <p className="text-danger">Please Enter Valid Otp</p>
             ) : (
               ""
@@ -207,8 +217,11 @@ const SignUp = () => {
             </button>
           </form>
         </div>
+        <p className="label-heading move-info">
+          Already have an Account Please<Link className="move-page" to="/login">Login</Link>
+        </p>
       </div>
-      <div></div>
+      
     </div>
   )
 }
