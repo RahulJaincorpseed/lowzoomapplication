@@ -186,6 +186,9 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="lastName"
                       placeholder="last Name"
+                      value={companyData.lastName}
+                      name="lastName"
+                      onChange = {(e)=> nameData(e)}
                       required
                     />
                     {lastNameErr ? (
@@ -206,6 +209,9 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="designation"
                       placeholder="Designation"
+                      value={companyData.designation}
+                      name="designation"
+                      onChange = {(e)=> nameData(e)}
                       required
                     />
                     {designationErr ? (
@@ -226,6 +232,9 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="bemail"
                       placeholder="Business Email"
+                      value={companyData.businessActivityEmailRef}
+                      name="businessActivityEmailRef"
+                      onChange = {(e)=> nameData(e)}
                       required
                     />
                     {businessActivityEmailErr ? (
