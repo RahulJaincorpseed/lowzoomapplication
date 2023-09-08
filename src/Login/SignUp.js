@@ -23,6 +23,7 @@ const SignUp = () => {
   })
   const [formError, setFormError] = useState(false)
   const [otpPageError, setOtpPageError] = useState(false)
+  const [sameOtpError, setSameOtpError] = useState(false);
   const [validOtpError, setValidOtpError] = useState(false)
   const [responseOtpData, setResponseOtpData] = useState({})
   const navigate = useNavigate()
@@ -73,6 +74,10 @@ const SignUp = () => {
       setOtpPageError(true)
       return
     }
+    if(responseOtpData.otp !== signUpData.otp){
+      setSameOtpError(true)
+      return
+    }
 
     const UserSignUpResponse = async () => {
       try {
@@ -88,12 +93,16 @@ const SignUp = () => {
         navigate("/login")
       } catch (err) {
         console.log("err", err)
+        console.log("error")
       }
     }
     UserSignUpResponse()
   }
 
   console.log("i am status otp", otpPage)
+  // console.log("response", responseOtpData)
+  // console.log("sign up data",signUpData)
+  console.log(responseOtpData.otp === signUpData.otp)
 
   return (
     <div className="sign-up container">
@@ -195,7 +204,7 @@ const SignUp = () => {
             ) : (
               ""
             )}
-            {validOtpError ? (
+            {sameOtpError ? (
               <p className="text-danger">Please Enter Valid Otp</p>
             ) : (
               ""

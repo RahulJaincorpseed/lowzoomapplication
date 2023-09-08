@@ -108,7 +108,7 @@ const Login = () => {
         ) : (
           ""
         )}
-        {apiError ? <p className="mb-2 text-danger">{apiError}</p> : ""}
+        {apiError ? <p className="mb-2 text-danger">Please Enter valid Mobile or Password</p> : ""}
 
         <div className="sign-btn">
           <div className="remember-text">
