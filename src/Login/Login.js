@@ -66,11 +66,11 @@ const Login = () => {
         <p className="label-heading">
           We understand your privecy is important*
         </p>
-        <Link to={"#"} className="google-sign-btn">
+        {/* <Link to={"#"} className="google-sign-btn">
           <img src={Glogo} alt="logo192" />{" "}
           <span className="label-heading fw-700">Sign In with Google</span>
         </Link>
-        <p className="signin-text">Or Login With Mobile</p>
+        <p className="signin-text">Or Login With Mobile</p> */}
         <div className="pb-2">
           <label className="label-heading" htmlFor="phone">
             Mobile Number*
@@ -129,6 +129,9 @@ const Login = () => {
             </button>
           </div>
         </div>
+        <p className="label-heading move-info">
+          Don't have an Account Please<Link className="move-page" to="/signup">Sign UP</Link>
+        </p>
       </div>
     </div>
   )

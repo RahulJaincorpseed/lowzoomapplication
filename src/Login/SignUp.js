@@ -84,6 +84,7 @@ const SignUp = () => {
           },
         })
         console.log("sign up data", userSignupData?.data)
+        toast.success("Account Created Succesfully")
         navigate("/login")
       } catch (err) {
         console.log("err", err)
@@ -101,11 +102,11 @@ const SignUp = () => {
         <p className="label-heading">
           We understand your privecy is important*
         </p>
-        <Link to={"#"} className="google-sign-btn">
+        {/* <Link to={"#"} className="google-sign-btn">
           <img src={Glogo} alt="logo192" />{" "}
           <span className="label-heading fw-700">Sign Up with Google</span>
         </Link>
-        <p className="signin-text">Or Sign In With Email</p>
+        <p className="signin-text">Or Sign In With Email</p> */}
         <form className={`${otpPage ? "d-none" : ""}`}>
           <div className="pb-2">
             <label className="label-heading" htmlFor="name">
@@ -207,8 +208,11 @@ const SignUp = () => {
             </button>
           </form>
         </div>
+        <p className="label-heading move-info">
+          Already have an Account Please<Link className="move-page" to="/login">Login</Link>
+        </p>
       </div>
-      <div></div>
+      
     </div>
   )
 }
