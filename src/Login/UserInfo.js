@@ -38,13 +38,14 @@ const UserInfo = () => {
   const [designationErr, setDesignationErr] = useState(false)
   const [businessActivityEmailErr, setBusinessActivityEmailErr] =
     useState(false)
+  const [companyTypeErr, setCompanyTypeErr] = useState(false)
 
   // refs
   const firstNameRef = useRef()
   const lastNameRef = useRef()
   const designationRef = useRef()
   const businessActivityEmailRef = useRef()
-  const companyTypeRef = useRef();
+  const companyTypeRef = useRef()
 
   // data
 
@@ -64,7 +65,7 @@ const UserInfo = () => {
   // progress
 
   const nameData = (e) => {
-    setCompanyData((prev) => ({...prev, [e.target.name]: e.target.value}));
+    setCompanyData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   // increase function
@@ -100,9 +101,20 @@ const UserInfo = () => {
 
   const SubmitAllData = (e) => {
     e.preventDefault()
+    if (companyData.companyType === "") {
+      setCompanyTypeErr(true)
+      return
+    }
+
+    if (companyTypeRef.current.value === "") {
+      setCompanyTypeErr(true)
+      return
+    }
+
+    console.log("submit data")
   }
 
-  console.log("i am company data ",companyData)
+  console.log("i am company data ", companyData)
 
   return (
     <div>
@@ -139,9 +151,9 @@ const UserInfo = () => {
                       id="firstName"
                       placeholder="First Name"
                       ref={firstNameRef}
-                      value={companyData.firstName}
+                      value={companyData.firstName || ""}
                       name="firstName"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       required
                     />
                     {firstNameErr ? (
@@ -162,9 +174,9 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="lastName"
                       placeholder="last Name"
-                      value={companyData.lastName}
+                      value={companyData.lastName || ""}
                       name="lastName"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       required
                     />
                     {lastNameErr ? (
@@ -185,9 +197,9 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="designation"
                       placeholder="Designation"
-                      value={companyData.designation}
+                      value={companyData.designation || ""}
                       name="designation"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       required
                     />
                     {designationErr ? (
@@ -208,9 +220,9 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="bemail"
                       placeholder="Business Email"
-                      value={companyData.businessActivityEmail}
+                      value={companyData.businessActivityEmail || ""}
                       name="businessActivityEmail"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       required
                     />
                     {businessActivityEmailErr ? (
@@ -233,10 +245,10 @@ const UserInfo = () => {
                       Select Type of company*
                     </label>
                     <select
-                      // ref = {companyTypeRef}
-                      value={companyData.companyType}
+                      ref={companyTypeRef}
+                      value={companyData.companyType || ""}
                       name="companyType"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="sel1"
                     >
@@ -246,6 +258,13 @@ const UserInfo = () => {
                         </option>
                       ))}
                     </select>
+                    {companyTypeErr ? (
+                      <p className="error-change">
+                        company Type/CIN can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="form-group col-md-6">
@@ -255,12 +274,13 @@ const UserInfo = () => {
                     </label>
                     <input
                       type="text"
-                      // ref={companyNameRef} 
+                      // ref={companyNameRef}
                       className="form-control input-focus"
                       id="companyName"
                       placeholder="Company Name"
+                      value={companyData.companyName || ""}
                       name="companyName"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       required
                     />
                     {/* {companyNameErr ? (
@@ -276,9 +296,9 @@ const UserInfo = () => {
                       City*
                     </label>
                     <select
-                      value={companyData.companyCity}
+                      value={companyData.companyCity || ""}
                       name="companyCity"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="sel2"
                     >
@@ -296,9 +316,9 @@ const UserInfo = () => {
                       State*
                     </label>
                     <select
-                      value={companyData.companyState}
+                      value={companyData.companyState || ""}
                       name="companyState"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="sel3"
                     >
@@ -320,9 +340,9 @@ const UserInfo = () => {
                       // ref={turnOverRef}
                       className="form-control input-focus"
                       id="turnOver"
-                      value={companyData.companyTurnover}
+                      value={companyData.companyTurnover || ""}
                       name="companyTurnover"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       placeholder="Company Turnover"
                     />
                     {/* {turnOverErr ? (
@@ -338,9 +358,9 @@ const UserInfo = () => {
                       Located At*
                     </label>
                     <select
-                    value={companyData.locatedAt}
-                    name="locatedAt"
-                    onChange = {(e)=> nameData(e)}
+                      value={companyData.locatedAt || ""}
+                      name="locatedAt"
+                      onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="sel4"
                     >
@@ -360,9 +380,9 @@ const UserInfo = () => {
                       type="text"
                       // ref={businessActivityRef}
                       // onKeyUp={businessActivityFun}
-                      value={companyData.businessActivity}
+                      value={companyData.businessActivity || ""}
                       name="businessActivity"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="searchBusiness"
                       placeholder="Search"
@@ -387,9 +407,9 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="pemp"
                       placeholder="Permanent Employee"
-                      value={companyData.permanentEmployee}
+                      value={companyData.permanentEmployee || ""}
                       name="permanentEmployee"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       required
                     />
                     {/* {permanentEmployeesErr ? (
@@ -412,9 +432,9 @@ const UserInfo = () => {
                         className="form-control input-focus"
                         id="contractemp"
                         placeholder="Contract Employee"
-                        value={companyData.contractEmployee}
+                        value={companyData.contractEmployee || ""}
                         name="contractEmployee"
-                        onChange = {(e)=> nameData(e)}
+                        onChange={(e) => nameData(e)}
                         required
                       />
                       {/* {contactEmployeesErr ? (
@@ -437,9 +457,9 @@ const UserInfo = () => {
                         className="form-control input-focus"
                         id="gstnumber"
                         placeholder="GST Number"
-                        value={companyData.gstNumber}
+                        value={companyData.gstNumber || ""}
                         name="gstNumber"
-                        onChange = {(e)=> nameData(e)}
+                        onChange={(e) => nameData(e)}
                         required
                       />
                       {/* {gstNumberErr ? (
@@ -462,9 +482,9 @@ const UserInfo = () => {
                       rows="4"
                       cols="50"
                       placeholder="Enter here..."
-                      value={companyData.operationUnitAddress}
+                      value={companyData.operationUnitAddress || ""}
                       name="operationUnitAddress"
-                      onChange = {(e)=> nameData(e)}
+                      onChange={(e) => nameData(e)}
                       required
                     ></textarea>
                     {/* {operatingUnitErr ? (
