@@ -232,8 +232,8 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="bemail"
                       placeholder="Business Email"
-                      value={companyData.businessActivityEmailRef}
-                      name="businessActivityEmailRef"
+                      value={companyData.businessActivityEmail}
+                      name="businessActivityEmail"
                       onChange = {(e)=> nameData(e)}
                       required
                     />
