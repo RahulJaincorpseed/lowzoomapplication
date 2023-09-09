@@ -15,33 +15,47 @@ const LoginForm = () => {
     companyName: "",
     designation: "",
   })
-  const [enqError, setEnqError] = useState(false)
+  const [fullNameErr, setFullNameErr] = useState(false)
+  const [mobileErr, setMobileErr] = useState(false)
+  const [companyNameErr, setCompanyNameErr] = useState(false)
+  const [designationErr, setDesignationErr] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const EnquiryData = useSelector((prev) => (prev.SignUpReducer)); 
-  const dispatch = useDispatch();
+  const EnquiryData = useSelector((prev) => prev.SignUpReducer)
+  const dispatch = useDispatch()
 
-  console.log("enq data", EnquiryData);
+  console.log("enq data", EnquiryData)
 
   const fullNameRef = useRef()
   const designationRef = useRef()
   const mobileRef = useRef()
   const companyNameRef = useRef()
-
+  let count = 0;
   const submitEnqData = (e) => {
-    setEnquiryData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+      setEnquiryData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const SubmitEnquiryData = (e) => {
     e.preventDefault()
     const EnquiryDataFunction = async () => {
-      if (
-        fullNameRef.current.value === "" ||
-        designationRef.current.value === "" ||
-        mobileRef.current.value === "" ||
-        companyNameRef.current.value === ""
-      ) {
-        setEnqError(true)
+      if (fullNameRef.current.value === "") {
+        setFullNameErr(true)
+        return
+      }
+
+      if (designationRef.current.value === "") {
+        setDesignationErr(true)
+
+        return
+      }
+      if (mobileRef.current.value === "") {
+        setMobileErr(true)
+
+        return
+      }
+      if (companyNameRef.current.value === "") {
+        setCompanyNameErr(true)
+
         return
       }
       setLoading(true)
@@ -54,9 +68,12 @@ const LoginForm = () => {
             "Content-Type": "application/json",
           },
         })
-        setEnqError(false)
-        console.log("api data", EnquiryApi.data)
-        setLoading(false)
+        setFullNameErr(false)
+        setMobileErr(false)
+        setCompanyNameErr(false)
+        setDesignationErr(false)
+
+         setLoading(false)
         dispatch(SubmitEnquiry(EnquiryApi.data))
 
         toast.success("Data Submit Successfully")
@@ -66,7 +83,11 @@ const LoginForm = () => {
         mobileRef.current.value = ""
         companyNameRef.current.value = ""
       } catch (err) {
-        setEnqError(false)
+        setFullNameErr(false)
+        setMobileErr(false)
+        setCompanyNameErr(false)
+        setDesignationErr(false)
+
         console.log("Error in Enquiry Form ", err)
         setLoading(false)
         toast.error("Something Went Wrong")
@@ -87,6 +108,11 @@ const LoginForm = () => {
             name="fullName"
             onChange={(e) => submitEnqData(e)}
           />
+          {fullNameErr ? (
+            <p className="text-danger">Name Can't be Blank</p>
+          ) : (
+            ""
+          )}
         </div>
         <div className="input-box">
           <input
@@ -97,6 +123,11 @@ const LoginForm = () => {
             name="designation"
             onChange={(e) => submitEnqData(e)}
           />
+          {designationErr ? (
+            <p className="text-danger">designation Can't be Blank</p>
+          ) : (
+            ""
+          )}
         </div>
         <div className="input-box">
           <input
@@ -107,6 +138,11 @@ const LoginForm = () => {
             name="mobile"
             onChange={(e) => submitEnqData(e)}
           />
+          {mobileErr ? (
+            <p className="text-danger">mobile Can't be Blank</p>
+          ) : (
+            ""
+          )}
         </div>
         <div className="input-box">
           <input
@@ -117,12 +153,12 @@ const LoginForm = () => {
             name="companyName"
             onChange={(e) => submitEnqData(e)}
           />
+          {companyNameErr ? (
+            <p className="text-danger">company Name Can't be Blank</p>
+          ) : (
+            ""
+          )}
         </div>
-        {enqError ? (
-          <p className="text-danger">Please Fill All Mandatory field</p>
-        ) : (
-          ""
-        )}
         <button
           onClick={(e) => SubmitEnquiryData(e)}
           className="home-submit-btn"
