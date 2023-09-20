@@ -39,27 +39,23 @@ const LoginForm = () => {
     e.preventDefault()
     const EnquiryDataFunction = async () => {
       if (fullNameRef.current.value === "") {
+        fullNameRef.current.style.borderBottom = "1px solid red";
         setFullNameErr(true)
-        return
       }
-
       if (designationRef.current.value === "") {
+        designationRef.current.style.borderBottom = "1px solid red";
         setDesignationErr(true)
-
-        return
       }
       if (mobileRef.current.value === "") {
+        mobileRef.current.style.borderBottom = "1px solid red";
         setMobileErr(true)
-
-        return
       }
       if (companyNameRef.current.value === "") {
+        companyNameRef.current.style.borderBottom = "1px solid red";
         setCompanyNameErr(true)
-
         return
       }
       setLoading(true)
-
       try {
         const EnquiryApi = await axios.post("/createEnquiry", {
           ...enquiryData,
@@ -72,12 +68,9 @@ const LoginForm = () => {
         setMobileErr(false)
         setCompanyNameErr(false)
         setDesignationErr(false)
-
-         setLoading(false)
+        setLoading(false)
         dispatch(SubmitEnquiry(EnquiryApi.data))
-
         toast.success("Data Submit Successfully")
-
         fullNameRef.current.value = ""
         designationRef.current.value = ""
         mobileRef.current.value = ""
@@ -87,7 +80,6 @@ const LoginForm = () => {
         setMobileErr(false)
         setCompanyNameErr(false)
         setDesignationErr(false)
-
         console.log("Error in Enquiry Form ", err)
         setLoading(false)
         toast.error("Something Went Wrong")
@@ -109,7 +101,7 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {fullNameErr ? (
-            <p className="text-danger">Name Can't be Blank</p>
+            <p className="error-show">Name Can't be Blank</p>
           ) : (
             ""
           )}
@@ -124,7 +116,7 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {designationErr ? (
-            <p className="text-danger">designation Can't be Blank</p>
+            <p className="error-show">designation Can't be Blank</p>
           ) : (
             ""
           )}
@@ -139,7 +131,7 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {mobileErr ? (
-            <p className="text-danger">mobile Can't be Blank</p>
+            <p className="error-show">mobile Can't be Blank</p>
           ) : (
             ""
           )}
@@ -154,7 +146,7 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {companyNameErr ? (
-            <p className="text-danger">company Name Can't be Blank</p>
+            <p className="error-show">company Name Can't be Blank</p>
           ) : (
             ""
           )}
