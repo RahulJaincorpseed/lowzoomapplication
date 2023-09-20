@@ -62,26 +62,26 @@ const UserInfo = () => {
   const [companyPincodeErr, setCompanyPincodeErr] = useState(false)
 
   // refs
-  const firstNameRef = useRef()
-  const lastNameRef = useRef()
-  const designationRef = useRef()
-  const businessActivityEmailRef = useRef()
-  const companyTypeRef = useRef()
-  const companyNameRef = useRef()
-  const companyCityRef = useRef()
+  const firstNameRef = React.createRef();
+  const lastNameRef = React.createRef();
+  const designationRef = React.createRef();
+  const businessActivityEmailRef = React.createRef();
+  const companyTypeRef = React.createRef();
+  const companyNameRef =  React.createRef();
+  const companyCityRef = React.createRef();
 
-  const companyStateRef = useRef()
-  const companyTurnoverRef = useRef()
-  const locatedAtRef = useRef()
-  const businessActivityRef = useRef()
-  const permanentEmployeeRef = useRef()
-  const contractEmployeeRef = useRef()
-  const gstNumberRef = useRef()
-  const operationUnitAddressRef = useRef()
-  const companyRegistrationNumberRef = useRef()
-  const companyRegistrationDateRef = useRef()
-  const companyRemarksRef = useRef()
-  const companyPincodeRef = useState()
+  const companyStateRef =  React.createRef();
+  const companyTurnoverRef =  React.createRef();
+  const locatedAtRef =  React.createRef();
+  const businessActivityRef =  React.createRef();
+  const permanentEmployeeRef = React.createRef();
+  const contractEmployeeRef = React.createRef();
+  const gstNumberRef =  React.createRef();
+  const operationUnitAddressRef =  React.createRef();
+  const companyRegistrationNumberRef =  React.createRef();
+  const companyRegistrationDateRef =  React.createRef();
+  const companyRemarksRef = React.createRef();
+  const companyPincodeRef =  React.createRef();
 
   // data
 
@@ -136,7 +136,7 @@ const UserInfo = () => {
     }
     setPercent((prev) => prev - 50)
   }
-
+React.createRef();
   const SubmitAllData = (e) => {
     e.preventDefault()
     console.log("value is ", companyTypeRef.current.value)
