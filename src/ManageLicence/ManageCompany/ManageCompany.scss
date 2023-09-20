@@ -26,17 +26,17 @@
         align-items: center;
         gap: 20px;
         .edit {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 600;
           line-height: 34px;
           color: #2b62f9;
-          background-color: #fff;
+          background-color: transparent;
         }
         .delete {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 400;
           line-height: 34px;
-          color: #d9534f;
+          color: #9f9898;
         }
       }
     }

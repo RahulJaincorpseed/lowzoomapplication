@@ -32,8 +32,8 @@
 
 .add-new-company .add-button {
   background-color: var(--whiteColor);
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 22px;
   color: #323232fc;
 }
@@ -41,6 +41,7 @@
 .add-new-company .add-button i {
   color: var(--blueColor);
   margin-right: 10px;
+  font-size: 14px;
 }
 
 .team-model .add-team-modal:focus {

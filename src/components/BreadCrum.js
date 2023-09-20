@@ -12,9 +12,9 @@ const BreadCrum = () => {
     <div>
       <nav className="breadcrum">
         {breadcrumbs.map(({ match, breadcrumb }, index) => (
-          <Link key={index} to={match.pathname}>
+          <Link className="bread-link" key={index} to={match.pathname}>
             {breadcrumb}{" "}
-            <span>
+            <span className="bread-span">
               <i className="fa-solid fa-chevron-right mr-1"></i>
             </span>
           </Link>

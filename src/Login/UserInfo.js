@@ -11,6 +11,7 @@ import CompanyInfo from "./CompanyInfo"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { cityData, companyData2 } from "../TestData.js/CityData"
+import axios from "axios"
 
 const UserInfo = () => {
   const [step, setStep] = useState(1)
@@ -30,6 +31,9 @@ const UserInfo = () => {
     contractEmployee: "",
     gstNumber: "",
     operationUnitAddress: "",
+    companyRegistrationNumber: "",
+    companyRegistrationDate: "",
+    companyRemarks: "",
   })
 
   // Errors
@@ -40,12 +44,44 @@ const UserInfo = () => {
     useState(false)
   const [companyTypeErr, setCompanyTypeErr] = useState(false)
 
+  const [companyNameErr, setCompanyNameErr] = useState(false)
+  const [companyCityErr, setCompanyCityErr] = useState(false)
+  const [companyStateErr, setCompanyStateErr] = useState(false)
+  const [companyTurnoverErr, setCompanyTurnoverErr] = useState(false)
+  const [locatedAtErr, setLocatedAtErr] = useState(false)
+  const [businessActivityErr, setBusinessActivityErr] = useState(false)
+  const [permanentEmployeeErr, setPermanentEmployeeErr] = useState(false)
+  const [contractEmployeeErr, setContractEmployeeErr] = useState(false)
+  const [gstNumberErr, setGstNumberErr] = useState(false)
+  const [operationUnitAddressErr, setOperationUnitAddressErr] = useState(false)
+  const [companyRegistrationNumberErr, setCompanyRegistrationNumberErr] =
+    useState(false)
+  const [companyRegistrationDateErr, setCompanyRegistrationDateErr] =
+    useState(false)
+  const [companyRemarksErr, setCompanyRemarksErr] = useState(false)
+  const [companyPincodeErr, setCompanyPincodeErr] = useState(false)
+
   // refs
   const firstNameRef = useRef()
   const lastNameRef = useRef()
   const designationRef = useRef()
   const businessActivityEmailRef = useRef()
   const companyTypeRef = useRef()
+  const companyNameRef = useRef()
+  const companyCityRef = useRef()
+
+  const companyStateRef = useRef()
+  const companyTurnoverRef = useRef()
+  const locatedAtRef = useRef()
+  const businessActivityRef = useRef()
+  const permanentEmployeeRef = useRef()
+  const contractEmployeeRef = useRef()
+  const gstNumberRef = useRef()
+  const operationUnitAddressRef = useRef()
+  const companyRegistrationNumberRef = useRef()
+  const companyRegistrationDateRef = useRef()
+  const companyRemarksRef = useRef()
+  const companyPincodeRef = useState()
 
   // data
 
@@ -66,24 +102,26 @@ const UserInfo = () => {
 
   const nameData = (e) => {
     setCompanyData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    console.log("company data")
   }
 
   // increase function
   const increaseFormStep = () => {
     if (firstNameRef.current.value === "") {
       setFirstNameErr(true)
-      return
+      firstNameRef.current.style.border = "1px solid #DC3545"
     }
     if (lastNameRef.current.value === "") {
       setLastNameErr(true)
-      return
+      lastNameRef.current.style.border = "1px solid #DC3545"
     }
     if (designationRef.current.value === "") {
       setDesignationErr(true)
-      return
+      designationRef.current.style.border = "1px solid #DC3545"
     }
     if (businessActivityEmailRef.current.value === "") {
       setBusinessActivityEmailErr(true)
+      businessActivityEmailRef.current.style.border = "1px solid #DC3545"
       return
     }
 
@@ -101,18 +139,114 @@ const UserInfo = () => {
 
   const SubmitAllData = (e) => {
     e.preventDefault()
+    console.log("value is ", companyTypeRef.current.value)
     if (companyData.companyType === "") {
       setCompanyTypeErr(true)
-      return
+      companyTypeRef.current.style.border = "1px solid #DC3545"
     }
 
-    if (companyTypeRef.current.value === "") {
-      setCompanyTypeErr(true)
-      return
+     if (companyNameRef.current.value === "") {
+      setCompanyNameErr(true)
+      companyNameRef.current.style.border = "1px solid #DC3545"
     }
 
-    console.log("submit data")
+    if (companyData.companyCity === "") {
+      setCompanyCityErr(true)
+      companyCityRef.current.style.border = "1px solid #DC3545"
+    }
+    
+    if (companyData.companyState === "") {
+      setCompanyStateErr(true)
+      companyStateRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (companyTurnoverRef.current.value === "") {
+      setCompanyTurnoverErr(true)
+      companyTurnoverRef.current.style.border = "1px solid #DC3545"
+    }
+    
+    
+    if (companyData.locatedAt === "") {
+      setLocatedAtErr(true)
+      locatedAtRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (businessActivityRef.current.value === "") {
+      setBusinessActivityErr(true)
+      businessActivityRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (permanentEmployeeRef.current.value === "") {
+      setPermanentEmployeeErr(true)
+      permanentEmployeeRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (companyRegistrationNumberRef.current.value === "") {
+      setCompanyRegistrationNumberErr(true)
+      companyRegistrationNumberRef.current.style.border = "1px solid #DC3545"
+    }
+
+    
+    if (companyPincodeRef.current.value === "") {
+      setCompanyPincodeErr(true)
+      companyPincodeRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (companyRemarksRef.current.value === "") {
+      setCompanyRemarksErr(true)
+      companyRemarksRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (gstNumberRef.current.value === "") {
+      setGstNumberErr(true)
+      gstNumberRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (operationUnitAddressRef.current.value === "") {
+      setOperationUnitAddressErr(true)
+      operationUnitAddressRef.current.style.border = "1px solid #DC3545"
+    }
+
+    if (contractEmployeeRef.current.value === "") {
+      setContractEmployeeErr(true)
+      contractEmployeeRef.current.style.border = "1px solid #DC3545"
+    }
+
+
+
+
+
+
+   
+    
+    
+
+    
+
+
+
+    const createCompanyData = async () => {
+      try {
+        const companysubmitData = await axios.post(`/company`, {
+          ...companyData,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        })
+        console.log("all company data api", companysubmitData.data)
+      } catch (err) {
+        console.log(err)
+      }
+      // console.log("submit data")
+    }
+    createCompanyData()
   }
+
+  // if (companyTypeRef.current.value === "") {
+  //   setCompanyTypeErr(true)
+  //   return
+  // }
 
   console.log("i am company data ", companyData)
 
@@ -149,7 +283,7 @@ const UserInfo = () => {
                       type="text"
                       className="form-control input-focus"
                       id="firstName"
-                      placeholder="First Name"
+                      placeholder="Enter First Name"
                       ref={firstNameRef}
                       value={companyData.firstName || ""}
                       name="firstName"
@@ -157,7 +291,7 @@ const UserInfo = () => {
                       required
                     />
                     {firstNameErr ? (
-                      <p className="error-change">First Name can 't be Blank</p>
+                      <p className="error-show">First Name can 't be Blank</p>
                     ) : (
                       ""
                     )}
@@ -173,14 +307,14 @@ const UserInfo = () => {
                       ref={lastNameRef}
                       className="form-control input-focus"
                       id="lastName"
-                      placeholder="last Name"
+                      placeholder="Enter last Name"
                       value={companyData.lastName || ""}
                       name="lastName"
                       onChange={(e) => nameData(e)}
                       required
                     />
                     {lastNameErr ? (
-                      <p className="error-change">Last Name can't be Blank</p>
+                      <p className="error-show">Last Name can't be Blank</p>
                     ) : (
                       ""
                     )}
@@ -196,7 +330,7 @@ const UserInfo = () => {
                       ref={designationRef}
                       className="form-control input-focus"
                       id="designation"
-                      placeholder="Designation"
+                      placeholder="Enter Designation"
                       value={companyData.designation || ""}
                       name="designation"
                       onChange={(e) => nameData(e)}
@@ -219,14 +353,14 @@ const UserInfo = () => {
                       ref={businessActivityEmailRef}
                       className="form-control input-focus"
                       id="bemail"
-                      placeholder="Business Email"
+                      placeholder="Enter Business Email"
                       value={companyData.businessActivityEmail || ""}
                       name="businessActivityEmail"
                       onChange={(e) => nameData(e)}
                       required
                     />
                     {businessActivityEmailErr ? (
-                      <p className="error-change">Email can't be Blank</p>
+                      <p className="error-show">Email can't be Blank</p>
                     ) : (
                       ""
                     )}
@@ -259,7 +393,7 @@ const UserInfo = () => {
                       ))}
                     </select>
                     {companyTypeErr ? (
-                      <p className="error-change">
+                      <p className="error-show">
                         company Type/CIN can't be Blank
                       </p>
                     ) : (
@@ -280,14 +414,17 @@ const UserInfo = () => {
                       placeholder="Company Name"
                       value={companyData.companyName || ""}
                       name="companyName"
+                      ref={companyNameRef}
                       onChange={(e) => nameData(e)}
                       required
                     />
-                    {/* {companyNameErr ? (
-              <p className="error-change">company Name/CIN can't be Blank</p>
-            ) : (
-              ""
-            )} */}
+                    {companyNameErr ? (
+                      <p className="error-change">
+                        company Name/CIN can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="form-group col-md-6">
@@ -300,6 +437,7 @@ const UserInfo = () => {
                       name="companyCity"
                       onChange={(e) => nameData(e)}
                       className="form-control input-focus"
+                      ref={companyCityRef}
                       id="sel2"
                     >
                       {cityData.map((city, index) => (
@@ -308,6 +446,11 @@ const UserInfo = () => {
                         </option>
                       ))}
                     </select>
+                    {companyCityErr ? (
+                      <p className="error-show">company City can't be Blank</p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="form-group col-md-6">
@@ -318,6 +461,7 @@ const UserInfo = () => {
                     <select
                       value={companyData.companyState || ""}
                       name="companyState"
+                      ref={companyStateRef}
                       onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="sel3"
@@ -328,6 +472,13 @@ const UserInfo = () => {
                         </option>
                       ))}
                     </select>
+                    {companyStateErr ? (
+                      <p className="error-show">
+                        company state can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="form-group col-md-6">
@@ -343,13 +494,16 @@ const UserInfo = () => {
                       value={companyData.companyTurnover || ""}
                       name="companyTurnover"
                       onChange={(e) => nameData(e)}
+                      ref={companyTurnoverRef}
                       placeholder="Company Turnover"
                     />
-                    {/* {turnOverErr ? (
-              <p className="error-change">company Turnover can't be Blank</p>
-            ) : (
-              ""
-            )} */}
+                     {companyTurnoverErr ? (
+                      <p className="error-show">
+                       company Turnover can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="form-group col-md-6">
@@ -360,6 +514,7 @@ const UserInfo = () => {
                     <select
                       value={companyData.locatedAt || ""}
                       name="locatedAt"
+                      ref={locatedAtRef}
                       onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="sel4"
@@ -369,6 +524,13 @@ const UserInfo = () => {
                       <option>3</option>
                       <option>4</option>
                     </select>
+                    {locatedAtErr ? (
+                      <p className="error-show">
+                      Located at can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="form-group col-md-6">
@@ -378,21 +540,22 @@ const UserInfo = () => {
                     </label>
                     <input
                       type="text"
-                      // ref={businessActivityRef}
-                      // onKeyUp={businessActivityFun}
                       value={companyData.businessActivity || ""}
                       name="businessActivity"
                       onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="searchBusiness"
                       placeholder="Search"
+                      ref={businessActivityRef}
                       required
                     />
-                    {/* {businessActivityErr ? (
-              <p className="error-change">Business Activity can't be Blank</p>
-            ) : (
-              ""
-            )} */}
+                    {businessActivityErr ? (
+                      <p className="error-show">
+                      Business Activity can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="form-group col-md-6">
@@ -402,23 +565,125 @@ const UserInfo = () => {
                     </label>
                     <input
                       type="text"
-                      // ref={permanentEmployeesRef}
-                      // onKeyUp={permanentEmployeesFun}
                       className="form-control input-focus"
                       id="pemp"
                       placeholder="Permanent Employee"
                       value={companyData.permanentEmployee || ""}
                       name="permanentEmployee"
                       onChange={(e) => nameData(e)}
+                      ref={permanentEmployeeRef}
                       required
                     />
-                    {/* {permanentEmployeesErr ? (
-              <p className="error-change">Permanant Employees can't be Blank</p>
-            ) : (
-              ""
-            )} */}
+                   {permanentEmployeeErr ? (
+                      <p className="error-show">
+                      Permanent Employee can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
+
+                {/* registation number  */}
+
+                <div className="form-group col-md-6">
+                  <div className="pr-ten">
+                    <label className="label-heading" htmlFor="pemp1">
+                      company Registration Number*
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control input-focus"
+                      id="pemp1"
+                      placeholder="company Registration Number"
+                      value={companyData.companyRegistrationNumber || ""}
+                      name="companyRegistrationNumber"
+                      onChange={(e) => nameData(e)}
+                      ref={companyRegistrationNumberRef}
+                      required
+                    />
+                     {companyRegistrationNumberErr ? (
+                      <p className="error-show">
+                      company Registration Number can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-group col-md-6">
+                  <div className="pl-ten">
+                    <label className="label-heading" htmlFor="regisNum">
+                      Company Pincode*
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control input-focus"
+                      id="regisNum"
+                      placeholder="company Registration Number"
+                      value={companyData.companyPinCode || ""}
+                      name="companyPinCode"
+                      onChange={(e) => nameData(e)}
+                      ref={companyPincodeRef}
+                      required
+                    />
+                     {companyPincodeErr ? (
+                      <p className="error-show">
+                      company pincode Number can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-group col-md-6">
+                  <div className="pr-ten">
+                    <label className="label-heading" htmlFor="regisDate">
+                      Company Registraion Date*
+                    </label>
+                    <input
+                      type="date"
+                      className="form-control input-focus"
+                      id="regisDate"
+                      placeholder="company Registration Date"
+                      value={companyData.companyRegistrationDate || ""}
+                      name="companyRegistrationDate"
+                      onChange={(e) => nameData(e)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group col-md-6">
+                  <div className="pl-ten">
+                    <label className="label-heading" htmlFor="Signature">
+                      Signature*
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control input-focus"
+                      id="Signature"
+                      placeholder="Signature"
+                      value={companyData.companyRemarks || ""}
+                      name="companyRemarks"
+                      onChange={(e) => nameData(e)}
+                      ref={companyRemarksRef}
+                      required
+                    />
+                     {companyRemarksErr ? (
+                      <p className="error-show">
+                      Signature can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+
+                {/* end */}
+
                 <div className="col-md-6">
                   <div className="form-group col-md-12  m-0 p-0 mb-3">
                     <div className="pr-ten">
@@ -427,23 +692,22 @@ const UserInfo = () => {
                       </label>
                       <input
                         type="text"
-                        // ref={contactEmployeesRef}
-                        // onKeyUp={contactEmployeesFun}
                         className="form-control input-focus"
                         id="contractemp"
                         placeholder="Contract Employee"
                         value={companyData.contractEmployee || ""}
                         name="contractEmployee"
                         onChange={(e) => nameData(e)}
+                        ref={contractEmployeeRef}
                         required
                       />
-                      {/* {contactEmployeesErr ? (
-                <p className="error-change">
-                  Contract employees can't be Blank
-                </p>
-              ) : (
-                ""
-              )} */}
+                      {contractEmployeeErr ? (
+                      <p className="error-show">
+                       Contract employees can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                     </div>
                   </div>
                   <div className="form-group col-md-12 m-0 p-0">
@@ -453,20 +717,22 @@ const UserInfo = () => {
                       </label>
                       <input
                         type="text"
-                        // ref={gstNumberRef}
                         className="form-control input-focus"
                         id="gstnumber"
                         placeholder="GST Number"
                         value={companyData.gstNumber || ""}
                         name="gstNumber"
+                        ref={gstNumberRef}
                         onChange={(e) => nameData(e)}
                         required
                       />
-                      {/* {gstNumberErr ? (
-                <p className="error-change">GST Number can't be Blank</p>
-              ) : (
-                ""
-              )} */}
+                    {gstNumberErr ? (
+                      <p className="error-show">
+                      GST Number can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                     </div>
                   </div>
                 </div>
@@ -477,7 +743,7 @@ const UserInfo = () => {
                     </label>
                     <textarea
                       className="form-group input-focus text-a-size w-100"
-                      // ref={operatingUnitRef}
+                  
                       id="opunit"
                       rows="4"
                       cols="50"
@@ -485,16 +751,16 @@ const UserInfo = () => {
                       value={companyData.operationUnitAddress || ""}
                       name="operationUnitAddress"
                       onChange={(e) => nameData(e)}
+                      ref={operationUnitAddressRef}
                       required
                     ></textarea>
-                    {/* {operatingUnitErr ? (
-              <p className="error-change">
-                {" "}
-                Operating Unit address can't be Blank
-              </p>
-            ) : (
-              ""
-            )} */}
+                    {operationUnitAddressErr ? (
+                      <p className="error-show">
+                      Operation Unit address can't be Blank
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>

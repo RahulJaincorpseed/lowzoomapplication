@@ -8,6 +8,8 @@
 
 @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /* font-family: 'Gilroy-Bold', sans-serif;
 font-family: 'Gilroy-Heavy', sans-serif;
 font-family: 'Gilroy-Light', sans-serif;
@@ -16,7 +18,8 @@ font-family: 'Gilroy-Regular', sans-serif; */
 
 body {
   /* font-family: 'Roboto'; */
-  font-family: "Gilroy-Heavy" !important;
+  /* font-family: "Gilroy-Heavy" !important; */
+  font-family: 'Roboto', sans-serif;
   /* font-family: "roboto", sans-serif ; */
   font-style: normal;
 }
@@ -126,9 +129,9 @@ button:focus {
 
 .label-heading {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 23px;
-  color: var(--fifth-gray);
+  color: #000;
 }
 
 .sub-heading {
@@ -163,6 +166,11 @@ button:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075);
   border-radius: 4px;
   font-weight: 500;
+}
+
+.input-focus::placeholder{
+  font-size: 15px;
+  color: #988D8D;
 }
 
 .input-focus:focus {
@@ -256,22 +264,22 @@ button:focus {
 }
 
 .item-heading {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 25px;
   color: var(--first-gray);
 }
 
 .heading-info {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 25px;
   color: var(--forth-gray);
 }
 
 .item-heading-new {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 25px;
   color: var(--first-gray);
   margin-left: 3px;
