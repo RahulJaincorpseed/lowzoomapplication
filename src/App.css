@@ -94,6 +94,13 @@ button:focus {
   outline: none;
 }
 
+.error-show{
+  color: #DC3545;
+  font-size: 14px;
+  margin: 5px 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
 /* common classes */
 
 /* //// +++++++++++++++++ css Variables +++++++++++++++++ */

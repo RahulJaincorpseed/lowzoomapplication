@@ -163,7 +163,7 @@ const SignUp = () => {
             />
           </div>
           {formError ? (
-            <p className="text-danger">Please Fill All Mandatory field</p>
+            <p className="error-show">Please Fill All Mandatory field</p>
           ) : (
             ""
           )}
@@ -200,12 +200,12 @@ const SignUp = () => {
               }
             />
             {otpPageError ? (
-              <p className="text-danger">Otp Can not be blank</p>
+              <p className="error-show">Otp Can not be blank</p>
             ) : (
               ""
             )}
             {sameOtpError ? (
-              <p className="text-danger">Please Enter Valid Otp</p>
+              <p className="error-show">Please Enter Valid Otp</p>
             ) : (
               ""
             )}
