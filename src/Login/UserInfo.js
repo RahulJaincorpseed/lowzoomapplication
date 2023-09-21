@@ -408,7 +408,7 @@ React.createRef();
                       // ref={companyNameRef}
                       className="form-control input-focus"
                       id="companyName"
-                      placeholder="Company Name"
+                      placeholder="Enter Company Name"
                       value={companyData.companyName || ""}
                       name="companyName"
                       ref={companyNameRef}
@@ -492,7 +492,7 @@ React.createRef();
                       name="companyTurnover"
                       onChange={(e) => nameData(e)}
                       ref={companyTurnoverRef}
-                      placeholder="Company Turnover"
+                      placeholder="Enter Company Turnover"
                     />
                      {companyTurnoverErr ? (
                       <p className="error-show">
@@ -564,7 +564,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="pemp"
-                      placeholder="Permanent Employee"
+                      placeholder="Enter Permanent Employee"
                       value={companyData.permanentEmployee || ""}
                       name="permanentEmployee"
                       onChange={(e) => nameData(e)}
@@ -592,7 +592,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="pemp1"
-                      placeholder="company Registration Number"
+                      placeholder="Enter company Registration Number"
                       value={companyData.companyRegistrationNumber || ""}
                       name="companyRegistrationNumber"
                       onChange={(e) => nameData(e)}
@@ -618,7 +618,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="regisNum"
-                      placeholder="company Registration Number"
+                      placeholder="Enter company Registration Number"
                       value={companyData.companyPinCode || ""}
                       name="companyPinCode"
                       onChange={(e) => nameData(e)}
@@ -644,7 +644,7 @@ React.createRef();
                       type="date"
                       className="form-control input-focus"
                       id="regisDate"
-                      placeholder="company Registration Date"
+                      placeholder="Enter company Registration Date"
                       value={companyData.companyRegistrationDate || ""}
                       name="companyRegistrationDate"
                       onChange={(e) => nameData(e)}
@@ -662,7 +662,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="Signature"
-                      placeholder="Signature"
+                      placeholder="Enter your Signature"
                       value={companyData.companyRemarks || ""}
                       name="companyRemarks"
                       onChange={(e) => nameData(e)}
@@ -691,7 +691,7 @@ React.createRef();
                         type="text"
                         className="form-control input-focus"
                         id="contractemp"
-                        placeholder="Contract Employee"
+                        placeholder="Enter Contract Employee"
                         value={companyData.contractEmployee || ""}
                         name="contractEmployee"
                         onChange={(e) => nameData(e)}
@@ -716,7 +716,7 @@ React.createRef();
                         type="text"
                         className="form-control input-focus"
                         id="gstnumber"
-                        placeholder="GST Number"
+                        placeholder="Enter GST Number"
                         value={companyData.gstNumber || ""}
                         name="gstNumber"
                         ref={gstNumberRef}
@@ -744,7 +744,7 @@ React.createRef();
                       id="opunit"
                       rows="4"
                       cols="50"
-                      placeholder="Enter here..."
+                      placeholder="Enter Address here..."
                       value={companyData.operationUnitAddress || ""}
                       name="operationUnitAddress"
                       onChange={(e) => nameData(e)}

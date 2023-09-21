@@ -318,6 +318,10 @@ button:focus {
   color: #dc3545 !important;
 }
 
+.min-200{
+  min-height: calc(100vh - 195px);
+}
+
 
 
 /* nav links  */
