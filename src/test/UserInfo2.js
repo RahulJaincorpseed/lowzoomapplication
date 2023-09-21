@@ -93,7 +93,7 @@ const UserInfo = () => {
               className="first-button form-prev-btn"
               onClick={() => increaseFormStep()}
             >
-              next
+              Next
             </button>
           )}
         </div>
