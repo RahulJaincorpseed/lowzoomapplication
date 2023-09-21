@@ -12,6 +12,9 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { cityData, companyData2 } from "../TestData.js/CityData"
 import axios from "axios"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
 
 const UserInfo = () => {
   const [step, setStep] = useState(1)
@@ -60,7 +63,7 @@ const UserInfo = () => {
     useState(false)
   const [companyRemarksErr, setCompanyRemarksErr] = useState(false)
   const [companyPincodeErr, setCompanyPincodeErr] = useState(false)
-
+ 
   // refs
   const firstNameRef = React.createRef();
   const lastNameRef = React.createRef();
@@ -214,17 +217,6 @@ React.createRef();
 
 
 
-
-
-
-   
-    
-    
-
-    
-
-
-
     const createCompanyData = async () => {
       try {
         const companysubmitData = await axios.post(`/company`, {
@@ -236,7 +228,12 @@ React.createRef();
         })
         console.log("all company data api", companysubmitData.data)
       } catch (err) {
-        console.log(err)
+        if(err.response.data)
+        if(err.response.status === 500){
+          console.log(err.response.statusText)
+          toast.error(err.response.statusText)
+        }
+        console.log("response data",  err.response.status)
       }
       // console.log("submit data")
     }
