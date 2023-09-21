@@ -12,7 +12,7 @@ const LoginHeader = () => {
         </div>
         <div className="log-out-btn">
           <Link to={""} className="logout-link">
-            LogOut
+            Logout
           </Link>
         </div>
       </div>

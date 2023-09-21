@@ -31,7 +31,7 @@ const AddTeam = () => {
           <h4 className="team-text">Team</h4>
         </div>
         <div>
-          <button className="team-button">Add Team</button>
+          <button className="team-button"><i class="fa-solid fa-plus mr-2"></i>Add Team</button>
         </div>
       </div>
       <div className=" info-teams">

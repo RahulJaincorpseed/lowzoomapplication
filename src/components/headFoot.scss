@@ -24,9 +24,12 @@
     .log-out-btn {
       .logout-link {
         font-weight: 400;
-        font-size: 24px;
+        font-size: 16px;
         line-height: 23px;
         color: $grayEight;
+        &:hover{
+          text-decoration: none;
+        }
       }
     }
   }
@@ -43,8 +46,8 @@
   .mob-contact {
     margin: 0;
     font-weight: 300;
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 20px;
     text-align: center;
     letter-spacing: 0.84px;
     color: $black;

@@ -33,6 +33,22 @@ const LoginForm = () => {
   let count = 0;
   const submitEnqData = (e) => {
       setEnquiryData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+      if (fullNameRef.current.value !== "") {
+        fullNameRef.current.style.borderBottom = "1px solid rgba(51, 51, 51, 0.6)";
+        setFullNameErr(false)
+      }
+      if (designationRef.current.value !== "") {
+        designationRef.current.style.borderBottom = "1px solid rgba(51, 51, 51, 0.6)";
+        setDesignationErr(false)
+      }
+      if (mobileRef.current.value !== "") {
+        mobileRef.current.style.borderBottom = "1px solid rgba(51, 51, 51, 0.6)";
+        setMobileErr(false)
+      }
+      if (companyNameRef.current.value !== "") {
+        companyNameRef.current.style.borderBottom = "1px solid rgba(51, 51, 51, 0.6)";
+        setCompanyNameErr(false)
+      }
   }
 
   const SubmitEnquiryData = (e) => {
