@@ -21,6 +21,7 @@ import HomePage from "./Home/HomePage"
 import FrontPage from "./Home/FrontPage"
 import OtpPage from "./Home/OtpPage"
 import SignUpOtp from "./Login/SignUpOtp"
+import AddTeam from "./Login/AddTeam"
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/signup/otp" element ={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />
+        <Route path="/addteam" element={<AddTeam />} />
         <Route path="/details" element={<Details />} />
         <Route path="/userinfo" element={<UserInfo />} />
         <Route path="/company" element={<MainCompany />}>

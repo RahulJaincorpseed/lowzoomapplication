@@ -12,6 +12,9 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { cityData, companyData2 } from "../TestData.js/CityData"
 import axios from "axios"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
 
 const UserInfo = () => {
   const [step, setStep] = useState(1)
@@ -60,7 +63,7 @@ const UserInfo = () => {
     useState(false)
   const [companyRemarksErr, setCompanyRemarksErr] = useState(false)
   const [companyPincodeErr, setCompanyPincodeErr] = useState(false)
-
+ 
   // refs
   const firstNameRef = React.createRef();
   const lastNameRef = React.createRef();
@@ -214,17 +217,6 @@ React.createRef();
 
 
 
-
-
-
-   
-    
-    
-
-    
-
-
-
     const createCompanyData = async () => {
       try {
         const companysubmitData = await axios.post(`/company`, {
@@ -236,7 +228,12 @@ React.createRef();
         })
         console.log("all company data api", companysubmitData.data)
       } catch (err) {
-        console.log(err)
+        if(err.response.data)
+        if(err.response.status === 500){
+          console.log(err.response.statusText)
+          toast.error(err.response.statusText)
+        }
+        console.log("response data",  err.response.status)
       }
       // console.log("submit data")
     }
@@ -411,7 +408,7 @@ React.createRef();
                       // ref={companyNameRef}
                       className="form-control input-focus"
                       id="companyName"
-                      placeholder="Company Name"
+                      placeholder="Enter Company Name"
                       value={companyData.companyName || ""}
                       name="companyName"
                       ref={companyNameRef}
@@ -495,7 +492,7 @@ React.createRef();
                       name="companyTurnover"
                       onChange={(e) => nameData(e)}
                       ref={companyTurnoverRef}
-                      placeholder="Company Turnover"
+                      placeholder="Enter Company Turnover"
                     />
                      {companyTurnoverErr ? (
                       <p className="error-show">
@@ -567,7 +564,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="pemp"
-                      placeholder="Permanent Employee"
+                      placeholder="Enter Permanent Employee"
                       value={companyData.permanentEmployee || ""}
                       name="permanentEmployee"
                       onChange={(e) => nameData(e)}
@@ -595,7 +592,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="pemp1"
-                      placeholder="company Registration Number"
+                      placeholder="Enter company Registration Number"
                       value={companyData.companyRegistrationNumber || ""}
                       name="companyRegistrationNumber"
                       onChange={(e) => nameData(e)}
@@ -621,7 +618,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="regisNum"
-                      placeholder="company Registration Number"
+                      placeholder="Enter company Registration Number"
                       value={companyData.companyPinCode || ""}
                       name="companyPinCode"
                       onChange={(e) => nameData(e)}
@@ -647,7 +644,7 @@ React.createRef();
                       type="date"
                       className="form-control input-focus"
                       id="regisDate"
-                      placeholder="company Registration Date"
+                      placeholder="Enter company Registration Date"
                       value={companyData.companyRegistrationDate || ""}
                       name="companyRegistrationDate"
                       onChange={(e) => nameData(e)}
@@ -665,7 +662,7 @@ React.createRef();
                       type="text"
                       className="form-control input-focus"
                       id="Signature"
-                      placeholder="Signature"
+                      placeholder="Enter your Signature"
                       value={companyData.companyRemarks || ""}
                       name="companyRemarks"
                       onChange={(e) => nameData(e)}
@@ -694,7 +691,7 @@ React.createRef();
                         type="text"
                         className="form-control input-focus"
                         id="contractemp"
-                        placeholder="Contract Employee"
+                        placeholder="Enter Contract Employee"
                         value={companyData.contractEmployee || ""}
                         name="contractEmployee"
                         onChange={(e) => nameData(e)}
@@ -719,7 +716,7 @@ React.createRef();
                         type="text"
                         className="form-control input-focus"
                         id="gstnumber"
-                        placeholder="GST Number"
+                        placeholder="Enter GST Number"
                         value={companyData.gstNumber || ""}
                         name="gstNumber"
                         ref={gstNumberRef}
@@ -747,7 +744,7 @@ React.createRef();
                       id="opunit"
                       rows="4"
                       cols="50"
-                      placeholder="Enter here..."
+                      placeholder="Enter Address here..."
                       value={companyData.operationUnitAddress || ""}
                       name="operationUnitAddress"
                       onChange={(e) => nameData(e)}
