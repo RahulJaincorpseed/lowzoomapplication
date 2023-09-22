@@ -105,6 +105,12 @@ const UserInfo = () => {
 
   const nameData = (e) => {
     setCompanyData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    if(companyData.firstName != ""){
+      setFirstNameErr(false);
+    }
+    if(companyData.lastName != ""){
+      setLastNameErr(false);
+    }
     console.log("company data")
   }
 
