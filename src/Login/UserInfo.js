@@ -8,7 +8,7 @@ import { Progress } from "rsuite"
 import FormPartTwo from "./FormPartTwo"
 import AddPeople from "./AddPeople"
 import CompanyInfo from "./CompanyInfo"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { cityData, companyData2 } from "../TestData.js/CityData"
 import axios from "axios"
@@ -63,36 +63,44 @@ const UserInfo = () => {
     useState(false)
   const [companyRemarksErr, setCompanyRemarksErr] = useState(false)
   const [companyPincodeErr, setCompanyPincodeErr] = useState(false)
- 
+
   // refs
-  const firstNameRef = React.createRef();
-  const lastNameRef = React.createRef();
-  const designationRef = React.createRef();
-  const businessActivityEmailRef = React.createRef();
-  const companyTypeRef = React.createRef();
-  const companyNameRef =  React.createRef();
-  const companyCityRef = React.createRef();
+  const firstNameRef = React.createRef()
+  const lastNameRef = React.createRef()
+  const designationRef = React.createRef()
+  const businessActivityEmailRef = React.createRef()
+  const companyTypeRef = React.createRef()
+  const companyNameRef = React.createRef()
+  const companyCityRef = React.createRef()
 
-  const companyStateRef =  React.createRef();
-  const companyTurnoverRef =  React.createRef();
-  const locatedAtRef =  React.createRef();
-  const businessActivityRef =  React.createRef();
-  const permanentEmployeeRef = React.createRef();
-  const contractEmployeeRef = React.createRef();
-  const gstNumberRef =  React.createRef();
-  const operationUnitAddressRef =  React.createRef();
-  const companyRegistrationNumberRef =  React.createRef();
-  const companyRegistrationDateRef =  React.createRef();
-  const companyRemarksRef = React.createRef();
-  const companyPincodeRef =  React.createRef();
+  const companyStateRef = React.createRef()
+  const companyTurnoverRef = React.createRef()
+  const locatedAtRef = React.createRef()
+  const businessActivityRef = React.createRef()
+  const permanentEmployeeRef = React.createRef()
+  const contractEmployeeRef = React.createRef()
+  const gstNumberRef = React.createRef()
+  const operationUnitAddressRef = React.createRef()
+  const companyRegistrationNumberRef = React.createRef()
+  const companyRegistrationDateRef = React.createRef()
+  const companyRemarksRef = React.createRef()
+  const companyPincodeRef = React.createRef()
 
+
+  const navigate = useNavigate();
   // data
 
   // data
 
-  const currentUserToken = useSelector((state) => state)
+  // redux
 
-  console.log("i am current user info token ", currentUserToken)
+  // const companyAddRedux = useSelector((state) => state.companyDataReducer)
+
+  // console.log("redux selector", companyAddRedux);
+
+  // const currentUserToken = useSelector((state) => state)
+
+  // console.log("i am current user info token ", currentUserToken)
 
   // progress bar
 
@@ -105,34 +113,34 @@ const UserInfo = () => {
 
   const nameData = (e) => {
     setCompanyData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-    if(companyData.firstName != ""){
-      setFirstNameErr(false);
+    if (companyData.firstName != "") {
+      setFirstNameErr(false)
     }
-    if(companyData.lastName != ""){
-      setLastNameErr(false);
+    if (companyData.lastName != "") {
+      setLastNameErr(false)
     }
     console.log("company data")
   }
 
   // increase function
   const increaseFormStep = () => {
-    if (firstNameRef.current.value === "") {
-      setFirstNameErr(true)
-      firstNameRef.current.style.border = "1px solid #DC3545"
-    }
-    if (lastNameRef.current.value === "") {
-      setLastNameErr(true)
-      lastNameRef.current.style.border = "1px solid #DC3545"
-    }
-    if (designationRef.current.value === "") {
-      setDesignationErr(true)
-      designationRef.current.style.border = "1px solid #DC3545"
-    }
-    if (businessActivityEmailRef.current.value === "") {
-      setBusinessActivityEmailErr(true)
-      businessActivityEmailRef.current.style.border = "1px solid #DC3545"
-      return
-    }
+    // if (firstNameRef.current.value === "") {
+    //   setFirstNameErr(true)
+    //   firstNameRef.current.style.border = "1px solid #DC3545"
+    // }
+    // if (lastNameRef.current.value === "") {
+    //   setLastNameErr(true)
+    //   lastNameRef.current.style.border = "1px solid #DC3545"
+    // }
+    // if (designationRef.current.value === "") {
+    //   setDesignationErr(true)
+    //   designationRef.current.style.border = "1px solid #DC3545"
+    // }
+    // if (businessActivityEmailRef.current.value === "") {
+    //   setBusinessActivityEmailErr(true)
+    //   businessActivityEmailRef.current.style.border = "1px solid #DC3545"
+    //   return
+    // }
 
     setStep((prev) => prev + 1)
     setPercent((prev) => prev + 50)
@@ -145,83 +153,79 @@ const UserInfo = () => {
     }
     setPercent((prev) => prev - 50)
   }
-React.createRef();
+  React.createRef()
   const SubmitAllData = (e) => {
     e.preventDefault()
-    console.log("value is ", companyTypeRef.current.value)
-    if (companyData.companyType === "") {
-      setCompanyTypeErr(true)
-      companyTypeRef.current.style.border = "1px solid #DC3545"
-    }
+    // console.log("value is ", companyTypeRef.current.value)
+    // if (companyData.companyType === "") {
+    //   setCompanyTypeErr(true)
+    //   companyTypeRef.current.style.border = "1px solid #DC3545"
+    // }
 
-     if (companyNameRef.current.value === "") {
-      setCompanyNameErr(true)
-      companyNameRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyNameRef.current.value === "") {
+    //   setCompanyNameErr(true)
+    //   companyNameRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (companyData.companyCity === "") {
-      setCompanyCityErr(true)
-      companyCityRef.current.style.border = "1px solid #DC3545"
-    }
-    
-    if (companyData.companyState === "") {
-      setCompanyStateErr(true)
-      companyStateRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyData.companyCity === "") {
+    //   setCompanyCityErr(true)
+    //   companyCityRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (companyTurnoverRef.current.value === "") {
-      setCompanyTurnoverErr(true)
-      companyTurnoverRef.current.style.border = "1px solid #DC3545"
-    }
-    
-    
-    if (companyData.locatedAt === "") {
-      setLocatedAtErr(true)
-      locatedAtRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyData.companyState === "") {
+    //   setCompanyStateErr(true)
+    //   companyStateRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (businessActivityRef.current.value === "") {
-      setBusinessActivityErr(true)
-      businessActivityRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyTurnoverRef.current.value === "") {
+    //   setCompanyTurnoverErr(true)
+    //   companyTurnoverRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (permanentEmployeeRef.current.value === "") {
-      setPermanentEmployeeErr(true)
-      permanentEmployeeRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyData.locatedAt === "") {
+    //   setLocatedAtErr(true)
+    //   locatedAtRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (companyRegistrationNumberRef.current.value === "") {
-      setCompanyRegistrationNumberErr(true)
-      companyRegistrationNumberRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (businessActivityRef.current.value === "") {
+    //   setBusinessActivityErr(true)
+    //   businessActivityRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    
-    if (companyPincodeRef.current.value === "") {
-      setCompanyPincodeErr(true)
-      companyPincodeRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (permanentEmployeeRef.current.value === "") {
+    //   setPermanentEmployeeErr(true)
+    //   permanentEmployeeRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (companyRemarksRef.current.value === "") {
-      setCompanyRemarksErr(true)
-      companyRemarksRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyRegistrationNumberRef.current.value === "") {
+    //   setCompanyRegistrationNumberErr(true)
+    //   companyRegistrationNumberRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (gstNumberRef.current.value === "") {
-      setGstNumberErr(true)
-      gstNumberRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyPincodeRef.current.value === "") {
+    //   setCompanyPincodeErr(true)
+    //   companyPincodeRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (operationUnitAddressRef.current.value === "") {
-      setOperationUnitAddressErr(true)
-      operationUnitAddressRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (companyRemarksRef.current.value === "") {
+    //   setCompanyRemarksErr(true)
+    //   companyRemarksRef.current.style.border = "1px solid #DC3545"
+    // }
 
-    if (contractEmployeeRef.current.value === "") {
-      setContractEmployeeErr(true)
-      contractEmployeeRef.current.style.border = "1px solid #DC3545"
-    }
+    // if (gstNumberRef.current.value === "") {
+    //   setGstNumberErr(true)
+    //   gstNumberRef.current.style.border = "1px solid #DC3545"
+    // }
 
+    // if (operationUnitAddressRef.current.value === "") {
+    //   setOperationUnitAddressErr(true)
+    //   operationUnitAddressRef.current.style.border = "1px solid #DC3545"
+    // }
 
+    // if (contractEmployeeRef.current.value === "") {
+    //   setContractEmployeeErr(true)
+    //   contractEmployeeRef.current.style.border = "1px solid #DC3545"
+    // }
 
     const createCompanyData = async () => {
       try {
@@ -233,25 +237,21 @@ React.createRef();
           },
         })
         console.log("all company data api", companysubmitData.data)
+        toast.success("Company Added Succesfully")
+        navigate(`/${companysubmitData.data.companyId}/addteam`)
       } catch (err) {
-        if(err.response.data)
-        if(err.response.status === 500){
-          console.log(err.response.statusText)
-          toast.error(err.response.statusText)
-        }
-        console.log("response data",  err.response.status)
+        if (err.response.data)
+          if (err.response.status === 500) {
+            console.log(err.response.statusText)
+            toast.error(err.response.statusText)
+          }
+        // console.log("response data", err.response.status)
       }
-      // console.log("submit data")
     }
     createCompanyData()
   }
 
-  // if (companyTypeRef.current.value === "") {
-  //   setCompanyTypeErr(true)
-  //   return
-  // }
-
-  console.log("i am company data ", companyData)
+  // console.log("i am company data ", companyData)
 
   return (
     <div>
@@ -411,7 +411,6 @@ React.createRef();
                     </label>
                     <input
                       type="text"
-                      // ref={companyNameRef}
                       className="form-control input-focus"
                       id="companyName"
                       placeholder="Enter Company Name"
@@ -476,9 +475,7 @@ React.createRef();
                       ))}
                     </select>
                     {companyStateErr ? (
-                      <p className="error-show">
-                        company state can't be Blank
-                      </p>
+                      <p className="error-show">company state can't be Blank</p>
                     ) : (
                       ""
                     )}
@@ -491,7 +488,6 @@ React.createRef();
                     </label>
                     <input
                       type="text"
-                      // ref={turnOverRef}
                       className="form-control input-focus"
                       id="turnOver"
                       value={companyData.companyTurnover || ""}
@@ -500,9 +496,9 @@ React.createRef();
                       ref={companyTurnoverRef}
                       placeholder="Enter Company Turnover"
                     />
-                     {companyTurnoverErr ? (
+                    {companyTurnoverErr ? (
                       <p className="error-show">
-                       company Turnover can't be Blank
+                        company Turnover can't be Blank
                       </p>
                     ) : (
                       ""
@@ -528,9 +524,7 @@ React.createRef();
                       <option>4</option>
                     </select>
                     {locatedAtErr ? (
-                      <p className="error-show">
-                      Located at can't be Blank
-                      </p>
+                      <p className="error-show">Located at can't be Blank</p>
                     ) : (
                       ""
                     )}
@@ -554,7 +548,7 @@ React.createRef();
                     />
                     {businessActivityErr ? (
                       <p className="error-show">
-                      Business Activity can't be Blank
+                        Business Activity can't be Blank
                       </p>
                     ) : (
                       ""
@@ -577,9 +571,9 @@ React.createRef();
                       ref={permanentEmployeeRef}
                       required
                     />
-                   {permanentEmployeeErr ? (
+                    {permanentEmployeeErr ? (
                       <p className="error-show">
-                      Permanent Employee can't be Blank
+                        Permanent Employee can't be Blank
                       </p>
                     ) : (
                       ""
@@ -605,9 +599,9 @@ React.createRef();
                       ref={companyRegistrationNumberRef}
                       required
                     />
-                     {companyRegistrationNumberErr ? (
+                    {companyRegistrationNumberErr ? (
                       <p className="error-show">
-                      company Registration Number can't be Blank
+                        company Registration Number can't be Blank
                       </p>
                     ) : (
                       ""
@@ -631,9 +625,9 @@ React.createRef();
                       ref={companyPincodeRef}
                       required
                     />
-                     {companyPincodeErr ? (
+                    {companyPincodeErr ? (
                       <p className="error-show">
-                      company pincode Number can't be Blank
+                        company pincode Number can't be Blank
                       </p>
                     ) : (
                       ""
@@ -675,10 +669,8 @@ React.createRef();
                       ref={companyRemarksRef}
                       required
                     />
-                     {companyRemarksErr ? (
-                      <p className="error-show">
-                      Signature can't be Blank
-                      </p>
+                    {companyRemarksErr ? (
+                      <p className="error-show">Signature can't be Blank</p>
                     ) : (
                       ""
                     )}
@@ -705,12 +697,12 @@ React.createRef();
                         required
                       />
                       {contractEmployeeErr ? (
-                      <p className="error-show">
-                       Contract employees can't be Blank
-                      </p>
-                    ) : (
-                      ""
-                    )}
+                        <p className="error-show">
+                          Contract employees can't be Blank
+                        </p>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                   <div className="form-group col-md-12 m-0 p-0">
@@ -729,13 +721,11 @@ React.createRef();
                         onChange={(e) => nameData(e)}
                         required
                       />
-                    {gstNumberErr ? (
-                      <p className="error-show">
-                      GST Number can't be Blank
-                      </p>
-                    ) : (
-                      ""
-                    )}
+                      {gstNumberErr ? (
+                        <p className="error-show">GST Number can't be Blank</p>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 </div>
@@ -746,7 +736,6 @@ React.createRef();
                     </label>
                     <textarea
                       className="form-group input-focus text-a-size w-100"
-                  
                       id="opunit"
                       rows="4"
                       cols="50"
@@ -759,7 +748,7 @@ React.createRef();
                     ></textarea>
                     {operationUnitAddressErr ? (
                       <p className="error-show">
-                      Operation Unit address can't be Blank
+                        Operation Unit address can't be Blank
                       </p>
                     ) : (
                       ""
