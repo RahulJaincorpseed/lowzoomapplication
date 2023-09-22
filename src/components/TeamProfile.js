@@ -2,16 +2,17 @@ import React from "react"
 import "./TeamProfile.scss"
 import akImg from "../images/Group 1136.png"
 
-const TeamProfile = () => {
+const TeamProfile = ({teamLeadName, teamName, leadDesignation}) => {
+  // console.log(teamLeadName);
   return (
     <div className="team-profile">
       <div className="image-pro">
         <img src={akImg} alt="AkImage" />
       </div>
       <div className="team-text">
-        <h3>Abhishek Kumar</h3>
+        <h3>{teamName || "Team Name"}</h3>
         <h2>
-          Super Admin <span>| CEO</span>
+          {teamLeadName || "Team Lead Name"} <span>| {leadDesignation || "Designation"}</span>
         </h2>
       </div>
     </div>

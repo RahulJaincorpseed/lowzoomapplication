@@ -36,7 +36,7 @@ function App() {
         <Route path="/signup/otp" element ={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />
-        <Route path="/addteam" element={<AddTeam />} />
+        <Route path=":companyId/addteam" element={<AddTeam />} />
         <Route path="/details" element={<Details />} />
         <Route path="/userinfo" element={<UserInfo />} />
         <Route path="/company" element={<MainCompany />}>
