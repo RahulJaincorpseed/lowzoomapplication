@@ -9,6 +9,14 @@
   display: flex;
 }
 
+.team-cards{
+  border: none;
+  .card-header{
+    padding: 0px;
+    background-color: #fff;
+  }
+}
+
 .team-add {
   padding: 20px 25px;
   .team-text {
@@ -30,6 +38,7 @@
   @include all-between;
   border-bottom: 1px solid $grayOne;
   .team-type {
+    min-width: 200px;
     h3 {
       @include font-one;
       color: $graySix;

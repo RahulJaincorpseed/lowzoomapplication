@@ -1,16 +1,61 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Model.css"
+import { useParams } from "react-router-dom"
+import axios from "axios"
 
 const AddTeamModel = () => {
+  const [teamData, setTeamData] = useState({
+    teamName: "",
+    teamLeadName: "",
+    leadDesignation: "",
+    teamType: "",
+  })
+  const { companyId } = useParams()
+
+  console.log("params is ", companyId)
+
+  const TeamSetData = (e) => {
+    setTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const addNewTeam = (e) => {
+    e.preventDefault()
+
+    console.log("function calling")
+
+    const addTeamData = async () => {
+      try {
+        const addNewTeamData = await axios.post(
+          `/company/team/save?companyId=${companyId}`,
+          {
+            ...teamData,
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+
+        console.log("add team ", addNewTeamData.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    addTeamData()
+  }
+
+  console.log("team data api", teamData)
+
   return (
     <div className="team-model">
       <button
         type="button"
-        className="add-team-modal edit-people"
+        className="add-team-modal edit-people color-blue"
         data-toggle="modal"
         data-target="#AddTeamModel22"
       >
-        Add Team
+        <i className="fa-solid fa-plus mr-1"></i> Add Team
       </button>
 
       <div
@@ -36,103 +81,97 @@ const AddTeamModel = () => {
                     className="fa-sharp fa-solid fa-circle-xmark"
                   ></i>
                 </div>
-                <div className="first-form form-row">
-                  <div className="form-group col-md-6">
-                    <div className="pr-ten">
-                      <label className="label-heading mb-0" htmlFor="fullName">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control input-focus"
-                        id="fullName"
-                        placeholder="Full Name"
-                      />
+                <form>
+                  <div className="first-form form-row">
+                    <div className="form-group col-md-6">
+                      <div className="pr-ten">
+                        <label
+                          className="label-heading mb-1"
+                          htmlFor="teamName"
+                        >
+                          Team Name *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control input-focus"
+                          id="teamName"
+                          placeholder="Enter Team Name"
+                          name="teamName"
+                          onChange={(e) => TeamSetData(e)}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group col-md-6">
+                      <div className="pl-ten">
+                        <label
+                          className="label-heading mb-1"
+                          htmlFor="teamLeadName"
+                        >
+                          Team Lead Name*
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control input-focus"
+                          id="teamLeadName"
+                          placeholder="Enter Team Lead Name"
+                          name="teamLeadName"
+                          onChange={(e) => TeamSetData(e)}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group col-md-6">
+                      <div className="pr-ten">
+                        <label
+                          className="label-heading mb-1"
+                          htmlFor="teamDesignation"
+                        >
+                          Team Designation *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control input-focus"
+                          id="teamDesignation"
+                          name="leadDesignation"
+                          placeholder="Enter Team Designation"
+                          onChange={(e) => TeamSetData(e)}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group col-md-6">
+                      <div className="pl-ten">
+                        <label
+                          className="label-heading mb-1"
+                          htmlFor="teamType"
+                        >
+                          Team Type*
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control input-focus"
+                          id="teamType"
+                          name="teamType"
+                          placeholder="Enter Team Type"
+                          onChange={(e) => TeamSetData(e)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="all-between-items">
+                      <div className="all-center">
+                        <i className="fa-solid fa-gear"></i>
+                        <h2>Advanced Setting</h2>
+                      </div>
+                      <div>
+                        <button
+                          onClick={(e) => addNewTeam(e)}
+                          className="first-button form-prev-btn"
+                        >
+                          Submit
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div className="form-group col-md-6">
-                    <div className="pl-ten">
-                      <label
-                        className="label-heading mb-0"
-                        htmlFor="accessTypes"
-                      >
-                        Access Types*
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control input-focus"
-                        id="accessTypes"
-                        placeholder="Access Types"
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group col-md-6">
-                    <div className="pr-ten">
-                      <label className="label-heading mb-0" htmlFor="email">
-                        Email ID *
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control input-focus"
-                        id="email"
-                        placeholder="Email ID"
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group col-md-6">
-                    <div className="pl-ten">
-                      <label
-                        className="label-heading mb-0"
-                        htmlFor="mobileNumber"
-                      >
-                        Mobile Number*
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control input-focus"
-                        id="mobileNumber"
-                        placeholder="Mobile Number"
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group col-md-6">
-                    <div className="pr-ten">
-                      <label className="label-heading mb-0" htmlFor="resources">
-                        Types of Resources*
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control input-focus"
-                        id="resources"
-                        placeholder="Types of Resources"
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group col-md-6">
-                    <div className="pl-ten">
-                      <label className="label-heading mb-0" htmlFor="addpeople">
-                        Add People*
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control input-focus"
-                        id="addpeople"
-                        placeholder="Add People"
-                      />
-                    </div>
-                  </div>
-                  <div className="all-between-items">
-                    <div className="all-center">
-                      <i className="fa-solid fa-gear"></i>
-                      <h2>Advanced Setting</h2>
-                    </div>
-                    <div>
-                      <button className="first-button form-prev-btn">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

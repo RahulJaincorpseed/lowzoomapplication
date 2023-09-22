@@ -74,6 +74,10 @@ html {
   font-weight: 700 !important;
 }
 
+.color-blue{
+  color: var(--blue-color) !important;
+}
+
 ul {
   list-style-type: none;
 }
@@ -335,6 +339,26 @@ button:focus {
   min-height: calc(100vh - 195px);
 }
 
+
+.w-300{
+  width: 300px;
+}
+
+/* buttons */
+
+.delete-button{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 34px;
+    color: #9f9898;
+    background-color: transparent;
+}
+
+.delete-button:hover{
+  color: #DC3545;
+}
+
+/* buttons */
 
 
 /* nav links  */

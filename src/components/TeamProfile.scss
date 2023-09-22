@@ -2,7 +2,8 @@
 @import "../SCSS/MixCode.scss";
 
 .team-profile {
-  @include all-center;
+  display: flex;
+  align-items: center;
   gap: 10px;
   .image-pro {
     height: 45px;
