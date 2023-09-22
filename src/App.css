@@ -363,7 +363,9 @@ button:focus {
 
 /* nav links  */
 
-
+.rs-progress-line .rs-progress-info{
+  display: none !important;
+}
 
 
 
