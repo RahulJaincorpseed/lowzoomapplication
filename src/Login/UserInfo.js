@@ -124,23 +124,23 @@ const UserInfo = () => {
 
   // increase function
   const increaseFormStep = () => {
-    // if (firstNameRef.current.value === "") {
-    //   setFirstNameErr(true)
-    //   firstNameRef.current.style.border = "1px solid #DC3545"
-    // }
-    // if (lastNameRef.current.value === "") {
-    //   setLastNameErr(true)
-    //   lastNameRef.current.style.border = "1px solid #DC3545"
-    // }
-    // if (designationRef.current.value === "") {
-    //   setDesignationErr(true)
-    //   designationRef.current.style.border = "1px solid #DC3545"
-    // }
-    // if (businessActivityEmailRef.current.value === "") {
-    //   setBusinessActivityEmailErr(true)
-    //   businessActivityEmailRef.current.style.border = "1px solid #DC3545"
-    //   return
-    // }
+    if (firstNameRef.current.value === "") {
+      setFirstNameErr(true)
+      firstNameRef.current.style.border = "1px solid #DC3545"
+    }
+    if (lastNameRef.current.value === "") {
+      setLastNameErr(true)
+      lastNameRef.current.style.border = "1px solid #DC3545"
+    }
+    if (designationRef.current.value === "") {
+      setDesignationErr(true)
+      designationRef.current.style.border = "1px solid #DC3545"
+    }
+    if (businessActivityEmailRef.current.value === "") {
+      setBusinessActivityEmailErr(true)
+      businessActivityEmailRef.current.style.border = "1px solid #DC3545"
+      return
+    }
 
     setStep((prev) => prev + 1)
     setPercent((prev) => prev + 50)
@@ -157,75 +157,76 @@ const UserInfo = () => {
   const SubmitAllData = (e) => {
     e.preventDefault()
     // console.log("value is ", companyTypeRef.current.value)
-    // if (companyData.companyType === "") {
-    //   setCompanyTypeErr(true)
-    //   companyTypeRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyData.companyType === "") {
+      setCompanyTypeErr(true)
+      companyTypeRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyNameRef.current.value === "") {
-    //   setCompanyNameErr(true)
-    //   companyNameRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyNameRef.current.value === "") {
+      setCompanyNameErr(true)
+      companyNameRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyData.companyCity === "") {
-    //   setCompanyCityErr(true)
-    //   companyCityRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyData.companyCity === "") {
+      setCompanyCityErr(true)
+      companyCityRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyData.companyState === "") {
-    //   setCompanyStateErr(true)
-    //   companyStateRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyData.companyState === "") {
+      setCompanyStateErr(true)
+      companyStateRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyTurnoverRef.current.value === "") {
-    //   setCompanyTurnoverErr(true)
-    //   companyTurnoverRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyTurnoverRef.current.value === "") {
+      setCompanyTurnoverErr(true)
+      companyTurnoverRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyData.locatedAt === "") {
-    //   setLocatedAtErr(true)
-    //   locatedAtRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyData.locatedAt === "") {
+      setLocatedAtErr(true)
+      locatedAtRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (businessActivityRef.current.value === "") {
-    //   setBusinessActivityErr(true)
-    //   businessActivityRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (businessActivityRef.current.value === "") {
+      setBusinessActivityErr(true)
+      businessActivityRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (permanentEmployeeRef.current.value === "") {
-    //   setPermanentEmployeeErr(true)
-    //   permanentEmployeeRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (permanentEmployeeRef.current.value === "") {
+      setPermanentEmployeeErr(true)
+      permanentEmployeeRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyRegistrationNumberRef.current.value === "") {
-    //   setCompanyRegistrationNumberErr(true)
-    //   companyRegistrationNumberRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyRegistrationNumberRef.current.value === "") {
+      setCompanyRegistrationNumberErr(true)
+      companyRegistrationNumberRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyPincodeRef.current.value === "") {
-    //   setCompanyPincodeErr(true)
-    //   companyPincodeRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyPincodeRef.current.value === "") {
+      setCompanyPincodeErr(true)
+      companyPincodeRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (companyRemarksRef.current.value === "") {
-    //   setCompanyRemarksErr(true)
-    //   companyRemarksRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyRemarksRef.current.value === "") {
+      setCompanyRemarksErr(true)
+      companyRemarksRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (gstNumberRef.current.value === "") {
-    //   setGstNumberErr(true)
-    //   gstNumberRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (gstNumberRef.current.value === "") {
+      setGstNumberErr(true)
+      gstNumberRef.current.style.border = "1px solid #DC3545"
+    }
 
-    // if (operationUnitAddressRef.current.value === "") {
-    //   setOperationUnitAddressErr(true)
-    //   operationUnitAddressRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (operationUnitAddressRef.current.value === "") {
+      setOperationUnitAddressErr(true)
+      operationUnitAddressRef.current.style.border = "1px solid #DC3545"
+      return
+    }
 
-    // if (contractEmployeeRef.current.value === "") {
-    //   setContractEmployeeErr(true)
-    //   contractEmployeeRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (contractEmployeeRef.current.value === "") {
+      setContractEmployeeErr(true)
+      contractEmployeeRef.current.style.border = "1px solid #DC3545"
+    }
 
     const createCompanyData = async () => {
       try {
@@ -245,7 +246,7 @@ const UserInfo = () => {
             console.log(err.response.statusText)
             toast.error(err.response.statusText)
           }
-        // console.log("response data", err.response.status)
+        console.log("response data", err)
       }
     }
     createCompanyData()
