@@ -27,18 +27,31 @@ const AddTeam = () => {
   }, [])
 
   const allTeamDisplay = async () => {
-    const teamApiData = await axios.get(`http://localhost:8888/company/team/allTeams?companyId=${companyId}`,{
+    const teamApiData = await axios.get(`http://localhost:8888/api/v1/company/team/allTeams?companyId=${companyId}`,{
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       }
     })
-    console.log("my data", teamApiData.data)
+    // console.log("my data", teamApiData.data)
     setAllTeam(teamApiData.data)
   }
 
+  
+const deleteTeam = async (id) =>{
+  window.confirm("Are you want to delete Team");
+  try{
+    const teamData = await axios.delete(`http://localhost:8888/api/v1/company/team/deleteTeam?teamId=${id}`);
+    console.log("team", teamData);
+    window.location.reload();
+    console.log("Team delete succesfully");
+  }catch(err){
+    console.log("succesfully added")
+  }
+}
 
-  console.log("all team is here", allTeam);
+
+  // console.log("all team is here", allTeam);
   return (
     <>
       <LoginHeader />
@@ -136,7 +149,7 @@ const AddTeam = () => {
                               <EditTeamModel />
                             </div>
                             <div>
-                              <button className="delete-button">
+                              <button onClick={() => deleteTeam(team.id)} className="delete-button">
                                 <i className="fa-solid mr-1 fa-trash"></i>Delete
                               </button>
                             </div>

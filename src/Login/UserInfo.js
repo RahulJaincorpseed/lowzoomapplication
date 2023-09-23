@@ -230,7 +230,7 @@ const UserInfo = () => {
 
     const createCompanyData = async () => {
       try {
-        const companysubmitData = await axios.post(`/company`, {
+        const companysubmitData = await axios.post(`/api/v1/company/addCompany`, {
           ...companyData,
           headers: {
             "Access-Control-Allow-Origin": "*",

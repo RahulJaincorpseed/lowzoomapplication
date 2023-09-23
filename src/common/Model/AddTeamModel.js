@@ -2,6 +2,10 @@ import React, { useState } from "react"
 import "./Model.css"
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
+
 
 const AddTeamModel = () => {
   const [teamData, setTeamData] = useState({
@@ -26,7 +30,7 @@ const AddTeamModel = () => {
     const addTeamData = async () => {
       try {
         const addNewTeamData = await axios.post(
-          `/company/team/save?companyId=${companyId}`,
+          `/api/v1/company/team/addTeam?companyId=${companyId}`,
           {
             ...teamData,
             headers: {
@@ -37,6 +41,8 @@ const AddTeamModel = () => {
         )
 
         console.log("add team ", addNewTeamData.data)
+        toast.success("Team added Succesfully")
+        window.location.reload();
       } catch (err) {
         console.log(err)
       }
