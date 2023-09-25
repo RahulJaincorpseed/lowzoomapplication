@@ -412,7 +412,9 @@ button:focus {
 
 
 
-
+.rs-progress-line .rs-progress-icon-fail, .rs-progress-line .rs-progress-icon-success {
+  display: none;
+}
 
 /* end nav links */
 

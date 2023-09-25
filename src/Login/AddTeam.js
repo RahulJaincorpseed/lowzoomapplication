@@ -10,6 +10,10 @@ import EditTeamModel from "../common/Model/EditTeamModel"
 import AddTeamModel from "../common/Model/AddTeamModel"
 import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
+
 
 const AddTeam = () => {
   const [percent, setPercent] = useState(100)
@@ -84,9 +88,15 @@ const AddTeam = () => {
       const teamData = await axios.delete(
         `http://localhost:8888/api/v1/company/team/deleteTeam?teamId=${id}`
       )
-      console.log("team", teamData)
-      window.location.reload()
+      console.log("team dleel", teamData)
+      toast.success("Team Deleted Succesfully")
       console.log("Team delete succesfully")
+      setTimeout(()=>{
+
+        window.location.reload()
+      }, 500)
+     
+      
     } catch (err) {
       console.log("succesfully added")
     }
@@ -186,7 +196,7 @@ const AddTeam = () => {
                           </td>
                           <td className="team-type">
                             <h3>
-                              {team.teamType} {team.id}
+                              {team.teamType}
                             </h3>
                           </td>
                           <td>
