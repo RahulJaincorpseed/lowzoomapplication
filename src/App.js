@@ -22,6 +22,7 @@ import FrontPage from "./Home/FrontPage"
 import OtpPage from "./Home/OtpPage"
 import SignUpOtp from "./Login/SignUpOtp"
 import AddTeam from "./Login/AddTeam"
+import AddPeopleModel from "./common/Model/AddPeopleModel"
 
 function App() {
   return (
@@ -36,7 +37,9 @@ function App() {
         <Route path="/signup/otp" element ={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />
-        <Route path=":companyId/addteam" element={<AddTeam />} />
+        <Route path=":companyId/addteam" element={<AddTeam />} >
+          <Route path=":id/addPeople" element={<AddPeopleModel />} />
+        </Route>
         <Route path="/details" element={<Details />} />
         <Route path="/userinfo" element={<UserInfo />} />
         <Route path="/company" element={<MainCompany />}>

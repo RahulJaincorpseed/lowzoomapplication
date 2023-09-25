@@ -1,19 +1,64 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Model.css"
+import axios from "axios"
+import { Link, useNavigate } from "react-router-dom"
 
 const AddPeopleModel = () => {
+  const [AddPeopleData, setAddPeopleData] = useState({
+    memberName: "",
+    memberMail: "",
+    memberMobile: "",
+    typeOfResource: "",
+  })
+
+  const navigate = useNavigate();
+
+  const setPeopleData = (e) => {
+    setAddPeopleData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+
+  console.log("Add People", AddPeopleData);
+
+  const AddTeamMember = (e) =>{
+    e.preventDefault();
+
+    const addMemberApi = async () =>{
+      try{
+      const Memberdata = await axios.post(``)
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+
+
+  }
+
+  const handleChange = () =>{
+    navigate(`/${30}/addteam`)
+    window.location.reload();
+  }
+
+
+
+
+  const resourcesData = ["Internal", "External"]
+
+
   return (
     <>
       <div className="team-model">
-        <button
+        <Link
           type="button"
           className="add-team-modal edit-people"
           data-toggle="modal"
           data-target="#AddPeopleModel"
+          to={`${1}/addPeople`}
         >
           <i className="fa-solid fa-circle-plus mr-1"></i>
           Add People
-        </button>
+        </Link>
         {/* MODAL */}
         <div
           className="modal fade"
@@ -52,27 +97,14 @@ const AddPeopleModel = () => {
                           className="form-control input-focus"
                           id="fullName"
                           placeholder="Full Name"
+                          name="memberName"
+                          onChange={(e)=> setPeopleData(e)}
                         />
                       </div>
                     </div>
+                    
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label
-                          className="label-heading mb-0"
-                          htmlFor="accessTypes"
-                        >
-                          Access Types*
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control input-focus"
-                          id="accessTypes"
-                          placeholder="Access Types"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <div className="pr-ten">
                         <label className="label-heading mb-0" htmlFor="email">
                           Email ID *
                         </label>
@@ -81,11 +113,13 @@ const AddPeopleModel = () => {
                           className="form-control input-focus"
                           id="email"
                           placeholder="Email ID"
+                          name="memberMail"
+                          onChange={(e)=> setPeopleData(e)}
                         />
                       </div>
                     </div>
                     <div className="form-group col-md-6">
-                      <div className="pl-ten">
+                      <div className="pr-ten">
                         <label
                           className="label-heading mb-0"
                           htmlFor="mobileNumber"
@@ -97,22 +131,8 @@ const AddPeopleModel = () => {
                           className="form-control input-focus"
                           id="mobileNumber"
                           placeholder="Mobile Number"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <div className="pr-ten">
-                        <label
-                          className="label-heading mb-0"
-                          htmlFor="resources"
-                        >
-                          Types of Resources*
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control input-focus"
-                          id="resources"
-                          placeholder="Types of Resources"
+                          name="memberMobile"
+                          onChange={(e)=> setPeopleData(e)}
                         />
                       </div>
                     </div>
@@ -120,16 +140,22 @@ const AddPeopleModel = () => {
                       <div className="pl-ten">
                         <label
                           className="label-heading mb-0"
-                          htmlFor="addpeople"
+                          htmlFor="resources"
                         >
-                          Add People*
+                          Types of Resources*
                         </label>
-                        <input
-                          type="text"
-                          className="form-control input-focus"
-                          id="addpeople"
-                          placeholder="Add People"
-                        />
+                        <select 
+                      className="form-control input-focus"
+                      id="sel1ew"
+                      name="typeOfResource"
+                      onChange={(e)=> setPeopleData(e)}
+                    >
+                      {resourcesData.map((company, index) => (
+                        <option key={index} value={company}>
+                          {company}
+                        </option>
+                      ))}
+                    </select>
                       </div>
                     </div>
                     <div className="all-between-items">
@@ -138,7 +164,7 @@ const AddPeopleModel = () => {
                         <h2>Advanced Setting</h2>
                       </div>
                       <div>
-                        <button className="first-button form-prev-btn">
+                        <button onClick={handleChange} className="first-button form-prev-btn">
                           Submit
                         </button>
                       </div>
