@@ -171,7 +171,7 @@ const AddTeam = () => {
         <div id="accordion">
           {allTeam.map((team, index) => (
             <div className="card team-cards container" key={index}>
-              <div className="card-header" id="headingOne">
+              <div className="card-header" id={`heading${index}`}>
                 <div className="">
                   <div className="table-responsive">
                     <table className="table mb-0">
@@ -353,9 +353,9 @@ const AddTeam = () => {
                               <button
                                 className="btn btn-link"
                                 data-toggle="collapse"
-                                data-target="#collapseOne"
+                                data-target={`#collapse${index}`}
                                 aria-expanded="false"
-                                aria-controls="collapseOne"
+                                aria-controls={`#collapse${index}`}
                               >
                                 <i className="fa-solid fa-chevron-up"></i>
                               </button>
@@ -369,9 +369,9 @@ const AddTeam = () => {
               </div>
 
               <div
-                id="collapseOne"
+                id={`collapse${index}`}
                 className="collapse"
-                aria-labelledby="headingOne"
+                aria-labelledby={`heading${index}`}
                 data-parent="#accordion"
               >
                 <div className="card-body">
@@ -484,6 +484,111 @@ const AddTeam = () => {
               id="collapseTwo"
               className="collapse"
               aria-labelledby="headingTwo"
+              data-parent="#accordion"
+            >
+              <div className="card-body">
+                {/* card body */}
+                <div className="table-responsive">
+                  <table className="table mb-0">
+                    <tbody>
+                      <tr className="add-teams">
+                        <td>
+                          <TeamProfile />
+                        </td>
+                        <td className="team-type">
+                          <h3>Inhouse Team</h3>
+                        </td>
+                        <td>
+                          <div className="team-edit">
+                            <div className="edit">
+                              <EditPeopleModel />
+                            </div>
+                            <div>
+                              <button className="delete-button">
+                                <i className="fa-solid mr-1 fa-trash"></i>Delete
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="add-teams">
+                        <td>
+                          <TeamProfile />
+                        </td>
+                        <td className="team-type">
+                          <h3>Inhouse Team</h3>
+                        </td>
+                        <td>
+                          <div className="team-edit">
+                            <div className="edit">
+                              <EditPeopleModel />
+                            </div>
+                            <div>
+                              <button className="delete-button">
+                                <i className="fa-solid mr-1 fa-trash"></i>Delete
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                {/* end body */}
+              </div>
+            </div>
+
+            <div className="card-header" id="headingThree">
+              <div className="">
+                <div className="table-responsive">
+                  <table className="table mb-0">
+                    <tbody>
+                      <tr className="add-teams">
+                        <td>
+                          <TeamProfile />
+                        </td>
+                        <td className="team-type">
+                          <h3>Inhouse Team</h3>
+                        </td>
+                        <td>
+                          <div className="team-edit">
+                            <div className="add">
+                              <AddPeopleModel />
+                            </div>
+                            <div className="edit">
+                              <EditTeamModel />
+                            </div>
+                            <div>
+                              <button className="delete-button">
+                                <i className="fa-solid mr-1 fa-trash"></i>Delete
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <h5 className="mb-0">
+                            <button
+                              className="btn btn-link"
+                              data-toggle="collapse"
+                              data-target="#collapseThree"
+                              aria-expanded="false"
+                              aria-controls="collapseThree"
+                            >
+                              <i className="fa-solid fa-chevron-up"></i>
+                            </button>
+                          </h5>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="collapseThree"
+              className="collapse"
+              aria-labelledby="headingThree"
               data-parent="#accordion"
             >
               <div className="card-body">
