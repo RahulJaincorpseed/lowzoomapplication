@@ -1,19 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./Model.css"
+import { useLocation } from "react-router-dom"
 
-const EditTeamModel = () => {
+const EditTeamModel = ({id}) => {
+  const location = useLocation();
+  
+      // console.log("team id is ", teamId, teamName);
+  const handleClick = () => {
+    console.log("click me ", location);
+  }
+  
   return (
     <nav>
       <div className="team-model">
-        <button
-          type="button"
-          className="add-team-modal edit-people"
-          data-toggle="modal"
-          data-target="#EditModelOne33"
-        >
-          <i className="fa-solid fa-pen-to-square mr-1"></i>
-          Edit
-        </button>
+        
         {/* MODAL */}
         <div
           className="modal fade"
