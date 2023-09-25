@@ -24,6 +24,7 @@ import SignUpOtp from "./Login/SignUpOtp"
 import AddTeam from "./Login/AddTeam"
 import AddPeopleModel from "./common/Model/AddPeopleModel"
 import AddTeamModel from "./common/Model/AddTeamModel"
+import EditTeamModel from "./common/Model/EditTeamModel"
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/counter" element={<Counter />} />
         <Route path="/company/:companyId/addteam" element={<AddTeam />} >
           <Route path=":id/addPeople" element={<AddPeopleModel />} />
+          <Route path=":id/editTeam" element={<EditTeamModel />} />
         </Route>
         <Route path="/details" element={<Details />} />
         <Route path="/userinfo" element={<UserInfo />} />

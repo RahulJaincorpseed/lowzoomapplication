@@ -14,13 +14,12 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 toast.configure()
 
-
 const AddTeam = () => {
   const [percent, setPercent] = useState(100)
   const [allTeam, setAllTeam] = useState([])
-  const [editTeamData, setEditTeamData] = useState({});
+  const [editTeamData, setEditTeamData] = useState({})
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const { companyId } = useParams()
 
   // console.log("params", params)
@@ -28,25 +27,17 @@ const AddTeam = () => {
   const status = percent === 100 ? "success" : null
   const color = percent === 100 ? "#2B62F9" : "#2B62F9"
 
-
-
-
-
   useEffect(() => {
     allTeamDisplay()
     // navigate(`/${30}/addteam`)
     // window.location.reload();
-  //  console.log("location reload", data);
-  console.log("calling page");
+    //  console.log("location reload", data);
+    console.log("calling page")
   }, [])
-
 
   const teamEditSetData = (e) => {
     setEditTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-
-
-
 
   const allTeamDisplay = async () => {
     const teamApiData = await axios.get(
@@ -62,15 +53,12 @@ const AddTeam = () => {
     setAllTeam(teamApiData.data)
   }
 
-  const handleEdit = async (team) =>{
-      console.log("edit team", team)
-      setEditTeamData((data)=> ({...data, ...team}))
-      
-    }
-    console.log("edit data", editTeamData);
+  const handleEdit = async (team) => {
+    console.log("edit team", team)
+    setEditTeamData((data) => ({ ...data, ...team }))
+  }
+  console.log("edit data", editTeamData)
 
-
-  
   const updateTeam = async (id) => {
     // console.log("update Team ");
     // try{
@@ -91,12 +79,9 @@ const AddTeam = () => {
       console.log("team dleel", teamData)
       toast.success("Team Deleted Succesfully")
       console.log("Team delete succesfully")
-      setTimeout(()=>{
-
+      setTimeout(() => {
         window.location.reload()
       }, 500)
-     
-      
     } catch (err) {
       console.log("succesfully added")
     }
@@ -195,157 +180,19 @@ const AddTeam = () => {
                             />
                           </td>
                           <td className="team-type">
-                            <h3>
-                              {team.teamType}
-                            </h3>
+                            <h3>{team.teamType}</h3>
                           </td>
                           <td>
                             <div className="team-edit">
                               <div className="add">
                                 {/* add people model */}
-                                <AddPeopleModel teamId = {team.id}/>
+                                <AddPeopleModel teamId={team.id} />
                               </div>
 
-
                               <div className="edit">
-                                <button
-                                  type="button"
-                                  className="team-edit-button"
-                                  data-toggle="modal"
-                                  data-target="#EditModelOne3334"
-                                  onClick={()=> handleEdit(team)}
-                                >
-                                  <i className="fa-solid fa-pen-to-square mr-1"></i>
-                                  Edit
-                                </button>
-                                <EditTeamModel />
-                                <div className="team-model">
-        
-        {/* Edit Team MODAL */}
-        <div
-          className="modal fade"
-          id="EditModelOne3334"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
-        >
-          <div
-            className="modal-dialog mod-center modal-dialog-centered"
-            role="document"
-          >
-            <div className="modal-content all-center">
-              <div className="add-team-body">
-                {/* START */}
-                <div className="personal-info container">
-                  <h4 className="info-text model-heading">Edit Team</h4>
-                  <div className="cross-icon">
-                  <i
-                    data-dismiss="modal"
-                    className="fa-sharp fa-solid fa-circle-xmark"
-                  ></i>
-                </div>
-                  <form>
-                  <div className="first-form form-row">
-                    <div className="form-group col-md-6">
-                      <div className="pr-ten">
-                        <label
-                          className="label-heading mb-1"
-                          htmlFor="teamName"
-                        >
-                          Team Name *
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control input-focus"
-                          id="teamName"
-                          placeholder="Enter Team Name"
-                          name="teamName"
-                          value={editTeamData.teamName}
-                          onChange={(e)=> teamEditSetData(e)}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <div className="pl-ten">
-                        <label
-                          className="label-heading mb-1"
-                          htmlFor="teamLeadName"
-                        >
-                          Team Lead Name*
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control input-focus"
-                          id="teamLeadName"
-                          placeholder="Enter Team Lead Name"
-                          name="teamLeadName"
-                          value={editTeamData.teamLeadName}
-                          onChange={(e)=> teamEditSetData(e)}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <div className="pr-ten">
-                        <label
-                          className="label-heading mb-1"
-                          htmlFor="teamDesignation"
-                        >
-                          Team Designation *
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control input-focus"
-                          id="teamDesignation"
-                          name="leadDesignation"
-                          placeholder="Enter Team Designation"
-                          value={editTeamData.leadDesignation}
-                          onChange={(e)=> teamEditSetData(e)}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <div className="pl-ten">
-                        <label
-                          className="label-heading mb-1"
-                          htmlFor="teamType"
-                        >
-                          Team Type*
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control input-focus"
-                          id="teamType"
-                          name="teamType"
-                          placeholder="Enter Team Type"
-                          value={editTeamData.teamType}
-                          onChange={(e)=> teamEditSetData(e)}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="all-between-items">
-                      <div className="all-center">
-                        <i className="fa-solid fa-gear"></i>
-                        <h2>Advanced Setting</h2>
-                      </div>
-                      <div>
-                        <button 
-                          className="first-button form-prev-btn"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* end model */}
+                                <EditTeamModel teamId={team.id} leadName={team.teamLeadName} />
+                                
+                                {/* end model */}
                               </div>
                               <div>
                                 <button
