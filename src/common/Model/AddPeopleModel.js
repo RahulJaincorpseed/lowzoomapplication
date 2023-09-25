@@ -36,7 +36,7 @@ const AddPeopleModel = () => {
   }
 
   const handleChange = () =>{
-    navigate(`/${30}/addteam`)
+    navigate(`/company/${30}/addteam`)
     window.location.reload();
   }
 
