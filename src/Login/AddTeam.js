@@ -40,6 +40,7 @@ const AddTeam = () => {
   }
 
   const allTeamDisplay = async () => {
+    try{
     const teamApiData = await axios.get(
       `http://localhost:8888/api/v1/company/team/allTeams?companyId=${companyId}`,
       {
@@ -49,8 +50,12 @@ const AddTeam = () => {
         },
       }
     )
-    // console.log("my data", teamApiData.data)
     setAllTeam(teamApiData.data)
+    }catch(err){
+      console.log(err);
+    }
+    // console.log("my data", teamApiData.data)
+   
   }
 
   const handleEdit = async (team) => {

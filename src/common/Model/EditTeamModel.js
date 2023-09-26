@@ -5,12 +5,9 @@ import { useLocation, useNavigate } from "react-router-dom"
 const EditTeamModel = ({teamId, leadName}) => {
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log("team data", team);
-  // console.log("team id is ", teamId, teamName);
-  console.log("click me ",typeof  location.pathname)
+  // console.log("click me ",typeof  location.pathname)
   const dataPath = location.pathname.split('/');
-  // console.log("team is ", team);
-  console.log("click dataPath",dataPath)
+  // console.log("click dataPath",dataPath)
   const handleClick = () => {
     navigate(`/company/${dataPath[2]}/addteam/${teamId}/editTeam`)
   }
@@ -71,7 +68,7 @@ const EditTeamModel = ({teamId, leadName}) => {
                             name="teamName"
                           />
                         </div>
-                      </div>
+                      </div>    
                       <div className="form-group col-md-6">
                         <div className="pl-ten">
                           <label

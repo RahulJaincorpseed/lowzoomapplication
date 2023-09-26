@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./Model.css"
 import axios from "axios"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
-const AddPeopleModel = () => {
+const AddPeopleModel = ({teamId}) => {
   const [AddPeopleData, setAddPeopleData] = useState({
     memberName: "",
     memberMail: "",
@@ -11,40 +11,60 @@ const AddPeopleModel = () => {
     typeOfResource: "",
   })
 
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  
+
+  const addPathData = location.pathname.split()
+  console.log("path data", addPathData, addPathData[0]);
+  const data = addPathData[0].split("/")
+  console.log("data", data[2]);
+  const companyPathId = Number(data[2]);
+  const teamPathId =  Number(data[4]);
+  console.log("id is ", teamPathId)
+  
+ const navigate = useNavigate()
 
   const setPeopleData = (e) => {
     setAddPeopleData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  // console.log("Add People", AddPeopleData)
 
-  console.log("Add People", AddPeopleData);
+  const addTeamMember = (e) => {
+    e.preventDefault()
 
-  const AddTeamMember = (e) =>{
-    e.preventDefault();
+    const addMemberApi = async () => {
+      // console.log("team id is before create", teamId);
+      try {
+        const memberdata = await axios.post(
+          `/api/v1/company/team/teamMember/addTeamMember?teamId=${teamPathId}`,
+          {
+            ...AddPeopleData,
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        console.log("data added", memberdata)
+       
+        navigate(`/company/${companyPathId}/addteam`)
+        window.location.reload();
 
-    const addMemberApi = async () =>{
-      try{
-      const Memberdata = await axios.post(``)
-      }
-      catch(err){
-        console.log(err);
+      } catch (err) {
+        console.log(err)
       }
     }
-
-
+    addMemberApi();
   }
 
-  const handleChange = () =>{
-    navigate(`/company/${30}/addteam`)
-    window.location.reload();
+  const handleChange = () => {
+    navigate(`/company/${companyPathId}/addteam`)
+    window.location.reload()
   }
-
-
-
 
   const resourcesData = ["Internal", "External"]
-
 
   return (
     <>
@@ -54,7 +74,7 @@ const AddPeopleModel = () => {
           className="add-team-modal edit-people"
           data-toggle="modal"
           data-target="#AddPeopleModel"
-          to={`${1}/addPeople`}
+          to={`${teamId}/addPeople`}
         >
           <i className="fa-solid fa-circle-plus mr-1"></i>
           Add People
@@ -77,7 +97,7 @@ const AddPeopleModel = () => {
                 {/* START */}
                 <div className="personal-info container">
                   <h4 className="info-text model-heading">Add People</h4>
-                  <div className="cross-icon">
+                  <div className="cross-icon" onClick={handleChange}>
                     <i
                       data-dismiss="modal"
                       className="fa-sharp fa-solid fa-circle-xmark"
@@ -98,11 +118,11 @@ const AddPeopleModel = () => {
                           id="fullName"
                           placeholder="Full Name"
                           name="memberName"
-                          onChange={(e)=> setPeopleData(e)}
+                          onChange={(e) => setPeopleData(e)}
                         />
                       </div>
                     </div>
-                    
+
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
                         <label className="label-heading mb-0" htmlFor="email">
@@ -114,7 +134,7 @@ const AddPeopleModel = () => {
                           id="email"
                           placeholder="Email ID"
                           name="memberMail"
-                          onChange={(e)=> setPeopleData(e)}
+                          onChange={(e) => setPeopleData(e)}
                         />
                       </div>
                     </div>
@@ -132,7 +152,7 @@ const AddPeopleModel = () => {
                           id="mobileNumber"
                           placeholder="Mobile Number"
                           name="memberMobile"
-                          onChange={(e)=> setPeopleData(e)}
+                          onChange={(e) => setPeopleData(e)}
                         />
                       </div>
                     </div>
@@ -144,18 +164,18 @@ const AddPeopleModel = () => {
                         >
                           Types of Resources*
                         </label>
-                        <select 
-                      className="form-control input-focus"
-                      id="sel1ew"
-                      name="typeOfResource"
-                      onChange={(e)=> setPeopleData(e)}
-                    >
-                      {resourcesData.map((company, index) => (
-                        <option key={index} value={company}>
-                          {company}
-                        </option>
-                      ))}
-                    </select>
+                        <select
+                          className="form-control input-focus"
+                          id="sel1ew"
+                          name="typeOfResource"
+                          onChange={(e) => setPeopleData(e)}
+                        >
+                          {resourcesData.map((company, index) => (
+                            <option key={index} value={company}>
+                              {company}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                     </div>
                     <div className="all-between-items">
@@ -164,7 +184,10 @@ const AddPeopleModel = () => {
                         <h2>Advanced Setting</h2>
                       </div>
                       <div>
-                        <button onClick={handleChange} className="first-button form-prev-btn">
+                        <button
+                          onClick={(e) => addTeamMember(e)}
+                          className="first-button form-prev-btn"
+                        >
                           Submit
                         </button>
                       </div>
