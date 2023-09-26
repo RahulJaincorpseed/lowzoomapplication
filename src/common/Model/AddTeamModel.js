@@ -1,11 +1,10 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import "./Model.css"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 toast.configure()
-
 
 const AddTeamModel = () => {
   const [teamData, setTeamData] = useState({
@@ -14,16 +13,68 @@ const AddTeamModel = () => {
     leadDesignation: "",
     teamType: "",
   })
+
+  // Errors
+  const [teamNameErr, setTeamNameErr] = useState(false)
+  const [teamLeadNameErr, setTeamLeadNameErr] = useState(false)
+  const [leadDesignationErr, setLeadDesignationErr] = useState(false)
+  const [teamTypeErr, setTeamTypeErr] = useState(false)
+
+  // refs
+
+  const teamNameRef = useRef()
+  const teamLeadNameRef = useRef()
+  const leadDesignationRef = useRef()
+  const teamTypeRef = useRef()
+
   const { companyId } = useParams()
 
   console.log("params is ", companyId)
 
   const TeamSetData = (e) => {
     setTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    if(teamNameRef.current.value !== ""){
+      setTeamNameErr(false);
+      teamNameRef.current.style.border = "1px solid #cccccc"
+    }
+    if(teamLeadNameRef.current.value !== ""){
+      setTeamLeadNameErr(false);
+      teamLeadNameRef.current.style.border = "1px solid #cccccc"
+    }
+    if(leadDesignationRef.current.value !== ""){
+      setLeadDesignationErr(false);
+      leadDesignationRef.current.style.border = "1px solid #cccccc"
+    }
+    if(teamTypeRef.current.value !== ""){
+      setTeamTypeErr(false);
+      teamTypeRef.current.style.border = "1px solid #cccccc"
+    }
   }
 
   const addNewTeam = (e) => {
     e.preventDefault()
+
+    if(teamNameRef.current.value === ""){
+      setTeamNameErr(true);
+      teamNameRef.current.style.border = "1px solid #DC3545"
+      
+    }
+    if(teamLeadNameRef.current.value === ""){
+      setTeamLeadNameErr(true);
+      teamLeadNameRef.current.style.border = "1px solid #DC3545"
+     
+    }
+    if(leadDesignationRef.current.value === ""){
+      setLeadDesignationErr(true);
+      leadDesignationRef.current.style.border = "1px solid #DC3545"
+      
+    }
+
+    if(teamTypeRef.current.value === ""){
+      setTeamTypeErr(true);
+      teamTypeRef.current.style.border = "1px solid #DC3545"
+      return
+    } 
 
     console.log("function calling")
 
@@ -42,7 +93,7 @@ const AddTeamModel = () => {
 
         console.log("add team ", addNewTeamData.data)
         toast.success("Team added Succesfully")
-        window.location.reload();
+        window.location.reload()
       } catch (err) {
         console.log(err)
       }
@@ -103,8 +154,14 @@ const AddTeamModel = () => {
                           id="teamName"
                           placeholder="Enter Team Name"
                           name="teamName"
+                          ref={teamNameRef}
                           onChange={(e) => TeamSetData(e)}
                         />
+                        {teamNameErr ? (
+                          <p className="error-show">Team name can't be Blank</p>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
                     <div className="form-group col-md-6">
@@ -121,8 +178,14 @@ const AddTeamModel = () => {
                           id="teamLeadName"
                           placeholder="Enter Team Lead Name"
                           name="teamLeadName"
+                          ref={teamLeadNameRef}
                           onChange={(e) => TeamSetData(e)}
                         />
+                         {teamLeadNameErr ? (
+                          <p className="error-show">Team lead name can't be Blank</p>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
                     <div className="form-group col-md-6">
@@ -138,9 +201,15 @@ const AddTeamModel = () => {
                           className="form-control input-focus"
                           id="teamDesignation"
                           name="leadDesignation"
+                          ref={leadDesignationRef}
                           placeholder="Enter Team Designation"
                           onChange={(e) => TeamSetData(e)}
                         />
+                        {leadDesignationErr ? (
+                          <p className="error-show">Team designation can't be Blank</p>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
                     <div className="form-group col-md-6">
@@ -157,8 +226,14 @@ const AddTeamModel = () => {
                           id="teamType"
                           name="teamType"
                           placeholder="Enter Team Type"
+                          ref={teamTypeRef}
                           onChange={(e) => TeamSetData(e)}
                         />
+                        {teamTypeErr ? (
+                          <p className="error-show">Team type can't be Blank</p>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
 
