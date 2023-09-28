@@ -51,7 +51,7 @@ const SignUp = () => {
 
     const OtpDataResponse = async () => {
       try {
-        const OtpData = await axios.post(`/auth/otp`, {
+        const OtpData = await axios.post(`/api/auth/otp`, {
           ...userData,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -81,7 +81,7 @@ const SignUp = () => {
 
     const UserSignUpResponse = async () => {
       try {
-        const userSignupData = await axios.post(`/auth/signup`, {
+        const userSignupData = await axios.post(`/api/auth/signup`, {
           ...signUpData,
           headers: {
             "Access-Control-Allow-Origin": "*",

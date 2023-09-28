@@ -38,7 +38,7 @@ const Login = () => {
     const userDetails = async () => {
       console.log("i am info", userInfo)
       try {
-        const token = await axios.post(`/auth/token`, {
+        const token = await axios.post(`/api/auth/token`, {
           ...userInfo,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -46,9 +46,10 @@ const Login = () => {
           },
         })
         console.log("api data", token.data)
+
         console.log("api data", token.data.body.accessToken)
         localStorage.setItem("Access Token", token.data.body.accessToken)
-        navigate("/")
+        navigate(`/user/${token.data.body.id}/userinfo`)
       } catch (err) {
         console.log("Error", err)
         if (err.response.status === 401) {
@@ -61,6 +62,7 @@ const Login = () => {
 
   return (
     <div className="sign-up container">
+      <form>
       <div className="sign-box">
         <h2>Sign In</h2>
         <p className="label-heading">
@@ -133,6 +135,7 @@ const Login = () => {
           Don't have an Account Please<Link className="move-page" to="/signup">Sign UP</Link>
         </p>
       </div>
+      </form>
     </div>
   )
 }

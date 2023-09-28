@@ -8,7 +8,7 @@ import { Progress } from "rsuite"
 import FormPartTwo from "./FormPartTwo"
 import AddPeople from "./AddPeople"
 import CompanyInfo from "./CompanyInfo"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { cityData, companyData2 } from "../TestData.js/CityData"
 import axios from "axios"
@@ -88,7 +88,20 @@ const UserInfo = () => {
 
 
   const navigate = useNavigate();
+  const location = useLocation();
   // data
+
+  // console.log(navigate);
+  console.log("location is ", location.pathname);
+
+  
+  const addPathData = location.pathname.split()
+  // console.log("path data", addPathData, addPathData[0]);
+  const data = addPathData[0].split("/")
+  console.log("data", data);
+  const userPathId = Number(data[2]);
+  console.log("company path is ", userPathId);
+
 
   // data
 
@@ -230,7 +243,7 @@ const UserInfo = () => {
 
     const createCompanyData = async () => {
       try {
-        const companysubmitData = await axios.post(`/api/v1/company/addCompany`, {
+        const companysubmitData = await axios.post(`/companyServices/company/addCompany?userId=${userPathId}`, {
           ...companyData,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -408,7 +421,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pl-ten">
                     <label className="label-heading" htmlFor="companyName">
-                      Company Name / CIN*
+                      Company Name 
                     </label>
                     <input
                       type="text"
@@ -423,7 +436,7 @@ const UserInfo = () => {
                     />
                     {companyNameErr ? (
                       <p className="error-change">
-                        company Name/CIN can't be Blank
+                        company Name can't be Blank
                       </p>
                     ) : (
                       ""
@@ -587,7 +600,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pr-ten">
                     <label className="label-heading" htmlFor="pemp1">
-                      company Registration Number*
+                      company CIN Number*
                     </label>
                     <input
                       type="text"
@@ -602,7 +615,7 @@ const UserInfo = () => {
                     />
                     {companyRegistrationNumberErr ? (
                       <p className="error-show">
-                        company Registration Number can't be Blank
+                        company CIN Number can't be Blank
                       </p>
                     ) : (
                       ""

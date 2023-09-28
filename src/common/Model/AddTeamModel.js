@@ -76,12 +76,12 @@ const AddTeamModel = () => {
       return
     } 
 
-    console.log("function calling")
+    // console.log("function calling")
 
     const addTeamData = async () => {
       try {
         const addNewTeamData = await axios.post(
-          `/api/v1/company/team/addTeam?companyId=${companyId}`,
+          `/companyServices/company/team/addTeam?companyId=${companyId}`,
           {
             ...teamData,
             headers: {
@@ -102,7 +102,7 @@ const AddTeamModel = () => {
     addTeamData()
   }
 
-  console.log("team data api", teamData)
+  // console.log("team data api", teamData)
 
   return (
     <div className="team-model">

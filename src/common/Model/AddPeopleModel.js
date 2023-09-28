@@ -16,12 +16,12 @@ const AddPeopleModel = ({teamId}) => {
   
 
   const addPathData = location.pathname.split()
-  console.log("path data", addPathData, addPathData[0]);
+  // console.log("path data", addPathData, addPathData[0]);
   const data = addPathData[0].split("/")
-  console.log("data", data[2]);
+  // console.log("data", data[2]);
   const companyPathId = Number(data[2]);
   const teamPathId =  Number(data[4]);
-  console.log("id is ", teamPathId)
+  // console.log("id is ", teamPathId)
   
  const navigate = useNavigate()
 
@@ -38,7 +38,7 @@ const AddPeopleModel = ({teamId}) => {
       // console.log("team id is before create", teamId);
       try {
         const memberdata = await axios.post(
-          `/api/v1/company/team/teamMember/addTeamMember?teamId=${teamPathId}`,
+          `/companyServices/company/team/members/addTeamMember?teamId=${teamPathId}`,
           {
             ...AddPeopleData,
             headers: {

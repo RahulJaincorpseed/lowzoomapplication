@@ -73,7 +73,7 @@ const LoginForm = () => {
       }
       setLoading(true)
       try {
-        const EnquiryApi = await axios.post("/createEnquiry", {
+        const EnquiryApi = await axios.post("/api/auth/createEnquiry", {
           ...enquiryData,
           headers: {
             "Access-Control-Allow-Origin": "*",

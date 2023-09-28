@@ -18,6 +18,8 @@ const AddTeam = () => {
   const [percent, setPercent] = useState(100)
   const [allTeam, setAllTeam] = useState([])
   const [editTeamData, setEditTeamData] = useState({})
+  const [arrowChange, setarrowChange] = useState(false); 
+
 
   const navigate = useNavigate()
   const { companyId } = useParams()
@@ -35,6 +37,13 @@ const AddTeam = () => {
     console.log("calling page")
   }, [])
 
+  const rotateArrow = () =>{
+    console.log("rotate arrow");
+    setarrowChange(prev => !(prev));
+  }
+
+  console.log("arrow is ", arrowChange);
+
   const teamEditSetData = (e) => {
     setEditTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -42,7 +51,8 @@ const AddTeam = () => {
   const allTeamDisplay = async () => {
     try{
     const teamApiData = await axios.get(
-      `http://localhost:8888/api/v1/company/team/allTeams?companyId=${companyId}`,
+      `/companyServices/company/team/allTeams?companyId=${companyId}`,
+      // `http://localhost:8888/api/v1/company/team/allTeams?companyId=${companyId}`,
       {
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -62,7 +72,7 @@ const AddTeam = () => {
     console.log("edit team", team)
     setEditTeamData((data) => ({ ...data, ...team }))
   }
-  console.log("edit data", editTeamData)
+  // console.log("edit data", editTeamData)
 
   const updateTeam = async (id) => {
     // console.log("update Team ");
@@ -79,7 +89,12 @@ const AddTeam = () => {
     window.confirm("Are you want to delete Team")
     try {
       const teamData = await axios.delete(
-        `http://localhost:8888/api/v1/company/team/deleteTeam?teamId=${id}`
+        `/companyServices/company/team/deleteTeam?teamId=${id}`,{
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
       )
       console.log("team dleel", teamData)
       toast.success("Team Deleted Succesfully")
@@ -92,7 +107,7 @@ const AddTeam = () => {
     }
   }
 
-  console.log("all team data", allTeam)
+  // console.log("all team data", allTeam)
 
   // console.log("all team is here", allTeam);
   return (
@@ -111,7 +126,7 @@ const AddTeam = () => {
         <h4 className="info-text px-4">OK, Now add people to the project</h4>
         <div className="all-between team-add">
           <div>
-            <h4 className="team-text">Team</h4>
+            {/* <h4 className="team-text">Team</h4> */}
           </div>
           <div>
             <AddTeamModel />
@@ -218,8 +233,11 @@ const AddTeam = () => {
                                 data-target={`#collapse${index}`}
                                 aria-expanded="false"
                                 aria-controls={`#collapse${index}`}
+                                onClick={rotateArrow}
                               >
-                                <i className="fa-solid fa-chevron-up"></i>
+                                <span className="click">
+                                <i className="fa-solid fa-chevron-up icon"></i>
+                                </span>
                               </button>
                             </h5>
                           </td>
@@ -232,7 +250,7 @@ const AddTeam = () => {
 
               <div
                 id={`collapse${index}`}
-                className="collapse"
+                className="collapse collapse-item"
                 aria-labelledby={`heading${index}`}
                 data-parent="#accordion"
               >

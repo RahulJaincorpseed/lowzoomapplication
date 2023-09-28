@@ -39,12 +39,14 @@ function App() {
         <Route path="/signup/otp" element ={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />
+        <Route path="/user/:id/userinfo" element={<UserInfo />} />
         <Route path="/company/:companyId/addteam" element={<AddTeam />} >
           <Route path=":id/addPeople" element={<AddPeopleModel />} />
           <Route path=":id/editTeam" element={<EditTeamModel />} />
         </Route>
+    
         <Route path="/details" element={<Details />} />
-        <Route path="/userinfo" element={<UserInfo />} />
+       
         <Route path="/company" element={<MainCompany />}>
           <Route path="" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
