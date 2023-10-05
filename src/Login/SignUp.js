@@ -24,7 +24,7 @@ const SignUp = () => {
   })
   const [formError, setFormError] = useState(false)
   const [otpPageError, setOtpPageError] = useState(false)
-  const [sameOtpError, setSameOtpError] = useState(false);
+  const [sameOtpError, setSameOtpError] = useState(false)
   const [validOtpError, setValidOtpError] = useState(false)
   const [responseOtpData, setResponseOtpData] = useState({})
   const navigate = useNavigate()
@@ -52,7 +52,7 @@ const SignUp = () => {
 
     const OtpDataResponse = async () => {
       try {
-        const OtpData = await postQuery(`/api/auth/otp/generateOTP`,userData) 
+        const OtpData = await postQuery(`/api/auth/otp/generateOTP`, userData)
         console.log("otp data", OtpData?.data)
         setResponseOtpData(OtpData?.data)
         setOtpPage(true)
@@ -69,14 +69,14 @@ const SignUp = () => {
       setOtpPageError(true)
       return
     }
-    if(responseOtpData.otp !== signUpData.otp){
+    if (responseOtpData.otp !== signUpData.otp) {
       setSameOtpError(true)
       return
     }
 
     const UserSignUpResponse = async () => {
       try {
-        const userSignupData = await  postQuery(`/api/auth/signup`,signUpData)
+        const userSignupData = await postQuery(`/api/auth/signup`, signUpData)
         console.log("sign up data", userSignupData?.data)
         toast.success("Account Created Succesfully")
         navigate("/login")
@@ -192,20 +192,22 @@ const SignUp = () => {
               ""
             )}
             <div className="flex-end-cl">
-            <button
-              onClick={(e) => submitValidOtp(e)}
-              className="first-button"
-            >
-              Submit OTP
-            </button>
+              <button
+                onClick={(e) => submitValidOtp(e)}
+                className="first-button"
+              >
+                Submit OTP
+              </button>
             </div>
           </form>
         </div>
         <p className="label-heading move-info">
-          Already have an Account Please<Link className="move-page" to="/login">Login</Link>
+          Already have an Account Please
+          <Link className="move-page" to="/login">
+            Login
+          </Link>
         </p>
       </div>
-      
     </div>
   )
 }

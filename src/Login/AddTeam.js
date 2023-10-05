@@ -18,61 +18,51 @@ const AddTeam = () => {
   const [percent, setPercent] = useState(100)
   const [allTeam, setAllTeam] = useState([])
   const [editTeamData, setEditTeamData] = useState({})
-  const [arrowChange, setarrowChange] = useState(false); 
-
+  const [arrowChange, setarrowChange] = useState(false)
 
   const navigate = useNavigate()
   const { companyId } = useParams()
-
-  // console.log("params", params)
 
   const status = percent === 100 ? "success" : null
   const color = percent === 100 ? "#2B62F9" : "#2B62F9"
 
   useEffect(() => {
     allTeamDisplay()
-    // navigate(`/${30}/addteam`)
-    // window.location.reload();
-    //  console.log("location reload", data);
     console.log("calling page")
   }, [])
 
-  const rotateArrow = () =>{
-    console.log("rotate arrow");
-    setarrowChange(prev => !(prev));
+  const rotateArrow = () => {
+    console.log("rotate arrow")
+    setarrowChange((prev) => !prev)
   }
 
-  console.log("arrow is ", arrowChange);
+  console.log("arrow is ", arrowChange)
 
   const teamEditSetData = (e) => {
     setEditTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const allTeamDisplay = async () => {
-    try{
-    const teamApiData = await axios.get(
-      `/companyServices/company/team/allTeams?companyId=${companyId}`,
-      // `http://localhost:8888/api/v1/company/team/allTeams?companyId=${companyId}`,
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      }
-    )
-    setAllTeam(teamApiData.data)
-    }catch(err){
-      console.log(err);
+    try {
+      const teamApiData = await axios.get(
+        `/companyServices/company/team/allTeams?companyId=${companyId}`,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      setAllTeam(teamApiData.data)
+    } catch (err) {
+      console.log(err)
     }
-    // console.log("my data", teamApiData.data)
-   
   }
 
   const handleEdit = async (team) => {
     console.log("edit team", team)
     setEditTeamData((data) => ({ ...data, ...team }))
   }
-  // console.log("edit data", editTeamData)
 
   const updateTeam = async (id) => {
     // console.log("update Team ");
@@ -89,7 +79,8 @@ const AddTeam = () => {
     window.confirm("Are you want to delete Team")
     try {
       const teamData = await axios.delete(
-        `/companyServices/company/team/deleteTeam?teamId=${id}`,{
+        `/companyServices/company/team/deleteTeam?teamId=${id}`,
+        {
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -107,9 +98,6 @@ const AddTeam = () => {
     }
   }
 
-  // console.log("all team data", allTeam)
-
-  // console.log("all team is here", allTeam);
   return (
     <>
       <LoginHeader />
@@ -125,9 +113,7 @@ const AddTeam = () => {
         </div>
         <h4 className="info-text px-4">OK, Now add people to the project</h4>
         <div className="all-between team-add">
-          <div>
-            {/* <h4 className="team-text">Team</h4> */}
-          </div>
+          <div>{/* <h4 className="team-text">Team</h4> */}</div>
           <div>
             <AddTeamModel />
             {/* <i className="fa-solid fa-plus mr-2"></i>Add Team */}
@@ -210,8 +196,11 @@ const AddTeam = () => {
                               </div>
 
                               <div className="edit">
-                                <EditTeamModel teamId={team.id} leadName={team.teamLeadName} />
-                                
+                                <EditTeamModel
+                                  teamId={team.id}
+                                  leadName={team.teamLeadName}
+                                />
+
                                 {/* end model */}
                               </div>
                               <div>
@@ -236,7 +225,7 @@ const AddTeam = () => {
                                 onClick={rotateArrow}
                               >
                                 <span className="click">
-                                <i className="fa-solid fa-chevron-up icon"></i>
+                                  <i className="fa-solid fa-chevron-up icon"></i>
                                 </span>
                               </button>
                             </h5>

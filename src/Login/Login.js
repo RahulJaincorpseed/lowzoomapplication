@@ -63,78 +63,82 @@ const Login = () => {
   return (
     <div className="sign-up container">
       <form>
-      <div className="sign-box">
-        <h2>Sign In</h2>
-        <p className="label-heading">
-          We understand your privecy is important*
-        </p>
-        {/* <Link to={"#"} className="google-sign-btn">
+        <div className="sign-box">
+          <h2>Sign In</h2>
+          <p className="label-heading">
+            We understand your privecy is important*
+          </p>
+          {/* <Link to={"#"} className="google-sign-btn">
           <img src={Glogo} alt="logo192" />{" "}
           <span className="label-heading fw-700">Sign In with Google</span>
         </Link>
         <p className="signin-text">Or Login With Mobile</p> */}
-        <div className="pb-2">
-          <label className="label-heading" htmlFor="phone">
-            Email ID*
-          </label>
-          <input
-            type="email"
-            id="phone"
-            ref={userRef}
-            name="username"
-            placeholder="+91 9999008078"
-            required
-            onChange={(e) => LoginUserData(e)}
-          />
-        </div>
-        <div className="pb-2">
-          <label className="label-heading password-input" htmlFor="password">
-            Password*
-          </label>
-          <input
-            className="password-input"
-            type="password"
-            id="password"
-            name="password"
-            ref={passRef}
-            placeholder="Min. 8 Charecter"
-            autoComplete="off"
-            onChange={(e) => LoginUserData(e)}
-            required
-          />
-        </div>
-        {inputError ? (
-          <p className="mb-2 text-danger">
-            Username or password filed can't be blank
-          </p>
-        ) : (
-          ""
-        )}
-        {apiError ? <p className="error-show">Please Enter valid Mobile or Password</p> : ""}
+          <div className="pb-2">
+            <label className="label-heading" htmlFor="phone">
+              Email ID*
+            </label>
+            <input
+              type="email"
+              id="phone"
+              ref={userRef}
+              name="username"
+              placeholder="+91 9999008078"
+              required
+              onChange={(e) => LoginUserData(e)}
+            />
+          </div>
+          <div className="pb-2">
+            <label className="label-heading password-input" htmlFor="password">
+              Password*
+            </label>
+            <input
+              className="password-input"
+              type="password"
+              id="password"
+              name="password"
+              ref={passRef}
+              placeholder="Min. 8 Charecter"
+              autoComplete="off"
+              onChange={(e) => LoginUserData(e)}
+              required
+            />
+          </div>
+          {inputError ? (
+            <p className="mb-2 text-danger">
+              Username or password filed can't be blank
+            </p>
+          ) : (
+            ""
+          )}
+          {apiError ? (
+            <p className="error-show">Please Enter valid Mobile or Password</p>
+          ) : (
+            ""
+          )}
 
-        <div className="sign-btn">
-          <div className="remember-text">
-            <i
-              onClick={() => setCheckCircle((prev) => !prev)}
-              className={`fa-regular fa-circle-check ${
-                checkCircle ? "checkCircle" : ""
-              }`}
-            ></i>
-            <p className="label-heading">Remember me</p>
+          <div className="sign-btn">
+            <div className="remember-text">
+              <i
+                onClick={() => setCheckCircle((prev) => !prev)}
+                className={`fa-regular fa-circle-check ${
+                  checkCircle ? "checkCircle" : ""
+                }`}
+              ></i>
+              <p className="label-heading">Remember me</p>
+            </div>
+            <div>
+              <button className="first-button" onClick={(e) => loginUser(e)}>
+                Sign In
+              </button>
+            </div>
           </div>
-          <div>
-            <button
-              className="first-button"
-              onClick={(e) => loginUser(e)}
-            >
-              Sign In
-            </button>
-          </div>
+          <p className="label-heading move-info">
+            Don't have an Account Please
+            <Link className="move-page" to="/signup">
+              Sign UP
+            </Link>
+          </p>
         </div>
-        <p className="label-heading move-info">
-          Don't have an Account Please<Link className="move-page" to="/signup">Sign UP</Link>
-        </p>
-      </div>
       </form>
     </div>
   )
