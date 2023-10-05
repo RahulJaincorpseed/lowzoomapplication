@@ -518,6 +518,12 @@ button:focus {
   margin-bottom: 20px;
 }
 
+.flex-end-cl{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
 
 
 

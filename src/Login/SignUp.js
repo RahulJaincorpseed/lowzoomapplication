@@ -191,12 +191,14 @@ const SignUp = () => {
             ) : (
               ""
             )}
+            <div className="flex-end-cl">
             <button
               onClick={(e) => submitValidOtp(e)}
-              className="btn btn-outline-primary sign-button"
+              className="first-button"
             >
               Submit OTP
             </button>
+            </div>
           </form>
         </div>
         <p className="label-heading move-info">
