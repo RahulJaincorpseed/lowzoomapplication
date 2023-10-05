@@ -75,10 +75,10 @@ const Login = () => {
         <p className="signin-text">Or Login With Mobile</p> */}
         <div className="pb-2">
           <label className="label-heading" htmlFor="phone">
-            Mobile Number*
+            Email ID*
           </label>
           <input
-            type="tel"
+            type="email"
             id="phone"
             ref={userRef}
             name="username"
@@ -124,7 +124,7 @@ const Login = () => {
           </div>
           <div>
             <button
-              className="btn btn-outline-primary sign-button"
+              className="first-button"
               onClick={(e) => loginUser(e)}
             >
               Sign In

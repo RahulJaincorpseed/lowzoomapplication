@@ -5,18 +5,19 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { postQuery } from "../Api/PostQuery"
 toast.configure()
 
 const SignUp = () => {
   const [checkCircle, setCheckCircle] = useState(false)
   const [otpPage, setOtpPage] = useState(false)
   const [userData, setUserData] = useState({
-    mobile: "",
+    email: "",
     name: "",
     password: "",
   })
   const [signUpData, setSignUpData] = useState({
-    mobile: "",
+    email: "",
     name: "",
     password: "",
     otp: "",
@@ -29,7 +30,7 @@ const SignUp = () => {
   const navigate = useNavigate()
 
   const nameRef = useRef()
-  const mobileRef = useRef()
+  const emailRef = useRef()
   const passwordRef = useRef()
   const otpRef = useRef()
 
@@ -42,7 +43,7 @@ const SignUp = () => {
     e.preventDefault()
     if (
       nameRef.current.value === "" ||
-      mobileRef.current.value === "" ||
+      emailRef.current.value === "" ||
       passwordRef.current.value === ""
     ) {
       setFormError(true)
@@ -51,13 +52,7 @@ const SignUp = () => {
 
     const OtpDataResponse = async () => {
       try {
-        const OtpData = await axios.post(`/api/auth/otp`, {
-          ...userData,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        })
+        const OtpData = await postQuery(`/api/auth/otp/generateOTP`,userData) 
         console.log("otp data", OtpData?.data)
         setResponseOtpData(OtpData?.data)
         setOtpPage(true)
@@ -81,13 +76,7 @@ const SignUp = () => {
 
     const UserSignUpResponse = async () => {
       try {
-        const userSignupData = await axios.post(`/api/auth/signup`, {
-          ...signUpData,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        })
+        const userSignupData = await  postQuery(`/api/auth/signup`,signUpData)
         console.log("sign up data", userSignupData?.data)
         toast.success("Account Created Succesfully")
         navigate("/login")
@@ -100,8 +89,6 @@ const SignUp = () => {
   }
 
   console.log("i am status otp", otpPage)
-  // console.log("response", responseOtpData)
-  // console.log("sign up data",signUpData)
   console.log(responseOtpData.otp === signUpData.otp)
 
   return (
@@ -111,11 +98,6 @@ const SignUp = () => {
         <p className="label-heading">
           We understand your privecy is important*
         </p>
-        {/* <Link to={"#"} className="google-sign-btn">
-          <img src={Glogo} alt="logo192" />{" "}
-          <span className="label-heading fw-700">Sign Up with Google</span>
-        </Link>
-        <p className="signin-text">Or Sign In With Email</p> */}
         <form className={`${otpPage ? "d-none" : ""}`}>
           <div className="pb-2">
             <label className="label-heading" htmlFor="name">
@@ -132,14 +114,14 @@ const SignUp = () => {
             />
           </div>
           <div className="pb-2">
-            <label className="label-heading" htmlFor="phone">
-              Mobile Number*
+            <label className="label-heading" htmlFor="email">
+              Email ID*
             </label>
             <input
-              type="tel"
-              id="phone"
-              name="mobile"
-              ref={mobileRef}
+              type="email"
+              id="email"
+              name="email"
+              ref={emailRef}
               placeholder="+91 9999008078"
               onChange={(e) => dataForOtp(e)}
               required
@@ -180,7 +162,7 @@ const SignUp = () => {
             <div>
               <button
                 onClick={(e) => submitdataForOtp(e)}
-                className="btn btn-outline-primary sign-button"
+                className="first-button"
               >
                 Sign Up
               </button>

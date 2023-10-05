@@ -10,7 +10,7 @@
   .sign-box {
     border: 1px solid $grayFour;
     padding: 70px 140px;
-    border-radius: 40px;
+    border-radius: 10px;
     width: 760px;
     h2 {
       font-weight: 700;
@@ -69,7 +69,7 @@
     input {
       background: $white;
       border: 1px solid $grayFive;
-      border-radius: 10px;
+      border-radius: 4px;
       width: 100%;
       padding: 10px;
       text-align: center;
@@ -104,11 +104,11 @@
       }
       .sign-button {
         width: 258px;
-        padding-top: 2px;
-        padding-bottom: 6px;
+        padding-top: 0px;
+        padding-bottom: 5px;
         background: $white;
         border: 2px solid $lightBlue;
-        border-radius: 10px;
+        border-radius: 4px;
         @include font-two;
         text-align: center;
         letter-spacing: 0.84px;

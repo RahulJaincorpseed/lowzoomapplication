@@ -6,6 +6,9 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useDispatch, useSelector } from "react-redux"
 import { SubmitEnquiry } from "../Redux/Actions/SignUpAction"
+import InputErrorComponent from "./InputErrorComponent"
+import InputFieldComponent from "./InputFieldComponent"
+import { postQuery } from "../Api/PostQuery"
 toast.configure()
 
 const LoginForm = () => {
@@ -73,13 +76,7 @@ const LoginForm = () => {
       }
       setLoading(true)
       try {
-        const EnquiryApi = await axios.post("/api/auth/createEnquiry", {
-          ...enquiryData,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        })
+        const EnquiryApi = await postQuery("/api/auth/createEnquiry", enquiryData)
         setFullNameErr(false)
         setMobileErr(false)
         setCompanyNameErr(false)
@@ -108,6 +105,7 @@ const LoginForm = () => {
     <div className="home-page-form">
       <form>
         <div className="input-box">
+        
           <input
             className="input-field"
             ref={fullNameRef}
@@ -117,7 +115,7 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {fullNameErr ? (
-            <p className="error-show">Name Can't be Blank</p>
+              <InputErrorComponent data="Name Can't be Blank" />
           ) : (
             ""
           )}
@@ -132,7 +130,7 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {designationErr ? (
-            <p className="error-show">designation Can't be Blank</p>
+             <InputErrorComponent data="designation Can't be Blank" />
           ) : (
             ""
           )}
@@ -147,7 +145,8 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {mobileErr ? (
-            <p className="error-show">mobile Can't be Blank</p>
+            <InputErrorComponent data="mobile Can't be Blank" />
+            // <p className="error-show">mobile Can't be Blank</p>
           ) : (
             ""
           )}
@@ -162,7 +161,7 @@ const LoginForm = () => {
             onChange={(e) => submitEnqData(e)}
           />
           {companyNameErr ? (
-            <p className="error-show">company Name Can't be Blank</p>
+              <InputErrorComponent data="company Name Can't be Blank" />
           ) : (
             ""
           )}
