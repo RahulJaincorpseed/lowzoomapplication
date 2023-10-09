@@ -132,12 +132,15 @@ const Login = () => {
               </button>
             </div>
           </div>
-          <p className="label-heading move-info">
+          <p className="label-heading mb-0 move-info">
             Don't have an Account Please
             <Link className="move-page" to="/signup">
               Sign UP
             </Link>
           </p>
+          <div className="text-center">
+          <Link to="/forgetpassword" >Forget Password ?</Link>
+          </div>
         </div>
       </form>
     </div>
