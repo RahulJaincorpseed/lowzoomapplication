@@ -3,10 +3,12 @@ import "./ForgetPassword.scss"
 import { Link } from "react-router-dom"
 import { postQuery } from "../Api/PostQuery"
 import axios from "axios"
+import BtnLoading from "../common/Loading/BtnLoading"
 
 const ForgetPassword = () => {
   const [nextPage, setNextPage] = useState(1)
   const [userEmailId, setUserEmailId] = useState("")
+  const [loading, setLoading]= useState(false);
 
   const [emailIdErr, setEmailIdErr] = useState(false)
   const [validEmailErr, setValidEmailErr] = useState(false)
@@ -23,9 +25,11 @@ const ForgetPassword = () => {
     if (emailIdRef.current.value === "") {
       setEmailIdErr(true)
     }
-
     const emailDataApi = async () => {
+      
       try {
+        setLoading(true);
+        
         const apiDataResponse = await axios.post(
           `/api/auth/user/forgot-password?email=${userEmailId}`,
           {
@@ -38,11 +42,13 @@ const ForgetPassword = () => {
         if (apiDataResponse.data.status === "OK") {
           console.log("forget ", apiDataResponse.data.status)
           setNextPage((prev) => prev + 1)
-        } else {
+          setLoading(false)
+                } else {
           setValidEmailErr(true)
         }
       } catch (err) {
         console.log(err)
+        setLoading(false)
       }
     }
     emailDataApi()
@@ -95,7 +101,7 @@ const ForgetPassword = () => {
                     className="first-button"
                     onClick={(e) => userEmailSubmit(e)}
                   >
-                    Next
+                    {loading ? "Loading..." :  "Next"}
                   </button>
                 </div>
               </div>
@@ -109,7 +115,7 @@ const ForgetPassword = () => {
                 <input
                   type="email"
                   id="phone"
-                  name="username"
+                  name="otp"
                   placeholder="Enter your Otp"
                   required
                 />

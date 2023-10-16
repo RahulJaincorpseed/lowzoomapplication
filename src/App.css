@@ -181,6 +181,8 @@ button:focus {
   color: var(--white);
   outline: none;
   cursor: pointer;
+  position: relative;
+  min-height: 30px;
 }
 
 .first-button:hover {
