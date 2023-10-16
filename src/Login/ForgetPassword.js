@@ -2,10 +2,11 @@ import React, { useRef, useState } from "react"
 import "./ForgetPassword.scss"
 import { Link } from "react-router-dom"
 import { postQuery } from "../Api/PostQuery";
+import axios from "axios";
 
 const ForgetPassword = () => {
     const [nextPage, setNextPage] = useState(1);
-    const [userEmailId, setUserEmailId] = useState({});
+    const [userEmailId, setUserEmailId] = useState('');
 
     const [emailIdErr, setEmailIdErr] = useState(false);
 
@@ -24,15 +25,24 @@ const ForgetPassword = () => {
 
         const emailDataApi = async () =>{
             try{
-                const apiDataResponse = await postQuery(`/api/auth/user/forgot-password?email=rahul.jain%40corpseed.com`)
+                const apiDataResponse = await axios.post(`/api/auth/user/forgot-password?email=${userEmailId}`,{
+                  headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json",
+                  },
+                })
+                console.log("forget ", apiDataResponse);
+                
 
             }catch(err){
-                console.log(err);
+                console.log(err); 
             }
         }
-
+        emailDataApi();
 
     }
+
+    console.log("user email", userEmailId);
 
 
 
@@ -66,6 +76,7 @@ const ForgetPassword = () => {
               ref={emailIdRef}
               placeholder="Enter your Email"
               required
+              onChange={(e)=> setUserEmailId(e.target.value)}
             />
             {emailIdErr ? (
             <p className="mb-2 text-danger">
