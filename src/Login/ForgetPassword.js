@@ -1,53 +1,53 @@
 import React, { useRef, useState } from "react"
 import "./ForgetPassword.scss"
 import { Link } from "react-router-dom"
-import { postQuery } from "../Api/PostQuery";
-import axios from "axios";
+import { postQuery } from "../Api/PostQuery"
+import axios from "axios"
 
 const ForgetPassword = () => {
-    const [nextPage, setNextPage] = useState(1);
-    const [userEmailId, setUserEmailId] = useState('');
+  const [nextPage, setNextPage] = useState(1)
+  const [userEmailId, setUserEmailId] = useState("")
 
-    const [emailIdErr, setEmailIdErr] = useState(false);
+  const [emailIdErr, setEmailIdErr] = useState(false)
+  const [validEmailErr, setValidEmailErr] = useState(false)
 
-    const emailIdRef = useRef();
+  const emailIdRef = useRef()
 
-    const handleClick = (e) =>{
-        e.preventDefault();
-        setNextPage((prev)=> (prev+1));
-    } 
+  const handleClick = (e) => {
+    e.preventDefault()
+    setNextPage((prev) => prev + 1)
+  }
 
-    const userEmailSubmit = (e) =>{
-        e.preventDefault();
-        if(emailIdRef.current.value === ""){
-            setEmailIdErr(true) 
-        }
-
-        const emailDataApi = async () =>{
-            try{
-                const apiDataResponse = await axios.post(`/api/auth/user/forgot-password?email=${userEmailId}`,{
-                  headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json",
-                  },
-                })
-                console.log("forget ", apiDataResponse);
-                
-
-            }catch(err){
-                console.log(err); 
-            }
-        }
-        emailDataApi();
-
+  const userEmailSubmit = (e) => {
+    e.preventDefault()
+    if (emailIdRef.current.value === "") {
+      setEmailIdErr(true)
     }
 
-    console.log("user email", userEmailId);
-
-
-
-
-
+    const emailDataApi = async () => {
+      try {
+        const apiDataResponse = await axios.post(
+          `/api/auth/user/forgot-password?email=${userEmailId}`,
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        if (apiDataResponse.data.status === "OK") {
+          console.log("forget ", apiDataResponse.data.status)
+          setNextPage((prev) => prev + 1)
+        } else {
+          setValidEmailErr(true)
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    emailDataApi()
+  }
+  console.log("user email", userEmailId)
 
   return (
     <div className="sign-up container">
@@ -62,101 +62,111 @@ const ForgetPassword = () => {
           <span className="label-heading fw-700">Sign In with Google</span>
         </Link>
         <p className="signin-text">Or Login With Mobile</p> */}
-        { nextPage ===1 ? (
+          {nextPage === 1 ? (
             <>
-           
-          <div className="pb-2">
-            <label className="label-heading" htmlFor="phone">
-              Email ID*
-            </label>
-            <input
-              type="email"
-              id="phone"
-              name="username"
-              ref={emailIdRef}
-              placeholder="Enter your Email"
-              required
-              onChange={(e)=> setUserEmailId(e.target.value)}
-            />
-            {emailIdErr ? (
-            <p className="mb-2 text-danger">
-              Email can't be blank
-            </p>
+              <div className="pb-2">
+                <label className="label-heading" htmlFor="phone">
+                  Email ID*
+                </label>
+                <input
+                  type="email"
+                  id="phone"
+                  name="username"
+                  ref={emailIdRef}
+                  placeholder="Enter your Email"
+                  required
+                  onChange={(e) => setUserEmailId(e.target.value)}
+                />
+                {validEmailErr ? (
+                  <p className="mb-2 text-danger">Email does not exist</p>
+                ) : (
+                  ""
+                )}
+                {emailIdErr ? (
+                  <p className="mb-2 text-danger">Email can't be blank</p>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="sign-btn">
+                <div className="remember-text"></div>
+                <div>
+                  <button
+                    className="first-button"
+                    onClick={(e) => userEmailSubmit(e)}
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </>
+          ) : nextPage === 2 ? (
+            <>
+              <div className="pb-2">
+                <label className="label-heading" htmlFor="phone">
+                  Enter Otp*
+                </label>
+                <input
+                  type="email"
+                  id="phone"
+                  name="username"
+                  placeholder="Enter your Otp"
+                  required
+                />
+              </div>
+              <div className="sign-btn">
+                <div className="remember-text"></div>
+                <div>
+                  <button
+                    className="first-button"
+                    onClick={(e) => handleClick(e)}
+                  >
+                    Submit Otp
+                  </button>
+                </div>
+              </div>
+            </>
+          ) : nextPage === 3 ? (
+            <>
+              <div className="pb-2">
+                <label className="label-heading" htmlFor="phone">
+                  New Password*
+                </label>
+                <input
+                  type="password"
+                  id="phone"
+                  name="username"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <div className="pb-2">
+                <label className="label-heading" htmlFor="phone">
+                  confirm Password*
+                </label>
+                <input
+                  type="password"
+                  id="phone"
+                  name="username"
+                  placeholder="Enter your confirm password"
+                  required
+                />
+              </div>
+              <div className="sign-btn">
+                <div className="remember-text"></div>
+                <div>
+                  <button
+                    className="first-button"
+                    onClick={(e) => handleClick(e)}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </>
           ) : (
-            ""
+            <div>something went wrong please Referesh the page</div>
           )}
-          </div>
-          <div className="sign-btn">
-            <div className="remember-text">
-            </div>
-            <div>
-              <button className="first-button" onClick={(e)=> userEmailSubmit(e)} >
-                Next
-              </button>
-            </div>
-          </div>
-          
-          </>
-        ): nextPage === 2 ?   <>
-        
-        <div className="pb-2">
-          <label className="label-heading" htmlFor="phone">
-            Enter Otp*
-          </label>
-          <input
-            type="email"
-            id="phone"
-            name="username"
-            placeholder="Enter your Otp"
-            required
-          />
-        </div>
-        <div className="sign-btn">
-          <div className="remember-text">
-          </div>
-          <div>
-            <button className="first-button" onClick={(e)=> handleClick(e)}>
-              Submit Otp
-            </button>
-          </div>
-        </div>
-        
-        </> : nextPage === 3 ? <>
-        <div className="pb-2">
-          <label className="label-heading" htmlFor="phone">
-            New Password*
-          </label>
-          <input
-            type="password"
-            id="phone"
-            name="username"
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-        <div className="pb-2">
-          <label className="label-heading" htmlFor="phone">
-            confirm Password*
-          </label>
-          <input
-            type="password"
-            id="phone"
-            name="username"
-            placeholder="Enter your confirm password"
-            required
-          />
-        </div>
-        <div className="sign-btn">
-          <div className="remember-text">
-          </div>
-          <div>
-            <button className="first-button" onClick={(e)=> handleClick(e)}>
-              Submit
-            </button>
-          </div>
-        </div>
-        </> : <div>something went wrong please Referesh the page</div>
-        }
           <p className="label-heading mb-0 move-info">
             Don't have an Account Please
             <Link className="move-page" to="/signup">
@@ -165,7 +175,7 @@ const ForgetPassword = () => {
           </p>
           <div className="text-center">
             <span className="mr-2">Back to</span>
-          <Link to="/login" >login</Link>
+            <Link to="/login">login</Link>
           </div>
         </div>
       </form>
