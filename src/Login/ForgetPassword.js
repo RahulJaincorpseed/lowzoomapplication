@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css"
 toast.configure()
 
 const ForgetPassword = () => {
-  const [nextPage, setNextPage] = useState(3)
+  const [nextPage, setNextPage] = useState(1)
   const [userEmailId, setUserEmailId] = useState("")
   const [otpData, setOtpData] = useState("")
   const [passwordData, setPasswordData] = useState("")
