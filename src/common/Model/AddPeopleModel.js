@@ -9,6 +9,9 @@ const AddPeopleModel = ({teamId}) => {
     memberMail: "",
     memberMobile: "",
     typeOfResource: "",
+    accessType: "jsid",
+    role: "user",
+    enable: true
   })
 
   const location = useLocation();
@@ -29,7 +32,7 @@ const AddPeopleModel = ({teamId}) => {
     setAddPeopleData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  // console.log("Add People", AddPeopleData)
+  console.log("Add People", AddPeopleData, "team", teamPathId)
 
   const addTeamMember = (e) => {
     e.preventDefault()
@@ -54,6 +57,7 @@ const AddPeopleModel = ({teamId}) => {
 
       } catch (err) {
         console.log(err)
+        console.log("add team member");
       }
     }
     addMemberApi();
