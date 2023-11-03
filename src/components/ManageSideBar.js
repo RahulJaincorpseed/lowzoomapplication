@@ -5,6 +5,8 @@ import { Link, NavLink } from "react-router-dom"
 import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
 
 const ManageSideBar = () => {
+  const companyId = 2;
+  const userId = 2;
   return (
     <div className="manageside-bar">
       <div className="manage-logo">
@@ -13,14 +15,14 @@ const ManageSideBar = () => {
       <div className="side-nav-items">
         <ul className="list-unorder">
           <li className="linkw-icon">
-            <NavLink to={"/company"} className={`main-link`}>
+            <NavLink to={`/${userId}/company/${companyId}`} className={`main-link`}>
               <i className="fa-solid fa-gear"></i>
               <span>DashBoard</span>
             </NavLink>
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/company/managecompany"}
+              to={`/${userId}/company/${companyId}/managecompany`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -30,7 +32,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/company/setcompliance"}
+              to={`/${userId}/company/${companyId}/setcompliance`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -40,7 +42,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/company/managecompliance"}
+              to={`/${userId}/company/${companyId}/managecompliance`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
               data-toggle="collapse"
@@ -117,7 +119,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/company/vendor"}
+              to={`/${userId}/company/${companyId}/vendor`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -127,7 +129,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={"/company/accounts"}
+              to={`/${userId}/company/${companyId}/accounts`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             > 

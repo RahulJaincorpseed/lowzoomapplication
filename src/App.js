@@ -49,7 +49,7 @@ function App() {
     
         <Route path="/details" element={<Details />} />
        
-        <Route path="/company" element={<MainCompany />}>
+        <Route path=":userId/company/:companyid" element={<MainCompany />}>
           <Route path="" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
           <Route path="setcompliance" element={<SetCompliance />} />
