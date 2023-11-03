@@ -284,6 +284,10 @@ button:focus {
   margin-left: 3px;
 }
 
+.h-twenty{
+  min-height: 120px;
+}
+
 /* rect css code */
 .react-datepicker-wrapper {
   width: 100%;

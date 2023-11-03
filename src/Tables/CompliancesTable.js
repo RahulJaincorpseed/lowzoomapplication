@@ -1,5 +1,5 @@
 import React from "react"
-import { DataGrid } from "@mui/x-data-grid"
+import { DataGrid, GridToolbar } from "@mui/x-data-grid"
 
 const CompliancesTable = () => {
     const rows = [
@@ -14,7 +14,13 @@ const CompliancesTable = () => {
       ];
   return (
     <div>
-      <DataGrid checkboxSelection rows={rows} columns={columns} />
+      <DataGrid checkboxSelection rows={rows} columns={columns} slots={{ toolbar: GridToolbar }} 
+       slotProps={{
+        toolbar: {
+          showQuickFilter: true,
+        },
+      }}
+      />
     </div>
   )
 }
