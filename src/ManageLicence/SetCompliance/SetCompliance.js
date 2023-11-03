@@ -2,6 +2,7 @@ import React from "react"
 import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
 import CompliancesTable from "../../Tables/CompliancesTable"
+import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
 
 const SetCompliance = () => {
   return (
@@ -84,6 +85,9 @@ const SetCompliance = () => {
 
             <div className="add-new-complience col-lg-12 mt-4">
               <div className="add-new-company">
+                <AddNewComplienceModel />
+              </div>
+              {/* <div className="add-new-company">
                 <button
                   type="button"
                   className="add-button"
@@ -135,7 +139,7 @@ const SetCompliance = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="my-4 w-100">
