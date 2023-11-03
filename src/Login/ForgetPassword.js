@@ -76,7 +76,6 @@ const ForgetPassword = () => {
 
   const setNewPasswordFun = (e) => {
     e.preventDefault()
-
     if(newPassword !== repeatPassword){
       setSamePasswordErr(true)
       return
