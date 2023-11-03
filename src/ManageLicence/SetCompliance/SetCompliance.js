@@ -1,6 +1,7 @@
 import React from "react"
 import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
+import CompliancesTable from "../../Tables/CompliancesTable"
 
 const SetCompliance = () => {
   return (
@@ -135,6 +136,10 @@ const SetCompliance = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="my-4 w-100">
+              <CompliancesTable />
             </div>
           </div>
         </div>

@@ -62,13 +62,13 @@ const SideBarTab = () => {
         <div className="reporter repo">
           <p>Reporter</p>
           <p>
-            <div className="circle-icon">AK</div>Abhishek Singh
+            <span className="d-block circle-icon">AK</span>Abhishek Singh
           </p>
         </div>
         <div className="assignee repo">
           <p>assignee</p>
           <p>
-            <div className="circle-icon">AK</div>Mohit singhal
+            <span className="d-block circle-icon">AK</span>Mohit singhal
           </p>
         </div>
       </div>
