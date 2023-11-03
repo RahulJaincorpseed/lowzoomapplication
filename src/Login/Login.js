@@ -55,6 +55,9 @@ const Login = () => {
         if (err.response.status === 401) {
           setApiError(err.response.statusText)
         }
+        if (err.response.status === 500) {
+          toast.error("Something Went Wrong")
+        }
       }
     }
     userDetails()

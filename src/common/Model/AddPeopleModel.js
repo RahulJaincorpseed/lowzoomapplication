@@ -19,12 +19,9 @@ const AddPeopleModel = ({teamId}) => {
   
 
   const addPathData = location.pathname.split()
-  // console.log("path data", addPathData, addPathData[0]);
   const data = addPathData[0].split("/")
-  // console.log("data", data[2]);
   const companyPathId = Number(data[2]);
   const teamPathId =  Number(data[4]);
-  // console.log("id is ", teamPathId)
   
  const navigate = useNavigate()
 
@@ -68,7 +65,7 @@ const AddPeopleModel = ({teamId}) => {
     window.location.reload()
   }
 
-  const resourcesData = ["Internal", "External"]
+  const resourcesData = ["Internal", "External"];
 
   return (
     <>

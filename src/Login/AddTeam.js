@@ -12,6 +12,8 @@ import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { getQuery } from "../Api/getQuery"
+import TeamProfileMember from "../components/TeamProfileMember"
 toast.configure()
 
 const AddTeam = () => {
@@ -19,6 +21,7 @@ const AddTeam = () => {
   const [allTeam, setAllTeam] = useState([])
   const [editTeamData, setEditTeamData] = useState({})
   const [arrowChange, setarrowChange] = useState(false)
+  const [teamMemberState, setTeamMemberState] = useState([])
 
   const navigate = useNavigate()
   const { companyId } = useParams()
@@ -28,7 +31,10 @@ const AddTeam = () => {
 
   useEffect(() => {
     allTeamDisplay()
-    console.log("calling page")
+  }, [])
+
+  useEffect(() => {
+    getAllTeamMemberFun()
   }, [])
 
   const rotateArrow = () => {
@@ -75,6 +81,18 @@ const AddTeam = () => {
     // }
   }
 
+  const getAllTeamMemberFun = async () => {
+    try {
+      const getAllTeamMember = await getQuery(
+        `/companyServices/company/team/members/getAllTeamMembers?teamId=${2}`
+      )
+      console.log("get all team Member ", getAllTeamMember.data)
+      setTeamMemberState(getAllTeamMember.data)
+    } catch (err) {
+      console.log("err", err)
+    }
+  }
+
   const deleteTeam = async (id) => {
     window.confirm("Are you want to delete Team")
     try {
@@ -118,7 +136,7 @@ const AddTeam = () => {
             <AddTeamModel />
           </div>
         </div>
-        
+
         {/* shhdd */}
         {/* accordian */}
 
@@ -197,17 +215,17 @@ const AddTeam = () => {
                 data-parent="#accordion"
               >
                 <div className="card-body">
-                  <div className="card-body">
-                    {/* card body */}
-                    <div className="table-responsive">
-                      <table className="table mb-0">
-                        <tbody>
-                          <tr className="add-teams">
+                  {/* card body */}
+                  <div className="table-responsive">
+                    <table className="table mb-0">
+                      <tbody>
+                        {teamMemberState.map((member, index) => (
+                          <tr className="add-teams" key={index}>
                             <td className="w-300">
-                              <TeamProfile />
+                              <TeamProfileMember memberName={member?.memberName} memberMobile={member?.memberMobile}  memberMail={member?.memberMail}  />
                             </td>
                             <td className="team-type">
-                              <h3>Inhouse Team</h3>
+                              <h3>{member?.memberName} {member?.memberMail} {member?.memberMobile}</h3>
                             </td>
                             <td>
                               <div className="team-edit">
@@ -217,44 +235,22 @@ const AddTeam = () => {
                                 <div>
                                   <button className="delete-button">
                                     <i className="fa-solid mr-1 fa-trash"></i>
-                                    Delete
+                                    Delete4444
                                   </button>
                                 </div>
                               </div>
                             </td>
                           </tr>
-                          <tr className="add-teams">
-                            <td>
-                              <TeamProfile />
-                            </td>
-                            <td className="team-type">
-                              <h3>Inhouse Team</h3>
-                            </td>
-                            <td>
-                              <div className="team-edit">
-                                <div className="edit">
-                                  <EditPeopleModel />
-                                </div>
-                                <div>
-                                  <button className="delete-button">
-                                    <i className="fa-solid mr-1 fa-trash"></i>
-                                    Delete
-                                  </button>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    {/* end body */}
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
+                  {/* end body */}
                 </div>
               </div>
             </div>
           ))}
           {/* second card */}
-       
         </div>
 
         {/* end accordian */}

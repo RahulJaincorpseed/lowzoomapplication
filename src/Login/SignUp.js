@@ -58,6 +58,9 @@ const SignUp = () => {
         setOtpPage(true)
       } catch (err) {
         console.log(err)
+        if (err.response.status === 500) {
+          toast.error("Something Went Wrong")
+        }
       }
     }
     OtpDataResponse()
@@ -83,6 +86,9 @@ const SignUp = () => {
       } catch (err) {
         console.log("err", err)
         console.log("error")
+        if (err.response.status === 500) {
+          toast.error("Something Went Wrong")
+        }
       }
     }
     UserSignUpResponse()
