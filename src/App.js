@@ -26,6 +26,7 @@ import AddPeopleModel from "./common/Model/AddPeopleModel"
 import AddTeamModel from "./common/Model/AddTeamModel"
 import EditTeamModel from "./common/Model/EditTeamModel"
 import ForgetPassword from "./Login/ForgetPassword"
+import ForgetWithInvitation from "./Login/ForgetWithInvitation"
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/signup/otp" element ={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
+        <Route path="/invitation" element={<ForgetWithInvitation />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/user/:id/userinfo" element={<UserInfo />} />
         <Route path="/company/:companyId/addteam" element={<AddTeam />} >
