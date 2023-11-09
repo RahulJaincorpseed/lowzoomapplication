@@ -29,6 +29,7 @@ const AddTeam = () => {
   const status = percent === 100 ? "success" : null
   const color = percent === 100 ? "#2B62F9" : "#2B62F9"
 
+
   useEffect(() => {
     allTeamDisplay()
   }, [])

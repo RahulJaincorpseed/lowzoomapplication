@@ -252,12 +252,15 @@ const UserInfo = () => {
         })
         console.log("all company data api", companysubmitData.data)
         toast.success("Company Added Succesfully")
-        navigate(`/company/${companysubmitData.data.companyId}/addteam`)
+        navigate(`/user/${userPathId}/userinfo/company/${companysubmitData.data.companyId}/addteam`)
       } catch (err) {
         if (err.response.data)
           if (err.response.status === 500) {
             console.log(err.response.statusText)
             toast.error(err.response.statusText)
+          }
+          if (err.response.status === 400) {
+            toast.error("Something went Wrong")
           }
         console.log("response data", err)
       }
