@@ -49,8 +49,9 @@ function App() {
           <Route path="" element={<UserInfo />} />
             <Route path="company/:companyId/addteam" element={<AddTeam />}>
               <Route path=":id/addPeople" element={<AddPeopleModel />} />
-              <Route path=":id/editTeam" element={<EditTeamModel />} />
+              <Route path=":id/editTeam" element={<EditTeamModel />} />    
             </Route>
+            <Route path="company/:companyId/addteam/companyInfo" element={<CompanyInfo />} />
         </Route>
 
         <Route path="/details" element={<Details />} />
