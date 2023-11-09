@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "./CompanyInfo.scss"
 import ComDetails from "../components/ComDetails"
 import TeamProfile from "../components/TeamProfile"
@@ -6,12 +6,51 @@ import EditCompanyInfoModel from "../common/Model/EditCompanyInfoModel"
 import EditGstDetailsModel from "../common/Model/EditGstDetailsModel"
 import EditBusinessUnitModel from "../common/Model/EditBusinessUnitModel"
 import EditTeamModel from "../common/Model/EditTeamModel"
+import { getQuery } from "../Api/getQuery"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const CompanyInfo = () => {
+
+  const [companyInfoData, setCompanyInfoData] = useState({});
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+
+
+  const addPathData = location.pathname.split()
+  const data = addPathData[0].split("/")
+  console.log("data", data);
+  const userPathId = Number(data[2]);
+  const companyPathId = Number(data[5]);
+  // console.log("user id is", userPathId);
+  // console.log("company id is", companyPathId);
+  
+
+
+  useEffect(()=>{
+    getSingleCompanyData();
+  },[])
+
+  const getSingleCompanyData = async () =>{
+    try{
+    const companyData = await getQuery(`/companyServices/company/fetchCompany?id=${companyPathId}&userId=${userPathId}`);
+    // console.log("company data", companyData.data);
+    setCompanyInfoData(companyData.data)
+    }catch(err){
+      console.log("err", err);
+    }
+  }
+
+  console.log("company inf data", companyInfoData);
+
+
+
   return (
     <>
       <div className="container">
         <div className="company-all">
+
           <div className="company-info">
             <div className="info-all">
               <div className="info-text">
@@ -23,20 +62,20 @@ const CompanyInfo = () => {
               </div>
             </div>
             <div className="all-details">
-              <h4 className="brand-name">Haldiram Foods Private Limited</h4>
+              <h4 className="brand-name">{companyInfoData?.companyName}</h4>
               <div className="row">
                 <ComDetails
                   name={"Entity Type:"}
-                  value={"Private Limited Company"}
+                  value={companyInfoData?.companyType}
                 />
-                <ComDetails name={"Formation State:"} value={"Haryana"} />
+                <ComDetails name={"Formation State:"} value={companyInfoData?.companyState} />
                 <ComDetails
                   name={"Registration ID (CIN):"}
                   value={"U74999UP2018PTC221873"}
                 />
-                <ComDetails name={"Formation Date:"} value={"Oct. 01, 2021"} />
+                <ComDetails name={"Formation Date:"} value={companyInfoData?.companyRegistrationDate} />
                 <ComDetails name={"nUMBER OF gst:"} value={"2"} />
-                <ComDetails name={"Email Id:"} value={"xxxxxx@lawzoom.com"} />
+                <ComDetails name={"Email Id:"} value={companyInfoData?.businessActivityEmail} />
                 <ComDetails
                   name={"registered address:"}
                   value={
