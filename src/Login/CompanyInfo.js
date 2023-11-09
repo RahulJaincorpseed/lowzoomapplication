@@ -105,14 +105,14 @@ const CompanyInfo = () => {
             </div>
             <div className="all-details">
               <div className="row">
-                <ComDetails name={"GST number:"} value={"09AAHCC4679J1ZC"} />
+                <ComDetails name={"GST Number:"} value={"09AAHCC4679J1ZC"} />
                 <ComDetails name={"City"} value={"Mumbai"} />
-                <ComDetails name={"Permanent employees:"} value={"250"} />
+                <ComDetails name={"Permanent Employees:"} value={"250"} />
                 <ComDetails
-                  name={"business activity:"}
+                  name={"Business Activity:"}
                   value={"Food Manufacturing Unit"}
                 />
-                <ComDetails name={"Located at:"} value={"SEZ"} />
+                <ComDetails name={"Located At:"} value={"SEZ"} />
                 <ComDetails name={"STATE"} value={"Maharashtra"} />
                 <ComDetails
                   name={"registered address:"}
@@ -136,17 +136,17 @@ const CompanyInfo = () => {
             </div>
             <div className="all-details">
               <div className="row">
-                <ComDetails name={"GST number:"} value={"09AAHCC4679J1ZC"} />
+                <ComDetails name={"GST Number:"} value={"09AAHCC4679J1ZC"} />
                 <ComDetails name={"City"} value={"Mumbai"} />
-                <ComDetails name={"Permanent employees:"} value={"250"} />
+                <ComDetails name={"Permanent Employees:"} value={"250"} />
                 <ComDetails
-                  name={"business activity:"}
+                  name={"Business Activity:"}
                   value={"Food Manufacturing Unit"}
                 />
                 <ComDetails name={"Located at:"} value={"SEZ"} />
                 <ComDetails name={"STATE"} value={"Maharashtra"} />
                 <ComDetails
-                  name={"registered address:"}
+                  name={"Registered Address:"}
                   value={
                     "A-43, SECTOR-63 NOIDA NOIDA Gautam Buddha Nagar UP 201301 IN"
                   }
