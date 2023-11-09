@@ -28,6 +28,7 @@ import EditTeamModel from "./common/Model/EditTeamModel"
 import ForgetPassword from "./Login/ForgetPassword"
 import ForgetWithInvitation from "./Login/ForgetWithInvitation"
 import CompanyInfo from "./Login/CompanyInfo"
+import AddTeamOutlet from "./Login/AddTeamOutlet"
 
 function App() {
   return (
@@ -39,19 +40,21 @@ function App() {
         </Route>
         <Route path="/companyInfo" element={<CompanyInfo />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signup/otp" element ={<SignUpOtp />} />
+        <Route path="/signup/otp" element={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/invitation/:email" element={<ForgetWithInvitation />} />
         <Route path="/counter" element={<Counter />} />
-        <Route path="/user/:id/userinfo" element={<UserInfo />} />
-        <Route path="/company/:companyId/addteam" element={<AddTeam />} >
-          <Route path=":id/addPeople" element={<AddPeopleModel />} />
-          <Route path=":id/editTeam" element={<EditTeamModel />} />
+        <Route path="/user/:id/userinfo" element={<AddTeamOutlet />}>
+          <Route path="" element={<UserInfo />} />
+            <Route path="company/:companyId/addteam" element={<AddTeam />}>
+              <Route path=":id/addPeople" element={<AddPeopleModel />} />
+              <Route path=":id/editTeam" element={<EditTeamModel />} />
+            </Route>
         </Route>
-    
+
         <Route path="/details" element={<Details />} />
-       
+
         <Route path=":userId/company/:companyid" element={<MainCompany />}>
           <Route path="" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
@@ -64,8 +67,8 @@ function App() {
           <Route path="accounts" element={<Accounts />}>
             <Route path="setting" element={<AccountSetting />} />
             <Route path="" element={<AccountProfile />} />
-          </Route> 
-          
+          </Route>
+
           {/*
          
           <Route path="/accounts" element={<Accounts />}>
