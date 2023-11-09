@@ -27,6 +27,7 @@ import AddTeamModel from "./common/Model/AddTeamModel"
 import EditTeamModel from "./common/Model/EditTeamModel"
 import ForgetPassword from "./Login/ForgetPassword"
 import ForgetWithInvitation from "./Login/ForgetWithInvitation"
+import CompanyInfo from "./Login/CompanyInfo"
 
 function App() {
   return (
@@ -36,12 +37,12 @@ function App() {
           <Route path="/" element={<FrontPage />} />
           <Route path="/otp" element={<OtpPage />} />
         </Route>
-
+        <Route path="/companyInfo" element={<CompanyInfo />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signup/otp" element ={<SignUpOtp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
-        <Route path="/invitation" element={<ForgetWithInvitation />} />
+        <Route path="/invitation/:email" element={<ForgetWithInvitation />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/user/:id/userinfo" element={<UserInfo />} />
         <Route path="/company/:companyId/addteam" element={<AddTeam />} >

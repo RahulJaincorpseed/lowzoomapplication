@@ -12,7 +12,7 @@ const EditCompanyInfoModel = () => {
       <div className="team-model">
         <button
           type="button"
-          className="add-team-modal"
+          className="edit-new-btn"
           data-toggle="modal"
           data-target="#EditCompanyInfoModel"
         >

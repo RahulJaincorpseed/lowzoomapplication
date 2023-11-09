@@ -93,7 +93,7 @@ const AddTeamModel = () => {
 
         console.log("add team ", addNewTeamData.data)
         toast.success("Team added Succesfully")
-        window.location.reload()
+        // window.location.reload()
       } catch (err) {
         console.log(err)
       }

@@ -332,6 +332,22 @@ button:focus {
   color: #DC3545;
 }
 
+
+.team-model .edit-new-btn{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: var(--blueColor);
+  background-color: var(--whiteColor);
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--whiteColor);
+  background: var(--whiteColor);
+  border: 1px solid var(--whiteColor);
+  letter-spacing: 0.84px;
+}
+
 /* buttons */
 /* nav links  */
 
