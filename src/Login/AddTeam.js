@@ -9,7 +9,7 @@ import { Progress } from "rsuite"
 import EditTeamModel from "../common/Model/EditTeamModel"
 import AddTeamModel from "../common/Model/AddTeamModel"
 import axios from "axios"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { getQuery } from "../Api/getQuery"
@@ -24,11 +24,20 @@ const AddTeam = () => {
   const [teamMemberState, setTeamMemberState] = useState([])
 
   const navigate = useNavigate()
+  const location = useLocation();
   const { companyId } = useParams()
 
   const status = percent === 100 ? "success" : null
   const color = percent === 100 ? "#2B62F9" : "#2B62F9"
 
+
+  const addPathData = location.pathname.split()
+  const data = addPathData[0].split("/")
+  console.log("data", data);
+  const userPathId = Number(data[2]);
+  const companyPathId = Number(data[5]);
+  console.log("user id is", userPathId);
+ 
 
   useEffect(() => {
     allTeamDisplay()
@@ -49,7 +58,7 @@ const AddTeam = () => {
     setEditTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const allTeamDisplay = async () => {
+  const allTeamDisplay = async () => {  
     try {
       const teamApiData = await axios.get(
         `/companyServices/company/team/allTeams?companyId=${companyId}`,
@@ -252,6 +261,11 @@ const AddTeam = () => {
             </div>
           ))}
           {/* second card */}
+        </div>
+        
+        <div className="proceed-btns">
+          <Link to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`} className="form-next-btn first-button">Skip</Link>
+          <Link to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`}  className="form-next-btn first-button">Proceed</Link>
         </div>
 
         {/* end accordian */}

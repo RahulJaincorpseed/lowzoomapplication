@@ -96,7 +96,6 @@ const UserInfo = () => {
 
   
   const addPathData = location.pathname.split()
-  // console.log("path data", addPathData, addPathData[0]);
   const data = addPathData[0].split("/")
   console.log("data", data);
   const userPathId = Number(data[2]);
@@ -133,7 +132,7 @@ const UserInfo = () => {
       setLastNameErr(false)
     }
     console.log("company data")
-  }
+  } 
 
   // increase function
   const increaseFormStep = () => {
