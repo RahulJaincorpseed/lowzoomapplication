@@ -1,10 +1,84 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
 import CompliancesTable from "../../Tables/CompliancesTable"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
+import { useLocation } from "react-router-dom"
+import { getQuery } from "../../Api/getQuery"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
 
 const SetCompliance = () => {
+
+  const [allComplienses, setAllCompliences] = useState([]);
+
+  const location = useLocation();
+
+  const addPathData = location.pathname.split()
+  const data = addPathData[0].split("/")
+  // console.log("data", data);
+  // const userPathId = Number(data[1]);
+  const companyPathId = Number(data[3]);
+  // console.log("user id is", userPathId);
+
+  useEffect(()=>{
+    allCompliancesData()
+  }, [])
+
+  // const rows = [
+  //   { id: 1, col1: 'Hello', col2: 'World' },
+  //   { id: 2, col1: 'DataGridPro', col2: 'is Awesome' },
+  //   { id: 3, col1: 'MUI', col2: 'is Amazing' },
+  // ];
+  
+  const columns = [
+    { field: 'name', headerName: 'Name', width: 150 },
+    { field: 'approvalState', headerName: 'State', width: 150 },
+    { field: 'applicableZone', headerName: 'City', width: 150 },
+    { field: 'startDate', headerName: 'Start Date', width: 150 },
+    { field: 'completedDate', headerName: 'completed Date', width: 150 },
+    { field: 'description', headerName: 'Description', width: 150 },
+   ];
+
+// applicableZone: "cdcsdcdscd"
+// approvalState: "csdcd"
+// completedDate: "2023-11-13"
+// createdAt: "2023-11-10T10:36:55.214+00:00"
+// description: "dcscds  v dsv dsvds"
+// dueDate: null
+// duration: ""
+// enable: true
+// id: 41
+// name: "csdc"
+// priority: 1
+// startDate: "2023-11-11"
+// updatedAt: "2023-11-10T10:36:55.214+00:00"
+// workStatus:0
+  
+  const columns2 = [
+    { field: 'col1', headerName: 'Column 1', width: 150 },
+    { field: 'col2', headerName: 'Column 2', width: 150 },
+  ];
+
+
+  const allCompliancesData = async () =>{
+    try{
+    const allCompliencesResponse = await getQuery(`/compliance/company/showAllCompliance?companyId=${companyPathId}`);
+    console.log("all compliences ", allCompliencesResponse.data); 
+    setAllCompliences(allCompliencesResponse.data)
+    }catch(err){
+      console.log("err", err)
+      if(err.response.status === 500){
+        toast.error("Something Went Wrong")
+      }
+    }
+  }
+
+
+  console.warn("ALL COMPLIENSES");
+  console.log(allComplienses)
+
   return (
     <div>
       <BreadCrum />
@@ -143,7 +217,7 @@ const SetCompliance = () => {
             </div>
 
             <div className="my-4 w-100">
-              <CompliancesTable />
+              <CompliancesTable rows={allComplienses} columns={columns} />
             </div>
           </div>
         </div>
