@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./Model.css"
 import { priority } from "../../Api/FakeApi"
 import { postQuery } from "../../Api/PostQuery"
+import { useLocation } from "react-router-dom"
 
 const AddNewComplienceModel = () => {
   const [addComplienceData, setAddComplienceData] = useState({
@@ -13,10 +14,18 @@ const AddNewComplienceModel = () => {
     dueDate: "",
     completedDate: "",
     duration: "",
-    priority: 0,
-    enable: true,
+    // priority: 0,
     workStatus: 0,
+    enable: true,
   })
+
+  const location = useLocation();
+
+  const addPathData = location.pathname.split()
+  const data = addPathData[0].split("/")
+  console.log("data", data)
+  const userId = Number(data[1])
+  const companyId = Number(data[3])
 
   const complienceDateSetter = (e) => {
     setAddComplienceData((prev) => ({
@@ -33,9 +42,10 @@ const AddNewComplienceModel = () => {
     const complienceAdd = async () => {
       try {
         const addNewComplienceRes = await postQuery(
-          `/compliance/company/saveCompliance?companyId=${2}`,addComplienceData
+          `/compliance/company/saveCompliance?companyId=${companyId}`,addComplienceData
         )
         console.log("add new complience", addNewComplienceRes)
+        console.log("add new complience", addNewComplienceRes.data)
       } catch (err) {
         console.log("complience err", err)
       }
@@ -106,8 +116,8 @@ const AddNewComplienceModel = () => {
                             onChange={(e) => complienceDateSetter(e)}
                           >
                             {priority.map((pri, index) => (
-                              <option key={index} value={pri}>
-                                {pri}
+                              <option key={index} value={pri.id}>
+                                {pri.name}
                               </option>
                             ))}
                           </select>

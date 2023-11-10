@@ -1,12 +1,21 @@
 import React from "react"
 import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useLocation } from "react-router-dom"
 import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
 
 const ManageSideBar = () => {
-  const companyId = 2;
-  const userId = 2;
+  // const companyId = 2;
+  // const userId = 2;
+
+  const location = useLocation(); 
+
+  const addPathData = location.pathname.split()
+  const data = addPathData[0].split("/")
+  console.log("data", data)
+  const userId = Number(data[1])
+  const companyId = Number(data[3])
+
   return (
     <div className="manageside-bar">
       <div className="manage-logo">
