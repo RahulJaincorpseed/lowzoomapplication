@@ -46,6 +46,7 @@ const AddNewComplienceModel = () => {
         )
         console.log("add new complience", addNewComplienceRes)
         console.log("add new complience", addNewComplienceRes.data)
+        window.location.reload();
       } catch (err) {
         console.log("complience err", err)
       }
