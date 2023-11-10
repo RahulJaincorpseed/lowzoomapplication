@@ -47,6 +47,9 @@ const ForgetPassword = () => {
         setNextPage((prev) => prev + 1)
       } catch (err) {
         console.log(err)
+        if(err.response.status === 500){
+          toast.error("Something Went Wrong")
+        }
       }
     }
     emailDataApi()
@@ -69,6 +72,9 @@ const ForgetPassword = () => {
         setNextPage((prev) => prev + 1)
       } catch (err) {
         console.log(err)
+        if(err.response.status === 500){
+          toast.error("Something Went Wrong")
+        }
       }
     }
     verifyData()
@@ -97,6 +103,9 @@ const ForgetPassword = () => {
         toast.success("password update succesfully please login")
       } catch (err) {
         console.log("error is ", err)
+        if(err.response.status === 500){
+          toast.error("Something Went Wrong")
+        }
       }
     }
     newPasswordData()
