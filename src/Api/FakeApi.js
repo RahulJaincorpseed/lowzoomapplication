@@ -1,1 +1,1 @@
-export const priority = ["LOW", "MEDIUM", "HIGH"] 
+export const priority = [{id: 0, name: "Low"}, {id: 1, name: "Medium"}, {id: 3, name: "High"}] 

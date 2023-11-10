@@ -7,50 +7,48 @@ import EditGstDetailsModel from "../common/Model/EditGstDetailsModel"
 import EditBusinessUnitModel from "../common/Model/EditBusinessUnitModel"
 import EditTeamModel from "../common/Model/EditTeamModel"
 import { getQuery } from "../Api/getQuery"
-import { useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import AddBusinessUnitModel from "../common/Model/AddBusinessUnitModel"
 
 const CompanyInfo = () => {
+  const [companyInfoData, setCompanyInfoData] = useState({})
 
-  const [companyInfoData, setCompanyInfoData] = useState({});
-
-  const navigate = useNavigate();
-  const location = useLocation();
-
-
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const addPathData = location.pathname.split()
   const data = addPathData[0].split("/")
-  console.log("data", data);
-  const userPathId = Number(data[2]);
-  const companyPathId = Number(data[5]);
+  console.log("data", data)
+  const userPathId = Number(data[2])
+  const companyPathId = Number(data[5])
   // console.log("user id is", userPathId);
   // console.log("company id is", companyPathId);
-  
 
+  useEffect(() => {
+    getSingleCompanyData()
+  }, [])
 
-  useEffect(()=>{
-    getSingleCompanyData();
-  },[])
-
-  const getSingleCompanyData = async () =>{
-    try{
-    const companyData = await getQuery(`/companyServices/company/fetchCompany?id=${companyPathId}&userId=${userPathId}`);
-    // console.log("company data", companyData.data);
-    setCompanyInfoData(companyData.data)
-    }catch(err){
-      console.log("err", err);
+  const getSingleCompanyData = async () => {
+    try {
+      const companyData = await getQuery(
+        `/companyServices/company/fetchCompany?id=${companyPathId}&userId=${userPathId}`
+      )
+      // console.log("company data", companyData.data);
+      setCompanyInfoData(companyData.data)
+    } catch (err) {
+      console.log("err", err)
     }
   }
 
-  console.log("company inf data", companyInfoData);
-
-
+  console.log("company inf data", companyInfoData)
 
   return (
     <>
-      <div className="container">
+      <div className="container my-3">
+        <div className="d-end">
+          <Link to={`/${userPathId}/company/${companyPathId}`} className="form-next-btn first-button">Go to Dashboard</Link>
+        </div>
         <div className="company-all">
-
           <div className="company-info">
             <div className="info-all">
               <div className="info-text">
@@ -68,14 +66,23 @@ const CompanyInfo = () => {
                   name={"Entity Type:"}
                   value={companyInfoData?.companyType}
                 />
-                <ComDetails name={"Formation State:"} value={companyInfoData?.companyState} />
+                <ComDetails
+                  name={"Formation State:"}
+                  value={companyInfoData?.companyState}
+                />
                 <ComDetails
                   name={"Registration ID (CIN):"}
                   value={"U74999UP2018PTC221873"}
                 />
-                <ComDetails name={"Formation Date:"} value={companyInfoData?.companyRegistrationDate} />
+                <ComDetails
+                  name={"Formation Date:"}
+                  value={companyInfoData?.companyRegistrationDate}
+                />
                 <ComDetails name={"nUMBER OF gst:"} value={"2"} />
-                <ComDetails name={"Email Id:"} value={companyInfoData?.businessActivityEmail} />
+                <ComDetails
+                  name={"Email Id:"}
+                  value={companyInfoData?.businessActivityEmail}
+                />
                 <ComDetails
                   name={"registered address:"}
                   value={
@@ -132,7 +139,10 @@ const CompanyInfo = () => {
         {/* end gst details */}
 
         {/* business units */}
-        <h2 className="team-heading">Business Unit</h2>
+        <div className="all-between">
+          <h2 className="team-heading">Business Unit</h2>
+          <AddBusinessUnitModel />
+        </div>
 
         <div className="company-all">
           <div className="company-info">

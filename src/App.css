@@ -194,6 +194,11 @@ button:focus {
   outline: none;
 }
 
+
+.add-btn{
+  
+}
+
 /* options */
 
 .first-option option {
@@ -346,6 +351,12 @@ button:focus {
   background: var(--whiteColor);
   border: 1px solid var(--whiteColor);
   letter-spacing: 0.84px;
+}
+
+.d-end{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /* buttons */
