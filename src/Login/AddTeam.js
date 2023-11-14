@@ -61,7 +61,8 @@ const AddTeam = () => {
   const allTeamDisplay = async () => {  
     try {
       const teamApiData = await axios.get(
-        `/companyServices/company/team/allTeams?companyId=${companyId}`,
+        `/companyServices/company/team/members/getTeamWithTeamMember?companyId=${companyId}`,
+        // `/companyServices/company/team/allTeams?companyId=${companyId}`,
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -94,7 +95,8 @@ const AddTeam = () => {
   const getAllTeamMemberFun = async () => {
     try {
       const getAllTeamMember = await getQuery(
-        `/companyServices/company/team/members/getAllTeamMembers?teamId=${2}`
+        // `/companyServices/company/team/members/getTeamWithTeamMember?companyId=${2}`
+        // `/companyServices/company/team/members/getAllTeamMembers?teamId=${2}`
       )
       console.log("get all team Member ", getAllTeamMember.data)
       setTeamMemberState(getAllTeamMember.data)
@@ -125,6 +127,8 @@ const AddTeam = () => {
       console.log("succesfully added")
     }
   }
+
+  console.log("all team is here", allTeam);
 
   return (
     <>
@@ -229,7 +233,7 @@ const AddTeam = () => {
                   <div className="table-responsive">
                     <table className="table mb-0">
                       <tbody>
-                        {teamMemberState.map((member, index) => (
+                        {team.teamMembers.map((member, index) => (
                           <tr className="add-teams" key={index}>
                             <td className="w-300">
                               <TeamProfileMember memberName={member?.memberName} memberMobile={member?.memberMobile}  memberMail={member?.memberMail}  />
@@ -245,7 +249,7 @@ const AddTeam = () => {
                                 <div>
                                   <button className="delete-button">
                                     <i className="fa-solid mr-1 fa-trash"></i>
-                                    Delete4444
+                                    Delete
                                   </button>
                                 </div>
                               </div>

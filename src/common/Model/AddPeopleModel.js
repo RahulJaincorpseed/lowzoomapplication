@@ -10,6 +10,8 @@ const AddPeopleModel = ({teamId}) => {
     memberMobile: "",
     typeOfResource: "",
     accessType: "jsid",
+    teamResponse: null,
+    userResponse: null,
     role: "user",
     enable: true
   })
@@ -38,7 +40,7 @@ const AddPeopleModel = ({teamId}) => {
       // console.log("team id is before create", teamId);
       try {
         const memberdata = await axios.post(
-          `/companyServices/company/team/members/addTeamMember?teamId=${teamPathId}`,
+          `/companyServices/company/team/members/addTeamMember?teamId=${teamId}`,
           {
             ...AddPeopleData,
             headers: {
@@ -49,8 +51,8 @@ const AddPeopleModel = ({teamId}) => {
         )
         console.log("data added", memberdata)
        
-        navigate(`/company/${companyPathId}/addteam`)
-        window.location.reload();
+        // navigate(`/company/${companyPathId}/addteam`)
+        // window.location.reload();
 
       } catch (err) {
         console.log(err)
