@@ -9,6 +9,7 @@ import EditTeamModel from "../common/Model/EditTeamModel"
 import { getQuery } from "../Api/getQuery"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import AddBusinessUnitModel from "../common/Model/AddBusinessUnitModel"
+import { customLocation } from "../Hooks/LocationHook"
 
 const CompanyInfo = () => {
   const [companyInfoData, setCompanyInfoData] = useState({})
@@ -16,13 +17,9 @@ const CompanyInfo = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const addPathData = location.pathname.split()
-  const data = addPathData[0].split("/")
-  console.log("data", data)
-  const userPathId = Number(data[2])
-  const companyPathId = Number(data[5])
-  // console.log("user id is", userPathId);
-  // console.log("company id is", companyPathId);
+  const userPathId = customLocation(2, location);
+  const companyPathId = customLocation(5, location);
+
 
   useEffect(() => {
     getSingleCompanyData()

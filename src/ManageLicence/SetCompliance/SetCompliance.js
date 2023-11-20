@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { customLocation } from "../../Hooks/LocationHook"
 toast.configure()
 
 const SetCompliance = () => {
@@ -14,23 +15,12 @@ const SetCompliance = () => {
   const [allComplienses, setAllCompliences] = useState([]);
 
   const location = useLocation();
-
-  const addPathData = location.pathname.split()
-  const data = addPathData[0].split("/")
-  // console.log("data", data);
-  // const userPathId = Number(data[1]);
-  const companyPathId = Number(data[3]);
-  // console.log("user id is", userPathId);
+  const companyPathId = customLocation(3, location);
 
   useEffect(()=>{
     allCompliancesData()
   }, [])
 
-  // const rows = [
-  //   { id: 1, col1: 'Hello', col2: 'World' },
-  //   { id: 2, col1: 'DataGridPro', col2: 'is Awesome' },
-  //   { id: 3, col1: 'MUI', col2: 'is Amazing' },
-  // ];
   
   const columns = [
     { field: 'name', headerName: 'Name', width: 150 },

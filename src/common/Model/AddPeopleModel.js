@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import "./Model.css"
 import axios from "axios"
 import { Link, useLocation, useNavigate } from "react-router-dom"
+import { customLocation } from "../../Hooks/LocationHook"
 
 const AddPeopleModel = ({teamId}) => {
   const [AddPeopleData, setAddPeopleData] = useState({
@@ -18,12 +19,9 @@ const AddPeopleModel = ({teamId}) => {
 
   const location = useLocation();
 
-  
+  const companyPathId = customLocation(2, location)
+  const teamPathId = customLocation(7, location)
 
-  const addPathData = location.pathname.split()
-  const data = addPathData[0].split("/")
-  const companyPathId = Number(data[2]);
-  const teamPathId =  Number(data[7]);
   
  const navigate = useNavigate()
 

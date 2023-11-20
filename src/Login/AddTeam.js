@@ -14,6 +14,7 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { getQuery } from "../Api/getQuery"
 import TeamProfileMember from "../components/TeamProfileMember"
+import { customLocation } from "../Hooks/LocationHook"
 toast.configure()
 
 const AddTeam = () => {
@@ -31,12 +32,11 @@ const AddTeam = () => {
   const color = percent === 100 ? "#2B62F9" : "#2B62F9"
 
 
-  const addPathData = location.pathname.split()
-  const data = addPathData[0].split("/")
-  console.log("data", data);
-  const userPathId = Number(data[2]);
-  const companyPathId = Number(data[5]);
-  console.log("user id is", userPathId);
+  const userPathId = customLocation(2, location);
+  const companyPathId = customLocation(5, location);
+
+  console.log("userid", userPathId);
+  console.log("companyid", companyPathId);
  
 
   useEffect(() => {
