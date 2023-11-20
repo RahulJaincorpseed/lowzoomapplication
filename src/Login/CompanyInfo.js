@@ -13,13 +13,17 @@ import { customLocation } from "../Hooks/LocationHook"
 
 const CompanyInfo = () => {
   const [companyInfoData, setCompanyInfoData] = useState({})
+  const [allBusinessData, setAllBusinessData] = useState([])
 
   const navigate = useNavigate()
   const location = useLocation()
 
-  const userPathId = customLocation(2, location);
-  const companyPathId = customLocation(5, location);
+  const userPathId = customLocation(2, location)
+  const companyPathId = customLocation(5, location)
 
+  useEffect(() => {
+    getAllBusinessUnit()
+  }, [])
 
   useEffect(() => {
     getSingleCompanyData()
@@ -37,13 +41,32 @@ const CompanyInfo = () => {
     }
   }
 
+  const getAllBusinessUnit = async () => {
+    try {
+      const getBusinessUnit = await getQuery(
+        `/companyServices/business-unit/getAllBusinessUnits?companyId=${companyPathId}`
+      )
+      // console.log("business unit", getBusinessUnit)
+      setAllBusinessData(getBusinessUnit.data)
+    } catch (err) {
+      console.log("err", err)
+    }
+  }
+
+  console.log("all business", allBusinessData)
+
   console.log("company inf data", companyInfoData)
 
   return (
     <>
       <div className="container my-3">
         <div className="d-end">
-          <Link to={`/${userPathId}/company/${companyPathId}`} className="form-next-btn first-button">Go to Dashboard</Link>
+          <Link
+            to={`/${userPathId}/company/${companyPathId}`}
+            className="form-next-btn first-button"
+          >
+            Go to Dashboard
+          </Link>
         </div>
         <div className="company-all">
           <div className="company-info">
@@ -92,47 +115,7 @@ const CompanyInfo = () => {
         </div>
 
         {/* gst Details */}
-        <div className="company-all">
-          <div className="company-info">
-            <div className="info-all">
-              <div className="info-text">
-                <i className="fa-solid fa-building"></i>
-                <h4>1) GST Details</h4>
-              </div>
-              <div className="info-edit">
-                <EditGstDetailsModel />
-              </div>
-            </div>
-            <div className="all-details">
-              <div className="row">
-                <ComDetails name={"GSTIN/IN:"} value={"09AAHCC4679J1ZC"} />
-                <ComDetails
-                  name={"Legal Name of business:"}
-                  value={"Haldiram Foods Private Pr..."}
-                />
-                <ComDetails
-                  name={"State Jurisdiction:"}
-                  value={"Maharashtra"}
-                />
-                <ComDetails
-                  name={"Date of Registration:"}
-                  value={"1st May 2020"}
-                />
-                <ComDetails
-                  name={"Constitution of Business:"}
-                  value={"Private Limited Company"}
-                />
-                <ComDetails name={"Operational Units:"} value={"2"} />
-                <ComDetails
-                  name={"registered address:"}
-                  value={
-                    "A-43, SECTOR-63 NOIDA NOIDA Gautam Buddha Nagar UP 201301 IN"
-                  }
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+
         {/* end gst details */}
 
         {/* business units */}
@@ -141,7 +124,39 @@ const CompanyInfo = () => {
           <AddBusinessUnitModel />
         </div>
 
-        <div className="company-all">
+        {allBusinessData.map((unit, index) => (
+          <div className="company-all" key={index}>
+            <div className="company-info">
+              <div className="info-all">
+                <div></div>
+                <div className="info-edit">
+                  <EditBusinessUnitModel />
+                </div>
+              </div>
+              <div className="all-details">
+                <div className="row">
+                  <ComDetails name={"GST Number:"} value={unit?.gstNumber} />
+                  <ComDetails name={"City"} value={unit?.city} />
+                  <ComDetails name={"Permanent Employees:"} value={unit?.permanentEmployee} />
+                  <ComDetails
+                    name={"Business Activity:"}
+                    value={unit?.businessActivity}
+                  />
+                  <ComDetails name={"Located At:"} value={unit?.locatedAt} />
+                  <ComDetails name={"STATE"} value={unit?.states} />
+                  <ComDetails
+                    name={"registered address:"}
+                    value={
+                      unit?.address
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* <div className="company-all">
           <div className="company-info">
             <div className="info-all">
               <div></div>
@@ -169,7 +184,7 @@ const CompanyInfo = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* second business unit */}
         <div className="company-all">

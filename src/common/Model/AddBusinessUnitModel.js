@@ -1,6 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react"
+import { postQuery } from "../../Api/PostQuery"
+import { customLocation } from "../../Hooks/LocationHook"
+import { useLocation } from "react-router-dom"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { getQuery } from "../../Api/getQuery"
+toast.configure()
 
 const AddBusinessUnitModel = () => {
+  const [addBusinessUnit, setAddBusinessUnit] = useState({
+    businessActivity: "",
+    city: "",
+    locatedAt: "",
+    permanentEmployee: "",
+    contractEmployee: "",
+    address: "",
+    dateRegistration: "",
+    gstNumber: "",
+    states: "",
+    enable: true,
+  })
+ 
+  const [buttonLoading, setButtonLoading] = useState(false);
+
+
+  const location = useLocation()
+
+  
+
+  const BusinessUnitDataCollect = (e) => {
+    setAddBusinessUnit((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const companyId = customLocation(5, location)
+
+  console.log("isd", companyId)
+
+ 
+
+  const addNewBusinessUnit = (e) => {
+    e.preventDefault()
+    setButtonLoading(true)
+    const addNewUnit = async () => {
+      try {
+        const unitData = await postQuery(
+          `/companyServices/business-unit/saveBusinessUnit?companyId=${companyId}`,
+          addBusinessUnit
+        )
+        console.log("new business unit", unitData)
+        toast.success("Business Unit Add Sucessfully")
+        setButtonLoading(false)
+      } catch (err) {
+        console.log("err", err)
+        setButtonLoading(false)
+      }
+    }
+    addNewUnit()
+  }
+
+  console.log("business unit", addBusinessUnit)
+
   return (
     <nav>
       <div className="add-new-company">
@@ -34,80 +93,132 @@ const AddBusinessUnitModel = () => {
                   <div className="first-form form-row">
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label className="label-heading" htmlFor="fullName">
-                          Full Name *
+                        <label
+                          className="label-heading"
+                          htmlFor="businessActivity"
+                        >
+                          Business Activity
                         </label>
                         <input
                           type="text"
                           className="form-control input-focus"
-                          id="fullName"
-                          placeholder="Full Name"
+                          id="businessActivity"
+                          name="businessActivity"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          placeholder="Business Activity"
                         />
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label className="label-heading" htmlFor="accessTypes">
-                          Access Types*
+                        <label className="label-heading" htmlFor="gstNumber">
+                          Gst Number*
                         </label>
                         <input
                           type="text"
                           className="form-control input-focus"
-                          id="accessTypes"
-                          placeholder="Access Types"
+                          id="gstNumber"
+                          name="gstNumber"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          placeholder="Gst Number"
                         />
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label className="label-heading" htmlFor="email">
-                          Email ID *
+                        <label
+                          className="label-heading"
+                          htmlFor="permanentEmployee"
+                        >
+                          Permanent Employee*
                         </label>
                         <input
                           type="text"
                           className="form-control input-focus"
-                          id="email"
-                          placeholder="Email ID"
+                          id="permanentEmployee"
+                          name="permanentEmployee"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          placeholder="Permanent Employee"
                         />
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label className="label-heading" htmlFor="mobileNumber">
-                          Mobile Number*
+                        <label
+                          className="label-heading"
+                          htmlFor="contractEmployee"
+                        >
+                          Contract Employee
                         </label>
                         <input
                           type="text"
                           className="form-control input-focus"
-                          id="mobileNumber"
-                          placeholder="Mobile Number"
+                          id="contractEmployee"
+                          name="contractEmployee"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          placeholder="Contract Employee"
                         />
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pr-ten">
-                        <label className="label-heading" htmlFor="resources">
-                          Types of Resources*
+                        <label className="label-heading" htmlFor="states">
+                          States*
                         </label>
                         <input
                           type="text"
                           className="form-control input-focus"
-                          id="resources"
-                          placeholder="Types of Resources"
+                          id="states"
+                          name="states"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          placeholder="State"
                         />
                       </div>
                     </div>
                     <div className="form-group col-md-6">
                       <div className="pl-ten">
-                        <label className="label-heading" htmlFor="addpeople">
-                          Add People*
+                        <label className="label-heading" htmlFor="city">
+                          City
                         </label>
                         <input
                           type="text"
                           className="form-control input-focus"
-                          id="addpeople"
-                          placeholder="Add People"
+                          id="city"
+                          name="city"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          placeholder="City"
                         />
+                      </div>
+                    </div>
+
+                    <div className="form-group col-md-6">
+                      <div className="pr-ten">
+                        <label
+                          className="label-heading"
+                          htmlFor="dateRegistration"
+                        >
+                          Date of Registration*
+                        </label>
+                        <input
+                          type="date"
+                          className="form-control input-focus"
+                          id="dateRegistration"
+                          name="dateRegistration"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          placeholder="Date of Registration"
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group col-md-6">
+                      <div className="pl-ten">
+                        <label className="label-heading" htmlFor="Address">
+                          Address
+                        </label>
+                        <textarea
+                          name="address"
+                          onChange={(e) => BusinessUnitDataCollect(e)}
+                          className="form-control input-focus"
+                        ></textarea>
                       </div>
                     </div>
                     <div className="all-between-items">
@@ -116,8 +227,11 @@ const AddBusinessUnitModel = () => {
                         <h2>Advanced Setting</h2>
                       </div>
                       <div>
-                        <button className="first-button form-prev-btn">
-                          Submit
+                        <button
+                          onClick={(e) => addNewBusinessUnit(e)}
+                          className="first-button form-prev-btn"
+                        >
+                          {buttonLoading ? "Loading..." : "Submit"}
                         </button>
                       </div>
                     </div>
@@ -132,4 +246,4 @@ const AddBusinessUnitModel = () => {
   )
 }
 
-export default AddBusinessUnitModel;
+export default AddBusinessUnitModel
