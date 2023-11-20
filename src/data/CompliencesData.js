@@ -1,0 +1,1 @@
+export const compliencesStaticData = [{name: "first", icon: "fa-regular fa-building font-big-icon"}, {name: "Second", icon: "fa-regular fa-building font-big-icon"}]; 
