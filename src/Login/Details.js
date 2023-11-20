@@ -3,8 +3,11 @@ import LoginHeader from "../components/LoginHeader.js"
 import LoginFooter from "../components/LoginFooter.js"
 import "./Details.scss"
 import rocket from "../images/rocket.png"
+import { compliencesStaticData } from "../data/CompliencesData.js"
 
 const Details = () => {
+ console.log("compliencesStaticData", compliencesStaticData);
+
   return (
     <div>
       <LoginHeader />
