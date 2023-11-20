@@ -5,9 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 const EditTeamModel = ({teamId, leadName}) => {
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log("click me ",typeof  location.pathname)
   const dataPath = location.pathname.split('/');
-  // console.log("click dataPath",dataPath)
   const handleClick = () => {
     navigate(`/company/${dataPath[2]}/addteam/${teamId}/editTeam`)
   }

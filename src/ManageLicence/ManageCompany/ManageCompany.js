@@ -2,8 +2,19 @@ import React from "react"
 import "./ManageCompany.scss"
 import BreadCrum from "../../components/BreadCrum"
 import AddNewCompanyModel from "../../common/Model/AddNewCompanyModel"
+import { customLocation } from "../../Hooks/LocationHook"
+import { useLocation } from "react-router-dom"
 
 const ManageCompany = () => {
+
+  const location = useLocation();
+
+  const myId = customLocation(3, location);
+ 
+  console.warn("new id is ");
+  console.log("id is",myId);
+
+
   return (
     <>
       <BreadCrum />

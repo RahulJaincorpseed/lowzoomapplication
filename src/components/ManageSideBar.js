@@ -3,6 +3,7 @@ import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
+import { customLocation } from "../Hooks/LocationHook"
 
 const ManageSideBar = () => {
   // const companyId = 2;
@@ -10,11 +11,11 @@ const ManageSideBar = () => {
 
   const location = useLocation(); 
 
-  const addPathData = location.pathname.split()
-  const data = addPathData[0].split("/")
-  console.log("data", data)
-  const userId = Number(data[1])
-  const companyId = Number(data[3])
+
+  const userId = customLocation(1, location)
+  const companyId = customLocation(3, location)
+
+  
 
   return (
     <div className="manageside-bar">

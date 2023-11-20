@@ -3,6 +3,7 @@ import "./Model.css"
 import { priority } from "../../Api/FakeApi"
 import { postQuery } from "../../Api/PostQuery"
 import { useLocation } from "react-router-dom"
+import { customLocation } from "../../Hooks/LocationHook"
 
 const AddNewComplienceModel = () => {
   const [addComplienceData, setAddComplienceData] = useState({
@@ -21,11 +22,8 @@ const AddNewComplienceModel = () => {
 
   const location = useLocation();
 
-  const addPathData = location.pathname.split()
-  const data = addPathData[0].split("/")
-  console.log("data", data)
-  const userId = Number(data[1])
-  const companyId = Number(data[3])
+    const userId = customLocation(1, location)
+    const companyId = customLocation(3, location)
 
   const complienceDateSetter = (e) => {
     setAddComplienceData((prev) => ({

@@ -14,6 +14,7 @@ import { cityData, companyData2 } from "../TestData.js/CityData"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { customLocation } from "../Hooks/LocationHook"
 toast.configure()
 
 const UserInfo = () => {
@@ -91,15 +92,11 @@ const UserInfo = () => {
   const location = useLocation();
   // data
 
-  // console.log(navigate);
   console.log("location is ", location.pathname);
 
   
-  const addPathData = location.pathname.split()
-  const data = addPathData[0].split("/")
-  console.log("data", data);
-  const userPathId = Number(data[2]);
-  console.log("company path is ", userPathId);
+
+  const userPathId = customLocation(2, location)
 
 
   // data
