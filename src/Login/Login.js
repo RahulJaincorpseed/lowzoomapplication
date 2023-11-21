@@ -9,6 +9,7 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useDispatch, useSelector } from "react-redux"
 import { userRoles, userToken } from "../Redux/Actions/AuthAction"
+import ButtonOne from "../components/Button/ButtonOne"
 toast.configure()
 
 const Login = () => {
@@ -146,6 +147,14 @@ const Login = () => {
           </div>
         </div>
       </form>
+
+
+     <div className="d-block"> 
+     <ButtonOne data="first Button" className="btn-danger w-100" onClick={() => (console.log("click me"))}/>
+     <ButtonOne data="second Button" className="btn-primary" onClick={() => (console.log("click me 2"))}/>
+     <ButtonOne data="third Button" className="btn-success" onClick={() => (console.log("click me 3"))}/>
+     <ButtonOne data="forth Button" className="btn-info" onClick={() => (console.log("click me 4"))}/>
+     </div>
     </div>
   )
 }

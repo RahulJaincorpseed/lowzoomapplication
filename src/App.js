@@ -29,11 +29,13 @@ import ForgetPassword from "./Login/ForgetPassword"
 import ForgetWithInvitation from "./Login/ForgetWithInvitation"
 import CompanyInfo from "./Login/CompanyInfo"
 import AddTeamOutlet from "./Login/AddTeamOutlet"
+import ButtonOne from "./components/Button/ButtonOne"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+      {/* <Route path="/button" element={<ButtonOne />} /> */}
         <Route path="/" element={<HomePage />}>
           <Route path="/" element={<FrontPage />} />
           <Route path="/otp" element={<OtpPage />} />
