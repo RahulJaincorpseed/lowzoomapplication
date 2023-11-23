@@ -85,7 +85,7 @@ const Login = () => {
               id="phone"
               ref={userRef}
               name="username"
-              placeholder="+91 9999008078"
+              placeholder="example@gmail.com"
               required
               onChange={(e) => LoginUserData(e)}
             />

@@ -291,6 +291,14 @@ button:focus {
   min-height: 120px;
 }
 
+.add-com-btn{
+  background-color: var(--whiteColor);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #323232fc;
+}
+
 /* rect css code */
 .react-datepicker-wrapper {
   width: 100%;
@@ -422,6 +430,12 @@ button:focus {
 
 .padding-fixed{
   padding-top: 120px;
+}
+
+.add-border{
+  border-bottom: 1px solid #c4c4c4;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .hmain-heading{

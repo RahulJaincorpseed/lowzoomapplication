@@ -1,19 +1,43 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "./ManageCompany.scss"
 import BreadCrum from "../../components/BreadCrum"
 import AddNewCompanyModel from "../../common/Model/AddNewCompanyModel"
 import { customLocation } from "../../Hooks/LocationHook"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { getQuery } from "../../Api/getQuery"
 
 const ManageCompany = () => {
+  const [allCompanyData, setAllCompnayData] = useState([])
 
-  const location = useLocation();
 
-  const myId = customLocation(3, location);
- 
-  console.warn("new id is ");
-  console.log("id is",myId);
+  const location = useLocation()
 
+  const myId = customLocation(3, location)
+  const currentUserId = customLocation(1, location)
+
+  console.warn("new id is ")
+  console.log("id is", currentUserId)
+
+  useEffect(() => {
+    getAllCompanyFun()
+  }, [])
+
+  const getAllCompanyFun = async () => {
+    try {
+      const allCompany = await getQuery(
+        `/companyServices/company/getAllCompany?userId=${currentUserId}`
+      )
+      // console.log(allCompany.data);
+      setAllCompnayData(allCompany.data)
+    } catch (err) {
+      if (err.response.status === 500) {
+        console.log("something went wrong")
+      }
+      console.log("Error")
+    }
+  }
+
+  console.log("all comapnay data", allCompanyData)
 
   return (
     <>
@@ -21,8 +45,10 @@ const ManageCompany = () => {
       <div className="manage-compnies">
         <h2 className="heading-primary">Manage Companies</h2>
 
-        <AddNewCompanyModel />
-
+        {/* <AddNewCompanyModel />   */}
+        <div className="add-border">
+        <Link className="add-com-btn" to={`/user/9/userinfo`}  ><i className="fa-solid mr-2 color-blue fa-plus"></i>Add new Company</Link>
+        </div>
         {/* search company btn */}
         <div className="search-company mt-3 input-focus">
           <input
@@ -34,106 +60,109 @@ const ManageCompany = () => {
         </div>
 
         {/* company-details  */}
-        <div className="company-details">
-          <div className="details-head">
-            <p>GPAY Private LTD</p>
-            <div className="edit-del-btn">
-              <span className="delete">Delete</span>
-              <span className="edit"></span>
-              <button
-                type="button"
-                className="edit"
-                data-toggle="modal"
-                data-target="#editModel"
-              >
-                <i className="fa-regular fa-pen-to-square mr-1"></i>Edit
-              </button>
-
-              <div
-                className="modal fade"
-                id="editModel"
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true"
-              >
-                <div
-                  className="modal-dialog modal-dialog-centered"
-                  role="document"
+        {allCompanyData.map((company, index) => (
+          <div className="company-details" key={index}>
+            <div className="details-head">
+              <p>{company?.companyName ? company?.companyName : "Company Name NA" }</p>
+              <div className="edit-del-btn">
+                <span className="delete">Delete</span>
+                <span className="edit"></span>
+                <button
+                  type="button"
+                  className="edit"
+                  data-toggle="modal"
+                  data-target="#editModel"
                 >
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title" id="exampleModalLongTitle">
-                        Edit company model
-                      </h5>
-                      <button
-                        type="button"
-                        className="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div className="modal-body">...</div>
-                    <div className="modal-footer">
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" className="btn btn-primary">
-                        Save changes
-                      </button>
+                  <i className="fa-regular fa-pen-to-square mr-1"></i>Edit
+                </button>
+
+                <div
+                  className="modal fade"
+                  id="editModel"
+                  tabIndex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalCenterTitle"
+                  aria-hidden="true"
+                >
+                  <div
+                    className="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLongTitle">
+                          Edit company model
+                        </h5>
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div className="modal-body">...</div>
+                      <div className="modal-footer">
+                        <button
+                          type="button"
+                          className="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button type="button" className="btn btn-primary">
+                          Save changes
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            {/* hbkdbskbkds */}
+            <div className="details-body">
+              <div className="company-data mb-2 row">
+                <div className="col-lg-6">
+                  <h3 className="item-heading">{company?.companyType ? company?.companyType : "company Type NA"}</h3>
+                </div>
+                <div className="only-center col-lg-6">
+                  <h3 className="heading-info">Registration ID (CIN):</h3>
+                  <p className="item-heading-new">{company?.companyRegistrationNumber ? company?.companyRegistrationNumber : "NA"}</p>
+                </div>
+              </div>
+
+              <div className="company-data mb-2 row">
+                <div className="only-center col-lg-6">
+                  <h3 className="heading-info">Formation State:</h3>
+                  <p className="item-heading-new">{company?.companyState ? company?.companyState : "NA"}</p>
+                </div>
+                <div className="only-center col-lg-6">
+                  <h3 className="heading-info">Formation Date:</h3>
+                  <p className="item-heading-new">Oct. 01, 2021</p>
+                </div>
+              </div>
+
+              <div className="company-data mb-2 row">
+                <div className="only-center col-lg-6">
+                  <h3 className="heading-info">Operational Units:</h3>
+                  <p className="state-heading">{company?.businessUnits.length} Units</p>
+                </div>
+                <div className="only-center col-lg-6">
+                  <h3 className="heading-info">Number of states operating:</h3>
+                  <p className="state-heading">2 States</p>
+                </div>
+              </div>
+
+              {/* <div className="company-data mb-2 row">
+                <div className="only-center col-lg-4">
+                  <h3 className="heading-info">GST Registration:</h3>
+                  <p className="state-heading">2 States</p>
+                </div>
+              </div> */}
+            </div>
           </div>
-          <div className="details-body">
-            <div className="company-data mb-2 row">
-              <div className="col-lg-6">
-                <h3 className="item-heading">Private Limited Company</h3>
-              </div>
-              <div className="only-center col-lg-6">
-                <h3 className="heading-info">Registration ID (CIN):</h3>
-                <p className="item-heading-new">U74999UP2018PTC221873</p>
-              </div>
-            </div>
-
-            <div className="company-data mb-2 row">
-              <div className="only-center col-lg-6">
-                <h3 className="heading-info">Formation State:</h3>
-                <p className="item-heading-new">Haryana</p>
-              </div>
-              <div className="only-center col-lg-6">
-                <h3 className="heading-info">Formation Date:</h3>
-                <p className="item-heading-new">Oct. 01, 2021</p>
-              </div>
-            </div>
-
-            <div className="company-data mb-2 row">
-              <div className="only-center col-lg-6">
-                <h3 className="heading-info">Operational Units:</h3>
-                <p className="state-heading">5 Units</p>
-              </div>
-              <div className="only-center col-lg-6">
-                <h3 className="heading-info">Number of states operating:</h3>
-                <p className="state-heading">2 States</p>
-              </div>
-            </div>
-
-            <div className="company-data mb-2 row">
-              <div className="only-center col-lg-4">
-                <h3 className="heading-info">GST Registration:</h3>
-                <p className="state-heading">2 States</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
 
         {/* add company  */}
         <div className="add-new-company second-new">
