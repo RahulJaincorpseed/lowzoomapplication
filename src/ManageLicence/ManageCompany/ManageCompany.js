@@ -29,11 +29,9 @@ const ManageCompany = () => {
         `/companyServices/company/getAllCompany?userId=${currentUserId}`
       )
       // console.log(allCompany.data);
-      setTimeout(()=>{
         setAllCompnayData(allCompany.data)
         setCompanyScalaton(false)
 
-      }, 4000)
     } catch (err) {
       if (err.response.status === 500) {
         console.log("something went wrong")
