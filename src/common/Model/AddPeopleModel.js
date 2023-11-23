@@ -171,6 +171,7 @@ const AddPeopleModel = ({teamId}) => {
                           name="typeOfResource"
                           onChange={(e) => setPeopleData(e)}
                         >
+                          <option>Select Resource Type</option>
                           {resourcesData.map((company, index) => (
                             <option key={index} value={company}>
                               {company}
