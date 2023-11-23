@@ -5,10 +5,11 @@ import AddNewCompanyModel from "../../common/Model/AddNewCompanyModel"
 import { customLocation } from "../../Hooks/LocationHook"
 import { Link, useLocation } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
+import BoxScalaton from "../../common/Scalaton/BoxScalaton"
 
 const ManageCompany = () => {
   const [allCompanyData, setAllCompnayData] = useState([])
-
+  const [companyScalaton, setCompanyScalaton] = useState(true)
 
   const location = useLocation()
 
@@ -28,7 +29,11 @@ const ManageCompany = () => {
         `/companyServices/company/getAllCompany?userId=${currentUserId}`
       )
       // console.log(allCompany.data);
-      setAllCompnayData(allCompany.data)
+      setTimeout(()=>{
+        setAllCompnayData(allCompany.data)
+        setCompanyScalaton(false)
+
+      }, 4000)
     } catch (err) {
       if (err.response.status === 500) {
         console.log("something went wrong")
@@ -47,7 +52,9 @@ const ManageCompany = () => {
 
         {/* <AddNewCompanyModel />   */}
         <div className="add-border">
-        <Link className="add-com-btn" to={`/user/9/userinfo`}  ><i className="fa-solid mr-2 color-blue fa-plus"></i>Add new Company</Link>
+          <Link className="add-com-btn" to={`/user/${currentUserId}/userinfo`}>
+            <i className="fa-solid mr-2 color-blue fa-plus"></i>Add new Company
+          </Link>
         </div>
         {/* search company btn */}
         <div className="search-company mt-3 input-focus">
@@ -59,11 +66,20 @@ const ManageCompany = () => {
           />
         </div>
 
+        {/* <BoxScalaton /> */}
+
         {/* company-details  */}
-        {allCompanyData.map((company, index) => (
+
+        {companyScalaton ? <div><BoxScalaton /><BoxScalaton /></div> : 
+        
+        allCompanyData.map((company, index) => (
           <div className="company-details" key={index}>
             <div className="details-head">
-              <p>{company?.companyName ? company?.companyName : "Company Name NA" }</p>
+              <p>
+                {company?.companyName
+                  ? company?.companyName
+                  : "Company Name NA"}
+              </p>
               <div className="edit-del-btn">
                 <span className="delete">Delete</span>
                 <span className="edit"></span>
@@ -124,18 +140,28 @@ const ManageCompany = () => {
             <div className="details-body">
               <div className="company-data mb-2 row">
                 <div className="col-lg-6">
-                  <h3 className="item-heading">{company?.companyType ? company?.companyType : "company Type NA"}</h3>
+                  <h3 className="item-heading">
+                    {company?.companyType
+                      ? company?.companyType
+                      : "company Type NA"}
+                  </h3>
                 </div>
                 <div className="only-center col-lg-6">
                   <h3 className="heading-info">Registration ID (CIN):</h3>
-                  <p className="item-heading-new">{company?.companyRegistrationNumber ? company?.companyRegistrationNumber : "NA"}</p>
+                  <p className="item-heading-new">
+                    {company?.companyRegistrationNumber
+                      ? company?.companyRegistrationNumber
+                      : "NA"}
+                  </p>
                 </div>
               </div>
 
               <div className="company-data mb-2 row">
                 <div className="only-center col-lg-6">
                   <h3 className="heading-info">Formation State:</h3>
-                  <p className="item-heading-new">{company?.companyState ? company?.companyState : "NA"}</p>
+                  <p className="item-heading-new">
+                    {company?.companyState ? company?.companyState : "NA"}
+                  </p>
                 </div>
                 <div className="only-center col-lg-6">
                   <h3 className="heading-info">Formation Date:</h3>
@@ -146,7 +172,9 @@ const ManageCompany = () => {
               <div className="company-data mb-2 row">
                 <div className="only-center col-lg-6">
                   <h3 className="heading-info">Operational Units:</h3>
-                  <p className="state-heading">{company?.businessUnits.length} Units</p>
+                  <p className="state-heading">
+                    {company?.businessUnits.length} Units
+                  </p>
                 </div>
                 <div className="only-center col-lg-6">
                   <h3 className="heading-info">Number of states operating:</h3>
@@ -162,58 +190,16 @@ const ManageCompany = () => {
               </div> */}
             </div>
           </div>
-        ))}
+        ))
+     
+        }
 
+      
         {/* add company  */}
         <div className="add-new-company second-new">
-          <button
-            type="button"
-            className="add-button"
-            data-toggle="modal"
-            data-target="#manage2AddNewCompany"
-          >
-            <i className="fa-solid fa-plus"></i> Add New Company
-          </button>
-
-          <div
-            className="modal fade"
-            id="manage2AddNewCompany"
-            tabIndex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLongTitle">
-                    Modal title
-                  </h5>
-                  <button
-                    type="button"
-                    className="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">...</div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" className="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Link to={`/user/${currentUserId}/userinfo`} className="add-button">
+            <i className="fa-solid fa-plus"></i>Add New Company
+          </Link>
         </div>
       </div>
     </>
