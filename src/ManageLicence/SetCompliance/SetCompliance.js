@@ -17,9 +17,16 @@ const SetCompliance = () => {
   const location = useLocation();
   const companyPathId = customLocation(3, location);
 
+  console.log(companyPathId);
+
   useEffect(()=>{
-    allCompliancesData()
+    // allCompliancesData()
   }, [])
+
+
+  useEffect(()=>{
+    // getAllComplienceFun();
+  })
 
   
   const columns = [
@@ -51,11 +58,38 @@ const SetCompliance = () => {
     { field: 'col2', headerName: 'Column 2', width: 150 },
   ];
 
+  // const getAllComplienceFun = async () =>{
+  //   try{
+  //   const getComplienceData = await getQuery(`/companyServices/company/getAllCompanyUnitTeamData`);
+  //   console.log('get data', getComplienceData.data);
+  //   console.log('get data', getComplienceData.data.companies);
+  //   const complienceResponse = getComplienceData.data.companies;
+
+  //   const getAllCompliancesRes = await getQuery(`/compliance/company/getAllComplianceByUserId`);
+
+  //   console.log("data is ", getAllCompliancesRes.data);
+  //   console.log("data is ", getAllCompliancesRes.data);
+  //   const 
+
+  //   console.log("keys are", Object.keys(getAllCompliancesRes.data));
+    
+
+  //   // for(let i=0; i<complienceResponse.length; i++){
+  //   //   if(complienceResponse.id === getAllCompliancesRes[i])
+  //   // }   
+
+  //   }catch(err){
+  //     console.log("Error", err)
+  //   }
+  // }
+
+
+
 
   const allCompliancesData = async () =>{
     try{
     const allCompliencesResponse = await getQuery(`/compliance/company/showAllCompliance?companyId=${companyPathId}`);
-    console.log("all compliences ", allCompliencesResponse.data); 
+    console.log("all compliences ", allCompliencesResponse); 
     setAllCompliences(allCompliencesResponse.data)
     }catch(err){
       console.log("err", err)
