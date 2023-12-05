@@ -3,7 +3,7 @@ import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
 import CompliancesTable from "../../Tables/CompliancesTable"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -45,7 +45,13 @@ const SetCompliance = () => {
     { field: 'companyName', headerName: 'Company Name', width: 150 },
     { field: 'businessUnit', headerName: 'Business Unit', width: 150 },
     { field: 'address', headerName: 'Company Address', width: 150 },
-    { field: 'totalCompliance', headerName: 'Count', width: 150 },
+    { field: 'totalCompliance', headerName: 'Count', width: 150, renderCell: (props) => {
+      const dataNew = props.row.totalCompliance[0].totalCompliance
+      console.log("i am new data", dataNew);
+      return (
+        <Link>{dataNew}</Link>
+      )
+     } },
    ];
 
 
