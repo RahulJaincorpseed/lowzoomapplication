@@ -171,7 +171,7 @@ const ManageCompany = () => {
                 <div className="only-center col-lg-6">
                   <h3 className="heading-info">Operational Units:</h3>
                   <p className="state-heading">
-                    {company?.businessUnits.length} Units
+                    {/* {company?.businessUnits.length} Units */}
                   </p>
                 </div>
                 <div className="only-center col-lg-6">
