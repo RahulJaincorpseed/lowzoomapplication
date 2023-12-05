@@ -13,13 +13,22 @@ toast.configure()
 const SetCompliance = () => {
 
   const [allComplienses, setAllCompliences] = useState([]);
+  const [companyComplience, setCompanyComplience] = useState([]);
 
   const location = useLocation();
   const companyPathId = customLocation(3, location);
+  const userId = customLocation(1, location);
+
+
+  console.log("userid is", userId);
+
+  // useEffect(()=>{
+  //   allCompliancesData()
+  // }, [])
 
   useEffect(()=>{
-    allCompliancesData()
-  }, [])
+    complianceData();
+  },[])
 
   
   const columns = [
@@ -30,6 +39,18 @@ const SetCompliance = () => {
     { field: 'completedDate', headerName: 'completed Date', width: 150 },
     { field: 'description', headerName: 'Description', width: 150 },
    ];
+
+   const columnsTwo = [
+    { field: 'businessUnitId', headerName: 'id', width: 150 },
+    { field: 'companyName', headerName: 'Company Name', width: 150 },
+    { field: 'businessUnit', headerName: 'Business Unit', width: 150 },
+    { field: 'address', headerName: 'Company Address', width: 150 },
+    { field: 'totalCompliance', headerName: 'Count', width: 150 },
+   ];
+
+
+
+
 
 // applicableZone: "cdcsdcdscd"
 // approvalState: "csdcd"
@@ -65,9 +86,27 @@ const SetCompliance = () => {
     }
   }
 
+  // /companyServices/company/getCompanyUnitComplianceDetails?userId=1
 
-  console.warn("ALL COMPLIENSES");
-  console.log(allComplienses)
+  const complianceData = async () =>{
+    try{
+    const ComplienceResponse = await getQuery(`/companyServices/company/getCompanyUnitComplianceDetails?userId=${1}`);
+    console.log("all data", ComplienceResponse.data); 
+    setCompanyComplience(ComplienceResponse.data)
+    }catch(err){
+      console.log("err", err)
+      if(err.response.status === 500){
+        toast.error("Something Went Wrong")
+      }
+    }
+  }
+
+  console.log("company compliances", companyComplience );
+
+
+
+  // console.warn("ALL COMPLIENSES");
+  // console.log(allComplienses)
 
   return (
     <div>
@@ -207,7 +246,9 @@ const SetCompliance = () => {
             </div>
 
             <div className="my-4 w-100">
-              <CompliancesTable rows={allComplienses} columns={columns} />
+            <CompliancesTable rows={companyComplience} getRowId={(row) => row.businessUnitId} columns={columnsTwo} />
+
+              {/* <CompliancesTable rows={allComplienses} columns={columns} /> */}
             </div>
           </div>
         </div>
