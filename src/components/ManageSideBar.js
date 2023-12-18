@@ -25,7 +25,7 @@ const ManageSideBar = () => {
       <div className="side-nav-items">
         <ul className="list-unorder">
           <li className="linkw-icon">
-            <NavLink to={`/${userId}/company/${companyId}`} className={`main-link`}>
+            <NavLink to={`/${userId}/company/${companyId}/dashboard`} className={`main-link`}>
               <i className="fa-solid fa-gear"></i>
               <span>DashBoard</span>
             </NavLink>

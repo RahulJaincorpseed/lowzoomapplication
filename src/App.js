@@ -57,7 +57,7 @@ function App() {
         <Route path="/details" element={<Details />} />
 
         <Route path=":userId/company/:companyid" element={<MainCompany />}>
-          <Route path="" element={<DashBoard />} />
+          <Route path="dashboard" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
           <Route path="setcompliance" element={<SetCompliance />} />
           <Route path="managecompliance" element={<ManageCompliance />} />
