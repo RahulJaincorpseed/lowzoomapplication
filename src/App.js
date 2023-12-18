@@ -29,6 +29,7 @@ import ForgetPassword from "./Login/ForgetPassword"
 import ForgetWithInvitation from "./Login/ForgetWithInvitation"
 import CompanyInfo from "./Login/CompanyInfo"
 import AddTeamOutlet from "./Login/AddTeamOutlet"
+import CustomizedCompliances from "./ManageLicence/SetCompliance/CustomizedCompliances"
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
           <Route path="setcompliance" element={<SetCompliance />} />
+          <Route path="setcompliance/:companyId" element={<CustomizedCompliances />} />
           <Route path="managecompliance" element={<ManageCompliance />} />
           <Route path="vendor" element={<VendorTask />}>
             <Route path="" element={<Order />} />

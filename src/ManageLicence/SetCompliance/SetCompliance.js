@@ -49,7 +49,7 @@ const SetCompliance = () => {
       const dataNew = props.row.totalCompliance[0].totalCompliance
       console.log("i am new data", dataNew);
       return (
-        <Link>{dataNew}</Link>
+        <Link to={`${1}`}>{dataNew}</Link>
       )
      } },
    ];
