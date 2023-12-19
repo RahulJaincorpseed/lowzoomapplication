@@ -428,6 +428,11 @@ button:focus {
   padding-bottom: 70px;
 }
 
+.font-boldd{
+  font-weight: 700;
+  margin-top: 0px;
+}
+
 .padding-fixed{
   padding-top: 120px;
 }
