@@ -1,6 +1,7 @@
 import React from "react"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
 import AccordianTable from "../../components/AccordianTable"
+import "./CustomizedCompliences.scss"
 
 const CustomizedCompliances = () => {
   return (
@@ -12,7 +13,7 @@ const CustomizedCompliances = () => {
       <h2 className="heading-primary text-center">
         Mandatory Licence and permission
       </h2>
-      <div>
+      <div className="complience-table">
         <AccordianTable />
       </div>
     </div>
