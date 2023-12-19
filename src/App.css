@@ -95,6 +95,56 @@ button:focus {
 
 /* common classes */
 
+/* 
+.nadge-container{
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  background: #357960;
+  box-shadow: 0 0 12px rgba(53,121,96,.5686274509803921);
+  border-radius: 12px;
+  padding: 6px 12px 8px 4px;
+  display: flex;
+  align-items: center;
+  z-index: 103;
+  cursor: pointer;
+  height: 49px;
+  transition-duration: .2s,.2s,.2s,.2s,.2s,.2s;
+  transition-delay: .7s,.7s,0s,.7s,.7s,.9s;
+  transition-property: bottom,right,box-shadow,width,height,border-radius;
+  overflow: hidden;
+}
+
+.nadge-container span{
+  font-family: var(--font-primary);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 163%;
+    text-align: center;
+    color: #fff;
+    margin-right: 11px;
+    width: 138px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width .2s ease-in-out,margin .2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+}
+
+.nadge-shadow{
+  position: absolute;
+  height: 110%;
+  width: 0;
+  opacity: .7;
+  -webkit-animation: shimmer 2s cubic-bezier(0,0,.07,.61) infinite;
+  animation: shimmer 2s cubic-bezier(0,0,.07,.61) infinite;
+  box-shadow: 0 0 14px 6px #dddcdc;
+  -webkit-transform: rotate(16deg);
+  transform: rotate(16deg);
+} */
+
 /* //// +++++++++++++++++ css Variables +++++++++++++++++ */
 
 /*++++++++++++++++++ common headings +++++++++++++++++++*/
