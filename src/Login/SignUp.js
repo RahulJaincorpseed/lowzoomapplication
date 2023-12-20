@@ -23,6 +23,7 @@ const SignUp = () => {
     otp: "",
   })
   const [formError, setFormError] = useState(false)
+  const [otpLoading, setOtpLoading] = useState(false)
   const [otpPageError, setOtpPageError] = useState(false)
   const [sameOtpError, setSameOtpError] = useState(false)
   const [validOtpError, setValidOtpError] = useState(false)
@@ -78,16 +79,20 @@ const SignUp = () => {
     }
 
     const UserSignUpResponse = async () => {
+      setOtpLoading(true)
       try {
         const userSignupData = await postQuery(`/api/auth/signup`, signUpData)
         console.log("sign up data", userSignupData?.data)
         toast.success("Account Created Succesfully")
+        setOtpLoading(false)
         navigate("/login")
       } catch (err) {
         console.log("err", err)
         console.log("error")
+        setOtpLoading(false)
         if (err.response.status === 500) {
           toast.error("Something Went Wrong")
+          setOtpLoading(false)
         }
       }
     }
@@ -128,7 +133,7 @@ const SignUp = () => {
               id="email"
               name="email"
               ref={emailRef}
-              placeholder="+91 9999008078"
+              placeholder="user@gmail.com"
               onChange={(e) => dataForOtp(e)}
               required
             />
@@ -170,7 +175,7 @@ const SignUp = () => {
                 onClick={(e) => submitdataForOtp(e)}
                 className="first-button"
               >
-                Sign Up
+               {otpLoading ? "Loading..." : "Sign Up" }
               </button>
             </div>
           </div>
@@ -202,7 +207,7 @@ const SignUp = () => {
                 onClick={(e) => submitValidOtp(e)}
                 className="first-button"
               >
-                Submit OTP
+              Submit OTP  
               </button>
             </div>
           </form>
