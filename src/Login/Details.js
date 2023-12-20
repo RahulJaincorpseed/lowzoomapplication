@@ -5,6 +5,7 @@ import "./Details.scss"
 import rocket from "../images/rocket.png"
 import { compliencesStaticData } from "../data/CompliencesData.js"
 import DetailsComp from "../components/DetailsComp.js"
+import { detailsData, secondDetailsData } from "../data/StaticData.js"
 
 const Details = () => {
   return (
@@ -23,34 +24,15 @@ const Details = () => {
                   This AI platform is built to serve business with 100%
                   efficiency to manage compliance and teams
                 </p>
-                <DetailsComp
-                  icon={<i className="fa-solid fa-ellipsis detail-icon"></i>}
-                  data="compliance risk management"
-                />
-                <DetailsComp
-                  icon={<i className="fa-regular fa-clock detail-icon"></i>}
-                  data="compliance monatering framework"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-user-pen detail-icon"></i>}
-                  data="outsourced and mamage task"
-                />
-                <DetailsComp
-                  icon={<i className="fa-regular fa-calendar detail-icon"></i>}
-                  data="automated alerts and Triggers"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-cloud detail-icon"></i>}
-                  data="secured cloud documents"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-chart-line detail-icon"></i>}
-                  data="comprehensive Dashboards & Reports"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-right-left detail-icon"></i>}
-                  data="Third party API Integration"
-                />
+
+                {detailsData.map((data, index) => (
+                  <div key={index}>
+                    <DetailsComp
+                      icon={<i className={data.icon}></i>}
+                      data={data.name}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className="col-lg-6">
@@ -63,39 +45,15 @@ const Details = () => {
                   AI tool to identify business approvals and reduces the
                   complexity to start businesses in India
                 </p>
-                <DetailsComp
-                  icon={<i className="fa-solid fa-copy detail-icon"></i>}
-                  data="Know your business approvels"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-ellipsis detail-icon"></i>}
-                  data="compliance risk management"
-                />
-                <DetailsComp
-                  icon={<i className="fa-regular fa-clock detail-icon"></i>}
-                  data="compliance monatering framework"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-user-pen detail-icon"></i>}
-                  data="outsourced and manage tasks"
-                />
-                <DetailsComp
-                  icon={<i className="fa-regular fa-calendar detail-icon"></i>}
-                  data="automated alerts and Triggers"
-                />
 
-                <DetailsComp
-                  icon={<i className="fa-solid fa-cloud detail-icon"></i>}
-                  data="secured cloud Document"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-chart-line detail-icon"></i>}
-                  data="comprehensive Dashboards & Reports"
-                />
-                <DetailsComp
-                  icon={<i className="fa-solid fa-right-left detail-icon"></i>}
-                  data="Third Party API Integration"
-                />
+                {secondDetailsData.map((data, index) => (
+                  <div key={index}>
+                    <DetailsComp
+                      icon={<i className={data.icon}></i>}
+                      data={data.name}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
