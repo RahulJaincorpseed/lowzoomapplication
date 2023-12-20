@@ -246,6 +246,18 @@ const UserInfo = () => {
             "Content-Type": "application/json",
           },
         })
+
+        let userAssociation = true;
+        const userAssociateUpdate = await axios.put(`/api/auth/user/update-associated?userId=${userPathId}&isAssociated=${userAssociation}
+        `, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        })
+
+        console.log("user associated", userAssociateUpdate);
+
         console.log("all company data api", companysubmitData.data)
         toast.success("Company Added Succesfully")
         navigate(`/user/${userPathId}/userinfo/company/${companysubmitData.data.companyId}/addteam`)
