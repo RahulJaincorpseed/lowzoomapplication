@@ -18,6 +18,7 @@ const Login = () => {
     password: "",
   })
   const [inputError, setInputError] = useState(false)
+  const [loginLoading, setLoginLoading] = useState(false);
   const [apiError, setApiError] = useState("")
   const navigate = useNavigate()
   const userRef = useRef()
@@ -37,6 +38,7 @@ const Login = () => {
 
     const userDetails = async () => {
       console.log("i am info", userInfo)
+      setLoginLoading(true)
       try {
         const token = await axios.post(`/api/auth/token`, {
           ...userInfo,
@@ -49,15 +51,19 @@ const Login = () => {
 
         console.log("api data", token.data.body.accessToken)
         localStorage.setItem("Access Token", token.data.body.accessToken)
+        setLoginLoading(false)
         navigate(`/user/${token.data.body.id}/userinfo`)
       } catch (err) {
         console.log("Error", err)
         if (err.response.status === 401) {
           setApiError(err.response.statusText)
+          setLoginLoading(false)
         }
         if (err.response.status === 500) {
           toast.error("Something Went Wrong")
+          setLoginLoading(false)
         }
+        setLoginLoading(false)
       }
     }
     userDetails()
@@ -131,7 +137,7 @@ const Login = () => {
             </div>
             <div>
               <button className="first-button" onClick={(e) => loginUser(e)}>
-                Sign In
+               { loginLoading ? "Loading" : "Sign In" }
               </button>
             </div>
           </div>

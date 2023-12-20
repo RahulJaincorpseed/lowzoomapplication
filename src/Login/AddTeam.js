@@ -81,17 +81,7 @@ const AddTeam = () => {
     setEditTeamData((data) => ({ ...data, ...team }))
   }
 
-  const updateTeam = async (id) => {
-    // console.log("update Team ");
-    // try{
-    //   const updateData = await axios.put(`http://localhost:8888/api/v1/company/team/deleteTeam?teamId=${id}`);
-    //   window.location.reload();
-    //   console.log("Team update succesfully");
-    // }catch(err){
-    //   console.log("succesfully added")
-    // }
-  }
-
+  
   const getAllTeamMemberFun = async () => {
     try {
       const getAllTeamMember = await getQuery(
