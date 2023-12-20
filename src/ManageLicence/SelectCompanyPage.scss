@@ -1,0 +1,12 @@
+.select-company-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
+    .all-company{
+        padding: 10px 0px;
+        width: 100%;
+        border: 1px solid rgba(0,0,0,.2);    
+    }
+}

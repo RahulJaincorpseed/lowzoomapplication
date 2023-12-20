@@ -30,6 +30,7 @@ import ForgetWithInvitation from "./Login/ForgetWithInvitation"
 import CompanyInfo from "./Login/CompanyInfo"
 import AddTeamOutlet from "./Login/AddTeamOutlet"
 import CustomizedCompliances from "./ManageLicence/SetCompliance/CustomizedCompliances"
+import SelectCompanyPage from "./ManageLicence/SelectCompanyPage"
 
 function App() {
   return (
@@ -56,7 +57,7 @@ function App() {
         </Route>
 
         <Route path="/details" element={<Details />} />
-
+        <Route path="/:userId/company"  element={<SelectCompanyPage />} />
         <Route path=":userId/company/:companyid" element={<MainCompany />}>
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
