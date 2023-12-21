@@ -1,0 +1,13 @@
+.blank-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    background-color: #D3D3D3;
+    .blank-text{
+        color: #000;
+        font-size: 35px;
+        font-weight: 300;
+    }
+}
