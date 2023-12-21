@@ -141,10 +141,23 @@ const AddTeam = () => {
           </div>
         </div>
 
+
+        <div className="team-member">
+          <div className="member-profile">
+            <p>Profile</p>
+          </div>
+          <div className="member-type">
+            <p>Internal Team</p>
+          </div>
+          <div>
+
+          </div>
+        </div>
+
         {/* shhdd */}
         {/* accordian */}
 
-        <div id="accordion">
+        {/* <div id="accordion">
           {allTeam.map((team, index) => (
             <div className="card team-cards container" key={index}>
               <div className="card-header" id={`heading${index}`}>
@@ -159,25 +172,25 @@ const AddTeam = () => {
                               teamName={team.teamName}
                               leadDesignation={team.leadDesignation}
                             />
-                          </td>
-                          <td className="team-type">
+                          </td> */}
+                          {/* <td className="team-type">
                             <h3>{team.teamType}</h3>
                           </td>
                           <td>
                             <div className="team-edit">
                               <div className="add">
                                 {/* add people model */}
-                                <AddPeopleModel teamId={team.id} />
+                                {/* <AddPeopleModel teamId={team.id} />
                               </div>
 
                               <div className="edit">
                                 <EditTeamModel
                                   teamId={team.id}
                                   leadName={team.teamLeadName}
-                                />
+                                /> */} 
 
                                 {/* end model */}
-                              </div>
+                              {/* </div>
                               <div>
                                 <button
                                   onClick={() => deleteTeam(team.id)}
@@ -200,8 +213,8 @@ const AddTeam = () => {
                                 onClick={rotateArrow}
                               >
                                 <span className="click">
-                                  <i className="fa-solid fa-chevron-up icon"></i>
-                                </span>
+                                  <i className="fa-solid fa-chevron-up icon"></i> */}
+                                {/* </span>
                               </button>
                             </h5>
                           </td>
@@ -210,9 +223,9 @@ const AddTeam = () => {
                     </table>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div
+              {/* <div
                 id={`collapse${index}`}
                 className="collapse collapse-item"
                 aria-labelledby={`heading${index}`}
@@ -220,7 +233,7 @@ const AddTeam = () => {
               >
                 <div className="card-body">
                   {/* card body */}
-                  <div className="table-responsive">
+                  {/* <div className="table-responsive">
                     <table className="table mb-0">
                       <tbody>
                         {team.teamMembers.map((member, index) => (
@@ -235,12 +248,12 @@ const AddTeam = () => {
                               <div className="team-edit">
                                 <div className="edit">
                                   <EditPeopleModel />
-                                </div>
+                                </div> 
                                 <div>
                                   <button className="delete-button">
                                     <i className="fa-solid mr-1 fa-trash"></i>
-                                    Delete
-                                  </button>
+                                    Delete */}
+                                  {/* </button>
                                 </div>
                               </div>
                             </td>
@@ -248,16 +261,20 @@ const AddTeam = () => {
                         ))}
                       </tbody>
                     </table>
-                  </div>
+                  </div> */}
                   {/* end body */}
-                </div>
+                {/* </div>
               </div>
             </div>
-          ))}
+          ))} */}
           {/* second card */}
         </div>
+
+
+
+
         
-        <div className="proceed-btns">
+        <div className="proceed-btns container">
           <Link to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`} className="form-next-btn first-button">Skip</Link>
           <Link to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`}  className="form-next-btn first-button">Proceed</Link>
         </div>
@@ -265,7 +282,7 @@ const AddTeam = () => {
         {/* end accordian */}
 
         {/* wsjnwdw */}
-      </div>
+      {/* </div> */}
 
       <LoginFooter />
     </>
