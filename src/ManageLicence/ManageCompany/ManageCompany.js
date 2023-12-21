@@ -3,9 +3,10 @@ import "./ManageCompany.scss"
 import BreadCrum from "../../components/BreadCrum"
 import AddNewCompanyModel from "../../common/Model/AddNewCompanyModel"
 import { customLocation } from "../../Hooks/LocationHook"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useParams } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
 import BoxScalaton from "../../common/Scalaton/BoxScalaton"
+import BlankPage from "../../components/BlankPage"
 
 const ManageCompany = () => {
   const [allCompanyData, setAllCompnayData] = useState([])
@@ -15,6 +16,10 @@ const ManageCompany = () => {
 
   const myId = customLocation(3, location)
   const currentUserId = customLocation(1, location)
+ 
+ 
+
+
 
   console.warn("new id is ")
   console.log("id is", currentUserId)
@@ -68,7 +73,7 @@ const ManageCompany = () => {
 
         {/* company-details  */}
 
-        {companyScalaton ? <div><BoxScalaton /><BoxScalaton /></div> : 
+        {allCompanyData.length === 0 ? <BlankPage data={"Please Add New Company"} /> :companyScalaton ? <div><BoxScalaton /><BoxScalaton /></div> : 
         
         allCompanyData.map((company, index) => (
           <div className="company-details" key={index}>
