@@ -62,7 +62,7 @@ const CompanyInfo = () => {
       <div className="container my-3">
         <div className="d-end">
           <Link
-            to={`/${userPathId}/company/${companyPathId}`}
+            to={`/${userPathId}/company/${companyPathId}/dashboard`}
             className="form-next-btn first-button"
           >
             Go to Dashboard

@@ -47,7 +47,7 @@ function App() {
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/invitation/:email" element={<ForgetWithInvitation />} />
         <Route path="/counter" element={<Counter />} />
-        <Route path="/user/:id/userinfo" element={<AddTeamOutlet />}>
+        <Route path="/user/:userid/userinfo" element={<AddTeamOutlet />}>
           <Route path="" element={<UserInfo />} />
             <Route path="company/:companyId/addteam" element={<AddTeam />}>
               <Route path=":id/addPeople" element={<AddPeopleModel />} />
