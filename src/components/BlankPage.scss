@@ -4,9 +4,10 @@
     align-items: center;
     height: 300px;
     width: 100%;
-    background-color: #D3D3D3;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    border-radius: 10px;
     .blank-text{
-        color: #000;
+        color: #fff;
         font-size: 35px;
         font-weight: 300;
     }

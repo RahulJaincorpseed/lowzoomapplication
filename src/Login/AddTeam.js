@@ -15,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css"
 import { getQuery } from "../Api/getQuery"
 import TeamProfileMember from "../components/TeamProfileMember"
 import { customLocation } from "../Hooks/LocationHook"
+import { useCustomRoute } from "../Hooks/GetCustomRoute"
+import BlankPage from "../components/BlankPage"
 toast.configure()
 
 const AddTeam = () => {
@@ -44,6 +46,9 @@ const AddTeam = () => {
   useEffect(() => {
     getAllTeamMemberFun()
   }, [])
+
+
+ 
 
   const rotateArrow = () => {
     console.log("rotate arrow")
@@ -138,7 +143,7 @@ const AddTeam = () => {
         </div>
 
         <div className="team-member-box">
-          {teamMemberState.map((member, index) => (
+          {teamMemberState.length === 0 ?  <BlankPage data={"Please Add New Team Member"} /> : teamMemberState.map((member, index) => (
             <div className="team-member" key={index}>
               <div className="member-profile">
                 <TeamProfile
