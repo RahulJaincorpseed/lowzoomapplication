@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./Model.css"
 import axios from "axios"
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
 
 const AddPeopleModel = ({teamId}) => {
@@ -10,7 +10,7 @@ const AddPeopleModel = ({teamId}) => {
     memberMail: "",
     memberMobile: "",
     typeOfResource: "",
-    accessType: "jsid",
+    accessTypeName: "jsid",
     teamResponse: null,
     userResponse: null,
     role: "user",
@@ -18,6 +18,14 @@ const AddPeopleModel = ({teamId}) => {
   })
 
   const location = useLocation();
+
+  const {userid, companyId} = useParams();
+
+
+  console.log("userId", userid, "companyId", companyId);
+
+  
+  // console.log(dataId);
 
   const companyPathId = customLocation(2, location)
   const teamPathId = customLocation(7, location)
@@ -35,10 +43,9 @@ const AddPeopleModel = ({teamId}) => {
     e.preventDefault()
 
     const addMemberApi = async () => {
-      // console.log("team id is before create", teamId);
       try {
         const memberdata = await axios.post(
-          `/companyServices/company/team/members/addTeamMember?teamId=${teamPathId}`,
+          `/companyServices/company/team/members/addTeamMember?companyId=${companyId}&createdById=${userid}`,
           {
             ...AddPeopleData,
             headers: {
@@ -48,9 +55,8 @@ const AddPeopleModel = ({teamId}) => {
           }
         )
         console.log("data added", memberdata)
-       
-        // navigate(`/company/${companyPathId}/addteam`)
-        // window.location.reload();
+        navigate(`/user/${userid}/userinfo/company/${companyId}/addteam`)
+        window.location.reload();
 
       } catch (err) {
         console.log(err)
@@ -72,12 +78,12 @@ const AddPeopleModel = ({teamId}) => {
       <div className="team-model">
         <Link
           type="button"
-          className="add-team-modal edit-people"
+          className="add-team-modal edit-people color-blue"
           data-toggle="modal"
           data-target="#AddPeopleModel"
           to={`${teamId}/addPeople`}
         >
-          <i className="fa-solid fa-circle-plus mr-1"></i>
+          <i className="fa-solid fa-plus mr-1"></i>
           Add People
         </Link>
         {/* MODAL */}

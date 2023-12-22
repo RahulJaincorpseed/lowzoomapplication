@@ -9,9 +9,30 @@
   display: flex;
 }
 
-.team-cards{
+.team-member-box {
+  padding: 20px 25px;
+  .team-member {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 10px 0px;
+    .member-profile{
+      min-width: 300px;
+    }
+    .member-type {
+      width: 120px;
+      .member-text {
+        @include font-one;  
+        color: $graySix;
+      }
+    }
+  }
+}
+
+.team-cards {
   border: none;
-  .card-header{
+  .card-header {
     padding: 0px;
     background-color: #fff;
   }
@@ -19,10 +40,10 @@
 
 .click.collapsed .icon {
   transform: rotate(180deg);
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   color: red;
   background-color: red;
-  }
+}
 
 .team-add {
   padding: 20px 25px;
@@ -31,13 +52,13 @@
     font-weight: 500;
     line-height: 34px;
   }
-  .team-button{
+  .team-button {
     font-size: 16px;
     font-weight: 500;
     line-height: 26px;
     background-color: transparent;
     color: $lightBlue;
-    border-radius: 10px;  
+    border-radius: 10px;
   }
 }
 
@@ -66,7 +87,7 @@
   }
 }
 
-.proceed-btns{
+.proceed-btns {
   display: flex;
   justify-content: space-between;
   align-items: center;

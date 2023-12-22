@@ -25,19 +25,17 @@ const AddTeam = () => {
   const [teamMemberState, setTeamMemberState] = useState([])
 
   const navigate = useNavigate()
-  const location = useLocation();
+  const location = useLocation()
   const { companyId } = useParams()
 
   const status = percent === 100 ? "success" : null
   const color = percent === 100 ? "#2B62F9" : "#2B62F9"
 
+  const userPathId = customLocation(2, location)
+  const companyPathId = customLocation(5, location)
 
-  const userPathId = customLocation(2, location);
-  const companyPathId = customLocation(5, location);
-
-  console.log("userid", userPathId);
-  console.log("companyid", companyPathId);
- 
+  console.log("userid", userPathId)
+  console.log("companyid", companyPathId)
 
   useEffect(() => {
     allTeamDisplay()
@@ -58,7 +56,7 @@ const AddTeam = () => {
     setEditTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const allTeamDisplay = async () => {  
+  const allTeamDisplay = async () => {
     try {
       const teamApiData = await axios.get(
         `/companyServices/company/team/members/getTeamWithTeamMember?companyId=${companyId}`,
@@ -81,13 +79,11 @@ const AddTeam = () => {
     setEditTeamData((data) => ({ ...data, ...team }))
   }
 
-  
   const getAllTeamMemberFun = async () => {
     try {
-      const getAllTeamMember = await getQuery(
-        // `/companyServices/company/team/members/getTeamWithTeamMember?companyId=${2}`
-        // `/companyServices/company/team/members/getAllTeamMembers?teamId=${2}`
-      )
+      const getAllTeamMember =
+        await getQuery(`/companyServices/company/team/members/getAllTeamMembers?companyId=${companyId}
+      `)
       console.log("get all team Member ", getAllTeamMember.data)
       setTeamMemberState(getAllTeamMember.data)
     } catch (err) {
@@ -118,7 +114,7 @@ const AddTeam = () => {
     }
   }
 
-  console.log("all team is here", allTeam);
+  console.log("all team is here", allTeam)
 
   return (
     <>
@@ -137,21 +133,28 @@ const AddTeam = () => {
         <div className="all-between team-add">
           <div>{/* <h4 className="team-text">Team</h4> */}</div>
           <div>
-            <AddTeamModel />
+            <AddPeopleModel />
           </div>
         </div>
 
-
-        <div className="team-member">
-          <div className="member-profile">
-            <p>Profile</p>
-          </div>
-          <div className="member-type">
-            <p>Internal Team</p>
-          </div>
-          <div>
-
-          </div>
+        <div className="team-member-box">
+          {teamMemberState.map((member, index) => (
+            <div className="team-member" key={index}>
+              <div className="member-profile">
+                <TeamProfile
+                  teamLeadName={member.memberMobile}
+                  teamName={member.memberName}
+                  leadDesignation={member.memberMail}
+                />
+              </div>
+              <div className="member-type">
+                <p className="member-text">{member.typeOfResource}</p>
+              </div>
+              <div>
+                <EditTeamModel teamId={"1"} leadName={"lead"} />
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* shhdd */}
@@ -173,24 +176,24 @@ const AddTeam = () => {
                               leadDesignation={team.leadDesignation}
                             />
                           </td> */}
-                          {/* <td className="team-type">
+        {/* <td className="team-type">
                             <h3>{team.teamType}</h3>
                           </td>
                           <td>
                             <div className="team-edit">
                               <div className="add">
                                 {/* add people model */}
-                                {/* <AddPeopleModel teamId={team.id} />
+        {/* <AddPeopleModel teamId={team.id} />
                               </div>
 
                               <div className="edit">
                                 <EditTeamModel
                                   teamId={team.id}
                                   leadName={team.teamLeadName}
-                                /> */} 
+                                /> */}
 
-                                {/* end model */}
-                              {/* </div>
+        {/* end model */}
+        {/* </div>
                               <div>
                                 <button
                                   onClick={() => deleteTeam(team.id)}
@@ -214,7 +217,7 @@ const AddTeam = () => {
                               >
                                 <span className="click">
                                   <i className="fa-solid fa-chevron-up icon"></i> */}
-                                {/* </span>
+        {/* </span>
                               </button>
                             </h5>
                           </td>
@@ -225,7 +228,7 @@ const AddTeam = () => {
                 </div>
               </div> */}
 
-              {/* <div
+        {/* <div
                 id={`collapse${index}`}
                 className="collapse collapse-item"
                 aria-labelledby={`heading${index}`}
@@ -233,7 +236,7 @@ const AddTeam = () => {
               >
                 <div className="card-body">
                   {/* card body */}
-                  {/* <div className="table-responsive">
+        {/* <div className="table-responsive">
                     <table className="table mb-0">
                       <tbody>
                         {team.teamMembers.map((member, index) => (
@@ -253,7 +256,7 @@ const AddTeam = () => {
                                   <button className="delete-button">
                                     <i className="fa-solid mr-1 fa-trash"></i>
                                     Delete */}
-                                  {/* </button>
+        {/* </button>
                                 </div>
                               </div>
                             </td>
@@ -262,26 +265,32 @@ const AddTeam = () => {
                       </tbody>
                     </table>
                   </div> */}
-                  {/* end body */}
-                {/* </div>
+        {/* end body */}
+        {/* </div>
               </div>
             </div>
           ))} */}
-          {/* second card */}
-        </div>
+        {/* second card */}
+      </div>
 
+      <div className="proceed-btns container">
+        <Link
+          to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`}
+          className="form-next-btn first-button"
+        >
+          Skip
+        </Link>
+        <Link
+          to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`}
+          className="form-next-btn first-button"
+        >
+          Proceed
+        </Link>
+      </div>
 
+      {/* end accordian */}
 
-
-        
-        <div className="proceed-btns container">
-          <Link to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`} className="form-next-btn first-button">Skip</Link>
-          <Link to={`/user/${userPathId}/userinfo/company/${companyPathId}/addteam/companyInfo`}  className="form-next-btn first-button">Proceed</Link>
-        </div>
-
-        {/* end accordian */}
-
-        {/* wsjnwdw */}
+      {/* wsjnwdw */}
       {/* </div> */}
 
       <LoginFooter />
