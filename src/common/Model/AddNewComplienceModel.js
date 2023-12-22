@@ -183,7 +183,7 @@ const AddNewComplienceModel = () => {
                         </div>
                       </div>
                       <div className="form-group col-md-12">
-                        <div className="pl-ten">
+                        <div>
                           <label className="label-heading" htmlFor="endDate">
                             Description*
                           </label>

@@ -50,8 +50,8 @@ function App() {
         <Route path="/user/:userid/userinfo" element={<AddTeamOutlet />}>
           <Route path="" element={<UserInfo />} />
             <Route path="company/:companyId/addteam" element={<AddTeam />}>
-              <Route path=":id/addPeople" element={<AddPeopleModel />} />
-              <Route path=":id/editTeam" element={<EditTeamModel />} />    
+              {/* <Route path="" element={<AddPeopleModel />} />
+              <Route path="" element={<EditTeamModel />} />     */}
             </Route>
             <Route path="company/:companyId/addteam/companyInfo" element={<CompanyInfo />} />
         </Route>

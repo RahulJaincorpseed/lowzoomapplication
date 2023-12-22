@@ -3,6 +3,7 @@ import "./Model.css"
 import axios from "axios"
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
+import { useCustomRoute } from "../../Hooks/GetCustomRoute"
 
 const AddPeopleModel = ({teamId}) => {
   const [AddPeopleData, setAddPeopleData] = useState({
@@ -23,7 +24,13 @@ const AddPeopleModel = ({teamId}) => {
 
 
   console.log("userId", userid, "companyId", companyId);
+  console.log(AddPeopleData);
 
+  const accessUrl = `/companyServices/company/getAllAccessTypes`
+  const accessDepandencies = [];
+  const { productData:accessData } = useCustomRoute(accessUrl, accessDepandencies)
+
+  console.log("acces type data");
   
   // console.log(dataId);
 
@@ -81,7 +88,7 @@ const AddPeopleModel = ({teamId}) => {
           className="add-team-modal edit-people color-blue"
           data-toggle="modal"
           data-target="#AddPeopleModel"
-          to={`${teamId}/addPeople`}
+          to={``}
         >
           <i className="fa-solid fa-plus mr-1"></i>
           Add People
@@ -181,6 +188,29 @@ const AddPeopleModel = ({teamId}) => {
                           {resourcesData.map((company, index) => (
                             <option key={index} value={company}>
                               {company}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                    <div className="form-group col-md-6">
+                      <div className="pr-ten">
+                        <label
+                          className="label-heading mb-0"
+                          htmlFor="resources"
+                        >
+                          Access Type*
+                        </label>
+                        <select
+                          className="form-control input-focus"
+                          id="sel1ew"
+                          name="accessTypeName"
+                          onChange={(e) => setPeopleData(e)}
+                        >
+                          <option>Select Access Type</option>
+                          {accessData.map((access, index) => (
+                            <option key={index} value={access.accessTypeName}>
+                              {access?.accessTypeName}
                             </option>
                           ))}
                         </select>
