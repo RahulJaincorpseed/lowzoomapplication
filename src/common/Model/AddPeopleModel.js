@@ -4,6 +4,10 @@ import axios from "axios"
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+toast.configure()
+
 
 const AddPeopleModel = ({teamId}) => {
   const [AddPeopleData, setAddPeopleData] = useState({
@@ -17,6 +21,10 @@ const AddPeopleModel = ({teamId}) => {
     role: "user",
     enable: true
   })
+
+  const [btnloading, setBtnLoading] = useState(false);
+
+ 
 
   const location = useLocation();
 
@@ -50,6 +58,7 @@ const AddPeopleModel = ({teamId}) => {
     e.preventDefault()
 
     const addMemberApi = async () => {
+      setBtnLoading(true);
       try {
         const memberdata = await axios.post(
           `/companyServices/company/team/members/addTeamMember?companyId=${companyId}&createdById=${userid}`,
@@ -62,12 +71,15 @@ const AddPeopleModel = ({teamId}) => {
           }
         )
         console.log("data added", memberdata)
+        setBtnLoading(false);
         navigate(`/user/${userid}/userinfo/company/${companyId}/addteam`)
         window.location.reload();
 
       } catch (err) {
         console.log(err)
+        setBtnLoading(false);
         console.log("add team member");
+        toast.error("Something went wrong")
       }
     }
     addMemberApi();
@@ -226,7 +238,7 @@ const AddPeopleModel = ({teamId}) => {
                           onClick={(e) => addTeamMember(e)}
                           className="first-button form-prev-btn"
                         >
-                          Submit
+                         {btnloading ? "Loading" : "Submit"}
                         </button>
                       </div>
                     </div>
