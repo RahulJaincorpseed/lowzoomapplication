@@ -11,3 +11,10 @@ export const userToken = (data) => {
       payload: data,
     }
   }
+
+  export const userData = (data) => {
+    return {
+      type: "USER",
+      payload: data,
+    }
+  }

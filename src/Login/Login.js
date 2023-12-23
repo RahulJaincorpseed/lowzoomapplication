@@ -8,7 +8,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useDispatch, useSelector } from "react-redux"
-import { userRoles, userToken } from "../Redux/Actions/AuthAction"
+import { userData, userRoles, userToken } from "../Redux/Actions/AuthAction"
 toast.configure()
 
 const Login = () => {
@@ -23,6 +23,8 @@ const Login = () => {
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
+
+  const dispatch = useDispatch();
 
   const LoginUserData = (e) => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -47,10 +49,17 @@ const Login = () => {
             "Content-Type": "application/json",
           },
         })
-        console.log("api data", token.data)
+        console.log("api data", token.data.body.associated)
 
+        
         console.log("api data", token.data.body.accessToken)
         localStorage.setItem("Access Token", token.data.body.accessToken)
+        dispatch(userData(token.data.body))
+        if(token.data.body.associated === true){
+          navigate(`/${token.data.body.id}/company`)
+          setLoginLoading(false)
+          return;
+        }
         setLoginLoading(false)
         navigate(`/user/${token.data.body.id}/userinfo`)
       } catch (err) {
