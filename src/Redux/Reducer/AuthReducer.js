@@ -1,15 +1,17 @@
 const initialState = {
-    token : "",
-    roles: [],
-    user: {},
+  token: "",
+  roles: [],
+  user: {},
 }
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case "TOKEN":
-      return {...state, token : action.payload}
+      return { ...state, token: action.payload }
     case "ROLES":
-      return {...state, roles: action.payload}      
+      return { ...state, roles: action.payload }
+    case "USER":
+      return { ...state, roles: action.payload }
     default:
       return state
   }

@@ -1,7 +1,23 @@
 import React from "react";
 import "./SelectCompanyPage.scss"
+import { useCustomRoute } from "../Hooks/GetCustomRoute";
+import { useSelector } from "react-redux";
 
 const SelectCompanyPage = () => {
+
+  const currentUserMail = useSelector((prev) => (prev.authReducer.roles.email));
+
+  console.log("satat is ", currentUserMail);
+  
+ 
+ 
+  const companyUrl =  `/company/team/members/memberCompanyDetails?memberMail=${currentUserMail}`;
+  const companyDep = [];
+ 
+  const {productData: companyData} = useCustomRoute(companyUrl, companyDep);
+  console.warn("dknljkndlkj");
+  console.log("i am company data",  companyData);
+ 
   return (
     <div className="container">
     <div className="select-company-box">
