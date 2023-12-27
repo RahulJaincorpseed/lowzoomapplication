@@ -87,17 +87,13 @@ const UserInfo = () => {
   const companyRemarksRef = React.createRef()
   const companyPincodeRef = React.createRef()
 
-
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation()
   // data
 
-  console.log("location is ", location.pathname);
-
-  
+  console.log("location is ", location.pathname)
 
   const userPathId = customLocation(2, location)
-
 
   // data
 
@@ -129,7 +125,7 @@ const UserInfo = () => {
       setLastNameErr(false)
     }
     console.log("company data")
-  } 
+  }
 
   // increase function
   const increaseFormStep = () => {
@@ -239,37 +235,47 @@ const UserInfo = () => {
 
     const createCompanyData = async () => {
       try {
-        const companysubmitData = await axios.post(`/companyServices/company/addCompany?userId=${userPathId}`, {
-          ...companyData,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        })
+        const companysubmitData = await axios.post(
+          `/companyServices/company/addCompany?userId=${userPathId}`,
+          {
+            ...companyData,
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          }
+        )
 
-        let userAssociation = true;
-        const userAssociateUpdate = await axios.put(`/api/auth/user/update-associated?userId=${userPathId}&isAssociated=${userAssociation}
-        `, {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        })
+        let userAssociation = true
+        let userSubscribe = true
 
-        console.log("user associated", userAssociateUpdate);
+        const userAssociateUpdate = await axios.put(
+          `/api/auth/user/update-associated-isSubscribed?userId=${userPathId}&isAssociated=${userAssociation}&isSubscribed=${userSubscribe}
+        `,
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+
+        console.log("user associated", userAssociateUpdate)
 
         console.log("all company data api", companysubmitData.data)
         toast.success("Company Added Succesfully")
-        navigate(`/user/${userPathId}/userinfo/company/${companysubmitData.data.companyId}/addteam`)
+        navigate(
+          `/user/${userPathId}/userinfo/company/${companysubmitData.data.companyId}/addteam`
+        )
       } catch (err) {
         if (err.response.data)
           if (err.response.status === 500) {
             console.log(err.response.statusText)
             toast.error(err.response.statusText)
           }
-          if (err.response.status === 400) {
-            toast.error("Something went Wrong")
-          }
+        if (err.response.status === 400) {
+          toast.error("Something went Wrong")
+        }
         console.log("response data", err)
       }
     }
@@ -432,7 +438,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pl-ten">
                     <label className="label-heading" htmlFor="companyName">
-                      Company Name 
+                      Company Name
                     </label>
                     <input
                       type="text"
