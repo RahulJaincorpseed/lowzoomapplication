@@ -4,7 +4,6 @@
     gap: 30px;
     align-items: center;
     padding: 4px 8px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     .min-des-box{
         min-width: 240px;
     }
@@ -36,4 +35,9 @@
     overflow: hidden;
     overflow-x: auto;
   }
+}
+
+
+.card-boxes{
+  padding: 10px 0px;
 }
