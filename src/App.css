@@ -235,6 +235,10 @@ button:focus {
   border-color: var(--blue-color);
 }
 
+.border-one{
+  border: 1px solid rgba(0,0,0,.125);
+}
+
 .first-button {
   padding: 0px 60px;
   padding-bottom: 2px;
