@@ -55,6 +55,13 @@ const Login = () => {
         console.log("api data", token.data.body.accessToken)
         localStorage.setItem("Access Token", token.data.body.accessToken)
         dispatch(userData(token.data.body))
+        // subscribed
+        if(token.data.body.subscribed === true){
+          navigate(`/${token.data.body.id}/company/dashboard/dashboard`)
+          setLoginLoading(false)
+          return;
+        } 
+
         if(token.data.body.associated === true){
           navigate(`/${token.data.body.id}/company`)
           setLoginLoading(false)
