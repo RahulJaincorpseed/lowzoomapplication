@@ -20,7 +20,7 @@ const AccordianTable = () => {
   return (
     <div>
       <div className="table-responsive">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr className="border-one">
               <th>S. No.</th>
@@ -37,9 +37,9 @@ const AccordianTable = () => {
             ) : (
               allComplience.map((complience, index) => (
                 <tr key={index} className="border-one">
-                  <td>1</td>
+                  <td>{complience?.id}</td>
                   <td>
-                    <Link>{complience?.name}</Link>
+                    <Link to={`complience/${complience?.id}`}>{complience?.name}</Link>
                   </td>
                   <td>{complience?.description}</td>
                   <td>Applied</td>
