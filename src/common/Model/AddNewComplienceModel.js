@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./Model.css"
 import { priority } from "../../Api/FakeApi"
 import { postQuery } from "../../Api/PostQuery"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
 
 const AddNewComplienceModel = () => {
@@ -20,11 +20,19 @@ const AddNewComplienceModel = () => {
     enable: true,
   })
 
+  // const [businessUnitId, setBusinessUnitId] = useState(0);
+
+  console.log(addComplienceData);
+
   const location = useLocation();
 
-    const userId = customLocation(1, location)
-    const companyId = customLocation(3, location)
+  const {companyid, userId, businessUnitId} = useParams();
 
+  const params = useParams();
+
+  console.log("ne wparams", params);
+
+ 
   const complienceDateSetter = (e) => {
     setAddComplienceData((prev) => ({
       ...prev,
@@ -40,7 +48,7 @@ const AddNewComplienceModel = () => {
     const complienceAdd = async () => {
       try {
         const addNewComplienceRes = await postQuery(
-          `/compliance/company/saveCompliance?companyId=${companyId}`,addComplienceData
+          `/compliance/company/saveCompliance?companyId=${companyid}&businessUnitId=${businessUnitId}&userId=${userId}`,addComplienceData
         )
         console.log("add new complience", addNewComplienceRes)
         console.log("add new complience", addNewComplienceRes.data)
