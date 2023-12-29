@@ -3,7 +3,7 @@ import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
 import CompliancesTable from "../../Tables/CompliancesTable"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -15,6 +15,7 @@ const SetCompliance = () => {
   const [allComplienses, setAllCompliences] = useState([]);
   const [companyComplience, setCompanyComplience] = useState([]);
 
+  const navigate = useNavigate();
   const location = useLocation();
   const companyPathId = customLocation(3, location);
   const userId = customLocation(1, location);
@@ -46,10 +47,10 @@ const SetCompliance = () => {
     { field: 'businessUnit', headerName: 'Business Unit', width: 150 },
     { field: 'address', headerName: 'Company Address', width: 150 },
     { field: 'totalCompliance', headerName: 'Count', width: 150, renderCell: (props) => {
-      const dataNew = props.row.totalCompliance[0].totalCompliance
+      const dataNew = props.row.totalCompliance[0]?.totalCompliance
       console.log("i am new data", dataNew);
       return (
-        <Link to={`${1}`}>{dataNew}</Link>
+        <Link to={`${props.row.companyId}/businessUnit/${props.row.businessUnitId}`}>{dataNew === null ? dataNew : "0"}</Link>
       )
      } },
    ];
@@ -87,7 +88,7 @@ const SetCompliance = () => {
     }catch(err){
       console.log("err", err)
       if(err.response.status === 500){
-        toast.error("Something Went Wrong")
+        toast.error("Something Went Wrong") 
       }
     }
   }
@@ -96,7 +97,7 @@ const SetCompliance = () => {
 
   const complianceData = async () =>{
     try{
-    const ComplienceResponse = await getQuery(`/companyServices/company/getCompanyUnitComplianceDetails?userId=${1}`);
+    const ComplienceResponse = await getQuery(`/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`);
     console.log("all data", ComplienceResponse.data); 
     setCompanyComplience(ComplienceResponse.data)
     }catch(err){
@@ -193,9 +194,9 @@ const SetCompliance = () => {
             </div>
 
             <div className="add-new-complience col-lg-12 mt-4">
-              <div className="add-new-company">
+              {/* <div className="add-new-company">
                 <AddNewComplienceModel />
-              </div>
+              </div> */}
               {/* <div className="add-new-company">
                 <button
                   type="button"

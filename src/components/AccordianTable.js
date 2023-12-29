@@ -1,15 +1,26 @@
 import React, { useState } from "react"
 import "./AccordianTable.scss"
 import AddNewTaskModel from "../common/Model/AddNewTaskModel"
-import { Link } from "react-router-dom"
-
+import { Link, useParams } from "react-router-dom"
+import { useCustomRoute } from "../Hooks/GetCustomRoute"
 
 const AccordianTable = () => {
   const [collpaseState, setCollapseState] = useState(false)
+
+  const { companyid, userId, businessUnitId } = useParams()
+
+  const allcomplienceUrl = `/compliance/company/showAllCompliance?companyId=${companyid}&businessId=${businessUnitId}`
+  const allComplienceDep = []
+
+  const { productData: allComplience, loading: complienceLoading } =
+    useCustomRoute(allcomplienceUrl, allComplienceDep)
+
+  console.log("all compliences data", allComplience)
+
   return (
     <div>
       <div className="table-responsive">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr className="border-one">
               <th>S. No.</th>
@@ -21,30 +32,22 @@ const AccordianTable = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="border-one">
-              <td>1</td>
-              <td><Link>John</Link></td>
-              <td>Doe</td>
-              <td>Applied</td>
-              <td>Already Done</td>
-              <td>Not Applicable</td>
-            </tr>
-            <tr className="border-one">
-              <td>2</td>
-              <td><Link>Mary</Link></td>
-              <td>Moe</td>
-              <td>Applied</td>
-              <td>Already Done</td>
-              <td>Not Applicable</td>
-            </tr>
-            <tr className="border-one">
-              <td>3</td>
-              <td><Link>July</Link></td>
-              <td>Dooley</td>
-              <td>Applied</td>
-              <td>Already Done</td>
-              <td>Not Applicable</td>
-            </tr>
+            {complienceLoading ? (
+              <h1>Loading...</h1>
+            ) : (
+              allComplience.map((complience, index) => (
+                <tr key={index} className="border-one">
+                  <td>{complience?.id}</td>
+                  <td>
+                    <Link to={`complience/${complience?.id}`}>{complience?.name}</Link>
+                  </td>
+                  <td>{complience?.description}</td>
+                  <td>Applied</td>
+                  <td>Already Done</td>
+                  <td>Not Applicable</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

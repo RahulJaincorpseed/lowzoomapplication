@@ -31,6 +31,7 @@ import CompanyInfo from "./Login/CompanyInfo"
 import AddTeamOutlet from "./Login/AddTeamOutlet"
 import CustomizedCompliances from "./ManageLicence/SetCompliance/CustomizedCompliances"
 import SelectCompanyPage from "./ManageLicence/SelectCompanyPage"
+import DisplayAllTask from "./ManageLicence/SetCompliance/DisplayAllTask"
 
 function App() {
   return (
@@ -62,7 +63,9 @@ function App() {
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
           <Route path="setcompliance" element={<SetCompliance />} />
-          <Route path="setcompliance/:companyId" element={<CustomizedCompliances />} />
+          <Route path="setcompliance/:companyId/businessUnit/:businessUnitId" element={<CustomizedCompliances />} />
+          <Route path="setcompliance/:companyId/businessUnit/:businessUnitId/complience/:complienceId" element={<DisplayAllTask />} />
+        
           <Route path="managecompliance" element={<ManageCompliance />} />
           <Route path="vendor" element={<VendorTask />}>
             <Route path="" element={<Order />} />
