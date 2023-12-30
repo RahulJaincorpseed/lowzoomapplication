@@ -51,6 +51,7 @@ const SignUp = () => {
       return
     }
 
+    
     const OtpDataResponse = async () => {
       try {
         const OtpData = await postQuery(`/api/auth/otp/generateOTP`, userData)
