@@ -23,14 +23,14 @@ const UserInfo = () => {
     firstName: "",
     lastName: "",
     designation: "",
-    businessActivityEmail: "",
+    businessEmailId: "",
     companyType: "",
     companyName: "",
     companyCity: "",
     companyState: "",
     companyTurnover: "",
     locatedAt: "",
-    businessActivity: "",
+    businessActivityName: "",
     permanentEmployee: "",
     contractEmployee: "",
     gstNumber: "",
@@ -39,7 +39,6 @@ const UserInfo = () => {
     companyRegistrationDate: "",
     companyRemarks: "",
   })
-
   // Errors
   const [firstNameErr, setFirstNameErr] = useState(false)
   const [lastNameErr, setLastNameErr] = useState(false)
@@ -388,8 +387,8 @@ const UserInfo = () => {
                       className="form-control input-focus"
                       id="bemail"
                       placeholder="Enter Business Email"
-                      value={companyData.businessActivityEmail || ""}
-                      name="businessActivityEmail"
+                      value={companyData.businessEmailId || ""}
+                      name="businessEmailId"
                       onChange={(e) => nameData(e)}
                       required
                     />
@@ -568,8 +567,8 @@ const UserInfo = () => {
                     </label>
                     <input
                       type="text"
-                      value={companyData.businessActivity || ""}
-                      name="businessActivity"
+                      value={companyData.businessActivityName || ""}
+                      name="businessActivityName"
                       onChange={(e) => nameData(e)}
                       className="form-control input-focus"
                       id="searchBusiness"

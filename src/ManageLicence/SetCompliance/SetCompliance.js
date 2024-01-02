@@ -44,8 +44,8 @@ const SetCompliance = () => {
    const columnsTwo = [
     { field: 'businessUnitId', headerName: 'id', width: 150 },
     { field: 'companyName', headerName: 'Company Name', width: 150 },
-    { field: 'businessUnit', headerName: 'Business Unit', width: 150 },
-    { field: 'address', headerName: 'Company Address', width: 150 },
+    { field: 'businessUnitAddress', headerName: 'Business Unit', width: 150 },
+    { field: 'businessActivityName', headerName: 'Activity', width: 150 },
     { field: 'totalCompliance', headerName: 'Count', width: 150, renderCell: (props) => {
       const dataNew = props.row.totalCompliance[0]?.totalCompliance
       console.warn("i am warn ");
