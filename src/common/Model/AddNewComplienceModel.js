@@ -5,6 +5,7 @@ import { postQuery } from "../../Api/PostQuery"
 import { useLocation, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
 import ModelInput from "../Inputs/ModelInput"
+import ModelDropDownInput from "../Inputs/ModelDropDownInput"
 
 const AddNewComplienceModel = () => {
   const [addComplienceData, setAddComplienceData] = useState({
@@ -113,12 +114,17 @@ const AddNewComplienceModel = () => {
                         type="text"
                         label="Name*"
                         placeholder="Enter Name"
-                        id="name"
                         name="name"
                         onChange={(e) => complienceDateSetter(e)}
                       />
 
-                      <div className="form-group col-md-6">
+                      <ModelDropDownInput
+                        label="Priority*"
+                        data={priority}
+                        onChange={(e) => complienceDateSetter(e)}
+                      />
+
+                      {/* <div className="form-group col-md-6">
                         <div className="pl-ten">
                           <label
                             className="label-heading"
@@ -139,7 +145,7 @@ const AddNewComplienceModel = () => {
                             ))}
                           </select>
                         </div>
-                      </div>
+                      </div> */}
 
                       <div className="form-group col-md-6">
                         <div className="pr-ten">

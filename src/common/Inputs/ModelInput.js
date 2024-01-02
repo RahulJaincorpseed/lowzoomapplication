@@ -1,15 +1,15 @@
-import React from "react"
+import React, { useId } from "react"
 
 const ModelInput = React.forwardRef(
   ({
     type = "",
     label = " ",
     placeholder = "",
-    id = "",
     className = "",
     left,
     ...props
   }) => {
+    const id = useId();
     return (
       <div className="form-group col-md-6">
         <div className={left ? "pl-ten" : "pr-ten"}>
