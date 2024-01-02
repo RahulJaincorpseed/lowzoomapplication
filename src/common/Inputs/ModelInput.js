@@ -1,15 +1,18 @@
 import React, { useId } from "react"
 
 const ModelInput = React.forwardRef(
-  ({
-    type = "",
-    label = " ",
-    placeholder = "",
-    className = "",
-    left,
-    ...props
-  }) => {
-    const id = useId();
+  (
+    {
+      type = "",
+      label = " ",
+      placeholder = "",
+      className = "",
+      left,
+      ...props
+    },
+    ref
+  ) => {
+    const id = useId()
     return (
       <div className="form-group col-md-6">
         <div className={left ? "pl-ten" : "pr-ten"}>
@@ -22,6 +25,7 @@ const ModelInput = React.forwardRef(
             type={type}
             className="form-control input-focus"
             id={id}
+            ref={ref}
             placeholder={placeholder}
             {...props}
           />

@@ -1,9 +1,9 @@
 import React, { useId } from "react"
 
 const ModelDropDownInput = React.forwardRef(
-  ({label, data, className = "", ...props }) => {
+  ({ label, data, className = "", ...props }, ref) => {
     console.log("i am", data)
-    const id = useId();
+    const id = useId()
     return (
       <div className="form-group col-md-6">
         <div className="pl-ten">
@@ -16,6 +16,7 @@ const ModelDropDownInput = React.forwardRef(
             className="form-control input-focus"
             name="priority"
             id={id}
+            ref={ref}
             {...props}
           >
             {data?.map((d, index) => (
