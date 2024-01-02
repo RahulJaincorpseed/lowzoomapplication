@@ -1,5 +1,6 @@
 import React from "react"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
+import TaskCreate from "../../common/Model/TaskCreate"
 
 const DisplayAllTask = () => {
   return (
@@ -7,7 +8,7 @@ const DisplayAllTask = () => {
       <div>
         <h2 className="heading-primary">Compliances Task</h2>
         <div className="add-new-company mb-3">
-          <AddNewComplienceModel />
+          <TaskCreate />
         </div>
         <h2 className="heading-primary text-center">
           All Task 

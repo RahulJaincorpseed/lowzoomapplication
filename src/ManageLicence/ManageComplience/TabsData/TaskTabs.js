@@ -5,6 +5,7 @@ import CompliencesTab from "./CompliencesTab"
 import GuideTab from "./GuideTab"
 import "./TaskTabs.scss"
 import { Link } from "react-router-dom"
+import AddNewComplienceModel from "../../../common/Model/AddNewComplienceModel"
 
 const TaskTabs = () => {
   return (
