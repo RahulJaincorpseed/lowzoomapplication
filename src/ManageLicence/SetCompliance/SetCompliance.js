@@ -48,9 +48,10 @@ const SetCompliance = () => {
     { field: 'address', headerName: 'Company Address', width: 150 },
     { field: 'totalCompliance', headerName: 'Count', width: 150, renderCell: (props) => {
       const dataNew = props.row.totalCompliance[0]?.totalCompliance
-      console.log("i am new data", dataNew);
+      console.warn("i am warn ");
+      console.log("i am new total data", dataNew);
       return (
-        <Link to={`${props.row.companyId}/businessUnit/${props.row.businessUnitId}`}>{dataNew === null ? dataNew : "0"}</Link>
+        <Link to={`${props.row.companyId}/businessUnit/${props.row.businessUnitId}`}>{dataNew !== undefined ? dataNew : "0"}</Link>
       )
      } },
    ];

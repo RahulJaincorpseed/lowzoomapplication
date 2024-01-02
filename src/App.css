@@ -77,6 +77,11 @@ a:hover {
 .w-215 {
   width: 215px;
 }
+
+.w-180 {
+  min-width: 180px;
+}
+
 .table td,
 .table th {
   border-top: none;
