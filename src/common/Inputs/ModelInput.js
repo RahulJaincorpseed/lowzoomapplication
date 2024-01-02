@@ -20,7 +20,7 @@ const ModelInput = React.forwardRef(
             <label className="label-heading" htmlFor={id}>
               {label}
             </label>
-          )}
+          )} 
           <input
             type={type}
             className="form-control input-focus"

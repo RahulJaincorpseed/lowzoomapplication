@@ -4,8 +4,10 @@ import Glogo from "..//images/google-logo.png"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
+import BoxInputField from "../common/Inputs/BoxInputField"
 import "react-toastify/dist/ReactToastify.css"
 import { postQuery } from "../Api/PostQuery"
+import InputErrorComponent from "../components/InputErrorComponent"
 toast.configure()
 
 const SignUp = () => {
@@ -51,7 +53,6 @@ const SignUp = () => {
       return
     }
 
-    
     const OtpDataResponse = async () => {
       try {
         const OtpData = await postQuery(`/api/auth/otp/generateOTP`, userData)
@@ -112,43 +113,32 @@ const SignUp = () => {
         </p>
         <form className={`${otpPage ? "d-none" : ""}`}>
           <div className="pb-2">
-            <label className="label-heading" htmlFor="name">
-              Name *
-            </label>
-            <input
+            <BoxInputField
               type="text"
-              id="otp"
-              placeholder="Enter your Name"
               name="name"
+              label="Name*"
               ref={nameRef}
+              placeholder="Enter your Name"
               onChange={(e) => dataForOtp(e)}
               required
             />
           </div>
           <div className="pb-2">
-            <label className="label-heading" htmlFor="email">
-              Email ID*
-            </label>
-            <input
+            <BoxInputField
               type="email"
-              id="email"
               name="email"
+              label="Email ID*"
               ref={emailRef}
               placeholder="user@gmail.com"
               onChange={(e) => dataForOtp(e)}
               required
             />
           </div>
-
           <div className="pb-2">
-            <label className="label-heading password-input" htmlFor="password">
-              Set Password
-            </label>
-            <input
-              className="password-input"
+            <BoxInputField
               type="password"
-              id="password"
               name="password"
+              label="Set Password"
               ref={passwordRef}
               placeholder="Min. 8 Charecter"
               onChange={(e) => dataForOtp(e)}
@@ -176,7 +166,7 @@ const SignUp = () => {
                 onClick={(e) => submitdataForOtp(e)}
                 className="first-button"
               >
-               {otpLoading ? "Loading..." : "Sign Up" }
+                {otpLoading ? "Loading..." : "Sign Up"}
               </button>
             </div>
           </div>
@@ -194,12 +184,12 @@ const SignUp = () => {
               }
             />
             {otpPageError ? (
-              <p className="error-show">Otp Can not be blank</p>
+              <InputErrorComponent data="Otp Can not be blank" />
             ) : (
               ""
             )}
             {sameOtpError ? (
-              <p className="error-show">Please Enter Valid Otp</p>
+              <InputErrorComponent data="Please Enter Valid Otp" />
             ) : (
               ""
             )}
@@ -208,7 +198,7 @@ const SignUp = () => {
                 onClick={(e) => submitValidOtp(e)}
                 className="first-button"
               >
-              Submit OTP  
+                Submit OTP
               </button>
             </div>
           </form>
