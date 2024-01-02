@@ -4,6 +4,7 @@ import { priority } from "../../Api/FakeApi"
 import { postQuery } from "../../Api/PostQuery"
 import { useLocation, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
+import ModelInput from "../Inputs/ModelInput"
 
 const AddNewComplienceModel = () => {
   const [addComplienceData, setAddComplienceData] = useState({
@@ -22,17 +23,16 @@ const AddNewComplienceModel = () => {
 
   // const [businessUnitId, setBusinessUnitId] = useState(0);
 
-  console.log(addComplienceData);
+  console.log(addComplienceData)
 
-  const location = useLocation();
+  const location = useLocation()
 
-  const {companyid, userId, businessUnitId} = useParams();
+  const { companyid, userId, businessUnitId } = useParams()
 
-  const params = useParams();
+  const params = useParams()
 
-  console.log("ne wparams", params);
+  console.log("ne wparams", params)
 
- 
   const complienceDateSetter = (e) => {
     setAddComplienceData((prev) => ({
       ...prev,
@@ -48,11 +48,12 @@ const AddNewComplienceModel = () => {
     const complienceAdd = async () => {
       try {
         const addNewComplienceRes = await postQuery(
-          `/compliance/company/saveCompliance?companyId=${companyid}&businessUnitId=${businessUnitId}&userId=${userId}`,addComplienceData
+          `/compliance/company/saveCompliance?companyId=${companyid}&businessUnitId=${businessUnitId}&userId=${userId}`,
+          addComplienceData
         )
         console.log("add new complience", addNewComplienceRes)
         console.log("add new complience", addNewComplienceRes.data)
-        window.location.reload();
+        window.location.reload()
       } catch (err) {
         console.log("complience err", err)
       }
@@ -93,7 +94,7 @@ const AddNewComplienceModel = () => {
                   <h4 className="info-text">Add New Complience</h4>
                   <form>
                     <div className="first-form form-row">
-                      <div className="form-group col-md-6">
+                      {/* <div className="form-group col-md-6">
                         <div className="pr-ten">
                           <label className="label-heading" htmlFor="fullName">
                             Name *
@@ -107,7 +108,16 @@ const AddNewComplienceModel = () => {
                             placeholder="Enter Name"
                           />
                         </div>
-                      </div>
+                      </div> */}
+                      <ModelInput
+                        type="text"
+                        label="Name*"
+                        placeholder="Enter Name"
+                        id="name"
+                        name="name"
+                        onChange={(e) => complienceDateSetter(e)}
+                      />
+
                       <div className="form-group col-md-6">
                         <div className="pl-ten">
                           <label
@@ -130,6 +140,7 @@ const AddNewComplienceModel = () => {
                           </select>
                         </div>
                       </div>
+
                       <div className="form-group col-md-6">
                         <div className="pr-ten">
                           <label className="label-heading" htmlFor="state">
