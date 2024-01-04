@@ -1,11 +1,11 @@
 import React, { useId } from "react"
 
-const ModelDropDownInput = React.forwardRef(
-  ({ label, name, left, data, className = "", ...props }, ref) => {
+const ModelInputName = React.forwardRef(
+  ({ label, name,  left, data, className = "", ...props }, ref) => {
     const id = useId()
     return (
       <div className="form-group col-md-6">
-        <div className={left ? "pr-ten" : "pl-ten"}>
+        <div className={left ? "pr-ten": "pl-ten"}>
           {label && (
             <label className="label-heading" htmlFor={id}>
               {label}
@@ -19,8 +19,8 @@ const ModelDropDownInput = React.forwardRef(
             {...props}
           >
             {data?.map((d, index) => (
-              <option key={index} value={d.id}>
-                {d.name}
+              <option key={index} value={d}>
+                {d}
               </option>
             ))}
           </select>
@@ -30,4 +30,4 @@ const ModelDropDownInput = React.forwardRef(
   }
 )
 
-export default ModelDropDownInput
+export default ModelInputName
