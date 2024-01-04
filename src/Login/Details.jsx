@@ -1,11 +1,11 @@
 import React from "react"
-import LoginHeader from "../components/LoginHeader.js"
-import LoginFooter from "../components/LoginFooter.js"
+import LoginHeader from "../components/LoginHeader.jsx"
+import LoginFooter from "../components/LoginFooter.jsx"
 import "./Details.scss"
 import rocket from "../images/rocket.png"
-import { compliencesStaticData } from "../data/CompliencesData.js"
-import DetailsComp from "../components/DetailsComp.js"
-import { detailsData, secondDetailsData } from "../data/StaticData.js"
+import { compliencesStaticData } from "../data/CompliencesData.jsx"
+import DetailsComp from "../components/DetailsComp.jsx"
+import { detailsData, secondDetailsData } from "../data/StaticData.jsx"
 
 const Details = () => {
   return (
