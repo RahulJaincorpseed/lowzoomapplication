@@ -26,6 +26,34 @@ export const cityData = [
   "Assam",
 ]
 
+export const stateData = [
+  "Select Your State",
+  "Meerut",
+  "Noida",
+  "pune",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Meerut",
+  "Noida",
+  "pune",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Meerut",
+  "Noida",
+  "pune",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Meerut",
+  "Noida",
+  "pune",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+]
+
 export const companyData2 = [
   "Select Company",
   "Private Company",
