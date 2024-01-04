@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react"
 import "./login.scss"
-import Glogo from "..//images/google-logo.png"
 import { Link, useNavigate } from "react-router-dom"
-import axios from "axios"
 import { toast } from "react-toastify"
 import BoxInputField from "../common/Inputs/BoxInputField"
 import "react-toastify/dist/ReactToastify.css"
