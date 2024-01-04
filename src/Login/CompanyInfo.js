@@ -10,6 +10,8 @@ import { getQuery } from "../Api/getQuery"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import AddBusinessUnitModel from "../common/Model/AddBusinessUnitModel"
 import { customLocation } from "../Hooks/LocationHook"
+import LoginHeader from "../components/LoginHeader"
+import LoginFooter from "../components/LoginFooter"
 
 const CompanyInfo = () => {
   const [companyInfoData, setCompanyInfoData] = useState({})
@@ -60,6 +62,7 @@ const CompanyInfo = () => {
   return (
     <>
       <div className="container my-3">
+        <LoginHeader />
         <div className="d-end">
           <Link
             to={`/${userPathId}/company/${companyPathId}/dashboard`}
@@ -241,7 +244,7 @@ const CompanyInfo = () => {
             </div>
           </div>
         </div>
-
+        <LoginFooter />            
         {/* team sec */}
       </div>
     </>
