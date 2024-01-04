@@ -18,6 +18,9 @@ const ForgetPassword = () => {
 
   const [emailIdErr, setEmailIdErr] = useState(false)
   const [samePasswordErr, setSamePasswordErr] = useState(false);
+  const [emailLoading, setEmailLoading] = useState(false);
+  const [otpLoading, setOtpLoading] = useState(false);
+  const [passwordSetLoading, setPasswordSetLoading] = useState(false);
 
   const emailIdRef = useRef()
   const navigate = useNavigate();
@@ -31,7 +34,12 @@ const ForgetPassword = () => {
     e.preventDefault()
     if (emailIdRef.current.value === "") {
       setEmailIdErr(true)
+      return
     }
+    if(emailLoading === true){
+      return;
+    }
+    setEmailLoading(true)
 
     const emailDataApi = async () => {
       try {
@@ -45,12 +53,15 @@ const ForgetPassword = () => {
           }
         )
         console.log("forget ", apiDataResponse)
+        setEmailLoading(false)
         setNextPage((prev) => prev + 1)
       } catch (err) {
         console.log(err)
         if(err.response.status === 500){
           toast.error("Something Went Wrong")
+          setEmailLoading(false)
         }
+        setEmailLoading(false)
       }
     }
     emailDataApi()
@@ -58,6 +69,12 @@ const ForgetPassword = () => {
 
   const verifyOtpData = (e) => {
     e.preventDefault()
+
+    if(otpLoading=== true){
+      return
+    }
+    setOtpLoading(true)
+
     const verifyData = async () => {
       try {
         const otpResponse = await axios.post(
@@ -70,12 +87,15 @@ const ForgetPassword = () => {
           }
         )
         console.log(" oTP Response", otpResponse)
+        setOtpLoading(false)
         setNextPage((prev) => prev + 1)
       } catch (err) {
         console.log(err)
         if(err.response.status === 500){
           toast.error("Something Went Wrong")
+          setOtpLoading(false)
         }
+        setOtpLoading(false)
       }
     }
     verifyData()
@@ -87,6 +107,12 @@ const ForgetPassword = () => {
       setSamePasswordErr(true)
       return
     }
+
+    if(passwordSetLoading === true){
+      return
+    }
+
+    setPasswordSetLoading(false)
 
     const newPasswordData = async () => {
       try {
@@ -100,13 +126,16 @@ const ForgetPassword = () => {
           }
         )
         console.log("new passowrd set ", setPassword)
+        setPasswordSetLoading(false)
         navigate("/login")
         toast.success("password update succesfully please login")
       } catch (err) {
         console.log("error is ", err)
         if(err.response.status === 500){
           toast.error("Something Went Wrong")
+          setPasswordSetLoading(false)
         }
+        setPasswordSetLoading(false)
       }
     }
     newPasswordData()
@@ -154,13 +183,7 @@ const ForgetPassword = () => {
               <div className="sign-btn">
                 <div className="remember-text"></div>
                 <div>
-                  <LongButton data={"Next"} onClick={(e) => userEmailSubmit(e)} />
-                  {/* <button
-                    className="first-button"
-                    onClick={(e) => userEmailSubmit(e)}
-                  >
-                    Next
-                  </button> */}
+                  <LongButton data={emailLoading ? "Loading..." : "Next"} onClick={(e) => userEmailSubmit(e)} />
                 </div>
               </div>
             </>
@@ -182,12 +205,7 @@ const ForgetPassword = () => {
               <div className="sign-btn">
                 <div className="remember-text"></div>
                 <div>
-                  <button
-                    className="first-button"
-                    onClick={(e) => verifyOtpData(e)}
-                  >
-                    Submit Otp
-                  </button>
+                <LongButton data={otpLoading ? "Loading..." : "Submit Otp"} onClick={(e) => verifyOtpData(e)} />
                 </div>
               </div>
             </>
@@ -223,12 +241,7 @@ const ForgetPassword = () => {
               <div className="sign-btn">
                 <div className="remember-text"></div>
                 <div>
-                  <button
-                    className="first-button"
-                    onClick={(e) => setNewPasswordFun(e)}
-                  >
-                    Submit
-                  </button>
+                <LongButton data={otpLoading ? "Loading..." : "Submit"} onClick={(e) => setNewPasswordFun(e)} />
                 </div>
               </div>
             </>
