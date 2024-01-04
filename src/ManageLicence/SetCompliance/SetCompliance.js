@@ -3,7 +3,7 @@ import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
 import CompliancesTable from "../../Tables/CompliancesTable"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -20,6 +20,8 @@ const SetCompliance = () => {
   const companyPathId = customLocation(3, location);
   const userId = customLocation(1, location);
 
+  const dataId = useParams();
+  console.log("id is here", dataId);
 
   console.log("userid is", userId);
 
