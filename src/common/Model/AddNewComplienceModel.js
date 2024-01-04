@@ -6,6 +6,7 @@ import { useLocation, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
 import ModelInput from "../Inputs/ModelInput"
 import ModelDropDownInput from "../Inputs/ModelDropDownInput"
+import LongButton from "../Button/LongButton"
 
 const AddNewComplienceModel = () => {
   const [addComplienceData, setAddComplienceData] = useState({
@@ -21,6 +22,8 @@ const AddNewComplienceModel = () => {
     workStatus: 0,
     enable: true,
   })
+
+  const [complianceLoading, setComplianceLoading] = useState(false);
 
   // const [businessUnitId, setBusinessUnitId] = useState(0);
 
@@ -45,6 +48,12 @@ const AddNewComplienceModel = () => {
 
   const addNewComplienceFun = (e) => {
     e.preventDefault()
+    if(complianceLoading === true){
+      return
+    }
+
+    setComplianceLoading(true)
+    
 
     const complienceAdd = async () => {
       try {
@@ -54,9 +63,11 @@ const AddNewComplienceModel = () => {
         )
         console.log("add new complience", addNewComplienceRes)
         console.log("add new complience", addNewComplienceRes.data)
+        setComplianceLoading(false)
         window.location.reload()
       } catch (err) {
         console.log("complience err", err)
+        setComplianceLoading(false)
       }
     }
     complienceAdd()
@@ -226,12 +237,13 @@ const AddNewComplienceModel = () => {
                           <h2>Advanced Setting</h2>
                         </div>
                         <div>
-                          <button
+                          <LongButton data={complianceLoading ? "Loading" : "Submit"} onClick={(e) => addNewComplienceFun(e)} />
+                          {/* <button
                             onClick={(e) => addNewComplienceFun(e)}
                             className="first-button form-prev-btn"
                           >
                             Submit
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     </div>
