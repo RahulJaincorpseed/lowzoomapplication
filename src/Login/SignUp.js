@@ -8,6 +8,7 @@ import BoxInputField from "../common/Inputs/BoxInputField"
 import "react-toastify/dist/ReactToastify.css"
 import { postQuery } from "../Api/PostQuery"
 import InputErrorComponent from "../components/InputErrorComponent"
+import LongButton from "../common/Button/LongButton"
 toast.configure()
 
 const SignUp = () => {
@@ -29,6 +30,7 @@ const SignUp = () => {
   const [otpPageError, setOtpPageError] = useState(false)
   const [sameOtpError, setSameOtpError] = useState(false)
   const [validOtpError, setValidOtpError] = useState(false)
+  const [otpTwoLoading, setOtpTwoLoading] = useState(false)
   const [responseOtpData, setResponseOtpData] = useState({})
   const navigate = useNavigate()
 
@@ -54,16 +56,23 @@ const SignUp = () => {
     }
 
     const OtpDataResponse = async () => {
+      if (otpLoading === true) {
+        return
+      }
+      setOtpLoading(true)
       try {
         const OtpData = await postQuery(`/api/auth/otp/generateOTP`, userData)
         console.log("otp data", OtpData?.data)
         setResponseOtpData(OtpData?.data)
+        setOtpLoading(false)
         setOtpPage(true)
       } catch (err) {
         console.log(err)
         if (err.response.status === 500) {
           toast.error("Something Went Wrong")
+          setOtpLoading(false)
         }
+        setOtpLoading(false)
       }
     }
     OtpDataResponse()
@@ -81,20 +90,23 @@ const SignUp = () => {
     }
 
     const UserSignUpResponse = async () => {
-      setOtpLoading(true)
+      if(otpTwoLoading === true){
+        return
+      }
+      setOtpTwoLoading(true)
       try {
         const userSignupData = await postQuery(`/api/auth/signup`, signUpData)
         console.log("sign up data", userSignupData?.data)
         toast.success("Account Created Succesfully")
-        setOtpLoading(false)
+        setOtpTwoLoading(false)
         navigate("/login")
       } catch (err) {
         console.log("err", err)
         console.log("error")
-        setOtpLoading(false)
+        setOtpTwoLoading(false)
         if (err.response.status === 500) {
           toast.error("Something Went Wrong")
-          setOtpLoading(false)
+          setOtpTwoLoading(false)
         }
       }
     }
@@ -162,12 +174,10 @@ const SignUp = () => {
               <p className="label-heading">Remember me</p>
             </div>
             <div>
-              <button
+              <LongButton
+                data={otpLoading ? "Loading..." : "Sign Up"}
                 onClick={(e) => submitdataForOtp(e)}
-                className="first-button"
-              >
-                {otpLoading ? "Loading..." : "Sign Up"}
-              </button>
+              />
             </div>
           </div>
         </form>
@@ -194,12 +204,16 @@ const SignUp = () => {
               ""
             )}
             <div className="flex-end-cl">
-              <button
+              <LongButton
+                data={otpTwoLoading ? "Loading..." : "Submit OTP"}
+                onClick={(e) => submitValidOtp(e)}
+              />
+              {/* <button
                 onClick={(e) => submitValidOtp(e)}
                 className="first-button"
               >
                 Submit OTP
-              </button>
+              </button> */}
             </div>
           </form>
         </div>
