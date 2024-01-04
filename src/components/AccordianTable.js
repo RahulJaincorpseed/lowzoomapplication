@@ -33,7 +33,9 @@ const AccordianTable = () => {
           </thead>
           <tbody>
             {complienceLoading ? (
-              <h1>Loading...</h1>
+              <tr>
+                <td>Loading...</td>
+              </tr>
             ) : (
               allComplience.map((complience, index) => (
                 <tr key={index} className="border-one">
