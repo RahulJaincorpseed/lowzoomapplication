@@ -5,10 +5,10 @@ import useCustomData from "./useCustomData"
 
 const DashBoard = () => {
 
-  const url = `/companyServices/company/allCompany`;
-  const {allData: ApiData, error} = useCustomData(url);
+  // const url = `/companyServices/company/allCompany`;
+  // const {allData: ApiData, error} = useCustomData(url);
 
-  console.log("all data", ApiData, error);
+  // console.log("all data", ApiData, error);
 
   return (
     <div>
