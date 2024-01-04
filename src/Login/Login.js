@@ -9,6 +9,8 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useDispatch, useSelector } from "react-redux"
 import { userData, userRoles, userToken } from "../Redux/Actions/AuthAction"
+import LongButton from "../common/Button/LongButton"
+import InputErrorComponent from "../components/InputErrorComponent"
 toast.configure()
 
 const Login = () => {
@@ -18,13 +20,13 @@ const Login = () => {
     password: "",
   })
   const [inputError, setInputError] = useState(false)
-  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false)
   const [apiError, setApiError] = useState("")
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const LoginUserData = (e) => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -36,6 +38,9 @@ const Login = () => {
     e.preventDefault()
     if (userRef.current.value === "" || passRef.current.value === "") {
       setInputError(true)
+    }
+    if (loginLoading === true) {
+      return
     }
 
     const userDetails = async () => {
@@ -51,21 +56,20 @@ const Login = () => {
         })
         console.log("api data", token.data.body.associated)
 
-        
         console.log("api data", token.data.body.accessToken)
         localStorage.setItem("Access Token", token.data.body.accessToken)
         dispatch(userData(token.data.body))
         // subscribed
-        if(token.data.body.subscribed === true){
+        if (token.data.body.subscribed === true) {
           navigate(`/${token.data.body.id}/company/dashboard/dashboard`)
           setLoginLoading(false)
-          return;
-        } 
+          return
+        }
 
-        if(token.data.body.associated === true){
+        if (token.data.body.associated === true) {
           navigate(`/${token.data.body.id}/company`)
           setLoginLoading(false)
-          return;
+          return
         }
         setLoginLoading(false)
         navigate(`/user/${token.data.body.id}/userinfo`)
@@ -129,14 +133,12 @@ const Login = () => {
             />
           </div>
           {inputError ? (
-            <p className="mb-2 text-danger">
-              Username or password filed can't be blank
-            </p>
+            <InputErrorComponent data="Email or password filed can't be blank" />
           ) : (
             ""
           )}
           {apiError ? (
-            <p className="error-show">Please Enter valid Mobile or Password</p>
+            <InputErrorComponent data="Please Enter valid Mobile or Password" />
           ) : (
             ""
           )}
@@ -152,9 +154,13 @@ const Login = () => {
               <p className="label-heading">Remember me</p>
             </div>
             <div>
-              <button className="first-button" onClick={(e) => loginUser(e)}>
+              <LongButton
+                data={loginLoading ? "Loading" : "Sign In"}
+                onClick={(e) => loginUser(e)}
+              />
+              {/* <button className="first-button" onClick={(e) => loginUser(e)}>
                { loginLoading ? "Loading" : "Sign In" }
-              </button>
+              </button> */}
             </div>
           </div>
           <p className="label-heading mb-0 move-info">
@@ -170,7 +176,7 @@ const Login = () => {
           </button> */}
 
           <div className="text-center">
-          <Link to="/forgetpassword" >Forget Password ?</Link>
+            <Link to="/forgetpassword">Forget Password ?</Link>
           </div>
         </div>
       </form>
