@@ -5,6 +5,7 @@ import { postQuery } from "../Api/PostQuery"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import LongButton from "../common/Button/LongButton"
 toast.configure()
 
 const ForgetPassword = () => {
@@ -153,12 +154,13 @@ const ForgetPassword = () => {
               <div className="sign-btn">
                 <div className="remember-text"></div>
                 <div>
-                  <button
+                  <LongButton data={"Next"} onClick={(e) => userEmailSubmit(e)} />
+                  {/* <button
                     className="first-button"
                     onClick={(e) => userEmailSubmit(e)}
                   >
                     Next
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </>
