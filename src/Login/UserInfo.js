@@ -123,28 +123,40 @@ const UserInfo = () => {
     if (companyData.lastName != "") {
       setLastNameErr(false)
     }
+    if (companyData.designation != "") {
+      setDesignationErr(false)
+    }
+    if (companyData.businessEmailId != "") {
+      setBusinessActivityEmailErr(false)
+    }
+    if (companyData.operationUnitAddress != "") {
+      setOperationUnitAddressErr(false)
+    }
     console.log("company data")
   }
 
   // increase function
   const increaseFormStep = () => {
-    // if (firstNameRef.current.value === "") {
-    //   setFirstNameErr(true)
-    //   firstNameRef.current.style.border = "1px solid #DC3545"
-    // }
-    // if (lastNameRef.current.value === "") {
-    //   setLastNameErr(true)
-    //   lastNameRef.current.style.border = "1px solid #DC3545"
-    // }
-    // if (designationRef.current.value === "") {
-    //   setDesignationErr(true)
-    //   designationRef.current.style.border = "1px solid #DC3545"
-    // }
-    // if (businessActivityEmailRef.current.value === "") {
-    //   setBusinessActivityEmailErr(true)
-    //   businessActivityEmailRef.current.style.border = "1px solid #DC3545"
-    //   return
-    // }
+    if (firstNameRef.current.value === "") {
+      setFirstNameErr(true)
+      firstNameRef.current.style.border = "1px solid #DC3545";
+      return;
+    }
+    if (lastNameRef.current.value === "") {
+      setLastNameErr(true)
+      lastNameRef.current.style.border = "1px solid #DC3545";
+      return;
+    }
+    if (designationRef.current.value === "") {
+      setDesignationErr(true)
+      designationRef.current.style.border = "1px solid #DC3545";
+      return;
+    }
+    if (businessActivityEmailRef.current.value === "") {
+      setBusinessActivityEmailErr(true)
+      businessActivityEmailRef.current.style.border = "1px solid #DC3545";
+      return
+    }
 
     setStep((prev) => prev + 1)
     setPercent((prev) => prev + 50)
@@ -161,25 +173,28 @@ const UserInfo = () => {
   const SubmitAllData = (e) => {
     e.preventDefault()
     // console.log("value is ", companyTypeRef.current.value)
-    // if (companyData.companyType === "") {
-    //   setCompanyTypeErr(true)
-    //   companyTypeRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyData.companyType === "") {
+      setCompanyTypeErr(true)
+      companyTypeRef.current.style.border = "1px solid #DC3545";
+      return
+    }
 
     // if (companyNameRef.current.value === "") {
     //   setCompanyNameErr(true)
     //   companyNameRef.current.style.border = "1px solid #DC3545"
     // }
 
-    // if (companyData.companyCity === "") {
-    //   setCompanyCityErr(true)
-    //   companyCityRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyData.companyCity === "") {
+      setCompanyCityErr(true)
+      companyCityRef.current.style.border = "1px solid #DC3545";
+      return
+    }
 
-    // if (companyData.companyState === "") {
-    //   setCompanyStateErr(true)
-    //   companyStateRef.current.style.border = "1px solid #DC3545"
-    // }
+    if (companyData.companyState === "") {
+      setCompanyStateErr(true)
+      companyStateRef.current.style.border = "1px solid #DC3545";
+      return
+    }
 
     // if (companyTurnoverRef.current.value === "") {
     //   setCompanyTurnoverErr(true)
@@ -221,11 +236,11 @@ const UserInfo = () => {
     //   gstNumberRef.current.style.border = "1px solid #DC3545"
     // }
 
-    // if (operationUnitAddressRef.current.value === "") {
-    //   setOperationUnitAddressErr(true)
-    //   operationUnitAddressRef.current.style.border = "1px solid #DC3545"
-    //   return
-    // }
+    if (operationUnitAddressRef.current.value === "") {
+      setOperationUnitAddressErr(true)
+      operationUnitAddressRef.current.style.border = "1px solid #DC3545"
+      return
+    }
 
     // if (contractEmployeeRef.current.value === "") {
     //   setContractEmployeeErr(true)
@@ -538,7 +553,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pl-ten">
                     <label className="label-heading" htmlFor="sel4">
-                      Located At*
+                      Located At
                     </label>
                     <select
                       value={companyData.locatedAt || ""}
@@ -563,7 +578,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pr-ten">
                     <label className="label-heading" htmlFor="searchBusiness">
-                      Search business Activity*
+                      Enter Business Activity
                     </label>
                     <input
                       type="text"
@@ -588,7 +603,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pl-ten">
                     <label className="label-heading" htmlFor="pemp">
-                      Permanant Employees in the company*
+                      Permanant Employees in the company
                     </label>
                     <input
                       type="text"
@@ -616,7 +631,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pr-ten">
                     <label className="label-heading" htmlFor="pemp1">
-                      company CIN Number*
+                      company CIN Number
                     </label>
                     <input
                       type="text"
@@ -642,7 +657,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pl-ten">
                     <label className="label-heading" htmlFor="regisNum">
-                      Company Pincode*
+                      Company Pincode
                     </label>
                     <input
                       type="text"
@@ -668,7 +683,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pr-ten">
                     <label className="label-heading" htmlFor="regisDate">
-                      Company Registraion Date*
+                      Company Registraion Date
                     </label>
                     <input
                       type="date"
@@ -686,7 +701,7 @@ const UserInfo = () => {
                 <div className="form-group col-md-6">
                   <div className="pl-ten">
                     <label className="label-heading" htmlFor="Signature">
-                      Signature*
+                      Signature
                     </label>
                     <input
                       type="text"
@@ -713,7 +728,7 @@ const UserInfo = () => {
                   <div className="form-group col-md-12  m-0 p-0 mb-3">
                     <div className="pr-ten">
                       <label className="label-heading" htmlFor="contractemp">
-                        Contract employees in the company *
+                        Contract employees in the company
                       </label>
                       <input
                         type="text"
@@ -738,7 +753,7 @@ const UserInfo = () => {
                   <div className="form-group col-md-12 m-0 p-0">
                     <div className="pr-ten">
                       <label className="label-heading" htmlFor="gstnumber">
-                        GST Number*
+                        GST Number
                       </label>
                       <input
                         type="text"
