@@ -65,7 +65,7 @@ const CompanyInfo = () => {
         <LoginHeader />
         <div className="d-end">
           <Link
-            to={`/${userPathId}/company/${companyPathId}/dashboard`}
+            to={`/${userPathId}/company/dashboard`}
             className="form-next-btn first-button"
           >
             Go to Dashboard

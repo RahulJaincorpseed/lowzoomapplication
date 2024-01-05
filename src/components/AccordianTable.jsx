@@ -7,9 +7,9 @@ import { useCustomRoute } from "../Hooks/GetCustomRoute"
 const AccordianTable = () => {
   const [collpaseState, setCollapseState] = useState(false)
 
-  const { companyid, userId, businessUnitId } = useParams()
+  const { companyId, userId, businessUnitId } = useParams()
 
-  const allcomplienceUrl = `/compliance/company/showAllCompliance?companyId=${companyid}&businessId=${businessUnitId}`
+  const allcomplienceUrl = `/compliance/company/showAllCompliance?companyId=${companyId}&businessId=${businessUnitId}`
   const allComplienceDep = []
 
   const { productData: allComplience, loading: complienceLoading } =

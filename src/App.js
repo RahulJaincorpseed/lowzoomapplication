@@ -59,7 +59,7 @@ function App() {
 
         <Route path="/details" element={<Details />} />
         <Route path="/:userId/company"  element={<SelectCompanyPage />} />
-        <Route path=":userId/company/:companyid" element={<MainCompany />}>
+        <Route path=":userId/company" element={<MainCompany />}>
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
           <Route path="setcompliance" element={<SetCompliance />} />
@@ -83,6 +83,10 @@ function App() {
             <Route path="/accounts" element={<AccountProfile />} />
           </Route> */}
         </Route>
+
+
+
+
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
