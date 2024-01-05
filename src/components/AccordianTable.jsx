@@ -27,9 +27,9 @@ const AccordianTable = () => {
               <th>S. No.</th>
               <th>Name</th>
               <th>Description</th>
-              <th>Applied</th>
-              <th>Already Done</th>
-              <th>Not Applicable</th>
+              <th>Created date</th>
+              <th>Start Date</th>
+              <th>End Date</th>
             </tr>
           </thead>
           <tbody>
@@ -44,10 +44,10 @@ const AccordianTable = () => {
                   <td>
                     <Link to={`complience/${complience?.id}`}>{complience?.name}</Link>
                   </td>
-                  <td>{complience?.description}</td>
-                  <td>Applied</td>
-                  <td>Already Done</td>
-                  <td>Not Applicable</td>
+                  <td>{`${complience?.description.slice(0,30)}...`}</td>
+                  <td>{new Date(complience?.createdAt).toLocaleDateString()}</td>
+                  <td>{complience?.startDate}</td>
+                  <td>{complience?.completedDate}</td>
                 </tr>
               ))
             )}
