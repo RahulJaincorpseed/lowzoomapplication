@@ -26,6 +26,14 @@ export const cityData = [
   "Assam",
 ]
 
+export const zoneDate = [
+  "Select Zone",
+  "Central",
+  "State",
+  "Global",
+  "N/A"
+]
+
 export const stateData = [
   "Select Your State",
   "Meerut",
