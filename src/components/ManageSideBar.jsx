@@ -16,14 +16,14 @@ const ManageSideBar = () => {
       <div className="side-nav-items">
         <ul className="list-unorder">
           <li className="linkw-icon">
-            <NavLink to={`/${userId}/company/${companyid}/dashboard`} className={`main-link`}>
+            <NavLink to={`/${userId}/company/dashboard`} className={`main-link`}>
               <i className="fa-solid fa-gear"></i>
               <span>DashBoard</span>
             </NavLink>
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={`/${userId}/company/${companyid}/managecompany`}
+              to={`/${userId}/company/managecompany`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -33,7 +33,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={`/${userId}/company/${companyid}/setcompliance`}
+              to={`/${userId}/company/setcompliance`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -43,7 +43,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={`/${userId}/company/${companyid}/managecompliance`}
+              to={`/${userId}/company/managecompliance`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
               data-toggle="collapse"
@@ -120,7 +120,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={`/${userId}/company/${companyid}/vendor`}
+              to={`/${userId}/company/vendor`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
@@ -130,7 +130,7 @@ const ManageSideBar = () => {
           </li>
           <li className="linkw-icon">
             <NavLink
-              to={`/${userId}/company/${companyid}/accounts`}
+              to={`/${userId}/company/accounts`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             > 

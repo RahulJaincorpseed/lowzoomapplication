@@ -2,11 +2,14 @@ import React, { useId } from "react"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
 import TaskCreate from "../../common/Model/TaskCreate"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
+import { useParams } from "react-router-dom"
 
 const DisplayAllTask = () => {
-  const id = useId()
+  const {complienceId } = useParams()
 
-  const getAllTask = `/compliance/task/getAllComplianceTask?complianceId=${15}`
+  console.log("is id here ====", complienceId);
+
+  const getAllTask = `/compliance/task/getAllComplianceTask?complianceId=${complienceId}`
   const TaskDep = []
 
   const { productData: allTaskData, loading: taskLoading } = useCustomRoute(

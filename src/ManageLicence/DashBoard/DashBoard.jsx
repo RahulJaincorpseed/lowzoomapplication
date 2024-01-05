@@ -2,6 +2,7 @@ import React from "react"
 import "./DashBoard.scss"
 import BreadCrum from "../../components/BreadCrum"
 import useCustomData from "./useCustomData"
+import TableScalaton from "../../common/Scalaton/TableScalaton"
 
 const DashBoard = () => {
 
@@ -15,6 +16,7 @@ const DashBoard = () => {
       <BreadCrum />
       <div>
         <h2 className="heading-primary">DashBoard</h2>
+        <TableScalaton />
       </div>
     </div>
   )

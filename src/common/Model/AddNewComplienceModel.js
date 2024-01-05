@@ -33,7 +33,7 @@ const AddNewComplienceModel = () => {
 
   const location = useLocation()
 
-  const { companyid, userId, businessUnitId } = useParams()
+  const { companyId, userId, businessUnitId } = useParams()
 
   const params = useParams()
 
@@ -59,7 +59,7 @@ const AddNewComplienceModel = () => {
     const complienceAdd = async () => {
       try {
         const addNewComplienceRes = await postQuery(
-          `/compliance/company/saveCompliance?companyId=${companyid}&businessUnitId=${businessUnitId}&userId=${userId}`,
+          `/compliance/company/saveCompliance?companyId=${companyId}&businessUnitId=${businessUnitId}&userId=${userId}`,
           addComplienceData
         )
         console.log("add new complience", addNewComplienceRes)
