@@ -6,9 +6,9 @@ import { useParams } from "react-router-dom"
 import TableScalaton from "../../common/Scalaton/TableScalaton"
 
 const DisplayAllTask = () => {
-  const {complienceId } = useParams()
+  const { complienceId } = useParams()
 
-  console.log("is id here ====", complienceId);
+  console.log("is id here ====", complienceId)
 
   const getAllTask = `/compliance/task/getAllComplianceTask?complianceId=${complienceId}`
   const TaskDep = []
@@ -17,6 +17,16 @@ const DisplayAllTask = () => {
     getAllTask,
     TaskDep
   )
+
+  const getAllUserUrl = `/companyServices/company/team/members/getAllTeamMembersWithIdAndTeamName?companyId=1`
+  const allUserDep = []
+
+  const { productData: allUser, loading: userLoading } = useCustomRoute(
+    getAllUserUrl,
+    allUserDep
+  )
+
+  console.log("all user", allUser);
 
   console.log("all r=task data", allTaskData)
 
@@ -44,7 +54,9 @@ const DisplayAllTask = () => {
               <tbody>
                 {taskLoading ? (
                   <tr>
-                    <td><TableScalaton /></td>
+                    <td>
+                      <TableScalaton />
+                    </td>
                   </tr>
                 ) : (
                   allTaskData &&

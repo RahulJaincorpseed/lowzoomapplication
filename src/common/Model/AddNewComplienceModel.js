@@ -7,7 +7,7 @@ import { customLocation } from "../../Hooks/LocationHook"
 import ModelInput from "../Inputs/ModelInput"
 import ModelDropDownInput from "../Inputs/ModelDropDownInput"
 import LongButton from "../Button/LongButton"
-import { cityData, stateData } from "../../TestData.js/CityData"
+import { cityData, stateData, zoneDate } from "../../TestData.js/CityData"
 import ModelInputName from "../Inputs/ModelInputName"
 
 const AddNewComplienceModel = () => {
@@ -123,7 +123,7 @@ const AddNewComplienceModel = () => {
                       />
 
                       <ModelInputName
-                        label="Select State*"
+                        label="Approval State*"
                         data={stateData}
                         left="true"
                         name="approvalState"
@@ -131,8 +131,8 @@ const AddNewComplienceModel = () => {
                       />
 
                       <ModelInputName
-                        label="Select City*"
-                        data={cityData}
+                        label="Approval Zone*"
+                        data={zoneDate}
                         name="applicableZone"
                         onChange={(e) => complienceDateSetter(e)}
                       />
