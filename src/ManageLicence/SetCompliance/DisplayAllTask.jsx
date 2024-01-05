@@ -3,6 +3,7 @@ import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
 import TaskCreate from "../../common/Model/TaskCreate"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
 import { useParams } from "react-router-dom"
+import TableScalaton from "../../common/Scalaton/TableScalaton"
 
 const DisplayAllTask = () => {
   const {complienceId } = useParams()
@@ -42,7 +43,9 @@ const DisplayAllTask = () => {
               </thead>
               <tbody>
                 {taskLoading ? (
-                  <h2>Loading...</h2>
+                  <tr>
+                    <td><TableScalaton /></td>
+                  </tr>
                 ) : (
                   allTaskData &&
                   allTaskData.map((task, index) => (

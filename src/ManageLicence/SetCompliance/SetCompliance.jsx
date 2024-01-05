@@ -8,6 +8,8 @@ import { getQuery } from "../../Api/getQuery"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { customLocation } from "../../Hooks/LocationHook"
+import { useCustomRoute } from "../../Hooks/GetCustomRoute"
+import TableScalaton from "../../common/Scalaton/TableScalaton"
 toast.configure()
 
 const SetCompliance = () => {
@@ -97,6 +99,12 @@ const SetCompliance = () => {
   }
 
   // /companyServices/company/getCompanyUnitComplianceDetails?userId=1
+
+  const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`;
+  const complianceDep = [];
+
+  const {productData: companyComplienceData,  loading: comComplienceLoad } = useCustomRoute(companyComplianceUrl, complianceDep);
+
 
   const complianceData = async () =>{
     try{
@@ -256,7 +264,8 @@ const SetCompliance = () => {
             </div>
 
             <div className="my-4 w-100">
-            <CompliancesTable rows={companyComplience} getRowId={(row) => row.businessUnitId} columns={columnsTwo} />
+              {comComplienceLoad ? <TableScalaton /> :  <CompliancesTable rows={companyComplienceData} getRowId={(row) => row.businessUnitId} columns={columnsTwo} />}
+           
 
               {/* <CompliancesTable rows={allComplienses} columns={columns} /> */}
             </div>

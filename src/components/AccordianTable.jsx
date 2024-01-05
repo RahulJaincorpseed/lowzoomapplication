@@ -3,6 +3,7 @@ import "./AccordianTable.scss"
 import AddNewTaskModel from "../common/Model/AddNewTaskModel"
 import { Link, useParams } from "react-router-dom"
 import { useCustomRoute } from "../Hooks/GetCustomRoute"
+import TableScalaton from "../common/Scalaton/TableScalaton"
 
 const AccordianTable = () => {
   const [collpaseState, setCollapseState] = useState(false)
@@ -34,7 +35,7 @@ const AccordianTable = () => {
           <tbody>
             {complienceLoading ? (
               <tr>
-                <td>Loading...</td>
+                <td><TableScalaton /></td>
               </tr>
             ) : (
               allComplience.map((complience, index) => (

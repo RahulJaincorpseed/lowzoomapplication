@@ -91,6 +91,13 @@ button:focus {
   outline: none;
 }
 
+
+.scalaton-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
 .error-show{
   color: #DC3545;
   font-size: 14px;

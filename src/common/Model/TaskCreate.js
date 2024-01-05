@@ -13,7 +13,7 @@ const TaskCreate = () => {
         data-toggle="modal"
         data-target="#TaskCreateModel"
       >
-        <i class="fa-solid fa-plus"></i> Task Create
+        <i className="fa-solid fa-plus"></i> Task Create
       </button>
 
       <div
