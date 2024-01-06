@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { Suspense, useEffect, useState } from "react"
 import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
-import CompliancesTable from "../../Tables/CompliancesTable"
+// import CompliancesTable from "../../Tables/CompliancesTable"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
@@ -12,116 +12,124 @@ import { useCustomRoute } from "../../Hooks/GetCustomRoute"
 import TableScalaton from "../../common/Scalaton/TableScalaton"
 toast.configure()
 
+const CompliancesTable = React.lazy(() =>
+  import("../../Tables/CompliancesTable")
+)
+
 const SetCompliance = () => {
+  const [allComplienses, setAllCompliences] = useState([])
+  const [companyComplience, setCompanyComplience] = useState([])
 
-  const [allComplienses, setAllCompliences] = useState([]);
-  const [companyComplience, setCompanyComplience] = useState([]);
+  const navigate = useNavigate()
+  const location = useLocation()
+  const companyPathId = customLocation(3, location)
+  const userId = customLocation(1, location)
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  const companyPathId = customLocation(3, location);
-  const userId = customLocation(1, location);
+  const dataId = useParams()
+  console.log("id is here", dataId)
 
-  const dataId = useParams();
-  console.log("id is here", dataId);
-
-  console.log("userid is", userId);
+  console.log("userid is", userId)
 
   // useEffect(()=>{
   //   allCompliancesData()
   // }, [])
 
-  useEffect(()=>{
-    complianceData();
-  },[])
+  useEffect(() => {
+    complianceData()
+  }, [])
 
-  
   const columns = [
-    { field: 'name', headerName: 'Name', width: 150 },
-    { field: 'approvalState', headerName: 'State', width: 150 },
-    { field: 'applicableZone', headerName: 'City', width: 150 },
-    { field: 'startDate', headerName: 'Start Date', width: 150 },
-    { field: 'completedDate', headerName: 'completed Date', width: 150 },
-    { field: 'description', headerName: 'Description', width: 150 },
-   ];
+    { field: "name", headerName: "Name", width: 150 },
+    { field: "approvalState", headerName: "State", width: 150 },
+    { field: "applicableZone", headerName: "City", width: 150 },
+    { field: "startDate", headerName: "Start Date", width: 150 },
+    { field: "completedDate", headerName: "completed Date", width: 150 },
+    { field: "description", headerName: "Description", width: 150 },
+  ]
 
-   const columnsTwo = [
-    { field: 'businessUnitId', headerName: 'id', width: 150 },
-    { field: 'companyName', headerName: 'Company Name', width: 150 },
-    { field: 'businessUnitAddress', headerName: 'Business Unit', width: 150 },
-    { field: 'businessActivityName', headerName: 'Activity', width: 150 },
-    { field: 'totalCompliance', headerName: 'Count', width: 150, renderCell: (props) => {
-      const dataNew = props.row.totalCompliance[0]?.totalCompliance
-      console.warn("i am warn ");
-      console.log("i am new total data", dataNew);
-      return (
-        <Link to={`${props.row.companyId}/businessUnit/${props.row.businessUnitId}`}>{dataNew !== undefined ? dataNew : "0"}</Link>
-      )
-     } },
-   ];
+  const columnsTwo = [
+    { field: "businessUnitId", headerName: "id", width: 150 },
+    { field: "companyName", headerName: "Company Name", width: 150 },
+    { field: "businessUnitAddress", headerName: "Business Unit", width: 150 },
+    { field: "businessActivityName", headerName: "Activity", width: 150 },
+    {
+      field: "totalCompliance",
+      headerName: "Count",
+      width: 150,
+      renderCell: (props) => {
+        const dataNew = props.row.totalCompliance[0]?.totalCompliance
+        console.warn("i am warn ")
+        console.log("i am new total data", dataNew)
+        return (
+          <Link
+            to={`${props.row.companyId}/businessUnit/${props.row.businessUnitId}`}
+          >
+            {dataNew !== undefined ? dataNew : "0"}
+          </Link>
+        )
+      },
+    },
+  ]
 
+  // applicableZone: "cdcsdcdscd"
+  // approvalState: "csdcd"
+  // completedDate: "2023-11-13"
+  // createdAt: "2023-11-10T10:36:55.214+00:00"
+  // description: "dcscds  v dsv dsvds"
+  // dueDate: null
+  // duration: ""
+  // enable: true
+  // id: 41
+  // name: "csdc"
+  // priority: 1
+  // startDate: "2023-11-11"
+  // updatedAt: "2023-11-10T10:36:55.214+00:00"
+  // workStatus:0
 
-
-
-
-// applicableZone: "cdcsdcdscd"
-// approvalState: "csdcd"
-// completedDate: "2023-11-13"
-// createdAt: "2023-11-10T10:36:55.214+00:00"
-// description: "dcscds  v dsv dsvds"
-// dueDate: null
-// duration: ""
-// enable: true
-// id: 41
-// name: "csdc"
-// priority: 1
-// startDate: "2023-11-11"
-// updatedAt: "2023-11-10T10:36:55.214+00:00"
-// workStatus:0
-  
   const columns2 = [
-    { field: 'col1', headerName: 'Column 1', width: 150 },
-    { field: 'col2', headerName: 'Column 2', width: 150 },
-  ];
+    { field: "col1", headerName: "Column 1", width: 150 },
+    { field: "col2", headerName: "Column 2", width: 150 },
+  ]
 
-
-  const allCompliancesData = async () =>{
-    try{
-    const allCompliencesResponse = await getQuery(`/compliance/company/showAllCompliance?companyId=${companyPathId}`);
-    console.log("all compliences ", allCompliencesResponse.data); 
-    setAllCompliences(allCompliencesResponse.data)
-    }catch(err){
+  const allCompliancesData = async () => {
+    try {
+      const allCompliencesResponse = await getQuery(
+        `/compliance/company/showAllCompliance?companyId=${companyPathId}`
+      )
+      console.log("all compliences ", allCompliencesResponse.data)
+      setAllCompliences(allCompliencesResponse.data)
+    } catch (err) {
       console.log("err", err)
-      if(err.response.status === 500){
-        toast.error("Something Went Wrong") 
+      if (err.response.status === 500) {
+        toast.error("Something Went Wrong")
       }
     }
   }
 
   // /companyServices/company/getCompanyUnitComplianceDetails?userId=1
 
-  const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`;
-  const complianceDep = [];
+  const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
+  const complianceDep = []
 
-  const {productData: companyComplienceData,  loading: comComplienceLoad } = useCustomRoute(companyComplianceUrl, complianceDep);
+  const { productData: companyComplienceData, loading: comComplienceLoad } =
+    useCustomRoute(companyComplianceUrl, complianceDep)
 
-
-  const complianceData = async () =>{
-    try{
-    const ComplienceResponse = await getQuery(`/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`);
-    console.log("all data", ComplienceResponse.data); 
-    setCompanyComplience(ComplienceResponse.data)
-    }catch(err){
+  const complianceData = async () => {
+    try {
+      const ComplienceResponse = await getQuery(
+        `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
+      )
+      console.log("all data", ComplienceResponse.data)
+      setCompanyComplience(ComplienceResponse.data)
+    } catch (err) {
       console.log("err", err)
-      if(err.response.status === 500){
+      if (err.response.status === 500) {
         toast.error("Something Went Wrong")
       }
     }
   }
 
-  console.log("company compliances", companyComplience );
-
-
+  console.log("company compliances", companyComplience)
 
   // console.warn("ALL COMPLIENSES");
   // console.log(allComplienses)
@@ -264,10 +272,13 @@ const SetCompliance = () => {
             </div>
 
             <div className="my-4 w-100">
-              {comComplienceLoad ? <TableScalaton /> :  <CompliancesTable rows={companyComplienceData} getRowId={(row) => row.businessUnitId} columns={columnsTwo} />}
-           
-
-              {/* <CompliancesTable rows={allComplienses} columns={columns} /> */}
+              <Suspense fallback={<TableScalaton />}>
+                <CompliancesTable
+                  rows={companyComplienceData}
+                  getRowId={(row) => row.businessUnitId}
+                  columns={columnsTwo}
+                />
+              </Suspense>
             </div>
           </div>
         </div>
