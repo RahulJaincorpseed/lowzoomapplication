@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import TaskTabs from "../../ManageLicence/ManageComplience/TabsData/TaskTabs"
 import RightSideIcons from "../RightSideIcons"
 import SideBarTab from "../../ManageLicence/ManageComplience/SideBarTab"
@@ -7,8 +7,38 @@ import { priority } from "../../Api/FakeApi"
 import ModelInput from "../Inputs/ModelInput"
 import ModelDropDownInput from "../Inputs/ModelDropDownInput"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
+import { postQuery } from "../../Api/PostQuery"
+import { useParams } from "react-router-dom"
 
 const TaskCreate = () => {
+  const [addNewtask, setAddNewTask] = useState({
+    taskName: "",
+    description: "",
+    timelineValue: 0,
+    timelineType: "",
+    status: "",
+    approvalState: "",
+    applicableZone: "",
+    criticality: "",
+    startDate: "",
+    dueDate: "",
+    completedDate: "",
+    reporterUserId: 0,
+    assigneeUserId: 0,
+    createdAt: "",
+    updatedAt: "",
+    enable: true,
+  })
+
+  const { companyId, complienceId, businessUnitId } = useParams()
+
+  // console.log("task param", params);
+
+  const setTaskDataFun = (e) => {
+    setAddNewTask((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  console.log("Add new task data", addNewtask)
 
   const getAllUserUrl = `/companyServices/company/team/members/getAllTeamMembersWithIdAndTeamName?companyId=1`
   const allUserDep = []
@@ -18,8 +48,23 @@ const TaskCreate = () => {
     allUserDep
   )
 
-  console.log("user data import", allUser);
-
+  const createNewTask = (e) => {
+    e.preventDefault()
+    const createTaskFun = async () => {
+      try {
+        const addNewTask = await postQuery(
+          `/compliance/task/saveYourTask?complianceId=${complienceId}&company_Id=${companyId}&businessUnit_ID=${businessUnitId}`,
+          addNewtask
+        )
+        console.log("task added ", addNewTask)
+        window.location.reload()
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    createTaskFun()
+  }
+  console.log("user data import", allUser)
 
   return (
     <div className="task-model-box">
@@ -54,14 +99,14 @@ const TaskCreate = () => {
                       type="text"
                       label="Title*"
                       placeholder="Enter Title"
-                      name="title"
-                      //  onChange={(e) => complienceDateSetter(e)}
+                      name="taskName"
+                      onChange={(e) => setTaskDataFun(e)}
                     />
                     <ModelDropDownInput
                       label="Priority*"
                       data={priority}
                       name="priority"
-                      // onChange={(e) => complienceDateSetter(e)}
+                      onChange={(e) => setTaskDataFun(e)}
                     />
 
                     <ModelDropDownInput
@@ -69,14 +114,14 @@ const TaskCreate = () => {
                       data={priority}
                       name="Criticality"
                       left="true"
-                      // onChange={(e) => complienceDateSetter(e)}
+                      onChange={(e) => setTaskDataFun(e)}
                     />
 
                     <ModelDropDownInput
                       label="Assignee*"
                       data={priority}
-                      name="assignee"
-                      // onChange={(e) => complienceDateSetter(e)}
+                      name="assigneeUserId"
+                      onChange={(e) => setTaskDataFun(e)}
                     />
 
                     <ModelInput
@@ -84,19 +129,18 @@ const TaskCreate = () => {
                       label="Select Start date*"
                       placeholder="Enter Title"
                       name="startDate"
-                      //  onChange={(e) => complienceDateSetter(e)}
+                      onChange={(e) => setTaskDataFun(e)}
                     />
 
                     <ModelInput
                       type="date"
                       label="Select End date*"
                       placeholder="Enter Title"
-                      name="endDate"
+                      name="dueDate"
                       left="true"
-                      //  onChange={(e) => complienceDateSetter(e)}
+                      onChange={(e) => setTaskDataFun(e)}
                     />
 
-                 
                     <div className="form-group col-md-12">
                       <div>
                         <label className="label-heading" htmlFor="endDate">
@@ -106,7 +150,7 @@ const TaskCreate = () => {
                           placeholder="Enter Description..."
                           className="form-control h-twenty input-focus"
                           name="description"
-                          // onChange={(e) => complienceDateSetter(e)}
+                          onChange={(e) => setTaskDataFun(e)}
                         ></textarea>
                       </div>
                     </div>
@@ -117,7 +161,7 @@ const TaskCreate = () => {
                       </div>
                       <div>
                         <button
-                          // onClick={(e) => addNewComplienceFun(e)}
+                          onClick={(e) => createNewTask(e)}
                           className="first-button form-prev-btn"
                         >
                           Submit
