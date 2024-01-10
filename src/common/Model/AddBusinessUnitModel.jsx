@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { postQuery } from "../../Api/PostQuery"
 import { customLocation } from "../../Hooks/LocationHook"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { getQuery } from "../../Api/getQuery"
@@ -20,23 +20,16 @@ const AddBusinessUnitModel = () => {
     states: "",
     enable: true,
   })
- 
-  const [buttonLoading, setButtonLoading] = useState(false);
 
+  const [buttonLoading, setButtonLoading] = useState(false)
+
+  const { companyid } = useParams()
 
   const location = useLocation()
-
-  
 
   const BusinessUnitDataCollect = (e) => {
     setAddBusinessUnit((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-
-  const companyId = customLocation(5, location)
-
-  console.log("isd", companyId)
-
- 
 
   const addNewBusinessUnit = (e) => {
     e.preventDefault()
@@ -44,12 +37,13 @@ const AddBusinessUnitModel = () => {
     const addNewUnit = async () => {
       try {
         const unitData = await postQuery(
-          `/companyServices/business-unit/saveBusinessUnit?companyId=${companyId}`,
+          `/companyServices/business-unit/saveBusinessUnit?companyId=${companyid}`,
           addBusinessUnit
         )
         console.log("new business unit", unitData)
         toast.success("Business Unit Add Sucessfully")
         setButtonLoading(false)
+        window.location.reload()
       } catch (err) {
         console.log("err", err)
         setButtonLoading(false)

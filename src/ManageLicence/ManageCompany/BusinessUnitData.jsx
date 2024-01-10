@@ -99,7 +99,7 @@ const BusinessUnitData = () => {
                   </div>
                 </div>
               </div>
-              {/* hbkdbskbkds */}
+         
               <div className="details-body">
                 <div className="company-data mb-2 row">
                   <div className="col-lg-6">
@@ -130,7 +130,7 @@ const BusinessUnitData = () => {
                     <h3 className="heading-info">Formation Date:</h3>
                     <p className="item-heading-new">
                       {new Date(
-                        bUnit.createdAt.toString()
+                        bUnit.createdAt?.toString()
                       ).toLocaleDateString()}
                     </p>
                   </div>
@@ -140,7 +140,6 @@ const BusinessUnitData = () => {
                   <div className="only-center col-lg-6">
                     <h3 className="heading-info">Operational Units:</h3>
                     <p className="state-heading">
-                      {/* {company?.businessUnits.length} Units */}
                      <Link to={`${bUnit?.companyId}/businessUnit`}> {bUnit?.contractEmployee}</Link>
                     </p>
                   </div>
@@ -151,17 +150,10 @@ const BusinessUnitData = () => {
                     <p className="state-heading">2 States</p>
                   </div>
                 </div>
-                {/* <div className="company-data mb-2 row">
-                <div className="only-center col-lg-4">
-                  <h3 className="heading-info">GST Registration:</h3>
-                  <p className="state-heading">2 States</p>
-                </div>
-              </div> */}
               </div>
             </div>
           ))
         )}
-
 
         </div>
     </>

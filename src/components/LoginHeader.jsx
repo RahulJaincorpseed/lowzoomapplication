@@ -11,7 +11,7 @@ const LoginHeader = () => {
           <img src={ZoomLogo} alt="zoom logo" />
         </div>
         <div className="log-out-btn">
-          <Link to={""} className="logout-link">
+          <Link to={"/login"} className="logout-link">
             Logout
           </Link>
         </div>
