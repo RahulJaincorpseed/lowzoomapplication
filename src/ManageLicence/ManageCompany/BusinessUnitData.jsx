@@ -1,71 +1,44 @@
-import React, { useEffect, useState } from "react"
-import "./ManageCompany.scss"
-import BreadCrum from "../../components/BreadCrum"
-import AddNewCompanyModel from "../../common/Model/AddNewCompanyModel"
-import { customLocation } from "../../Hooks/LocationHook"
-import { Link, useLocation, useParams } from "react-router-dom"
-import { getQuery } from "../../Api/getQuery"
-import BoxScalaton from "../../common/Scalaton/BoxScalaton"
-import BlankPage from "../../components/BlankPage"
-import { useCustomRoute } from "../../Hooks/GetCustomRoute"
+import React from "react";
+import BreadCrum from "../../components/BreadCrum";
+import AddBusinessUnitModel from "../../common/Model/AddBusinessUnitModel";
+import { useCustomRoute } from "../../Hooks/GetCustomRoute";
+import { Link, useParams } from "react-router-dom";
+import BoxScalaton from "../../common/Scalaton/BoxScalaton";
+import BlankPage from "../../components/BlankPage";
 
-const ManageCompany = () => {
-  const location = useLocation()
+const BusinessUnitData = () => {
 
-  const myId = customLocation(3, location)
-  const currentUserId = customLocation(1, location)
+    const {companyid} = useParams();
 
-  console.warn("new id is ")
-  console.log("id is", currentUserId)
+  
+    const businessUnitUrl = `/companyServices/business-unit/getAllBusinessUnits?companyId=${companyid}`
+    const businessUnitDep = [];
+    const {productData: allBusinessUnit, loading: businessLoading} = useCustomRoute(businessUnitUrl, businessUnitDep)
 
-  const allCompanyUrl = `/companyServices/company/getAllCompany?userId=${currentUserId}`
-  const allCompDep = []
-
-  const { productData: getAllCompanyData, loading: compLoading } =
-    useCustomRoute(allCompanyUrl, allCompDep)
-
-console.log("all company data", getAllCompanyData);
+    console.log("business unit data", allBusinessUnit);
 
   return (
     <>
-      <BreadCrum />
-      <div className="manage-compnies">
-        <h2 className="heading-primary">Manage Companies</h2>
+     <BreadCrum />
+     <div className="manage-compnies">
+        <h2 className="heading-primary">Manage Business Unit</h2>
+            <AddBusinessUnitModel />
 
-        {/* <AddNewCompanyModel />   */}
-        <div className="add-border">
-          <Link className="add-com-btn" to={`/user/${currentUserId}/userinfo`}>
-            <i className="fa-solid mr-2 color-blue fa-plus"></i>Add new Company
-          </Link>
-        </div>
-        {/* search company btn */}
-        <div className="search-company mt-3 input-focus">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search company by name"
-            aria-label="Search"
-          />
-        </div>
-
-        {/* <BoxScalaton /> */}
-
-        {/* company-details  */}
-
-        {compLoading ? (
+        
+            {businessLoading ? (
           <div>
             <BoxScalaton />
           </div>
-        ) : getAllCompanyData.length === 0 ? (
-          <BlankPage data={"Please Add New Company"} />
+        ) : allBusinessUnit.length === 0 ? (
+          <BlankPage data={"Please Add New business Unit"} />
         ) : (
-          getAllCompanyData?.map((company, index) => (
+            allBusinessUnit?.map((bUnit, index) => (
             <div className="company-details" key={index}>
               <div className="details-head">
                 <p>
-                  {company?.companyName
-                    ? company?.companyName
-                    : "Company Name NA"}
+                  {bUnit?.companyName
+                    ? bUnit?.companyName
+                    : "Business Unit Name NA"}
                 </p>
                 <div className="edit-del-btn">
                   <span className="delete">Delete</span>
@@ -97,7 +70,7 @@ console.log("all company data", getAllCompanyData);
                             className="modal-title"
                             id="exampleModalLongTitle"
                           >
-                            Edit company model
+                            Edit Business Unit
                           </h5>
                           <button
                             type="button"
@@ -131,16 +104,16 @@ console.log("all company data", getAllCompanyData);
                 <div className="company-data mb-2 row">
                   <div className="col-lg-6">
                     <h3 className="item-heading">
-                      {company?.companyType
-                        ? company?.companyType
-                        : "company Type NA"}
+                      {bUnit?.companyType
+                        ? bUnit?.companyType
+                        : "business Unit Type NA"}
                     </h3>
                   </div>
                   <div className="only-center col-lg-6">
                     <h3 className="heading-info">Registration ID (CIN):</h3>
                     <p className="item-heading-new">
-                      {company?.companyRegistrationNumber
-                        ? company?.companyRegistrationNumber
+                      {bUnit?.companyRegistrationNumber
+                        ? bUnit?.companyRegistrationNumber
                         : "NA"}
                     </p>
                   </div>
@@ -150,14 +123,14 @@ console.log("all company data", getAllCompanyData);
                   <div className="only-center col-lg-6">
                     <h3 className="heading-info">Formation State:</h3>
                     <p className="item-heading-new">
-                      {company?.companyState ? company?.companyState : "NA"}
+                      {bUnit?.states ? bUnit?.states : "NA"}
                     </p>
                   </div>
                   <div className="only-center col-lg-6">
                     <h3 className="heading-info">Formation Date:</h3>
                     <p className="item-heading-new">
                       {new Date(
-                        company.createdAt.toString()
+                        bUnit.createdAt.toString()
                       ).toLocaleDateString()}
                     </p>
                   </div>
@@ -168,7 +141,7 @@ console.log("all company data", getAllCompanyData);
                     <h3 className="heading-info">Operational Units:</h3>
                     <p className="state-heading">
                       {/* {company?.businessUnits.length} Units */}
-                     <Link to={`${company?.companyId}/businessUnit`}> {company?.contractEmployee}</Link>
+                     <Link to={`${bUnit?.companyId}/businessUnit`}> {bUnit?.contractEmployee}</Link>
                     </p>
                   </div>
                   <div className="only-center col-lg-6">
@@ -189,15 +162,10 @@ console.log("all company data", getAllCompanyData);
           ))
         )}
 
-        {/* add company  */}
-        <div className="add-new-company second-new">
-          <Link to={`/user/${currentUserId}/userinfo`} className="add-button">
-            <i className="fa-solid fa-plus"></i>Add New Company
-          </Link>
+
         </div>
-      </div>
     </>
   )
-}
+};
 
-export default ManageCompany
+export default BusinessUnitData;
