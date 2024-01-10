@@ -30,6 +30,8 @@ const TaskCreate = () => {
     enable: true,
   })
 
+  const [createLoading, setCreateLoading] = useState(false);
+
   const { companyId, complienceId, businessUnitId } = useParams()
 
   // console.log("task param", params);
@@ -40,7 +42,7 @@ const TaskCreate = () => {
 
   console.log("Add new task data", addNewtask)
 
-  const getAllUserUrl = `/companyServices/company/team/members/getAllTeamMembersWithIdAndTeamName?companyId=1`
+  const getAllUserUrl = `/companyServices/company/team/members/getAllTeamMembersWithIdAndTeamName?companyId=${companyId}`
   const allUserDep = []
 
   const { productData: allUser, loading: userLoading } = useCustomRoute(
@@ -50,7 +52,13 @@ const TaskCreate = () => {
 
   const createNewTask = (e) => {
     e.preventDefault()
+
+    if(createLoading === true){
+      return;
+    }
+
     const createTaskFun = async () => {
+      setCreateLoading(true)
       try {
         const addNewTask = await postQuery(
           `/compliance/task/saveYourTask?complianceId=${complienceId}&company_Id=${companyId}&businessUnit_ID=${businessUnitId}`,
@@ -58,8 +66,10 @@ const TaskCreate = () => {
         )
         console.log("task added ", addNewTask)
         window.location.reload()
+        setCreateLoading(false)
       } catch (err) {
         console.log(err)
+        setCreateLoading(false)
       }
     }
     createTaskFun()
@@ -103,26 +113,46 @@ const TaskCreate = () => {
                       onChange={(e) => setTaskDataFun(e)}
                     />
                     <ModelDropDownInput
-                      label="Priority*"
+                      label="Status*"
                       data={priority}
-                      name="priority"
+                      name="status"
                       onChange={(e) => setTaskDataFun(e)}
                     />
 
                     <ModelDropDownInput
                       label="Criticality*"
                       data={priority}
-                      name="Criticality"
+                      name="criticality"
                       left="true"
                       onChange={(e) => setTaskDataFun(e)}
                     />
 
-                    <ModelDropDownInput
+                    {/* <ModelDropDownInput
                       label="Assignee*"
                       data={priority}
                       name="assigneeUserId"
                       onChange={(e) => setTaskDataFun(e)}
-                    />
+                    /> */}
+                    <div className="form-group col-md-6">
+                      <div className="pl-ten">
+                        <label className="label-heading" htmlFor="accessTypes">
+                          Assignee*
+                        </label>
+                        <select
+                          className="form-control input-focus"
+                          name="assignee"
+                          id="assignee"
+                          onChange={(e) => setTaskDataFun(e)}
+                        >
+                          <option>Please Select</option>
+                          {allUser.map((pri, index) => (
+                            <option key={index} value={pri.id}>
+                              {pri?.memberName}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
 
                     <ModelInput
                       type="date"
@@ -136,7 +166,7 @@ const TaskCreate = () => {
                       type="date"
                       label="Select End date*"
                       placeholder="Enter Title"
-                      name="dueDate"
+                      name="completedDate"
                       left="true"
                       onChange={(e) => setTaskDataFun(e)}
                     />
@@ -164,7 +194,7 @@ const TaskCreate = () => {
                           onClick={(e) => createNewTask(e)}
                           className="first-button form-prev-btn"
                         >
-                          Submit
+                         {createLoading ? "Loading..." : "Submit"} 
                         </button>
                       </div>
                     </div>

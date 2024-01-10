@@ -69,40 +69,10 @@ const DisplayAllTask = () => {
                       </td>
                       <td className="w-180">{task?.completedDate}</td>
                       <td>{task?.status}</td>
+                      <td>{task?.criticality}</td>
                     </tr>
                   ))
-                )}
-                <tr className="border-one">
-                  <th scope="row">1</th>
-                  <td>
-                    Register and other records to be maintained by the
-                    contractor
-                  </td>
-                  <td>
-                    It shall be ensured that the contractors provide canteen
-                  </td>
-                  <td>
-                    It shall be ensured that the contractors provide canteen
-                  </td>
-
-                  <td>
-                    @It shall be ensured that the contractors provide canteen
-                  </td>
-                </tr>
-
-                <tr className="border-one">
-                  <th scope="row">3</th>
-                  <td>
-                    Register and other records to be maintained by the
-                    contractor
-                  </td>
-                  <td>
-                    It shall be ensured that the contractors provide canteen
-                  </td>
-                  <td>
-                    @It shall be ensured that the contractors provide cantee
-                  </td>
-                </tr>
+                )}     
               </tbody>
             </table>
           </div>

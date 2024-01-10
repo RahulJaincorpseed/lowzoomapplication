@@ -18,6 +18,7 @@ const ModelDropDownInput = React.forwardRef(
             ref={ref}
             {...props}
           >
+            <option>Please Select</option>
             {data?.map((d, index) => (
               <option key={index} value={d.id}>
                 {d.name}
