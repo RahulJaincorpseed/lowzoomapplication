@@ -6,7 +6,7 @@ import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
 import { customLocation } from "../Hooks/LocationHook"
 
 const ManageSideBar = () => {
-  const {userId, companyid} = useParams();
+  const { userId, companyid } = useParams()
 
   return (
     <div className="manageside-bar">
@@ -16,8 +16,11 @@ const ManageSideBar = () => {
       <div className="side-nav-items">
         <ul className="list-unorder">
           <li className="linkw-icon">
-            <NavLink to={`/${userId}/company/dashboard`} className={`main-link`}>
-              <i className="fa-solid fa-gear"></i>
+            <NavLink
+              to={`/${userId}/company/dashboard`}
+              className={`main-link`}
+            >
+              <i class="fa-solid fa-border-all"></i>
               <span>DashBoard</span>
             </NavLink>
           </li>
@@ -27,7 +30,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i className="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-people-roof"></i>
               <span>Manage Companies</span>
             </NavLink>
           </li>
@@ -37,7 +40,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i className="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-layer-group"></i>
               <span>Set Compliance Map</span>
             </NavLink>
           </li>
@@ -49,7 +52,7 @@ const ManageSideBar = () => {
               data-toggle="collapse"
               data-target="#collapseExample"
             >
-              <i className="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-list-check"></i>
               <span>Manage Compliance</span>
               <i className="fa-solid fa-chevron-right ml-1"></i>
             </NavLink>
@@ -124,7 +127,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i className="fa-solid fa-user"></i>
+              <i class="fa-regular fa-rectangle-list"></i>
               <span>Vendor Task</span>
             </NavLink>
           </li>
@@ -133,8 +136,8 @@ const ManageSideBar = () => {
               to={`/${userId}/company/accounts`}
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
-            > 
-              <i className="fa-solid fa-gear"></i>
+            >
+              <i class="fa-solid fa-receipt"></i>
               <span>Accounts</span>
             </NavLink>
           </li>
