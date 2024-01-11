@@ -8,6 +8,8 @@ import { getQuery } from "../../Api/getQuery"
 import BoxScalaton from "../../common/Scalaton/BoxScalaton"
 import BlankPage from "../../components/BlankPage"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
+import AddPeople from "../../Login/AddPeople"
+import AddPeopleModel from "../../common/Model/AddPeopleModel"
 
 const ManageCompany = () => {
   const location = useLocation()
@@ -24,7 +26,7 @@ const ManageCompany = () => {
   const { productData: getAllCompanyData, loading: compLoading } =
     useCustomRoute(allCompanyUrl, allCompDep)
 
-console.log("all company data", getAllCompanyData);
+  console.log("all company data", getAllCompanyData)
 
   return (
     <>
@@ -168,7 +170,10 @@ console.log("all company data", getAllCompanyData);
                     <h3 className="heading-info">Operational Units:</h3>
                     <p className="state-heading">
                       {/* {company?.businessUnits.length} Units */}
-                     <Link to={`${company?.companyId}/businessUnit`}> {company?.contractEmployee}</Link>
+                      <Link to={`${company?.companyId}/businessUnit`}>
+                        {" "}
+                        {company?.contractEmployee}
+                      </Link>
                     </p>
                   </div>
                   <div className="only-center col-lg-6">
@@ -184,6 +189,9 @@ console.log("all company data", getAllCompanyData);
                   <p className="state-heading">2 States</p>
                 </div>
               </div> */}
+              </div>
+              <div>
+                <AddPeopleModel />
               </div>
             </div>
           ))

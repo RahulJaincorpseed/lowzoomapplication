@@ -22,6 +22,9 @@ const SignUp = () => {
     name: "",
     password: "",
     otp: "",
+    roleList: [
+      "SUPER_ADMIN"
+    ]
   })
   const [formError, setFormError] = useState(false)
   const [otpLoading, setOtpLoading] = useState(false)

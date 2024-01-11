@@ -33,6 +33,7 @@ import CustomizedCompliances from "./ManageLicence/SetCompliance/CustomizedCompl
 import SelectCompanyPage from "./ManageLicence/SelectCompanyPage"
 import DisplayAllTask from "./ManageLicence/SetCompliance/DisplayAllTask"
 import BusinessUnitData from "./ManageLicence/ManageCompany/BusinessUnitData"
+import AllCompanyPeople from "./ManageLicence/ManageCompany/AllCompanyPeople"
 
 function App() {
   return (
@@ -64,9 +65,10 @@ function App() {
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="managecompany" element={<ManageCompany />} />
           <Route path="managecompany/:companyid/businessunit" element={<BusinessUnitData />} />
+          <Route path="managecompany/:companyid/allpeople" element={<AllCompanyPeople />} />
           <Route path="setcompliance" element={<SetCompliance />} />
-          <Route path="setcompliance/:companyId/businessUnit/:businessUnitId" element={<CustomizedCompliances />} />
-          <Route path="setcompliance/:companyId/businessUnit/:businessUnitId/complience/:complienceId" element={<DisplayAllTask />} />
+          <Route path="setcompliance/:companyid/businessUnit/:businessUnitId" element={<CustomizedCompliances />} />
+          <Route path="setcompliance/:companyid/businessUnit/:businessUnitId/complience/:complienceId" element={<DisplayAllTask />} />
         
           <Route path="managecompliance" element={<ManageCompliance />} />
           <Route path="vendor" element={<VendorTask />}>
