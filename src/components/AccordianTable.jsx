@@ -8,9 +8,9 @@ import TableScalaton from "../common/Scalaton/TableScalaton"
 const AccordianTable = () => {
   const [collpaseState, setCollapseState] = useState(false)
 
-  const { companyId, userId, businessUnitId } = useParams()
+  const { companyid, userId, businessUnitId } = useParams()
 
-  const allcomplienceUrl = `/compliance/company/showAllCompliance?companyId=${companyId}&businessId=${businessUnitId}`
+  const allcomplienceUrl = `/compliance/company/showAllCompliance?companyId=${companyid}&businessId=${businessUnitId}`
   const allComplienceDep = []
 
   const { productData: allComplience, loading: complienceLoading } =

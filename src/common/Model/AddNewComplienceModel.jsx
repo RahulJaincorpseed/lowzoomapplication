@@ -33,11 +33,13 @@ const AddNewComplienceModel = () => {
 
   const location = useLocation()
 
-  const { companyId, userId, businessUnitId } = useParams()
+  const { companyid, userId, businessUnitId } = useParams()
 
-  const params = useParams()
+  // const params = useParams()
 
-  console.log("ne wparams", params)
+  console.log("i am id ", companyid)
+
+  // console.log("ne wparams", params)
 
   const complienceDateSetter = (e) => {
     setAddComplienceData((prev) => ({
@@ -59,7 +61,7 @@ const AddNewComplienceModel = () => {
     const complienceAdd = async () => {
       try {
         const addNewComplienceRes = await postQuery(
-          `/compliance/company/saveCompliance?companyId=${companyId}&businessUnitId=${businessUnitId}&userId=${userId}`,
+          `/compliance/company/saveCompliance?companyId=${companyid}&businessUnitId=${businessUnitId}&userId=${userId}`,
           addComplienceData
         )
         console.log("add new complience", addNewComplienceRes)

@@ -25,8 +25,8 @@ const SetCompliance = () => {
   const companyPathId = customLocation(3, location)
   const userId = customLocation(1, location)
 
-  const dataId = useParams()
-  console.log("id is here", dataId)
+  const {companyid} = useParams()
+  // console.log("id is here", dataId)
 
   console.log("userid is", userId)
 
@@ -94,7 +94,7 @@ const SetCompliance = () => {
   const allCompliancesData = async () => {
     try {
       const allCompliencesResponse = await getQuery(
-        `/compliance/company/showAllCompliance?companyId=${companyPathId}`
+        `/compliance/company/showAllCompliance?companyId=${companyid}`
       )
       console.log("all compliences ", allCompliencesResponse.data)
       setAllCompliences(allCompliencesResponse.data)
