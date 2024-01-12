@@ -1,8 +1,9 @@
 import React, { useEffect } from "react"
 import "./Model.css"
-import {  useNavigate } from "react-router-dom"
+import {  useLocation, useNavigate } from "react-router-dom"
 
 const EditTeamModel = ({teamId, leadName}) => {
+  const location = useLocation();
   const navigate = useNavigate();
   const dataPath = location.pathname.split('/');
   const handleClick = () => {
