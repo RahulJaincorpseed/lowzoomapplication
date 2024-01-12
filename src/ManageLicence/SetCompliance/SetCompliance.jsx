@@ -1,13 +1,11 @@
 import React, { Suspense, useEffect, useState } from "react"
 import BreadCrum from "../../components/BreadCrum"
 import "./SetComplience.scss"
-// import CompliancesTable from "../../Tables/CompliancesTable"
 import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { getQuery } from "../../Api/getQuery"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { customLocation } from "../../Hooks/LocationHook"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
 import TableScalaton from "../../common/Scalaton/TableScalaton"
 toast.configure()
@@ -21,18 +19,8 @@ const SetCompliance = () => {
   const [companyComplience, setCompanyComplience] = useState([])
 
   const navigate = useNavigate()
-  const location = useLocation()
-  const companyPathId = customLocation(3, location)
-  const userId = customLocation(1, location)
 
-  const {companyid} = useParams()
-  // console.log("id is here", dataId)
-
-  console.log("userid is", userId)
-
-  // useEffect(()=>{
-  //   allCompliancesData()
-  // }, [])
+  const { userid, companyid } = useParams()
 
   useEffect(() => {
     complianceData()
@@ -71,21 +59,6 @@ const SetCompliance = () => {
     },
   ]
 
-  // applicableZone: "cdcsdcdscd"
-  // approvalState: "csdcd"
-  // completedDate: "2023-11-13"
-  // createdAt: "2023-11-10T10:36:55.214+00:00"
-  // description: "dcscds  v dsv dsvds"
-  // dueDate: null
-  // duration: ""
-  // enable: true
-  // id: 41
-  // name: "csdc"
-  // priority: 1
-  // startDate: "2023-11-11"
-  // updatedAt: "2023-11-10T10:36:55.214+00:00"
-  // workStatus:0
-
   const columns2 = [
     { field: "col1", headerName: "Column 1", width: 150 },
     { field: "col2", headerName: "Column 2", width: 150 },
@@ -106,9 +79,7 @@ const SetCompliance = () => {
     }
   }
 
-  // /companyServices/company/getCompanyUnitComplianceDetails?userId=1
-
-  const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
+  const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userid}`
   const complianceDep = []
 
   const { productData: companyComplienceData, loading: comComplienceLoad } =
@@ -117,7 +88,7 @@ const SetCompliance = () => {
   const complianceData = async () => {
     try {
       const ComplienceResponse = await getQuery(
-        `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
+        `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userid}`
       )
       console.log("all data", ComplienceResponse.data)
       setCompanyComplience(ComplienceResponse.data)
@@ -130,9 +101,6 @@ const SetCompliance = () => {
   }
 
   console.log("company compliances", companyComplience)
-
-  // console.warn("ALL COMPLIENSES");
-  // console.log(allComplienses)
 
   return (
     <div>
@@ -210,65 +178,6 @@ const SetCompliance = () => {
                 </div>
                 <i className="fa-solid fa-sliders"></i>
               </div>
-            </div>
-
-            <div className="add-new-complience col-lg-12 mt-4">
-              {/* <div className="add-new-company">
-                <AddNewComplienceModel />
-              </div> */}
-              {/* <div className="add-new-company">
-                <button
-                  type="button"
-                  className="add-button"
-                  data-toggle="modal"
-                  data-target="#manageAddNewCompany"
-                >
-                  <i className="fa-solid fa-plus"></i> Add New Complience
-                </button>
-
-                <div
-                  className="modal fade"
-                  id="manageAddNewCompany"
-                  tabIndex="-1"
-                  role="dialog"
-                  aria-labelledby="Addcomplience"
-                  aria-hidden="true"
-                >
-                  <div
-                    className="modal-dialog modal-dialog-centered"
-                    role="document"
-                  >
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5 className="modal-title" id="Addcomplience">
-                          Add company first model
-                        </h5>
-                        <button
-                          type="button"
-                          className="close"
-                          data-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div className="modal-body">...</div>
-                      <div className="modal-footer">
-                        <button
-                          type="button"
-                          className="btn btn-secondary"
-                          data-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button type="button" className="btn btn-primary">
-                          Save changes
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
             </div>
 
             <div className="my-4 w-100">

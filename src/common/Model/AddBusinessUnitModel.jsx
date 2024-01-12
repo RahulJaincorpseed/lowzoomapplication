@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { postQuery } from "../../Api/PostQuery"
 import { customLocation } from "../../Hooks/LocationHook"
-import { useLocation, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { getQuery } from "../../Api/getQuery"
@@ -25,8 +25,7 @@ const AddBusinessUnitModel = () => {
 
   const { companyid } = useParams()
 
-  const location = useLocation()
-
+  
   const BusinessUnitDataCollect = (e) => {
     setAddBusinessUnit((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }

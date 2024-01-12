@@ -1,9 +1,8 @@
 import React from "react"
 import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
-import { Link, NavLink, useLocation, useParams } from "react-router-dom"
+import { Link, NavLink,  useParams } from "react-router-dom"
 import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
-import { customLocation } from "../Hooks/LocationHook"
 
 const ManageSideBar = () => {
   const { userId, companyid } = useParams()

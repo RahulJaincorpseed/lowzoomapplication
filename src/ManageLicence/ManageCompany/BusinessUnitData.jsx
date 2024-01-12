@@ -23,8 +23,6 @@ const BusinessUnitData = () => {
      <div className="manage-compnies">
         <h2 className="heading-primary">Manage Business Unit</h2>
             <AddBusinessUnitModel />
-
-        
             {businessLoading ? (
           <div>
             <BoxScalaton />

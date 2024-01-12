@@ -3,8 +3,7 @@ import React, { useState } from "react"
 import "./Model.css"
 import { priority } from "../../Api/FakeApi"
 import { postQuery } from "../../Api/PostQuery"
-import { useLocation, useParams } from "react-router-dom"
-import { customLocation } from "../../Hooks/LocationHook"
+import {  useParams } from "react-router-dom"
 
 const AddNewTaskModel = () => {
   const [addComplienceData, setAddComplienceData] = useState({
@@ -21,9 +20,6 @@ const AddNewTaskModel = () => {
     enable: true,
   })
 
-  const location = useLocation();
-
-  const userId = customLocation(1, location)
     const {companyid} = useParams()
 
   const complienceDateSetter = (e) => {
