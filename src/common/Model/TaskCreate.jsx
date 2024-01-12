@@ -32,7 +32,7 @@ const TaskCreate = () => {
 
   const [createLoading, setCreateLoading] = useState(false);
 
-  const { companyId, complienceId, businessUnitId } = useParams()
+  const { companyid, complienceId, businessUnitId } = useParams()
 
   // console.log("task param", params);
 
@@ -42,7 +42,7 @@ const TaskCreate = () => {
 
   console.log("Add new task data", addNewtask)
 
-  const getAllUserUrl = `/companyServices/company/team/members/getAllTeamMembersWithIdAndTeamName?companyId=${companyId}`
+  const getAllUserUrl = `/companyServices/company/team/members/getAllTeamMembersWithIdAndTeamName?companyId=${companyid}`
   const allUserDep = []
 
   const { productData: allUser, loading: userLoading } = useCustomRoute(
@@ -61,7 +61,7 @@ const TaskCreate = () => {
       setCreateLoading(true)
       try {
         const addNewTask = await postQuery(
-          `/compliance/task/saveYourTask?complianceId=${complienceId}&company_Id=${companyId}&businessUnit_ID=${businessUnitId}`,
+          `/compliance/task/saveYourTask?complianceId=${complienceId}&company_Id=${companyid}&businessUnit_ID=${businessUnitId}`,
           addNewtask
         )
         console.log("task added ", addNewTask)

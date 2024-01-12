@@ -28,10 +28,10 @@ const AddPeopleModel = ({teamId}) => {
 
   const location = useLocation();
 
-  const {userid, companyId} = useParams();
+  const {userid, companyid} = useParams();
 
 
-  console.log("userId", userid, "companyId", companyId);
+  console.log("userId", userid, "companyId", companyid);
   console.log(AddPeopleData);
 
   const accessUrl = `/companyServices/company/getAllAccessTypes`
@@ -61,7 +61,7 @@ const AddPeopleModel = ({teamId}) => {
       setBtnLoading(true);
       try {
         const memberdata = await axios.post(
-          `/companyServices/company/team/members/addTeamMember?companyId=${companyId}&createdById=${userid}`,
+          `/companyServices/company/team/members/addTeamMember?companyId=${companyid}&createdById=${userid}`,
           {
             ...AddPeopleData,
             headers: {
@@ -72,7 +72,7 @@ const AddPeopleModel = ({teamId}) => {
         )
         console.log("data added", memberdata)
         setBtnLoading(false);
-        navigate(`/user/${userid}/userinfo/company/${companyId}/addteam`)
+        navigate(`/user/${userid}/userinfo/company/${companyid}/addteam`)
         window.location.reload();
 
       } catch (err) {
