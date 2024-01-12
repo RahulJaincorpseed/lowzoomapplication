@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import "./Model.css"
 import { priority } from "../../Api/FakeApi"
 import { postQuery } from "../../Api/PostQuery"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import { customLocation } from "../../Hooks/LocationHook"
 
 const AddNewTaskModel = () => {
@@ -23,8 +23,8 @@ const AddNewTaskModel = () => {
 
   const location = useLocation();
 
-    const userId = customLocation(1, location)
-    const companyId = customLocation(3, location)
+   
+    const {companyid} = useParams()
 
   const complienceDateSetter = (e) => {
     setAddComplienceData((prev) => ({
@@ -41,7 +41,7 @@ const AddNewTaskModel = () => {
     const complienceAdd = async () => {
       try {
         const addNewComplienceRes = await postQuery(
-          `/compliance/company/saveCompliance?companyId=${companyId}`,addComplienceData
+          `/compliance/company/saveCompliance?companyId=${companyid}`,addComplienceData
         )
         console.log("add new complience", addNewComplienceRes)
         console.log("add new complience", addNewComplienceRes.data)

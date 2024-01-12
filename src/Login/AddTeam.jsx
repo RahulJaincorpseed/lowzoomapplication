@@ -28,7 +28,7 @@ const AddTeam = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
-  const { companyId } = useParams()
+  const { companyid } = useParams()
 
   const status = percent === 100 ? "success" : null
   const color = percent === 100 ? "#2B62F9" : "#2B62F9"
@@ -64,7 +64,7 @@ const AddTeam = () => {
   const allTeamDisplay = async () => {
     try {
       const teamApiData = await axios.get(
-        `/companyServices/company/team/members/getTeamWithTeamMember?companyId=${companyId}`,
+        `/companyServices/company/team/members/getTeamWithTeamMember?companyId=${companyid}`,
         // `/companyServices/company/team/allTeams?companyId=${companyId}`,
         {
           headers: {
@@ -87,7 +87,7 @@ const AddTeam = () => {
   const getAllTeamMemberFun = async () => {
     try {
       const getAllTeamMember =
-        await getQuery(`/companyServices/company/team/members/getAllTeamMembers?companyId=${companyId}
+        await getQuery(`/companyServices/company/team/members/getAllTeamMembers?companyId=${companyid}
       `)
       console.log("get all team Member ", getAllTeamMember.data)
       setTeamMemberState(getAllTeamMember.data)

@@ -27,9 +27,9 @@ const AddTeamModel = () => {
   const leadDesignationRef = useRef()
   const teamTypeRef = useRef()
 
-  const { companyId } = useParams()
+  const { companyid } = useParams()
 
-  console.log("params is ", companyId)
+  console.log("params is ", companyid)
 
   const TeamSetData = (e) => {
     setTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -81,7 +81,7 @@ const AddTeamModel = () => {
     const addTeamData = async () => {
       try {
         const addNewTeamData = await axios.post(
-          `/companyServices/company/team/addTeam?companyId=${companyId}`,
+          `/companyServices/company/team/addTeam?companyId=${companyid}`,
           {
             ...teamData,
             headers: {

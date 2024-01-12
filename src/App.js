@@ -52,11 +52,11 @@ function App() {
         <Route path="/counter" element={<Counter />} />
         <Route path="/user/:userid/userinfo" element={<AddTeamOutlet />}>
           <Route path="" element={<UserInfo />} />
-            <Route path="company/:companyId/addteam" element={<AddTeam />}>
+            <Route path="company/:companyid/addteam" element={<AddTeam />}>
               {/* <Route path="" element={<AddPeopleModel />} />
               <Route path="" element={<EditTeamModel />} />     */}
             </Route>
-            <Route path="company/:companyId/addteam/companyInfo" element={<CompanyInfo />} />
+            <Route path="company/:companyid/addteam/companyInfo" element={<CompanyInfo />} />
         </Route>
 
         <Route path="/details" element={<Details />} />

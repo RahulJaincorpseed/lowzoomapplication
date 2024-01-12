@@ -7,7 +7,7 @@ import EditGstDetailsModel from "../common/Model/EditGstDetailsModel"
 import EditBusinessUnitModel from "../common/Model/EditBusinessUnitModel"
 import EditTeamModel from "../common/Model/EditTeamModel"
 import { getQuery } from "../Api/getQuery"
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import AddBusinessUnitModel from "../common/Model/AddBusinessUnitModel"
 import { customLocation } from "../Hooks/LocationHook"
 import LoginHeader from "../components/LoginHeader"
@@ -20,8 +20,10 @@ const CompanyInfo = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
+
   const userPathId = customLocation(2, location)
-  const companyPathId = customLocation(5, location)
+ 
+  const { companyid } = useParams();
 
   useEffect(() => {
     getAllBusinessUnit()
@@ -34,7 +36,7 @@ const CompanyInfo = () => {
   const getSingleCompanyData = async () => {
     try {
       const companyData = await getQuery(
-        `/companyServices/company/fetchCompany?id=${companyPathId}&userId=${userPathId}`
+        `/companyServices/company/fetchCompany?id=${companyid}&userId=${userPathId}`
       )
       // console.log("company data", companyData.data);
       setCompanyInfoData(companyData.data)
@@ -46,7 +48,7 @@ const CompanyInfo = () => {
   const getAllBusinessUnit = async () => {
     try {
       const getBusinessUnit = await getQuery(
-        `/companyServices/business-unit/getAllBusinessUnits?companyId=${companyPathId}`
+        `/companyServices/business-unit/getAllBusinessUnits?companyId=${companyid}`
       )
       // console.log("business unit", getBusinessUnit)
       setAllBusinessData(getBusinessUnit.data)
