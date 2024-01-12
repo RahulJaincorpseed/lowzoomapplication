@@ -4,18 +4,17 @@ import { Link } from "react-router-dom"
 
 const PageNotFound = () => {
   return (
-    <div className="page-not-found">
-      <div className="page-data">
-        <h2 className="four">404</h2>
-        <p>Page Not Found</p>
-        <Link
-          to="/login"
-          className="first-button mt-2 d-flex justify-content-center"
-        >
-          Home
-        </Link>
-      </div>
+    <div class="flex-container">
+    <div class="text-center">
+      <h1>
+        <span class="fade-in" id="digit1">4</span>
+        <span class="fade-in" id="digit2">0</span>
+        <span class="fade-in" id="digit3">4</span>
+      </h1>
+      <h3 class="fadeIn">PAGE NOT FOUND</h3>
+      <Link to={'/'} className="return-home-btn" name="button">Return To Home</Link>
     </div>
+  </div>
   )
 }
 
