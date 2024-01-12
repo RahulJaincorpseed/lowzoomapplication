@@ -23,7 +23,7 @@ const AddNewTaskModel = () => {
 
   const location = useLocation();
 
-   
+  const userId = customLocation(1, location)
     const {companyid} = useParams()
 
   const complienceDateSetter = (e) => {
