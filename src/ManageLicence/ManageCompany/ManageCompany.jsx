@@ -8,19 +8,12 @@ import { getQuery } from "../../Api/getQuery"
 import BoxScalaton from "../../common/Scalaton/BoxScalaton"
 import BlankPage from "../../components/BlankPage"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
-import AddPeople from "../../Login/AddPeople"
-import AddPeopleModel from "../../common/Model/AddPeopleModel"
 
 const ManageCompany = () => {
-  const location = useLocation()
-
-  const myId = customLocation(3, location)
-  const currentUserId = customLocation(1, location)
-
-  console.warn("new id is ")
-  console.log("id is", currentUserId)
-
-  const allCompanyUrl = `/companyServices/company/getAllCompany?userId=${currentUserId}`
+ 
+  const {userId} = useParams();
+ 
+  const allCompanyUrl = `/companyServices/company/getAllCompany?userId=${userId}`
   const allCompDep = []
 
   const { productData: getAllCompanyData, loading: compLoading } =
@@ -36,7 +29,7 @@ const ManageCompany = () => {
 
         {/* <AddNewCompanyModel />   */}
         <div className="add-border">
-          <Link className="add-com-btn" to={`/user/${currentUserId}/userinfo`}>
+          <Link className="add-com-btn" to={`/user/${userId}/userinfo`}>
             <i className="fa-solid mr-2 color-blue fa-plus"></i>Add new Company
           </Link>
         </div>
@@ -183,6 +176,18 @@ const ManageCompany = () => {
                     <p className="state-heading">2 States</p>
                   </div>
                 </div>
+                <div className="company-data mb-2 row">
+                  <div className="only-center col-lg-6">
+                    <h3 className="heading-info">Total Members:</h3>
+                    <p className="state-heading">
+                      {/* {company?.businessUnits.length} Units */}
+                      <Link to={`${company?.companyId}/allpeople`}>
+                        {" "}
+                        {company?.contractEmployee}
+                      </Link>
+                    </p>
+                  </div>
+                </div>
                 {/* <div className="company-data mb-2 row">
                 <div className="only-center col-lg-4">
                   <h3 className="heading-info">GST Registration:</h3>
@@ -190,16 +195,13 @@ const ManageCompany = () => {
                 </div>
               </div> */}
               </div>
-              <div>
-                <AddPeopleModel />
-              </div>
             </div>
           ))
         )}
 
         {/* add company  */}
         <div className="add-new-company second-new">
-          <Link to={`/user/${currentUserId}/userinfo`} className="add-button">
+          <Link to={`/user/${userId}/userinfo`} className="add-button">
             <i className="fa-solid fa-plus"></i>Add New Company
           </Link>
         </div>

@@ -88,23 +88,9 @@ const UserInfo = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
-  // data
-
-  console.log("location is ", location.pathname)
-
+ 
+ 
   const userPathId = customLocation(2, location)
-
-  // data
-
-  // redux
-
-  // const companyAddRedux = useSelector((state) => state.companyDataReducer)
-
-  // console.log("redux selector", companyAddRedux);
-
-  // const currentUserToken = useSelector((state) => state)
-
-  // console.log("i am current user info token ", currentUserToken)
 
   // progress bar
 
