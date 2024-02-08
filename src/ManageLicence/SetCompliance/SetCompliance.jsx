@@ -20,7 +20,7 @@ const SetCompliance = () => {
 
   const navigate = useNavigate()
 
-  const { userid, companyid } = useParams()
+  const { userId, companyid } = useParams()
 
   useEffect(() => {
     complianceData()
@@ -79,7 +79,8 @@ const SetCompliance = () => {
     }
   }
 
-  const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userid}`
+  console.log("userid is ", userId);
+  const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
   const complianceDep = []
 
   const { productData: companyComplienceData, loading: comComplienceLoad } =
@@ -88,7 +89,7 @@ const SetCompliance = () => {
   const complianceData = async () => {
     try {
       const ComplienceResponse = await getQuery(
-        `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userid}`
+        `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
       )
       console.log("all data", ComplienceResponse.data)
       setCompanyComplience(ComplienceResponse.data)
