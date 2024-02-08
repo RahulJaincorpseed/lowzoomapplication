@@ -152,7 +152,7 @@ const ManageCompany = () => {
                     <h3 className="heading-info">Formation Date:</h3>
                     <p className="item-heading-new">
                       {new Date(
-                        company.createdAt.toString()
+                        company?.createdAt?.toString()
                       ).toLocaleDateString()}
                     </p>
                   </div>
