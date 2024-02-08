@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { SubmitEnquiry } from "../Redux/Actions/SignUpAction"
 import InputErrorComponent from "./InputErrorComponent"
 import InputFieldComponent from "./InputFieldComponent"
@@ -24,10 +24,8 @@ const LoginForm = () => {
   const [designationErr, setDesignationErr] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const EnquiryData = useSelector((prev) => prev.SignUpReducer)
   const dispatch = useDispatch()
 
-  console.log("enq data", EnquiryData)
 
   const fullNameRef = useRef()
   const designationRef = useRef()

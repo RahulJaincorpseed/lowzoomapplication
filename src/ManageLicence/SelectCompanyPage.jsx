@@ -1,17 +1,11 @@
 import React from "react"
 import "./SelectCompanyPage.scss"
 import { useCustomRoute } from "../Hooks/GetCustomRoute"
-import { useSelector } from "react-redux"
 
 const SelectCompanyPage = () => {
-  const currentUserMail = useSelector((prev) => prev.authReducer.roles.email)
-
-  console.log("satat is ", typeof currentUserMail, currentUserMail)
-
-  // /companyServices/company/team/members/memberCompanyDetails?memberMail=rahul%40gmail.com
+ 
   const companyUrl =
     "/companyServices/company/team/members/memberCompanyDetails?memberMail=vivek1@gmail.com"
-  // const companyUrl =  `/companyServices/company/team/members/memberCompanyDetails?memberMail=${currentUserMail}`;
   const companyDep = []
 
   const { productData: companyData } = useCustomRoute(companyUrl, companyDep)
