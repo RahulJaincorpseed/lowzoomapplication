@@ -1,0 +1,25 @@
+.calender-box{
+    // position: relative;
+    z-index: 2000;
+    .calender-btn{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 10px;
+       i{
+        color: #2b62f9;
+        font-size: 18px;
+       }
+       button{
+        background: transparent;
+       }
+    }
+    .calender-body{
+        position: absolute;
+        width: 400px;
+        height: 300px;
+        display: block;
+        background-color: red;
+    }
+
+}

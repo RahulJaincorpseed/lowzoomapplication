@@ -4,6 +4,8 @@ import TaskCreate from "../../common/Model/TaskCreate"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
 import { useParams } from "react-router-dom"
 import TableScalaton from "../../common/Scalaton/TableScalaton"
+import CompliancesTable from "../../Tables/CompliancesTable"
+import CreateTaskComp from "../../components/CreateTaskComp"
 
 const DisplayAllTask = () => {
   const { complienceId } = useParams()
@@ -26,7 +28,26 @@ const DisplayAllTask = () => {
     allUserDep
   )
 
-  console.log("all user", allUser);
+  const columns = [
+    { field: "id", headerName: "id", width: 60 },
+    { field: "taskName", headerName: "Task Name", width: 150 },
+    { field: "description", headerName: "Task Description", width: 200 },
+    { field: "completedDate", headerName: "Completed date", width: 150 },
+    { field: "status", headerName: "Status", width: 150 },
+    {
+      field: "taskReminedr",
+      headerName: "Task Reminder",
+      width: 150,
+      renderCell: (props) => {
+        return (
+          <div>
+            <CreateTaskComp />
+          </div>
+        )
+      },
+    },
+    { field: "criticality", headerName: "Criticality", width: 150 },
+  ]
 
   console.log("all r=task data", allTaskData)
 
@@ -38,44 +59,9 @@ const DisplayAllTask = () => {
           <TaskCreate />
         </div>
         <h2 className="heading-primary text-center">All Task</h2>
-        <div className="complience-table">
-          <div className="table-responsive">
-            <table className="table">
-              <thead>
-                <tr className="border-one">
-                  <th scope="col">id</th>
-                  <th scope="col w-180">Task</th>
-                  <th scope="col w-180">Description</th>
-                  <th scope="col w-180">Completed Date</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Criticality</th>
-                </tr>
-              </thead>
-              <tbody>
-                {taskLoading ? (
-                  <tr>
-                    <td>
-                      <TableScalaton />
-                    </td>
-                  </tr>
-                ) : (
-                  allTaskData &&
-                  allTaskData.map((task, index) => (
-                    <tr className="border-one" key={index}>
-                      <th scope="row">{task?.id}</th>
-                      <td className="w-180">{task?.taskName}</td>
-                      <td className="w-180">
-                        {task?.description.split(0, 80)}
-                      </td>
-                      <td className="w-180">{task?.completedDate}</td>
-                      <td>{task?.status}</td>
-                      <td>{task?.criticality}</td>
-                    </tr>
-                  ))
-                )}     
-              </tbody>
-            </table>
-          </div>
+
+        <div className="mt-3">
+          <CompliancesTable rows={allTaskData} columns={columns} />
         </div>
       </div>
     </div>

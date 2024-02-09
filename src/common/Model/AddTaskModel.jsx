@@ -1,4 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import BasicDetails from "../../ManageLicence/ManageComplience/TabsData/BasicDetails";
+import DocumentRequiredTab from "../../ManageLicence/ManageComplience/TabsData/DocumentRequiredTab";
+import CompliencesTab from "../../ManageLicence/ManageComplience/TabsData/CompliencesTab";
+import GuideTab from "../../ManageLicence/ManageComplience/TabsData/GuideTab";
 
 const AddTaskModel = () => {
   return (
