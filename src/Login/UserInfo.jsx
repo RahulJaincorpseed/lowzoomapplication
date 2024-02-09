@@ -233,6 +233,7 @@ const UserInfo = () => {
     // }
 
     const createCompanyData = async () => {
+      console.warn("before api calling");
       try {
         const companysubmitData = await axios.post(
           `/companyServices/company/addCompany?userId=${userPathId}`,

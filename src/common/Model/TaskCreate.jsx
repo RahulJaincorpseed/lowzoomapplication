@@ -32,10 +32,9 @@ const TaskCreate = () => {
 
   const [createLoading, setCreateLoading] = useState(false);
 
-  const { companyid, complienceId, businessUnitId } = useParams()
+  const { userId,  companyid, complienceId, businessUnitId, ...rest } = useParams()
 
-  // console.log("task param", params);
-
+  
   const setTaskDataFun = (e) => {
     setAddNewTask((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -61,7 +60,7 @@ const TaskCreate = () => {
       setCreateLoading(true)
       try {
         const addNewTask = await postQuery(
-          `/compliance/task/saveYourTask?complianceId=${complienceId}&company_Id=${companyid}&businessUnit_ID=${businessUnitId}`,
+          `/compliance/task/saveYourTask?complianceId=${complienceId}&company_Id=${companyid}&businessUnit_ID=${businessUnitId}1&task_Created_By=${userId}`,
           addNewtask
         )
         console.log("task added ", addNewTask)
