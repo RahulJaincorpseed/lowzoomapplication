@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import TaskTabs from "../../ManageLicence/ManageComplience/TabsData/TaskTabs"
 import RightSideIcons from "../RightSideIcons"
 import SideBarTab from "../../ManageLicence/ManageComplience/SideBarTab"
@@ -34,6 +34,8 @@ const TaskCreate = () => {
 
   const { userId,  companyid, complienceId, businessUnitId, ...rest } = useParams()
 
+  const taskRef = useRef();
+  const [taskErr, setTaskErr] = useState(false);
   
   const setTaskDataFun = (e) => {
     setAddNewTask((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -55,6 +57,11 @@ const TaskCreate = () => {
     if(createLoading === true){
       return;
     }
+
+    if(taskRef.current.value === ""){
+      setTaskErr(true)
+      return
+    } 
 
     const createTaskFun = async () => {
       setCreateLoading(true)
@@ -109,7 +116,11 @@ const TaskCreate = () => {
                       label="Title*"
                       placeholder="Enter Title"
                       name="taskName"
+                      ref={taskRef}
                       onChange={(e) => setTaskDataFun(e)}
+                      err = {taskErr}
+                      errData = "Task Name Can't be Blank"
+                      
                     />
                     <ModelDropDownInput
                       label="Status*"
