@@ -9,7 +9,6 @@ import FormPartTwo from "./FormPartTwo"
 import AddPeople from "./AddPeople"
 import CompanyInfo from "./CompanyInfo"
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
 import { cityData, companyData2 } from "../TestData.js/CityData"
 import axios from "axios"
 import { toast } from "react-toastify"
@@ -234,6 +233,7 @@ const UserInfo = () => {
     // }
 
     const createCompanyData = async () => {
+      console.warn("before api calling");
       try {
         const companysubmitData = await axios.post(
           `/companyServices/company/addCompany?userId=${userPathId}`,

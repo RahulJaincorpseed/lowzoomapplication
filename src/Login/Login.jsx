@@ -57,6 +57,8 @@ const Login = () => {
         localStorage.setItem("Access Token", token.data.body.accessToken)
         dispatch(userData(token.data.body))
         // subscribed
+
+       
         if (token.data.body.subscribed === true) {
           navigate(`/${token.data.body.id}/company/dashboard`)
           setLoginLoading(false)
