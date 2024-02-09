@@ -1,4 +1,5 @@
 import React, { useId } from "react"
+import InputErrorComponent from "../../components/InputErrorComponent"
 
 const ModelInput = React.forwardRef(
   (
@@ -8,6 +9,8 @@ const ModelInput = React.forwardRef(
       placeholder = "",
       className = "",
       left,
+      err,
+      errData,
       ...props
     },
     ref
@@ -30,6 +33,7 @@ const ModelInput = React.forwardRef(
             {...props}
           />
         </div>
+        {err && <InputErrorComponent data={errData} />}
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import "./Model.css"
 import { priority } from "../../Api/FakeApi"
 import { postQuery } from "../../Api/PostQuery"
@@ -9,6 +9,7 @@ import ModelDropDownInput from "../Inputs/ModelDropDownInput"
 import LongButton from "../Button/LongButton"
 import { cityData, stateData, zoneDate } from "../../TestData.js/CityData"
 import ModelInputName from "../Inputs/ModelInputName"
+import InputErrorComponent from "../../components/InputErrorComponent"
 
 const AddNewComplienceModel = () => {
   const [addComplienceData, setAddComplienceData] = useState({
@@ -31,6 +32,9 @@ const AddNewComplienceModel = () => {
 
   console.log(addComplienceData)
 
+  const nameRef = useRef();
+  const [nameErr, setNameErr] = useState(false)
+
  
   const { companyid, userId, businessUnitId } = useParams()
 
@@ -52,6 +56,11 @@ const AddNewComplienceModel = () => {
   const addNewComplienceFun = (e) => {
     e.preventDefault()
     if (complianceLoading === true) {
+      return
+    }
+
+    if(nameRef.current.value === ""){
+      setNameErr(true)
       return
     }
 
@@ -113,8 +122,12 @@ const AddNewComplienceModel = () => {
                         label="Name*"
                         placeholder="Enter Name"
                         name="name"
+                        ref={nameRef}
                         onChange={(e) => complienceDateSetter(e)}
-                      />
+                        err = {nameErr}
+                        errData = "Name Can't be Blank"
+                     />
+                     
 
                       <ModelDropDownInput
                         label="Priority*"
