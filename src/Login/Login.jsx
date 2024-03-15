@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux"
 import { userData } from "../Redux/Actions/AuthAction"
 import LongButton from "../common/Button/LongButton"
 import InputErrorComponent from "../components/InputErrorComponent"
+import { getCurrentUser } from "../toolkit/Slices/AuthSlice"
 toast.configure()
 
 const Login = () => {
@@ -38,6 +39,40 @@ const Login = () => {
     if (loginLoading === true) {
       return
     }
+
+    const getUser = async () => {
+      const data = await dispatch(getCurrentUser(userInfo));
+      console.log("auth data", data.payload.body);
+      let statusCode = data.payload.statusCode;
+      if(statusCode === 200){
+        if (data.payload.body.subscribed === true) {
+          navigate(`/${data.payload.body.id}/company/dashboard`)
+          setLoginLoading(false)
+          return
+        }
+
+        if (data.payload.body.associated === true) {
+          navigate(`/${data.payload.body.id}/company`)
+          setLoginLoading(false)
+          return
+        }
+        setLoginLoading(false)
+        navigate(`/user/${data.payload.body.id}/userinfo`)
+      }else{
+        console.log("Error")
+        // if (err.response.status === 401) {
+        //   setApiError(err.response.statusText)
+        //   setLoginLoading(false)
+        // }
+        // if (err.response.status === 500) {
+        //   toast.error("Something Went Wrong")
+        //   setLoginLoading(false)
+        // }
+        setLoginLoading(false)
+      }
+
+    }
+    getUser()
 
     const userDetails = async () => {
       setLoginLoading(true)
@@ -78,7 +113,7 @@ const Login = () => {
         setLoginLoading(false)
       }
     }
-    userDetails()
+    // userDetails()
   }
 
   return (

@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { companySlice } from "./Slices/CompanySlice";
+import CompanySlice, { companySlice } from "./Slices/CompanySlice";
+import AuthSlice from "./Slices/AuthSlice";
 
 
 
 const reducers = combineReducers({
-    company: companySlice
+    company: CompanySlice,
+    auth: AuthSlice
 
 });
 
