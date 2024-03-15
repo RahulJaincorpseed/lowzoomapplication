@@ -30,7 +30,6 @@ const AddNewComplienceModel = () => {
 
   // const [businessUnitId, setBusinessUnitId] = useState(0);
 
-  console.log(addComplienceData)
 
   const nameRef = useRef();
   const [nameErr, setNameErr] = useState(false)
@@ -40,10 +39,8 @@ const AddNewComplienceModel = () => {
 
   // const params = useParams()
 
-  console.log("i am id ", companyid)
 
-  // console.log("ne wparams", params)
-
+  
   const complienceDateSetter = (e) => {
     setAddComplienceData((prev) => ({
       ...prev,
@@ -51,7 +48,6 @@ const AddNewComplienceModel = () => {
     }))
   }
 
-  console.log("add complience data", addComplienceData)
 
   const addNewComplienceFun = (e) => {
     e.preventDefault()
@@ -72,8 +68,6 @@ const AddNewComplienceModel = () => {
           `/compliance/company/saveCompliance?companyId=${companyid}&businessUnitId=${businessUnitId}&userId=${userId}`,
           addComplienceData
         )
-        console.log("add new complience", addNewComplienceRes)
-        console.log("add new complience", addNewComplienceRes.data)
         setComplianceLoading(false)
         window.location.reload()
       } catch (err) {

@@ -41,7 +41,6 @@ const TaskCreate = () => {
     setAddNewTask((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  console.log("Add new task data", addNewtask)
 
   const getAllUserUrl = `/companyServices/company/team/members/getAllTeamMembersWithIdAndTeamName?companyId=${companyid}`
   const allUserDep = []
@@ -70,7 +69,6 @@ const TaskCreate = () => {
           `/compliance/task/saveYourTask?complianceId=${complienceId}&company_Id=${companyid}&businessUnit_ID=${businessUnitId}1&task_Created_By=${userId}`,
           addNewtask
         )
-        console.log("task added ", addNewTask)
         window.location.reload()
         setCreateLoading(false)
       } catch (err) {
@@ -80,7 +78,6 @@ const TaskCreate = () => {
     }
     createTaskFun()
   }
-  console.log("user data import", allUser)
 
   return (
     <div className="task-model-box">

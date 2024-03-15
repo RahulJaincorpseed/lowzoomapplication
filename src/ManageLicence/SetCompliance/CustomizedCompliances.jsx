@@ -56,7 +56,6 @@ const CustomizedCompliances = () => {
   const { productData: allComplience, loading: complienceLoading } =
     useCustomRoute(allcomplienceUrl, allComplienceDep)
 
-  console.log("all compliences data", allComplience)
   return (
     <div>
       <h2 className="heading-primary">Customized Compliances</h2>

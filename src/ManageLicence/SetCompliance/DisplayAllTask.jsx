@@ -10,7 +10,6 @@ import CreateTaskComp from "../../components/CreateTaskComp"
 const DisplayAllTask = () => {
   const { complienceId } = useParams()
 
-  console.log("is id here ====", complienceId)
 
   const getAllTask = `/compliance/task/getAllComplianceTask?complianceId=${complienceId}`
   const TaskDep = []
@@ -49,7 +48,6 @@ const DisplayAllTask = () => {
     { field: "criticality", headerName: "Criticality", width: 150 },
   ]
 
-  console.log("all r=task data", allTaskData)
 
   return (
     <div>

@@ -3,7 +3,6 @@ import "./TeamProfile.scss"
 import akImg from "../images/Group 1136.png"
 
 const TeamProfileMember = ({memberName, memberMobile, memberMail}) => {
-  // console.log(teamLeadName);
   return (
     <div className="team-profile">
       <div className="image-pro">

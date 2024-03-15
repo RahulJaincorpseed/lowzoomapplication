@@ -36,9 +36,6 @@ const AddTeam = () => {
   const userPathId = customLocation(2, location)
   const companyPathId = customLocation(5, location)
 
-  console.log("userid", userPathId)
-  console.log("companyid", companyPathId)
-
   useEffect(() => {
     allTeamDisplay()
   }, [])
@@ -47,15 +44,9 @@ const AddTeam = () => {
     getAllTeamMemberFun()
   }, [])
 
-
- 
-
   const rotateArrow = () => {
-    console.log("rotate arrow")
     setarrowChange((prev) => !prev)
   }
-
-  console.log("arrow is ", arrowChange)
 
   const teamEditSetData = (e) => {
     setEditTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -80,7 +71,6 @@ const AddTeam = () => {
   }
 
   const handleEdit = async (team) => {
-    console.log("edit team", team)
     setEditTeamData((data) => ({ ...data, ...team }))
   }
 
@@ -89,7 +79,6 @@ const AddTeam = () => {
       const getAllTeamMember =
         await getQuery(`/companyServices/company/team/members/getAllTeamMembers?companyId=${companyid}
       `)
-      console.log("get all team Member ", getAllTeamMember.data)
       setTeamMemberState(getAllTeamMember.data)
     } catch (err) {
       console.log("err", err)
@@ -108,9 +97,7 @@ const AddTeam = () => {
           },
         }
       )
-      console.log("team dleel", teamData)
       toast.success("Team Deleted Succesfully")
-      console.log("Team delete succesfully")
       setTimeout(() => {
         window.location.reload()
       }, 500)
@@ -118,8 +105,6 @@ const AddTeam = () => {
       console.log("succesfully added")
     }
   }
-
-  console.log("all team is here", allTeam)
 
   return (
     <>

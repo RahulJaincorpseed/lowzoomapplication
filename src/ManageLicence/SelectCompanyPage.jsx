@@ -9,8 +9,6 @@ const SelectCompanyPage = () => {
   const companyDep = []
 
   const { productData: companyData } = useCustomRoute(companyUrl, companyDep)
-  console.warn("dknljkndlkj")
-  console.log("i am company data", companyData)
 
   return (
     <div className="container">

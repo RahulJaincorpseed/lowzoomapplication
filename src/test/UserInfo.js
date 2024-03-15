@@ -32,7 +32,6 @@ const UserInfo = () => {
     }
   }
 
-  console.log("step", step)
   return (
     <div>
       <LoginHeader />

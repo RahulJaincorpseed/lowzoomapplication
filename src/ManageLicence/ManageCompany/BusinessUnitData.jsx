@@ -15,7 +15,6 @@ const BusinessUnitData = () => {
     const businessUnitDep = [];
     const {productData: allBusinessUnit, loading: businessLoading} = useCustomRoute(businessUnitUrl, businessUnitDep)
 
-    console.log("business unit data", allBusinessUnit);
 
   return (
     <>

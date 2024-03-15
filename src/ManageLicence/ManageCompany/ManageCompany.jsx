@@ -8,18 +8,24 @@ import { getQuery } from "../../Api/getQuery"
 import BoxScalaton from "../../common/Scalaton/BoxScalaton"
 import BlankPage from "../../components/BlankPage"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
+import { useDispatch } from "react-redux"
+import { getListOfCompany } from "../../toolkit/Slices/CompanySlice"
 
 const ManageCompany = () => {
- 
-  const {userId} = useParams();
- 
+  const { userId } = useParams()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getListOfCompany(userId))
+  }, [])
+
+
+
   const allCompanyUrl = `/companyServices/company/getAllCompany?userId=${userId}`
   const allCompDep = []
 
   const { productData: getAllCompanyData, loading: compLoading } =
     useCustomRoute(allCompanyUrl, allCompDep)
-
-  console.log("all company data", getAllCompanyData)
 
   return (
     <>

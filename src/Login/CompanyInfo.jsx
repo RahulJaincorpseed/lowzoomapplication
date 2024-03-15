@@ -38,7 +38,6 @@ const CompanyInfo = () => {
       const companyData = await getQuery(
         `/companyServices/company/fetchCompany?id=${companyid}&userId=${userPathId}`
       )
-      // console.log("company data", companyData.data);
       setCompanyInfoData(companyData.data)
     } catch (err) {
       console.log("err", err)
@@ -50,16 +49,12 @@ const CompanyInfo = () => {
       const getBusinessUnit = await getQuery(
         `/companyServices/business-unit/getAllBusinessUnits?companyId=${companyid}`
       )
-      // console.log("business unit", getBusinessUnit)
       setAllBusinessData(getBusinessUnit.data)
     } catch (err) {
       console.log("err", err)
     }
   }
 
-  console.log("all business", allBusinessData)
-
-  console.log("company inf data", companyInfoData)
 
   return (
     <>

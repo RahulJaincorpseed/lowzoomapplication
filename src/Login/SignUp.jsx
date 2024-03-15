@@ -63,7 +63,6 @@ const SignUp = () => {
       setOtpLoading(true)
       try {
         const OtpData = await postQuery(`/api/auth/otp/generateOTP`, userData)
-        console.log("otp data", OtpData?.data)
         setResponseOtpData(OtpData?.data)
         setOtpLoading(false)
         setOtpPage(true)
@@ -97,7 +96,6 @@ const SignUp = () => {
       setOtpTwoLoading(true)
       try {
         const userSignupData = await postQuery(`/api/auth/signup`, signUpData)
-        console.log("sign up data", userSignupData?.data)
         toast.success("Account Created Succesfully")
         setOtpTwoLoading(false)
         navigate("/login")
@@ -114,8 +112,6 @@ const SignUp = () => {
     UserSignUpResponse()
   }
 
-  console.log("i am status otp", otpPage)
-  console.log(responseOtpData.otp === signUpData.otp)
 
   return (
     <div className="sign-up container">

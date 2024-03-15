@@ -117,7 +117,6 @@ const UserInfo = () => {
     if (companyData.operationUnitAddress != "") {
       setOperationUnitAddressErr(false)
     }
-    console.log("company data")
   }
 
   // increase function
@@ -157,7 +156,6 @@ const UserInfo = () => {
   React.createRef()
   const SubmitAllData = (e) => {
     e.preventDefault()
-    // console.log("value is ", companyTypeRef.current.value)
     if (companyData.companyType === "") {
       setCompanyTypeErr(true)
       companyTypeRef.current.style.border = "1px solid #DC3545";
@@ -233,7 +231,6 @@ const UserInfo = () => {
     // }
 
     const createCompanyData = async () => {
-      console.warn("before api calling");
       try {
         const companysubmitData = await axios.post(
           `/companyServices/company/addCompany?userId=${userPathId}`,
@@ -260,9 +257,6 @@ const UserInfo = () => {
           }
         )
 
-        console.log("user associated", userAssociateUpdate)
-
-        console.log("all company data api", companysubmitData.data)
         toast.success("Company Added Succesfully")
         navigate(
           `/user/${userPathId}/userinfo/company/${companysubmitData.data.companyId}/addteam`
@@ -270,7 +264,6 @@ const UserInfo = () => {
       } catch (err) {
         if (err.response.data)
           if (err.response.status === 500) {
-            console.log(err.response.statusText)
             toast.error(err.response.statusText)
           }
         if (err.response.status === 400) {
@@ -282,7 +275,6 @@ const UserInfo = () => {
     createCompanyData()
   }
 
-  // console.log("i am company data ", companyData)
 
   return (
     <div>

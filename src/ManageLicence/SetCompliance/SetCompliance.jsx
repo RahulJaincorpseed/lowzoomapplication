@@ -46,8 +46,6 @@ const SetCompliance = () => {
       width: 150,
       renderCell: (props) => {
         const dataNew = props.row.totalCompliance[0]?.totalCompliance
-        console.warn("i am warn ")
-        console.log("i am new total data", dataNew)
         return (
           <Link
             to={`${props.row.companyId}/businessUnit/${props.row.businessUnitId}`}
@@ -69,7 +67,6 @@ const SetCompliance = () => {
       const allCompliencesResponse = await getQuery(
         `/compliance/company/showAllCompliance?companyId=${companyid}`
       )
-      console.log("all compliences ", allCompliencesResponse.data)
       setAllCompliences(allCompliencesResponse.data)
     } catch (err) {
       console.log("err", err)
@@ -79,7 +76,6 @@ const SetCompliance = () => {
     }
   }
 
-  console.log("userid is ", userId);
   const companyComplianceUrl = `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
   const complianceDep = []
 
@@ -91,7 +87,6 @@ const SetCompliance = () => {
       const ComplienceResponse = await getQuery(
         `/companyServices/company/getCompanyUnitComplianceDetails?userId=${userId}`
       )
-      console.log("all data", ComplienceResponse.data)
       setCompanyComplience(ComplienceResponse.data)
     } catch (err) {
       console.log("err", err)
@@ -101,7 +96,6 @@ const SetCompliance = () => {
     }
   }
 
-  console.log("company compliances", companyComplience)
 
   return (
     <div>

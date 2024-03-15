@@ -6,7 +6,7 @@ const CreateTaskComp = () => {
   return (
   <div className="calender-box">
     <div className="calender-btn">
-    <i class="fa-solid fa-calendar-days"></i>
+    <i className="fa-solid fa-calendar-days"></i>
     <button onClick={()=> setOpen((prev) => !(prev))} > set Reminder</button>
     </div>
     <div className={`calender-body ${open ? "": "d-none"}`}>

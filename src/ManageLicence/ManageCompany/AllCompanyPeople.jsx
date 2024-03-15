@@ -18,7 +18,6 @@ const AllCompanyPeople = () => {
     allMemberDep
   )
 
-  console.log("all team member data", allTeamMember)
 
   return (
     <>

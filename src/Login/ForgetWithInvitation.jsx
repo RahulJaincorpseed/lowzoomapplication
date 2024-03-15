@@ -19,7 +19,6 @@ const ForgetWithInvitation = () => {
   const data = addPathData[0].split("/")
   const userEmailId = data[2]
 
-  console.log("user path id is ", userEmailId)
 
   const setNewPasswordFun = (e) => {
     e.preventDefault()
@@ -39,7 +38,6 @@ const ForgetWithInvitation = () => {
             },
           }
         )
-        console.log("new passowrd set ", setPassword)
         navigate("/login")
         toast.success("password update succesfully please login")
       } catch (err) {

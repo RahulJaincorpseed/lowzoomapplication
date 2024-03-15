@@ -29,7 +29,6 @@ const AddTeamModel = () => {
 
   const { companyid } = useParams()
 
-  console.log("params is ", companyid)
 
   const TeamSetData = (e) => {
     setTeamData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -76,8 +75,7 @@ const AddTeamModel = () => {
       return
     } 
 
-    // console.log("function calling")
-
+  
     const addTeamData = async () => {
       try {
         const addNewTeamData = await axios.post(
@@ -91,7 +89,6 @@ const AddTeamModel = () => {
           }
         )
 
-        console.log("add team ", addNewTeamData.data)
         toast.success("Team added Succesfully")
         // window.location.reload()
       } catch (err) {
@@ -102,7 +99,6 @@ const AddTeamModel = () => {
     addTeamData()
   }
 
-  // console.log("team data api", teamData)
 
   return (
     <div className="team-model">

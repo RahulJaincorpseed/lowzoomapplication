@@ -96,7 +96,6 @@ const FormPartTwo = ({ companyData, setCompanyData }) => {
     }
   }
 
-  console.log("company data part 2", companyData)
 
   return (
     <div className="personal-info container">

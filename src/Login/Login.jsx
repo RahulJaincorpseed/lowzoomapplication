@@ -29,7 +29,6 @@ const Login = () => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  console.log("user information", userInfo)
 
   const loginUser = (e) => {
     e.preventDefault()
@@ -41,7 +40,6 @@ const Login = () => {
     }
 
     const userDetails = async () => {
-      console.log("i am info", userInfo)
       setLoginLoading(true)
       try {
         const token = await axios.post(`/api/auth/token`, {
@@ -51,14 +49,9 @@ const Login = () => {
             "Content-Type": "application/json",
           },
         })
-        console.log("api data", token.data.body.associated)
-
-        console.log("api data", token.data.body.accessToken)
         localStorage.setItem("Access Token", token.data.body.accessToken)
         dispatch(userData(token.data.body))
-        // subscribed
-
-       
+        // subscribed       
         if (token.data.body.subscribed === true) {
           navigate(`/${token.data.body.id}/company/dashboard`)
           setLoginLoading(false)

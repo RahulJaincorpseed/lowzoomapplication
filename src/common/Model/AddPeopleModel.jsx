@@ -31,16 +31,12 @@ const AddPeopleModel = ({teamId}) => {
   const {userid, companyid} = useParams();
 
 
-  console.log("userId", userid, "companyId", companyid);
-  console.log(AddPeopleData);
 
   const accessUrl = `/companyServices/company/getAllAccessTypes`
   const accessDepandencies = [];
   const { productData:accessData } = useCustomRoute(accessUrl, accessDepandencies)
 
-  console.log("acces type data");
   
-  // console.log(dataId);
 
   const companyPathId = customLocation(2, location)
   const teamPathId = customLocation(7, location)
@@ -52,7 +48,6 @@ const AddPeopleModel = ({teamId}) => {
     setAddPeopleData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  console.log("Add People", AddPeopleData, "team", teamPathId)
 
   const addTeamMember = (e) => {
     e.preventDefault()
@@ -70,7 +65,6 @@ const AddPeopleModel = ({teamId}) => {
             },
           }
         )
-        console.log("data added", memberdata)
         setBtnLoading(false);
         navigate(`/user/${userid}/userinfo/company/${companyid}/addteam`)
         window.location.reload();
@@ -78,7 +72,6 @@ const AddPeopleModel = ({teamId}) => {
       } catch (err) {
         console.log(err)
         setBtnLoading(false);
-        console.log("add team member");
         toast.error("Something went wrong")
       }
     }

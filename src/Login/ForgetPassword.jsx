@@ -52,7 +52,6 @@ const ForgetPassword = () => {
             },
           }
         )
-        console.log("forget ", apiDataResponse)
         setEmailLoading(false)
         setNextPage((prev) => prev + 1)
       } catch (err) {
@@ -86,7 +85,6 @@ const ForgetPassword = () => {
             },
           }
         )
-        console.log(" oTP Response", otpResponse)
         setOtpLoading(false)
         setNextPage((prev) => prev + 1)
       } catch (err) {
@@ -125,7 +123,6 @@ const ForgetPassword = () => {
             },
           }
         )
-        console.log("new passowrd set ", setPassword)
         setPasswordSetLoading(false)
         navigate("/login")
         toast.success("password update succesfully please login")
@@ -141,10 +138,6 @@ const ForgetPassword = () => {
     newPasswordData()
   }
 
-  console.log("user email", userEmailId)
-  console.log("otp data", otpData)
-  console.log("new Password", newPassword);
-  console.log("Repeat password", repeatPassword);
 
   return (
     <div className="sign-up container">

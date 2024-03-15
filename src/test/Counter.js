@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+// import { useDispatch, useSelector } from "react-redux"
 import { useSearch } from "rsuite/esm/Picker"
 import {
   Increment,
@@ -9,11 +9,9 @@ import {
 
 const Counter = () => {
   const [count, setCount] = useState(0)
-  const counterData = useSelector((state) => state.counterReducer)
-  console.log("counetre", counterData)
-  const dispatch = useDispatch()
+  // const counterData = useSelector((state) => state.counterReducer)
+  // const dispatch = useDispatch()
 
-  //    console.log();
   // const currentUser = useSelector(state => state.currentUser)
 
   // const Increment = () =>{
@@ -25,15 +23,15 @@ const Counter = () => {
 
   return (
     <div className="container p-5">
-      <h1>{counterData}</h1>
+      {/* <h1>{counterData}</h1> */}
       <button
-        onClick={() => dispatch(incrementAction(1))}
+        // onClick={() => dispatch(incrementAction(1))}
         className="btn btn-primary mr-3"
       >
         Increment
       </button>
       <button
-        onClick={() => dispatch(decrementAction(1))}
+        // onClick={() => dispatch(decrementAction(1))}
         className="btn btn-primary"
       >
         Decrement

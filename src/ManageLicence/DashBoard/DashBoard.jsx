@@ -9,7 +9,6 @@ const DashBoard = () => {
   // const url = `/companyServices/company/allCompany`;
   // const {allData: ApiData, error} = useCustomData(url);
 
-  // console.log("all data", ApiData, error);
 
   return (
     <div>

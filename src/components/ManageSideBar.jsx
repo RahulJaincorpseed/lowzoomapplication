@@ -19,7 +19,7 @@ const ManageSideBar = () => {
               to={`/${userId}/company/dashboard`}
               className={`main-link`}
             >
-              <i class="fa-solid fa-border-all"></i>
+              <i className="fa-solid fa-border-all"></i>
               <span>DashBoard</span>
             </NavLink>
           </li>
@@ -29,7 +29,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i class="fa-solid fa-people-roof"></i>
+              <i className="fa-solid fa-people-roof"></i>
               <span>Manage Companies</span>
             </NavLink>
           </li>
@@ -39,7 +39,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i class="fa-solid fa-layer-group"></i>
+              <i className="fa-solid fa-layer-group"></i>
               <span>Set Compliance Map</span>
             </NavLink>
           </li>
@@ -51,7 +51,7 @@ const ManageSideBar = () => {
               data-toggle="collapse"
               data-target="#collapseExample"
             >
-              <i class="fa-solid fa-list-check"></i>
+              <i className="fa-solid fa-list-check"></i>
               <span>Manage Compliance</span>
               <i className="fa-solid fa-chevron-right ml-1"></i>
             </NavLink>
@@ -126,7 +126,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i class="fa-regular fa-rectangle-list"></i>
+              <i className="fa-regular fa-rectangle-list"></i>
               <span>Vendor Task</span>
             </NavLink>
           </li>
@@ -136,7 +136,7 @@ const ManageSideBar = () => {
               className={`main-link  ${({ isActive }) =>
                 isActive ? "linkactive" : ""}`}
             >
-              <i class="fa-solid fa-receipt"></i>
+              <i className="fa-solid fa-receipt"></i>
               <span>Accounts</span>
             </NavLink>
           </li>

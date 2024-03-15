@@ -39,7 +39,6 @@ const AddBusinessUnitModel = () => {
           `/companyServices/business-unit/saveBusinessUnit?companyId=${companyid}`,
           addBusinessUnit
         )
-        console.log("new business unit", unitData)
         toast.success("Business Unit Add Sucessfully")
         setButtonLoading(false)
         window.location.reload()
@@ -51,7 +50,6 @@ const AddBusinessUnitModel = () => {
     addNewUnit()
   }
 
-  console.log("business unit", addBusinessUnit)
 
   return (
     <nav>

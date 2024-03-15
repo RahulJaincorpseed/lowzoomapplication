@@ -16,7 +16,6 @@ const AccordianTable = () => {
   const { productData: allComplience, loading: complienceLoading } =
     useCustomRoute(allcomplienceUrl, allComplienceDep)
 
-  console.log("all compliences data", allComplience)
 
   return (
     <div>

@@ -29,7 +29,6 @@ const AddNewTaskModel = () => {
     }))
   }
 
-  console.log("add complience data", addComplienceData)
 
   const addNewComplienceFun = (e) => {
     e.preventDefault()
@@ -39,8 +38,6 @@ const AddNewTaskModel = () => {
         const addNewComplienceRes = await postQuery(
           `/compliance/company/saveCompliance?companyId=${companyid}`,addComplienceData
         )
-        console.log("add new complience", addNewComplienceRes)
-        console.log("add new complience", addNewComplienceRes.data)
         window.location.reload();
       } catch (err) {
         console.log("complience err", err)

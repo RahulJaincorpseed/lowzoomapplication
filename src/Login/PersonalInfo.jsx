@@ -12,9 +12,6 @@ const PersonalInfo = ({ companyData, setCompanyData }) => {
   const designationRef = useRef()
   const businessEmailRef = useRef()
 
-  console.log("i am company data", companyData)
-
-  console.log("name", firstNameRef?.current?.value?.length)
   const firstNameFun = () => {
     if (firstNameRef.current.value.length === 0) {
       setTimeout(() => {

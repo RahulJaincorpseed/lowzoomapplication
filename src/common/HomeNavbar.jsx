@@ -8,11 +8,9 @@ const HomeNavbar = () => {
   const [addCollpase, setAddCollapse] = useState(false);
  
   const collpaseNavbar = () => {
-    console.log("navbar collapse")
     setAddCollapse((prev) => !(prev))
   }
 
-  console.log("state", addCollpase);
 
   return (
     <div className="white-bg">
