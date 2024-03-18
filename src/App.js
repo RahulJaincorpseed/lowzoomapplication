@@ -22,9 +22,6 @@ import FrontPage from "./Home/FrontPage"
 import OtpPage from "./Home/OtpPage"
 import SignUpOtp from "./Login/SignUpOtp"
 import AddTeam from "./Login/AddTeam"
-import AddPeopleModel from "./common/Model/AddPeopleModel"
-import AddTeamModel from "./common/Model/AddTeamModel"
-import EditTeamModel from "./common/Model/EditTeamModel"
 import ForgetPassword from "./Login/ForgetPassword"
 import ForgetWithInvitation from "./Login/ForgetWithInvitation"
 import CompanyInfo from "./Login/CompanyInfo"
@@ -53,8 +50,6 @@ function App() {
         <Route path="/user/:userid/userinfo" element={<AddTeamOutlet />}>
           <Route path="" element={<UserInfo />} />
             <Route path="company/:companyid/addteam" element={<AddTeam />}>
-              {/* <Route path="" element={<AddPeopleModel />} />
-              <Route path="" element={<EditTeamModel />} />     */}
             </Route>
             <Route path="company/:companyid/addteam/companyInfo" element={<CompanyInfo />} />
         </Route>
