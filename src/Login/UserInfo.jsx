@@ -6,7 +6,6 @@ import "./userInfo.scss"
 import "rsuite/dist/rsuite.min.css"
 import { Progress } from "rsuite"
 import FormPartTwo from "./FormPartTwo"
-import AddPeople from "./AddPeople"
 import CompanyInfo from "./CompanyInfo"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { cityData, companyData2 } from "../TestData.js/CityData"
@@ -102,19 +101,19 @@ const UserInfo = () => {
 
   const nameData = (e) => {
     setCompanyData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-    if (companyData.firstName != "") {
+    if (companyData.firstName !== "") {
       setFirstNameErr(false)
     }
-    if (companyData.lastName != "") {
+    if (companyData.lastName !== "") {
       setLastNameErr(false)
     }
-    if (companyData.designation != "") {
+    if (companyData.designation !== "") {
       setDesignationErr(false)
     }
-    if (companyData.businessEmailId != "") {
+    if (companyData.businessEmailId !== "") {
       setBusinessActivityEmailErr(false)
     }
-    if (companyData.operationUnitAddress != "") {
+    if (companyData.operationUnitAddress !== "") {
       setOperationUnitAddressErr(false)
     }
   }

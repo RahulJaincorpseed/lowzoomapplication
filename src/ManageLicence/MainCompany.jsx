@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import ManageSideBar from "../components/ManageSideBar"
 import "./MainCompany.scss"
-import { Link, Outlet, useNavigate } from "react-router-dom"
+import {  Outlet, useNavigate } from "react-router-dom"
 
 const MainCompany = () => {
   const navigate = useNavigate()
