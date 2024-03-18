@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react"
 import "./ForgetPassword.scss"
 import { Link, useNavigate } from "react-router-dom"
-import { postQuery } from "../Api/PostQuery"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"

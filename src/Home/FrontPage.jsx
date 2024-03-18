@@ -1,8 +1,10 @@
-import React from "react"
+import React, { Suspense } from "react"
 import "./FrontPage.scss"
-import LoginForm from "../components/LoginForm"
 import OfferingBox from "../components/OfferingBox"
 import SideSectionItem from "../components/SideSectionItem"
+import BoxScalaton from "../common/Scalaton/BoxScalaton"
+
+const LoginForm = React.lazy(() => import("../components/LoginForm"))
 
 const FrontPage = () => {
   return (
@@ -11,7 +13,8 @@ const FrontPage = () => {
         <div className="main-hero-section padding-fixed home-padding">
           <div className="left-home">
             <h1 className="hmain-heading">
-              Trade Finance & <br /> Working Capital <br />Solutions{" "}
+              Trade Finance & <br /> Working Capital <br />
+              Solutions{" "}
             </h1>
             <p className="hmain-desc">
               Empower trade and enhance working capital needs offering instant
@@ -27,7 +30,9 @@ const FrontPage = () => {
             </div>
           </div>
           <div className="right-home">
-            <LoginForm />
+            <Suspense fallback={<BoxScalaton height={400} />}>
+              <LoginForm />
+            </Suspense>
           </div>
         </div>
       </div>
@@ -60,7 +65,9 @@ const FrontPage = () => {
       <section className="container ">
         <div className="seamless-box home-section-padding">
           <div>
-            <h1 className="hmain-heading seamless">Seamless Access to Liquidity</h1>
+            <h1 className="hmain-heading seamless">
+              Seamless Access to Liquidity
+            </h1>
             <p className="hmain-desc my-4">
               Bringing Global Financial Expertise to Solve Trader’s Financing
               Challenges. Your Trusted Partner in Empowering Business Growth
@@ -233,7 +240,9 @@ const FrontPage = () => {
             </p>
           </div>
           <div className="abt-form">
-            <LoginForm />
+            <Suspense fallback={<BoxScalaton height={400} />}>
+              <LoginForm />
+            </Suspense>
           </div>
         </div>
       </section>
@@ -242,11 +251,15 @@ const FrontPage = () => {
         <div className="container">
           <div className="user-guide home-section-padding">
             <div className="user-guidenes">
-              <h1 className="hmain-heading text-w text-center">Download User Guide</h1>
+              <h1 className="hmain-heading text-w text-center">
+                Download User Guide
+              </h1>
               <i className="fa-solid user-icon fa-file-pdf"></i>
             </div>
             <div className="user-guidenes">
-              <h1 className="hmain-heading text-w text-center">Become Partner</h1>
+              <h1 className="hmain-heading text-w text-center">
+                Become Partner
+              </h1>
               <button className="white-home-btn">Invester</button>
               <button className="white-home-btn">Channnel Partner</button>
             </div>

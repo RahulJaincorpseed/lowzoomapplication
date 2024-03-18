@@ -17,11 +17,13 @@ export const AuthSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(getCurrentUser.pending, (state, action) => {
+            state.error = false
             state.loading = true
         })
         builder.addCase(getCurrentUser.fulfilled, (state, action) => {
             state.currentUser = action.payload
             state.loading = false
+            state.error = false
         })
         builder.addCase(getCurrentUser.rejected, (state, action) => {
             state.error = true

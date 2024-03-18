@@ -1,38 +1,28 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import "./ManageCompany.scss"
 import BreadCrum from "../../components/BreadCrum"
-import AddNewCompanyModel from "../../common/Model/AddNewCompanyModel"
-import { customLocation } from "../../Hooks/LocationHook"
-import { Link, useLocation, useParams } from "react-router-dom"
-import { getQuery } from "../../Api/getQuery"
+import { Link, useParams } from "react-router-dom"
 import BoxScalaton from "../../common/Scalaton/BoxScalaton"
 import BlankPage from "../../components/BlankPage"
-import { useCustomRoute } from "../../Hooks/GetCustomRoute"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { getListOfCompany } from "../../toolkit/Slices/CompanySlice"
 
 const ManageCompany = () => {
   const { userId } = useParams()
   const dispatch = useDispatch()
 
+  const getAllCompanyData = useSelector((state) => state.company.listOfCompany)
+  const comLoading = useSelector((state) => state.company.companyLoading)
+
   useEffect(() => {
     dispatch(getListOfCompany(userId))
   }, [])
-
-
-
-  const allCompanyUrl = `/companyServices/company/getAllCompany?userId=${userId}`
-  const allCompDep = []
-
-  const { productData: getAllCompanyData, loading: compLoading } =
-    useCustomRoute(allCompanyUrl, allCompDep)
 
   return (
     <>
       <BreadCrum />
       <div className="manage-compnies">
         <h2 className="heading-primary">Manage Companies</h2>
-
         {/* <AddNewCompanyModel />   */}
         <div className="add-border">
           <Link className="add-com-btn" to={`/user/${userId}/userinfo`}>
@@ -53,7 +43,7 @@ const ManageCompany = () => {
 
         {/* company-details  */}
 
-        {compLoading ? (
+        {comLoading ? (
           <div>
             <BoxScalaton />
           </div>

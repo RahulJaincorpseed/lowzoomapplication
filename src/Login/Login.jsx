@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { userData } from "../Redux/Actions/AuthAction"
 import LongButton from "../common/Button/LongButton"
 import InputErrorComponent from "../components/InputErrorComponent"
@@ -19,17 +19,17 @@ const Login = () => {
   })
   const [inputError, setInputError] = useState(false)
   const [loginLoading, setLoginLoading] = useState(false)
-  const [apiError, setApiError] = useState("")
   const navigate = useNavigate()
   const userRef = useRef()
   const passRef = useRef()
 
   const dispatch = useDispatch()
 
+  const loginErr = useSelector((state) => state.auth.error)
+
   const LoginUserData = (e) => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-
 
   const loginUser = (e) => {
     e.preventDefault()
@@ -40,11 +40,12 @@ const Login = () => {
       return
     }
 
+    setLoginLoading(true)
+
     const getUser = async () => {
-      const data = await dispatch(getCurrentUser(userInfo));
-      console.log("auth data", data.payload.body);
-      let statusCode = data.payload.statusCode;
-      if(statusCode === 200){
+      const data = await dispatch(getCurrentUser(userInfo))
+      let statusCode = data?.payload?.statusCode
+      if (statusCode === 200) {
         if (data.payload.body.subscribed === true) {
           navigate(`/${data.payload.body.id}/company/dashboard`)
           setLoginLoading(false)
@@ -58,19 +59,8 @@ const Login = () => {
         }
         setLoginLoading(false)
         navigate(`/user/${data.payload.body.id}/userinfo`)
-      }else{
-        console.log("Error")
-        // if (err.response.status === 401) {
-        //   setApiError(err.response.statusText)
-        //   setLoginLoading(false)
-        // }
-        // if (err.response.status === 500) {
-        //   toast.error("Something Went Wrong")
-        //   setLoginLoading(false)
-        // }
-        setLoginLoading(false)
       }
-
+      setLoginLoading(false)
     }
     getUser()
 
@@ -86,7 +76,7 @@ const Login = () => {
         })
         localStorage.setItem("Access Token", token.data.body.accessToken)
         dispatch(userData(token.data.body))
-        // subscribed       
+        // subscribed
         if (token.data.body.subscribed === true) {
           navigate(`/${token.data.body.id}/company/dashboard`)
           setLoginLoading(false)
@@ -103,7 +93,6 @@ const Login = () => {
       } catch (err) {
         console.log("Error", err)
         if (err.response.status === 401) {
-          setApiError(err.response.statusText)
           setLoginLoading(false)
         }
         if (err.response.status === 500) {
@@ -164,8 +153,9 @@ const Login = () => {
           ) : (
             ""
           )}
-          {apiError ? (
-            <InputErrorComponent data="Please Enter valid Mobile or Password" />
+
+          {loginErr ? (
+            <InputErrorComponent data="Please Enter valid Email or Password" />
           ) : (
             ""
           )}

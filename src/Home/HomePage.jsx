@@ -1,16 +1,22 @@
-import React from "react"
-import HomeNavbar from "../common/HomeNavbar"
-import HomeFooter from "../common/HomeFooter"
+import React, { Suspense } from "react"
 import { Outlet } from "react-router-dom"
+import BoxScalaton from "../common/Scalaton/BoxScalaton"
+
+const HomeNavbar = React.lazy(() => import("../common/HomeNavbar"))
+const HomeFooter = React.lazy(() => import("../common/HomeFooter"))
 
 const HomePage = () => {
   return (
     <div>
-      <HomeNavbar />
+      <Suspense fallback={<BoxScalaton />}>
+        <HomeNavbar />
+      </Suspense>
       <Outlet />
-      <HomeFooter />
+      <Suspense fallback={<BoxScalaton height={300} />}>
+        <HomeFooter />
+      </Suspense>
     </div>
   )
- }
+}
 
 export default HomePage
