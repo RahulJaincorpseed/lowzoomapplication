@@ -21,6 +21,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^8.2.0",
     "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
     "rsuite": "^5.35.1",
     "sass": "^1.63.4",
