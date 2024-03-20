@@ -1,11 +1,33 @@
 import React from "react"
 import "./ManageSideBar.scss"
 import Logo from "../images/lowZoom.png"
-import { Link, NavLink,  useParams } from "react-router-dom"
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom"
 import TaskManagement from "../ManageLicence/ManageComplience/TaskManagement"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { useDispatch, useSelector } from "react-redux"
+import { logoutAction } from "../toolkit/Slices/AuthSlice"
+toast.configure()
 
 const ManageSideBar = () => {
   const { userId, companyid } = useParams()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const loginUser = useSelector((state) => state.auth.isAuth)
+
+  console.log(loginUser)
+
+  const logoutFun = () => {
+    if (window.confirm("Are you sure for Logout?") == true) {
+      const key = localStorage.getItem("persist:root")
+      dispatch(logoutAction())
+      // console.log(key);
+      const token = localStorage.removeItem(key)
+      navigate("/login")
+      toast.success("Logout Succesfully")
+    }
+  }
 
   return (
     <div className="manageside-bar">
@@ -139,6 +161,15 @@ const ManageSideBar = () => {
               <i className="fa-solid fa-receipt"></i>
               <span>Accounts</span>
             </NavLink>
+          </li>
+          <li className="linkw-icon">
+            <button
+              className="main-link bg-transparent"
+              onClick={() => logoutFun()}
+            >
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>Logout</span>
+            </button>
           </li>
         </ul>
       </div>
