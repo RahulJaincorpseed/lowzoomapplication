@@ -17,7 +17,7 @@ const ModelInput = React.forwardRef(
   ) => {
     const id = useId()
     return (
-      <div className="form-group col-md-6">
+      <div className={`form-group col-md-6 ${className}`}>
         <div className={left ? "pl-ten" : "pr-ten"}>
           {label && (
             <label className="label-heading" htmlFor={id}>
