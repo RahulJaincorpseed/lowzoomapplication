@@ -1,14 +1,32 @@
-import React, { useId } from "react"
-import AddNewComplienceModel from "../../common/Model/AddNewComplienceModel"
+import React, {  useState } from "react"
 import TaskCreate from "../../common/Model/TaskCreate"
 import { useCustomRoute } from "../../Hooks/GetCustomRoute"
 import { useParams } from "react-router-dom"
-import TableScalaton from "../../common/Scalaton/TableScalaton"
 import CompliancesTable from "../../Tables/CompliancesTable"
 import CreateTaskComp from "../../components/CreateTaskComp"
 
 const DisplayAllTask = () => {
   const { complienceId } = useParams()
+
+  const [addTaskReminder, setAddTaskReminder] = useState(
+    {
+      complianceId: complienceId,
+      taskId: 0,
+      subTaskId: 1,
+      reminderDate: "",
+      notificationTimelineValue: 1,
+      notificationTimelineType: "",
+      repeatTimelineValue: '',
+      repeatTimelineType: "",
+      repeatOnDay: "",
+      reminderEndDate: "",
+      createdAt: "",
+      updatedAt: "",
+      enable: true
+    }   
+  )
+
+  console.log(addTaskReminder);
 
 
   const getAllTask = `/compliance/task/getAllComplianceTask?complianceId=${complienceId}`
@@ -27,6 +45,9 @@ const DisplayAllTask = () => {
     allUserDep
   )
 
+
+
+
   const columns = [
     { field: "id", headerName: "id", width: 60 },
     { field: "taskName", headerName: "Task Name", width: 150 },
@@ -38,9 +59,10 @@ const DisplayAllTask = () => {
       headerName: "Task Reminder",
       width: 150,
       renderCell: (props) => {
+        const id = props.row.id;
         return (
           <div>
-            <CreateTaskComp />
+            <CreateTaskComp addTaskReminder = {addTaskReminder} setAddTaskReminder = {setAddTaskReminder} reminderData = {id} />
           </div>
         )
       },
