@@ -513,7 +513,7 @@ const UserInfo = () => {
                       name="companyTurnover"
                       onChange={(e) => nameData(e)}
                       ref={companyTurnoverRef}
-                      placeholder="Enter Company Turnover"
+                      placeholder="Enter Company Turnover (Enter Digit Only)"
                     />
                     {companyTurnoverErr ? (
                       <p className="error-show">
@@ -583,7 +583,7 @@ const UserInfo = () => {
                       type="text"
                       className="form-control input-focus"
                       id="pemp"
-                      placeholder="Enter Permanent Employee"
+                      placeholder="Enter Permanent Employee (Enter Digit Only)"
                       value={companyData.permanentEmployee || ""}
                       name="permanentEmployee"
                       onChange={(e) => nameData(e)}
@@ -708,7 +708,7 @@ const UserInfo = () => {
                         type="text"
                         className="form-control input-focus"
                         id="contractemp"
-                        placeholder="Enter Contract Employee"
+                        placeholder="Enter Contract Employee (Enter Digit Only)"
                         value={companyData.contractEmployee || ""}
                         name="contractEmployee"
                         onChange={(e) => nameData(e)}

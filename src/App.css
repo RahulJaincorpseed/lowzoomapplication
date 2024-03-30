@@ -4,11 +4,10 @@
   box-sizing: border-box;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
 }
 
@@ -28,11 +27,11 @@ body {
   --red-first: #f32929;
   --light-blue: #1a73e8;
 
-  --font-bold: 'Gilroy-Bold', sans-serif;
-  --font-heavy: 'Gilroy-Heavy', sans-serif;
-  --font-light: 'Gilroy-Light', sans-serif;
-  --font-medium: 'Gilroy-Medium', sans-serif;
-  --font-regular: 'Gilroy-Regular', sans-serif;
+  --font-bold: "Gilroy-Bold", sans-serif;
+  --font-heavy: "Gilroy-Heavy", sans-serif;
+  --font-light: "Gilroy-Light", sans-serif;
+  --font-medium: "Gilroy-Medium", sans-serif;
+  --font-regular: "Gilroy-Regular", sans-serif;
 
   /* fonts  */
   --font-first: 14px;
@@ -57,7 +56,7 @@ html {
   font-weight: 700 !important;
 }
 
-.color-blue{
+.color-blue {
   color: var(--blue-color) !important;
 }
 
@@ -90,37 +89,35 @@ button:focus {
   outline: none;
 }
 
-
 .scalaton-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
 
-.error-show{
-  color: #DC3545;
+.error-show {
+  color: #dc3545;
   font-size: 14px;
   margin: 5px 0px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-
-.heading-new{
+.heading-new {
   font-weight: 700;
   font-size: 24px;
   line-height: 27px;
   color: #000000;
-
 }
 
-.enter-btn{
+.enter-btn {
   background-color: green;
   padding: 5px;
   font-size: 12px;
   border-radius: 5px;
   color: #fff;
-  
 }
+
+
 
 /* common classes */
 
@@ -236,9 +233,9 @@ button:focus {
   font-weight: 500;
 }
 
-.input-focus::placeholder{
+.input-focus::placeholder {
   font-size: 15px;
-  color: #988D8D;
+  color: #988d8d;
 }
 
 .input-focus:focus {
@@ -246,11 +243,11 @@ button:focus {
   border-color: var(--blue-color);
 }
 
-.border-one{
-  border: 1px solid rgba(0,0,0,.125);
+.border-one {
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.end-item{
+.end-item {
   display: flex;
   justify-content: flex-end;
 }
@@ -274,16 +271,13 @@ button:focus {
 .first-button:hover {
   background: transparent;
   color: var(--black);
-  border: 1px solid  var(--blue-color);
+  border: 1px solid var(--blue-color);
   text-decoration: none;
 }
 
 .first-button:focus {
   outline: none;
 }
-
-
-
 
 /* options */
 
@@ -369,22 +363,22 @@ button:focus {
 .state-heading {
   font-size: 16px;
   font-weight: 500;
-  line-height: 20px;  
+  line-height: 20px;
   color: var(--red);
   color: var(--blue-color);
   margin-left: 3px;
 }
 
-.h-twenty{
+.h-twenty {
   min-height: 120px;
 }
 
-.add-com-btn{
+.add-com-btn {
   background-color: var(--whiteColor);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-    color: #323232fc;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #323232fc;
 }
 
 /* rect css code */
@@ -403,36 +397,35 @@ button:focus {
   background-color: var(--blue-color);
 }
 
-.error-change{
+.error-change {
   margin-top: 5px;
   font-size: 14px;
   color: #dc3545 !important;
 }
 
-.min-200{
+.min-200 {
   min-height: calc(100vh - 195px);
 }
 
-.w-300{
+.w-300 {
   width: 300px;
 }
 
 /* buttons */
 
-.delete-button{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 34px;
-    color: #9f9898;
-    background-color: transparent;
+.delete-button {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #9f9898;
+  background-color: transparent;
 }
 
-.delete-button:hover{
-  color: #DC3545;
+.delete-button:hover {
+  color: #dc3545;
 }
 
-
-.team-model .edit-new-btn{
+.team-model .edit-new-btn {
   font-weight: 500;
   font-size: 16px;
   line-height: 30px;
@@ -447,7 +440,7 @@ button:focus {
   letter-spacing: 0.84px;
 }
 
-.d-end{
+.d-end {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -456,43 +449,44 @@ button:focus {
 /* buttons */
 /* nav links  */
 
-.link-box .link-item{
+.link-box .link-item {
   display: none;
   position: absolute;
   width: 86vw;
   left: 0px;
   top: 80px;
   background-color: var(--white);
-  box-shadow: 0px 10px 10px rgba(0,0,0,.2);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.link-box{
+.link-box {
   transition: all 1s ease-in-out;
   padding: 21px 10px;
 }
 
-.link-box:hover .link-item{
+.link-box:hover .link-item {
   display: initial;
 }
 
-.link-box .link-itemsss:hover{
+.link-box .link-itemsss:hover {
   text-decoration: none;
 }
 
-.link-box:hover .link-itemsss{
-  border-bottom: 4px solid  var(--light-blue);
+.link-box:hover .link-itemsss {
+  border-bottom: 4px solid var(--light-blue);
 }
 
-.link-box:hover .link-itemsss .fa-chevron-down{
+.link-box:hover .link-itemsss .fa-chevron-down {
   rotate: 180deg;
   color: var(--light-blue);
 }
 
-.height-collapse{
+.height-collapse {
   height: auto !important;
 }
 
-.rs-progress-line .rs-progress-icon-fail, .rs-progress-line .rs-progress-icon-success {
+.rs-progress-line .rs-progress-icon-fail,
+.rs-progress-line .rs-progress-icon-success {
   display: none;
 }
 
@@ -502,36 +496,36 @@ button:focus {
 /*+++++++++++ home page common classes +++++++++++*/
 /* +++++++++++++++++++++++++++++++++++++++++++ */
 
-.bg-theme{
+.bg-theme {
   background-color: #093252;
 }
 
-.home-padding{
+.home-padding {
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.home-section-padding{
+.home-section-padding {
   padding-top: 70px;
   padding-bottom: 70px;
 }
 
-.font-boldd{
+.font-boldd {
   font-weight: 700;
   margin-top: 0px;
 }
 
-.padding-fixed{
+.padding-fixed {
   padding-top: 120px;
 }
 
-.add-border{
+.add-border {
   border-bottom: 1px solid #c4c4c4;
   padding-top: 20px;
   padding-bottom: 10px;
 }
 
-.hmain-heading{
+.hmain-heading {
   font-size: 65px;
   line-height: 80px;
   letter-spacing: 0px;
@@ -540,12 +534,12 @@ button:focus {
   font-weight: 800;
 }
 
-.text-w{
+.text-w {
   color: #fff;
   text-align: center;
 }
 
-.hmain-desc{
+.hmain-desc {
   font-size: 18px;
   line-height: 32px;
   color: #093252;
@@ -553,17 +547,17 @@ button:focus {
   letter-spacing: 0.07em;
 }
 
-.head-two{
+.head-two {
   font-size: 14px;
   line-height: 24px;
   color: #093252;
 }
 
-.fw-700{
+.fw-700 {
   font-weight: 700;
 }
 
-.home-submit-btn{
+.home-submit-btn {
   background-color: #093252;
   font-family: Poppins;
   color: #fff;
@@ -578,8 +572,8 @@ button:focus {
   letter-spacing: 1px;
 }
 
-.white-home-btn{
-  font-family: Poppins;  
+.white-home-btn {
+  font-family: Poppins;
   color: #093252;
   background-color: #fff;
   border: 1px solid #fff;
@@ -591,22 +585,22 @@ button:focus {
   line-height: 26px;
 }
 
-.w-300{
+.w-300 {
   width: 300px;
 }
 
-.color-dblue{
+.color-dblue {
   color: #093252;
 }
 
-.white-bg{
+.white-bg {
   background-color: #fff;
   position: fixed;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.flex-end-cl{
+.flex-end-cl {
   display: flex;
   justify-content: flex-end;
   margin-top: 5px;
@@ -616,14 +610,14 @@ button:focus {
 /*+++++++++++ / home page common classes +++++++++++*/
 /* +++++++++++++++++++++++++++++++++++++++++++ */
 
-@media only screen and (max-width: 1200px){
-  .hmain-heading{
+@media only screen and (max-width: 1200px) {
+  .hmain-heading {
     font-size: 55px;
-  }  
+  }
 }
 
-@media only screen and (max-width: 992px){
-  .hmain-heading{
+@media only screen and (max-width: 992px) {
+  .hmain-heading {
     line-height: 80px;
   }
 }
@@ -637,15 +631,15 @@ button:focus {
   .pl-ten {
     padding-left: 0px;
   }
-  .hmain-heading{
+  .hmain-heading {
     line-height: 70px;
   }
-  .hmain-heading.text-w{
+  .hmain-heading.text-w {
     font-size: 50px;
     text-align: left;
     line-height: unset;
   }
-  .hmain-heading.seamless{
+  .hmain-heading.seamless {
     font-size: 70px;
     line-height: 80px;
   }
@@ -657,17 +651,17 @@ button:focus {
     font-size: 22px;
     line-height: 28px;
   }
-   .hmain-heading{
+  .hmain-heading {
     font-size: 37px;
     line-height: 50px;
   }
-  .home-section-padding{
+  .home-section-padding {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  .hmain-heading.seamless{
+  .hmain-heading.seamless {
     font-size: 50px;
     line-height: 60px;
   }
